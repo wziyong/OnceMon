@@ -11148,7 +11148,7 @@ msgstr "填入主机资产纪录栏位"
 #: include/views/inventory.host.view.php:168 items.php:89 items.php:152
 #: nodes.php:40 setup.php:50
 msgid "Port"
-msgstr "埠"
+msgstr "端口"
 
 #: api/classes/CHostInterface.php:671
 msgid "Port cannot be empty for host interface."
