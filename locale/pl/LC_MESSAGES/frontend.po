@@ -11903,8 +11903,8 @@ msgstr "Zwraca szczegółowe informacje o hoście. Ciąg znaków"
 
 #: include/classes/items/CHelpItems.php:177
 #: include/classes/items/CHelpItems.php:439
-msgid "Returns hostname (or NetBIOS name (by default) on Windows). String value. Example of returned value: www.zabbix.com"
-msgstr "Zwraca nazwę hosta (lub nazwę NetBIOS (domyślną) w Windows). Ciąg znaków. Przykład zwracanej wartości: www.zabbix.com"
+msgid "Returns hostname (or NetBIOS name (by default) on Windows). String value. Example of returned value: www.iscas.ac.cn"
+msgstr "Zwraca nazwę hosta (lub nazwę NetBIOS (domyślną) w Windows). Ciąg znaków. Przykład zwracanej wartości: www.iscas.ac.cn"
 
 #: include/classes/items/CHelpItems.php:843
 msgid "Returns information associated with Zabbix Java gateway. Valid params are: ping, version."

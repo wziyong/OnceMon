@@ -18,12 +18,12 @@
 ** Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 **/
 
-define('ZABBIX_VERSION',     '2.2.8');
-define('ZABBIX_API_VERSION', '2.2.8');
+define('ZABBIX_VERSION',     '0.0.1');
+define('ZABBIX_API_VERSION', '0.0.1');
 define('ZABBIX_DB_VERSION',	 2020000);
 
-define('ZABBIX_COPYRIGHT_FROM', '2001');
-define('ZABBIX_COPYRIGHT_TO',   '2014');
+define('ZABBIX_COPYRIGHT_FROM', '2014');
+define('ZABBIX_COPYRIGHT_TO',   '2015');
 
 define('ZBX_LOGIN_ATTEMPTS',	5);
 define('ZBX_LOGIN_BLOCK',		30); // sec
@@ -904,7 +904,7 @@ define('THEME_DEFAULT', 'default');
 // the default theme
 define('ZBX_DEFAULT_THEME', 'originalblue');
 
-define('ZABBIX_HOMEPAGE', 'http://www.zabbix.com');
+define('ZABBIX_HOMEPAGE', 'http://www.iscas.ac.cn');
 
 // non translatable date formats
 define('TIMESTAMP_FORMAT', 'YmdHis');

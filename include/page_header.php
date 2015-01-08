@@ -200,9 +200,9 @@ if (defined('ZBX_PAGE_NO_HEADER')) {
 }
 
 if (!defined('ZBX_PAGE_NO_MENU')) {
-	$help = new CLink(_('Help'), 'http://www.zabbix.com/documentation/', 'small_font', null, 'nosid');
+	$help = new CLink(_('Help'), 'http://www.iscas.ac.cn/', 'small_font', null, 'nosid');
 	$help->setTarget('_blank');
-	$support = new CLink(_('Get support'), 'http://www.zabbix.com/support.php', 'small_font', null, 'nosid');
+	$support = new CLink(_('Get support'), 'http://www.iscas.ac.cn/', 'small_font', null, 'nosid');
 	$support->setTarget('_blank');
 
 	$printview = new CLink(_('Print'), '', 'small_font print-link', null, 'nosid');
@@ -239,7 +239,7 @@ if (!defined('ZBX_PAGE_NO_MENU')) {
 		array_push($page_header_r_col, $logout);
 	}
 
-	$logo = new CLink(new CDiv(SPACE, 'zabbix_logo'), 'http://www.zabbix.com/', 'image', null, 'nosid');
+	$logo = new CLink(new CDiv(SPACE, 'zabbix_logo'), 'http://www.iscas.ac.cn/', 'image', null, 'nosid');
 	$logo->setTarget('_blank');
 
 	$top_page_row = array(

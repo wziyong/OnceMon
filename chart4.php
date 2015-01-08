@@ -162,7 +162,7 @@ imagefilledrectangle($im, $shiftX, $sizeY + $shiftYup + 39 + 15 * 1, $shiftX + 5
 imagerectangle($im, $shiftX, $sizeY + $shiftYup + 39 + 15 * 1, $shiftX + 5, $sizeY + $shiftYup + 15 + 9 + 35 * 1, $black);
 imageText($im, 8, 0, $shiftX + 9, $sizeY + $shiftYup + 15 * 1 + 45, $black, _('Problems').' (%)');
 
-imagestringup($im, 0, imagesx($im) - 10, imagesy($im) - 50, 'http://www.zabbix.com', $gray);
+imagestringup($im, 0, imagesx($im) - 10, imagesy($im) - 50, 'http://www.iscas.ac.cn', $gray);
 
 $str = sprintf('%0.2f', microtime(true) - $start_time);
 $str = _s('Generated in %s sec', $str);

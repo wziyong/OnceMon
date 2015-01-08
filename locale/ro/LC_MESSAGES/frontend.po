@@ -11902,8 +11902,8 @@ msgstr "Redă informații detaliate ale serverului. Valoare șir"
 
 #: include/classes/items/CHelpItems.php:177
 #: include/classes/items/CHelpItems.php:439
-msgid "Returns hostname (or NetBIOS name (by default) on Windows). String value. Example of returned value: www.zabbix.com"
-msgstr "Redă nume server (sau nume NetBIOS (implicit) pe Windows). Valoare șir. Exemplu de valoare redată: www.zabbix.com"
+msgid "Returns hostname (or NetBIOS name (by default) on Windows). String value. Example of returned value: www.iscas.ac.cn"
+msgstr "Redă nume server (sau nume NetBIOS (implicit) pe Windows). Valoare șir. Exemplu de valoare redată: www.iscas.ac.cn"
 
 #: include/classes/items/CHelpItems.php:843
 msgid "Returns information associated with Zabbix Java gateway. Valid params are: ping, version."

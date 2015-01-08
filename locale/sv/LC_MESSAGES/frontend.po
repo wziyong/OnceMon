@@ -11831,7 +11831,7 @@ msgstr ""
 
 #: include/classes/items/CHelpItems.php:177
 #: include/classes/items/CHelpItems.php:439
-msgid "Returns hostname (or NetBIOS name (by default) on Windows). String value. Example of returned value: www.zabbix.com"
+msgid "Returns hostname (or NetBIOS name (by default) on Windows). String value. Example of returned value: www.iscas.ac.cn"
 msgstr ""
 
 #: include/classes/items/CHelpItems.php:843

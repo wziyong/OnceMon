@@ -23,8 +23,8 @@
 class CHelp extends CIcon {
 
 	public function __construct() {
-		parent::__construct('http://www.zabbix.com/documentation', 'iconhelp');
-		parent::onClick('window.open("http://www.zabbix.com/documentation/");');
+		parent::__construct('http://www.iscas.ac.cn/', 'iconhelp');
+		parent::onClick('window.open("http://www.iscas.ac.cn/");');
 	}
 }
 ?>

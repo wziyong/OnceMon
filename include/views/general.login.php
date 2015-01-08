@@ -35,9 +35,9 @@ require_once dirname(__FILE__).'/../page_header.php';
 			<div style="position: relative; color: #FFF; height: 100%;">
 				<!-- Help & Support -->
 				<div style="position: absolute; top: 0px; right: 10px;">
-					<a class="highlight" href="http://www.zabbix.com/documentation"><?php echo _('Help'); ?></a>
+					<a class="highlight" href="http://www.iscas.ac.cn/"><?php echo _('Help'); ?></a>
 					&nbsp;|&nbsp;
-					<a class="highlight" href="https://support.zabbix.com"><?php echo _('Support'); ?></a>
+					<a class="highlight" href="https://www.iscas.ac.cn"><?php echo _('Support'); ?></a>
 				</div>
 
 				<!-- Copyright -->

@@ -11844,8 +11844,8 @@ msgstr "Restituisce informazioni host dettagliate. Valore tipo stringa"
 
 #: include/classes/items/CHelpItems.php:177
 #: include/classes/items/CHelpItems.php:439
-msgid "Returns hostname (or NetBIOS name (by default) on Windows). String value. Example of returned value: www.zabbix.com"
-msgstr "Restituisce hostaname (o nome NetBIOS (di default) su Windows). Valore tipo stringa. Esempio valore restituito: www.zabbix.com"
+msgid "Returns hostname (or NetBIOS name (by default) on Windows). String value. Example of returned value: www.iscas.ac.cn"
+msgstr "Restituisce hostaname (o nome NetBIOS (di default) su Windows). Valore tipo stringa. Esempio valore restituito: www.iscas.ac.cn"
 
 #: include/classes/items/CHelpItems.php:843
 msgid "Returns information associated with Zabbix Java gateway. Valid params are: ping, version."

@@ -264,7 +264,7 @@ abstract class CGraphDraw {
 		imagestringup($this->im, 0,
 			$this->fullSizeX - 10,
 			$this->fullSizeY - 50,
-			'http://www.zabbix.com',
+			'http://www.iscas.ac.cn',
 			$this->getColor('Gray')
 		);
 	}

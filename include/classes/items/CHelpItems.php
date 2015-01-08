@@ -174,7 +174,7 @@ class CHelpItems {
 				),
 				array(
 					'key' => 'system.hostname[<type>]',
-					'description' => _('Returns hostname (or NetBIOS name (by default) on Windows). String value. Example of returned value: www.zabbix.com')
+					'description' => _('Returns hostname (or NetBIOS name (by default) on Windows). String value. Example of returned value: www.iscas.ac.cn')
 				),
 				array(
 					'key' => 'system.hw.chassis[<info>]',
@@ -436,7 +436,7 @@ class CHelpItems {
 				),
 				array(
 					'key' => 'system.hostname[<type>]',
-					'description' => _('Returns hostname (or NetBIOS name (by default) on Windows). String value. Example of returned value: www.zabbix.com')
+					'description' => _('Returns hostname (or NetBIOS name (by default) on Windows). String value. Example of returned value: www.iscas.ac.cn')
 				),
 				array(
 					'key' => 'system.hw.chassis[<info>]',
