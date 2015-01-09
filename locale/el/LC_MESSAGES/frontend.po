@@ -15493,7 +15493,7 @@ msgstr "Zabbix"
 #: include/page_footer.php:103 include/views/general.browserwarning.php:60
 #: include/views/general.login.php:48
 #, c-format
-msgid "Zabbix %1$s Copyright %2$s-%3$s by Zabbix SIA"
+msgid "OnceMon %1$s Copyright %2$s-%3$s by ISCAS"
 msgstr "Zabbix %1$s Πνευματικά δικαιώματα %2$s-%3$s από Zabbix SIA"
 
 #: include/users.inc.php:55

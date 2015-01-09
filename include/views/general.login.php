@@ -1,7 +1,7 @@
 <?php
 /*
-** Zabbix
-** Copyright (C) 2001-2014 Zabbix SIA
+** OnceMon
+** Copyright (C) 2014-2015 ISCAS
 **
 ** This program is free software; you can redistribute it and/or modify
 ** it under the terms of the GNU General Public License as published by
@@ -37,7 +37,7 @@ require_once dirname(__FILE__).'/../page_header.php';
 				<div style="position: absolute; top: 0px; right: 10px;">
 					<a class="highlight" href="http://www.iscas.ac.cn/"><?php echo _('Help'); ?></a>
 					&nbsp;|&nbsp;
-					<a class="highlight" href="https://www.iscas.ac.cn"><?php echo _('Support'); ?></a>
+					<a class="highlight" href="http://www.iscas.ac.cn"><?php echo _('Support'); ?></a>
 				</div>
 
 				<!-- Copyright -->
@@ -45,7 +45,7 @@ require_once dirname(__FILE__).'/../page_header.php';
 					<div style="position: absolute; top: 39%; left: 30px;" class="loginLogo"></div>
 					<div style="position: absolute; bottom: 2px;">
 							<span class="bold textwhite" style="margin: 0 0 4px 4px; font-size: 0.9em;">
-								<?php echo _s('Zabbix %1$s Copyright %2$s-%3$s by Zabbix SIA',
+								<?php echo _s('OnceMon %1$s Copyright %2$s-%3$s by ISCAS',
 									ZABBIX_VERSION, ZABBIX_COPYRIGHT_FROM, ZABBIX_COPYRIGHT_TO); ?>
 							</span>
 					</div>

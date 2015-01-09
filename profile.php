@@ -1,7 +1,7 @@
 <?php
 /*
-** Zabbix
-** Copyright (C) 2001-2014 Zabbix SIA
+** OnceMon
+** Copyright (C) 2014-2015 ISCAS
 **
 ** This program is free software; you can redistribute it and/or modify
 ** it under the terms of the GNU General Public License as published by
@@ -17,7 +17,6 @@
 ** along with this program; if not, write to the Free Software
 ** Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 **/
-
 
 require_once dirname(__FILE__).'/include/config.inc.php';
 require_once dirname(__FILE__).'/include/users.inc.php';
@@ -98,6 +97,7 @@ elseif (isset($_REQUEST['cancel'])) {
 	ob_end_clean();
 	redirect(CWebUser::$data['last_page']['url']);
 }
+
 elseif (isset($_REQUEST['save'])) {
 	$auth_type = getUserAuthenticationType(CWebUser::$data['userid']);
 

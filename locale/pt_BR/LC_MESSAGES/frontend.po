@@ -550,7 +550,7 @@ msgstr "Agente ou SNMP ou JMX ou IPMI interface"
 
 #: include/classes/items/CHelpItems.php:577
 msgid "Aggregate checks do not require any agent running on a host being monitored. Zabbix server collects aggregate information by doing direct database queries. See Zabbix Manual."
-msgstr "Verificações agregadas não requerem nenhum agente rodando no host que será monitorado. O servidor Zabbix coleta informações agregadas através de consultas diretas no banco de dados. Veja o manual do zabbix (https://www.iscas.ac.cn/documentation/2.2)."
+msgstr "Verificações agregadas não requerem nenhum agente rodando no host que será monitorado. O servidor Zabbix coleta informações agregadas através de consultas diretas no banco de dados. Veja o manual do zabbix (http://www.iscas.ac.cn/documentation/2.2)."
 
 #: include/hosts.inc.php:120 include/views/administration.users.edit.php:52
 #: include/views/administration.users.list.php:55 popup.php:631 users.php:44
@@ -15517,7 +15517,7 @@ msgstr "Zabbix"
 #: include/page_footer.php:103 include/views/general.browserwarning.php:60
 #: include/views/general.login.php:48
 #, c-format
-msgid "Zabbix %1$s Copyright %2$s-%3$s by Zabbix SIA"
+msgid "OnceMon %1$s Copyright %2$s-%3$s by ISCAS"
 msgstr "Zabbix %1$s é uma marca registrada %2$s-%3$s pela Zabbix SIA"
 
 #: include/users.inc.php:55

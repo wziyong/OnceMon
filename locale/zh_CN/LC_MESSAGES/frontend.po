@@ -30,7 +30,7 @@ msgstr "\"显示 正常 的触发器\" 必须为 \"0\" 或一个正整数."
 
 #: include/profiles.inc.php:325
 msgid "\"Triggers blink on status change\" needs to be \"0\" or a positive integer."
-msgstr "\"触发器闪烁状态改变时\" 必须为 \"0\" 或一个正整数."
+msgstr "\"触发器状态改变时闪烁\" 必须为 \"0\" 或一个正整数."
 
 #: include/func.inc.php:465
 #, c-format
@@ -15424,7 +15424,7 @@ msgstr "Zabbix"
 #: include/page_footer.php:103 include/views/general.browserwarning.php:60
 #: include/views/general.login.php:48
 #, c-format
-msgid "Zabbix %1$s Copyright %2$s-%3$s by Zabbix SIA"
+msgid "OnceMon %1$s Copyright %2$s-%3$s by ISCAS"
 msgstr "Zabbix %1$s 版权Copyright %2$s-%3$s 由Zabbix SIA拥有"
 
 #: include/users.inc.php:55

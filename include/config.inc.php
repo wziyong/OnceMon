@@ -1,7 +1,7 @@
 <?php
 /*
-** Zabbix
-** Copyright (C) 2001-2014 Zabbix SIA
+** OnceMon
+** Copyright (C) 2014-2015 ISCAS
 **
 ** This program is free software; you can redistribute it and/or modify
 ** it under the terms of the GNU General Public License as published by
@@ -22,9 +22,13 @@
 // it is also required for PHP to work with the Turkish locale (https://bugs.php.net/bug.php?id=18556)
 // WARNING: this must be done before executing any other code, otherwise code execution could fail!
 // this will be unnecessary in PHP 5.5
+
 setlocale(LC_CTYPE, array(
-	'C', 'POSIX', 'en', 'en_US', 'en_US.UTF-8', 'English_United States.1252', 'en_GB', 'en_GB.UTF-8'
+	'C', 'POSIX', 'en', 'zh_CN', 'zh_CN.UTF-8', 'English_United States.1252', 'zh_CN', 'zh_CN.UTF-8'
 ));
+//setlocale(LC_CTYPE, array(
+//	'C', 'POSIX', 'en', 'en_US', 'en_US.UTF-8', 'English_United States.1252', 'en_GB', 'en_GB.UTF-8'
+//));
 
 require_once dirname(__FILE__).'/classes/core/Z.php';
 

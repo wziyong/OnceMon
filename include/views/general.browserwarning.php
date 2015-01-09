@@ -1,7 +1,7 @@
 <?php
 /*
-** Zabbix
-** Copyright (C) 2001-2014 Zabbix SIA
+** OnceMon
+** Copyright (C) 2014-2015 ISCAS
 **
 ** This program is free software; you can redistribute it and/or modify
 ** it under the terms of the GNU General Public License as published by
@@ -22,7 +22,7 @@
 <html>
 <head>
 	<title>WARNING! You are using an outdated browser.</title>
-	<meta name="Author" content="Zabbix SIA" />
+	<meta name="Author" content="ISCAS" />
 	<meta charset="utf-8" />
 	<link rel="shortcut icon" href="images/general/zabbix.ico" />
 	<link rel="stylesheet" type="text/css" href="styles/default.css" />
@@ -57,7 +57,7 @@
 						New browsers usually come with support for new technologies, increasing web page speed, better privacy settings and so on. They also resolve security and functional issues.
 					</div>
 					<div style="position: absolute; top: 420px; left: 23px;" class="browserwarningCopyright">
-						<a href="http://www.iscas.ac.cn"><?php echo _s('Zabbix %1$s Copyright %2$s-%3$s by Zabbix SIA',
+						<a href="http://www.iscas.ac.cn"><?php echo _s('OnceMon %1$s Copyright %2$s-%3$s by ISCAS',
 							ZABBIX_VERSION, ZABBIX_COPYRIGHT_FROM, ZABBIX_COPYRIGHT_TO); ?></a>
 					</div>
 					<div style="position: absolute; top: 400px; left: 400px;" class="browserwarningLink"><a href="index.php" onClick="javascript: document.cookie='browserwarning_ignore=yes';">Continue despite this warning</a> &raquo;</div>
