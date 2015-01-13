@@ -22,7 +22,7 @@ msgstr ""
 #: maintenance.php:141 maintenance.php:153 services.php:184 services.php:198
 #, c-format
 msgid "\"%s\" must be between 1970.01.01 and 2038.01.18."
-msgstr "\"%s\" 必须位于 1970.01.01 和 2038.01.18."
+msgstr "\"%s\" 必须位于 1970.01.01 和 2038.01.18 之间."
 
 #: include/profiles.inc.php:320
 msgid "\"Display OK triggers\" needs to be \"0\" or a positive integer."
@@ -2863,7 +2863,7 @@ msgstr "条件"
 #: include/menu.inc.php:149 include/views/inventory.host.view.php:256
 #: jsLoader.php:200
 msgid "Configuration"
-msgstr "组态"
+msgstr "配置"
 
 #: include/classes/items/CHelpItems.php:863
 msgid "Configuration cache statistics. Cache - buffer (modes: pfree, total, used, free)."
@@ -3431,7 +3431,7 @@ msgstr "天, 天 月 年 时:分:秒 O"
 
 #: include/views/monitoring.dashconf.php:24
 msgid "DASHBOARD CONFIGURATION"
-msgstr "仪表板配置"
+msgstr "仪表盘配置"
 
 #: include/views/configuration.item.edit.php:158
 #: include/views/configuration.item.massupdate.php:170
@@ -3497,15 +3497,15 @@ msgstr "转暗"
 
 #: dashboard.php:24 include/menu.inc.php:33 include/profiles.inc.php:391
 msgid "Dashboard"
-msgstr "仪表板"
+msgstr "仪表盘"
 
 #: dashconf.php:27
 msgid "Dashboard configuration"
-msgstr "仪表板配置"
+msgstr "仪表盘配置"
 
 #: include/views/monitoring.dashconf.php:44
 msgid "Dashboard filter"
-msgstr "仪表板过滤器"
+msgstr "仪表盘过滤器"
 
 #: include/graphs.inc.php:73 include/views/js/configuration.sysmaps.js.php:368
 #: include/views/js/configuration.sysmaps.js.php:446
@@ -4939,7 +4939,7 @@ msgstr "错误"
 #: include/db.inc.php:870
 #, c-format
 msgid "Error in search request for table \"%1$s\"."
-msgstr "资料表搜寻请求 \"%1$s\"的错误."
+msgstr "资料表搜索请求 \"%1$s\"的错误."
 
 #: httpdetails.php:164 httpdetails.php:236
 #, c-format
@@ -5471,7 +5471,7 @@ msgstr ""
 
 #: include/page_header.php:205
 msgid "Get support"
-msgstr "获取支援"
+msgstr "获取支持"
 
 #: include/classes/items/CHelpItems.php:301
 #: include/classes/items/CHelpItems.php:563
@@ -5530,7 +5530,7 @@ msgstr "到"
 
 #: include/func.inc.php:2106
 msgid "Go to dashboard"
-msgstr "转到仪表板"
+msgstr "转到仪表盘"
 
 #: include/views/configuration.httpconf.edit.php:122
 msgid "Google Chrome"
@@ -7601,7 +7601,7 @@ msgstr "间隔(秒计)"
 
 #: api/rpc/class.cjsonrpc.php:182
 msgid "Invalid JSON. An error occurred on the server while parsing the JSON text."
-msgstr "无效的JSON. 当解析JSON文字时, 在伺服器端发生了一个错误."
+msgstr "无效的JSON. 当解析JSON文字时, 在服务器端发生了一个错误."
 
 #: api/rpc/class.cjsonrpc.php:186
 msgid "Invalid Request."
@@ -7697,7 +7697,7 @@ msgstr "所给的\"%s\"为无效的检视名称.  可用的: \"a-z\" 和 \".\"."
 #: include/menu.inc.php:101
 #: include/views/configuration.host.massupdate.php:316
 msgid "Inventory"
-msgstr "资产记录"
+msgstr "资源"
 
 #: api/classes/CHost.php:1306
 #, c-format
@@ -8458,7 +8458,7 @@ msgstr "登入名称或密码是不正确的."
 #: auditlogs.php:146 include/page_header.php:233 include/page_header.php:237
 #: include/views/administration.auditlogs.list.php:44
 msgid "Logout"
-msgstr "登出"
+msgstr "退出"
 
 #: include/views/administration.auditacts.list.php:28
 #: include/views/administration.auditlogs.list.php:28
@@ -9136,7 +9136,7 @@ msgstr "已监测的主机"
 
 #: include/menu.inc.php:26
 msgid "Monitoring"
-msgstr "监测中"
+msgstr "监控"
 
 #: include/classes/items/CHelpItems.php:327
 msgid "Monitoring of Windows event logs. pattern, severity, eventid - regular expressions"
@@ -10773,7 +10773,7 @@ msgstr "P"
 
 #: dashboard.php:268
 msgid "PERSONAL DASHBOARD"
-msgstr "个人仪表板"
+msgstr "个人仪表盘"
 
 #: include/classes/class.frontendsetup.php:283
 msgid "PHP bcmath"
@@ -11298,7 +11298,7 @@ msgstr "问题"
 
 #: include/page_header.php:213
 msgid "Profile"
-msgstr "基本资料"
+msgstr "设置"
 
 #: popup.php:76
 msgid "Prototypes"
@@ -11857,7 +11857,7 @@ msgstr "于Zabbix端点代理程式上执行自订命令"
 
 #: include/actions.inc.php:506
 msgid "Run custom commands on Zabbix server"
-msgstr "于Zabbix伺服器上执行自订命令"
+msgstr "于Zabbix服务器上执行自订命令"
 
 #: include/actions.inc.php:516
 msgid "Run global script"
@@ -11903,11 +11903,11 @@ msgstr "筛选"
 
 #: search.php:74
 msgid "SEARCH"
-msgstr "搜寻"
+msgstr "搜索"
 
 #: include/classes/screens/CScreenClock.php:75
 msgid "SERVER"
-msgstr "伺服器"
+msgstr "服务器"
 
 #: include/views/configuration.item.edit.php:146
 #: include/views/configuration.item.massupdate.php:142
@@ -11947,7 +11947,7 @@ msgstr "SMTP HELO"
 #: include/views/administration.mediatypes.edit.php:57
 #: include/views/administration.mediatypes.list.php:51
 msgid "SMTP server"
-msgstr "SMTP伺服器"
+msgstr "SMTP服务器"
 
 #: include/hosts.inc.php:471 include/items.inc.php:281
 msgid "SNMP"
@@ -12298,20 +12298,20 @@ msgstr "脚本"
 
 #: include/views/general.search.php:29 search.php:26
 msgid "Search"
-msgstr "搜寻"
+msgstr "搜索"
 
 #: authentication.php:47
 #: include/views/administration.authentication.edit.php:79
 msgid "Search attribute"
-msgstr "搜寻属性"
+msgstr "搜索属性"
 
 #: search.php:70
 msgid "Search pattern is empty"
-msgstr "搜寻式样是空白"
+msgstr "搜索式样是空白"
 
 #: adm.gui.php:42 include/views/administration.general.gui.edit.php:37
 msgid "Search/Filter elements limit"
-msgstr "搜寻/过滤组件限制"
+msgstr "搜索/过滤组件限制"
 
 #: include/forms.inc.php:1740 include/maintenances.inc.php:119
 msgid "Second"
@@ -12489,15 +12489,15 @@ msgstr "序列号B"
 #: include/views/administration.script.list.php:67 popup.php:1888
 #: queue.php:146
 msgid "Server"
-msgstr "伺服器"
+msgstr "服务器"
 
 #: include/screens.inc.php:37
 msgid "Server info"
-msgstr "伺服器资讯"
+msgstr "服务器资讯"
 
 #: include/views/configuration.screen.constructor.edit.php:537
 msgid "Server time"
-msgstr "伺服器时间"
+msgstr "服务器时间"
 
 #: events.php:548 include/actions.inc.php:105
 #: include/views/configuration.services.child.list.php:38
@@ -12684,7 +12684,7 @@ msgstr "展示值"
 
 #: include/views/administration.general.gui.edit.php:47
 msgid "Show warning if Zabbix server is down"
-msgstr "当Zabbix伺服器停机时展示警告"
+msgstr "当Zabbix服务器停机时展示警告"
 
 #: include/views/configuration.graph.edit.php:68
 msgid "Show working time"
@@ -13562,11 +13562,11 @@ msgstr "时间戳"
 
 #: popup_trexpr.php:413
 msgid "Timestamp not different from Zabbix server time for more than T seconds, then N = 1, 0 - otherwise"
-msgstr "和Zabbix伺服器的时间戳记差异不超过T秒, 则 N = 1, 0 - 除外"
+msgstr "和Zabbix服务器的时间戳记差异不超过T秒, 则 N = 1, 0 - 除外"
 
 #: popup_trexpr.php:418
 msgid "Timestamp not different from Zabbix server time for more than T seconds, then N NOT 1, 0 - otherwise"
-msgstr "和Zabbix伺服器的时间戳记差异不超过T秒, 则 N 非 1, 0 - 除外"
+msgstr "和Zabbix服务器的时间戳记差异不超过T秒, 则 N 非 1, 0 - 除外"
 
 #: include/classes/items/CHelpItems.php:153
 #: include/classes/items/CHelpItems.php:415
@@ -13897,7 +13897,7 @@ msgstr "触发器状态"
 
 #: include/menu.inc.php:133
 msgid "Triggers top 100"
-msgstr "前百大触发器"
+msgstr "Top 100 触发器"
 
 #: include/views/monitoring.dashconf.php:99
 msgid "Triggers with severity"
@@ -15334,7 +15334,7 @@ msgstr "Yotta"
 
 #: include/views/administration.users.edit.php:141
 msgid "You are not able to choose some of the languages, because locales for them are not installed on the web server."
-msgstr "您无法选择某些语言, 因为这些语系并未安装于web伺服器上."
+msgstr "您无法选择某些语言, 因为这些语系并未安装于web服务器上."
 
 #: api/classes/CUser.php:367
 #, c-format
@@ -15425,7 +15425,7 @@ msgstr "Zabbix"
 #: include/views/general.login.php:48
 #, c-format
 msgid "OnceMon %1$s Copyright %2$s-%3$s by ISCAS"
-msgstr "Zabbix %1$s 版权Copyright %2$s-%3$s 由Zabbix SIA拥有"
+msgstr "Zabbix %1$s Copyright %2$s-%3$s by ISCAS"
 
 #: include/users.inc.php:55
 msgid "Zabbix Admin"
@@ -15482,7 +15482,7 @@ msgid ""
 "1. Incorrect server IP/DNS in the \"zabbix.conf.php\";\n"
 "2. Incorrect network configuration.\n"
 msgstr ""
-"无法连到Zabbix伺服器\"%s\". 可能的原因是:\n"
+"无法连到Zabbix服务器\"%s\". 可能的原因是:\n"
 "1.  \"zabbix.conf.php\"中不正确的IP/DNS;\n"
 "2. 不正确的网路组态.\n"
 
