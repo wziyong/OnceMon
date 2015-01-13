@@ -1095,7 +1095,7 @@ msgstr "示警媒介类型的组态"
 #: include/views/configuration.sysmap.edit.php:25
 #: include/views/configuration.sysmap.list.php:30
 msgid "CONFIGURATION OF NETWORK MAPS"
-msgstr "网络拓墣图的组态"
+msgstr "网络拓扑图的组态"
 
 #: include/views/administration.node.edit.php:25
 #: include/views/administration.node.list.php:60
@@ -1371,7 +1371,7 @@ msgstr ""
 
 #: sysmaps.php:171
 msgid "Cannot add network map"
-msgstr "无法添加网路拓墣图"
+msgstr "无法添加网路拓扑图"
 
 #: httpconf.php:193
 #, c-format
@@ -1476,7 +1476,7 @@ msgstr "无法克隆触发器原型"
 
 #: scripts_exec.php:70
 msgid "Cannot connect to the trapper port of zabbix server daemon, but it should be available to run the script."
-msgstr "无法连接到系统主机主控程序的捉捕器的埠, 但是它应该可用的..."
+msgstr "无法连接到系统主机主控程序的捉捕器的端口, 但是它应该可用的..."
 
 #: graphs.php:347
 msgid "Cannot copy graphs"
@@ -1528,7 +1528,7 @@ msgstr "无法创建同名为\"%s\"的图示对应."
 #: include/classes/import/CXmlImport18.php:816
 #, c-format
 msgid "Cannot create map \"%s\"."
-msgstr "无法创建拓墣图 \"%s\"."
+msgstr "无法创建拓扑图 \"%s\"."
 
 #: httpconf.php:150
 msgid "Cannot create new application, web scenario is already assigned to application."
@@ -1654,7 +1654,7 @@ msgstr "无法删除示警媒介类型"
 
 #: sysmaps.php:207
 msgid "Cannot delete network map"
-msgstr "无法删除网路拓墣图"
+msgstr "无法删除网路拓扑图"
 
 #: nodes.php:98
 msgid "Cannot delete node"
@@ -2439,7 +2439,7 @@ msgstr "无法更新维修"
 #: include/classes/import/CXmlImport18.php:807
 #, c-format
 msgid "Cannot update map \"%s\"."
-msgstr "无法更新拓拓墣图\"%s\"."
+msgstr "无法更新拓拓扑图\"%s\"."
 
 #: media_types.php:121
 msgid "Cannot update media type"
@@ -2447,7 +2447,7 @@ msgstr "无法更新媒介型态"
 
 #: sysmaps.php:165
 msgid "Cannot update network map"
-msgstr "无法更新网路拓墣图"
+msgstr "无法更新网路拓扑图"
 
 #: nodes.php:76
 msgid "Cannot update node"
@@ -2687,7 +2687,7 @@ msgstr "中文 (zh_TW)"
 #: api/classes/CMapElement.php:74
 #, c-format
 msgid "Circular link cannot be created for map element \"%s\"."
-msgstr "无法创建拓墣图组件 \"%s\"的循环式连结"
+msgstr "无法创建拓扑图组件 \"%s\"的循环式连结"
 
 #: include/classes/import/importers/CMapImporter.php:89
 #, c-format
@@ -4598,7 +4598,7 @@ msgstr "重复的主机. 有相同主机可视名称\"%s\"的主机已存于数�
 #: api/classes/CMap.php:400
 #, c-format
 msgid "Duplicate map name for map \"%s\"."
-msgstr "重複的拓墣图\"%s\"的拓墣图名称."
+msgstr "重複的拓扑图\"%s\"的拓扑图名称."
 
 #: api/classes/CScript.php:411 api/classes/CScript.php:467
 #, c-format
@@ -4667,7 +4667,7 @@ msgstr "编辑"
 
 #: include/views/js/configuration.sysmaps.js.php:7
 msgid "Edit map element"
-msgstr "编辑拓墣图组件"
+msgstr "编辑拓扑图组件"
 
 #: jsLoader.php:187
 msgid "Edit service"
@@ -5177,7 +5177,7 @@ msgstr "常用的图形"
 
 #: dashboard.php:339 include/blocks.inc.php:1355
 msgid "Favourite maps"
-msgstr "常用的拓墣图"
+msgstr "常用的拓扑图"
 
 #: dashboard.php:325 include/blocks.inc.php:1400
 msgid "Favourite screens"
@@ -5332,7 +5332,7 @@ msgstr "首"
 
 #: include/views/js/configuration.sysmaps.js.php:42
 msgid "Fit to map"
-msgstr "调整至符合拓墣图"
+msgstr "调整至符合拓扑图"
 
 #: include/views/configuration.graph.edit.php:97
 #: include/views/configuration.graph.edit.php:155
@@ -6728,7 +6728,7 @@ msgstr "图片"
 
 #: include/views/conf.import.php:51
 msgid "Images for all maps will be updated!"
-msgstr "所有拓墣图都将被更新!"
+msgstr "所有拓扑图都将被更新!"
 
 #: include/views/configuration.action.edit.php:401
 msgid "Immediately"
@@ -6803,7 +6803,7 @@ msgstr "不正确的相依性\"soft\"栏位值予服务\"%1$s\"."
 #: api/classes/CMap.php:454
 #, c-format
 msgid "Incorrect %1$s label type value for map \"%2$s\"."
-msgstr "不正确的%1$s标示类型值予拓墣图\"%2$s\"."
+msgstr "不正确的%1$s标示类型值予拓扑图\"%2$s\"."
 
 #: api/classes/CDRule.php:257
 #, c-format
@@ -6931,7 +6931,7 @@ msgstr "不正确的动作操作主机. 主机不存在或您没有存取权."
 #: api/classes/CAction.php:1395 api/classes/CAction.php:1399
 #, c-format
 msgid "Incorrect action operation port \"%s\"."
-msgstr "不正确的动作操作埠\"%s\"."
+msgstr "不正确的动作操作端口\"%s\"."
 
 #: api/classes/CAction.php:1317
 msgid "Incorrect action operation step duration."
@@ -7133,7 +7133,7 @@ msgstr "给予了不正确的介面IP参数\"%s\"."
 #: api/classes/CHostInterface.php:674
 #, c-format
 msgid "Incorrect interface port \"%s\" provided."
-msgstr "给予了不正确的介面埠参数\"%s\"."
+msgstr "给予了不正确的介面端口参数\"%s\"."
 
 #: api/classes/CHost.php:677
 #, c-format
@@ -7207,12 +7207,12 @@ msgstr ""
 #: api/classes/CMap.php:412
 #, c-format
 msgid "Incorrect map height value for map \"%s\"."
-msgstr "予拓墣图\"%s\"不正确的拓墣图高度."
+msgstr "予拓扑图\"%s\"不正确的拓扑图高度."
 
 #: api/classes/CMap.php:408
 #, c-format
 msgid "Incorrect map width value for map \"%s\"."
-msgstr "予拓墣图\"%s\"不正确的拓墣图宽度."
+msgstr "予拓扑图\"%s\"不正确的拓扑图宽度."
 
 #: api/classes/CScript.php:576
 #, c-format
@@ -7274,7 +7274,7 @@ msgstr "不正确的上层服务."
 
 #: api/classes/CDRule.php:300 discoveryconf.php:94
 msgid "Incorrect port range."
-msgstr "不正确的埠范围."
+msgstr "不正确的端口范围."
 
 #: api/classes/CDRule.php:362
 #, c-format
@@ -7785,7 +7785,7 @@ msgstr "略过项目\"%1$s\"-用户规则."
 #: api/classes/CItemGeneral.php:369
 #, c-format
 msgid "Item \"%1$s:%2$s\" has invalid port: \"%3$s\"."
-msgstr "项目\"%1$s:%2$s\"有无效的埠: \"%3$s\"."
+msgstr "项目\"%1$s:%2$s\"有无效的端口: \"%3$s\"."
 
 #: items.php:478 screenedit.php:183
 msgid "Item added"
@@ -8283,7 +8283,7 @@ msgstr "连结指示器"
 #: api/classes/CMap.php:488
 #, c-format
 msgid "Link name should be unique for map \"%s\"."
-msgstr "拓墣图\"%s\"的连结名称必须是唯一的."
+msgstr "拓扑图\"%s\"的连结名称必须是唯一的."
 
 #: include/views/configuration.host.edit.php:719
 #: include/views/configuration.host.prototype.edit.php:262
@@ -8294,17 +8294,17 @@ msgstr "链接新模板"
 #: api/classes/CMap.php:502
 #, c-format
 msgid "Link selementid1 field is pointing to a nonexistent map selement ID \"%1$s\" for map \"%2$s\"."
-msgstr "连结栏位selementid1是为拓墣图\"%2$s\"指向不存在的拓墣图 selement ID \"%1$s\"."
+msgstr "连结栏位selementid1是为拓扑图\"%2$s\"指向不存在的拓扑图 selement ID \"%1$s\"."
 
 #: api/classes/CMap.php:509
 #, c-format
 msgid "Link selementid2 field is pointing to a nonexistent map selement ID \"%1$s\" for map \"%2$s\"."
-msgstr "连结栏位selementid2是为拓墣图\"%2$s\"指向不存在的拓墣图 selement ID \"%1$s\"."
+msgstr "连结栏位selementid2是为拓扑图\"%2$s\"指向不存在的拓扑图 selement ID \"%1$s\"."
 
 #: api/classes/CMap.php:484
 #, c-format
 msgid "Link should have both \"name\" and \"url\" fields for map \"%s\"."
-msgstr "于拓墣图\"%s\"的连结应都有 \"name\"和\"url\"."
+msgstr "于拓扑图\"%s\"的连结应都有 \"name\"和\"url\"."
 
 #: include/views/configuration.host.massupdate.php:209
 msgid "Link templates"
@@ -8659,31 +8659,31 @@ msgstr "手动登出"
 #: include/views/js/configuration.sysmaps.js.php:111 jsLoader.php:147
 #: map.php:25
 msgid "Map"
-msgstr "拓墣图"
+msgstr "拓扑图"
 
 #: include/classes/import/CXmlImport18.php:667
 #, c-format
 msgid "Map \"%1$s\" skipped - user rule."
-msgstr "略过拓墣图\"%1$s\"-用户规则."
+msgstr "略过拓扑图\"%1$s\"-用户规则."
 
 #: include/views/configuration.sysmap.constructor.php:67
 #, c-format
 msgid "Map \"%s\""
-msgstr "拓墣图\"%s\""
+msgstr "拓扑图\"%s\""
 
 #: include/classes/import/CXmlImport18.php:819
 #, c-format
 msgid "Map \"%s\" created."
-msgstr "拓墣图\"%s\"已创建."
+msgstr "拓扑图\"%s\"已创建."
 
 #: include/classes/import/CXmlImport18.php:810
 #, c-format
 msgid "Map \"%s\" updated."
-msgstr "拓墣图\"%s\"已更新."
+msgstr "拓扑图\"%s\"已更新."
 
 #: sysmap.php:86
 msgid "Map is saved! Return?"
-msgstr "拓墣图已存!返回?"
+msgstr "拓扑图已存!返回?"
 
 #: include/views/configuration.sysmap.edit.php:99
 msgid "Map label type"
@@ -8691,7 +8691,7 @@ msgstr "拓朴图标示类型"
 
 #: sysmap.php:89
 msgid "Map save operation failed."
-msgstr "拓墣图储存动作失败"
+msgstr "拓扑图储存动作失败"
 
 #: api/classes/CMap.php:527
 #, c-format
@@ -8717,7 +8717,7 @@ msgstr "对应"
 #: include/views/conf.import.php:36 include/views/monitoring.maps.php:36
 #: popup.php:96
 msgid "Maps"
-msgstr "拓墣图"
+msgstr "拓扑图"
 
 #: include/func.inc.php:251
 msgid "Mar"
@@ -9321,19 +9321,19 @@ msgstr ""
 
 #: sysmaps.php:171
 msgid "Network map added"
-msgstr "网路拓墣图已添加"
+msgstr "网路拓扑图已添加"
 
 #: sysmaps.php:207
 msgid "Network map deleted"
-msgstr "网路拓墣图已删除"
+msgstr "网路拓扑图已删除"
 
 #: sysmaps.php:165
 msgid "Network map updated"
-msgstr "网路拓墣图已添加"
+msgstr "网路拓扑图已添加"
 
 #: maps.php:25
 msgid "Network maps"
-msgstr "网络结拓墣图"
+msgstr "网络结拓扑图"
 
 #: httpmon.php:169 include/func.inc.php:220
 msgid "Never"
@@ -9800,7 +9800,7 @@ msgstr ""
 
 #: api/classes/CScreenItem.php:509
 msgid "No map ID provided for screen element."
-msgstr "没有提供拓墣图ID给筛选组件."
+msgstr "没有提供拓扑图ID给筛选组件."
 
 #: include/blocks.inc.php:160
 msgid "No maps added."
@@ -9870,7 +9870,7 @@ msgstr "不具群组 \"%1$s\"的许可权."
 #: include/classes/import/CXmlImport18.php:660
 #, c-format
 msgid "No permissions for map \"%1$s\"."
-msgstr "不具拓墣图\"%1$s\"的许可权."
+msgstr "不具拓扑图\"%1$s\"的许可权."
 
 #: include/classes/import/CXmlImport18.php:453
 #, c-format
@@ -11152,11 +11152,11 @@ msgstr "端口"
 
 #: api/classes/CHostInterface.php:671
 msgid "Port cannot be empty for host interface."
-msgstr "主机介面的埠不能是空白."
+msgstr "主机介面的端口不能是空白."
 
 #: include/views/js/configuration.discovery.edit.js.php:33
 msgid "Port range"
-msgstr "埠范围"
+msgstr "端口范围"
 
 #: include/locales.inc.php:75
 msgid "Portuguese (pt_BR)"
@@ -13056,7 +13056,7 @@ msgstr "主旨"
 
 #: jsLoader.php:214
 msgid "Submap"
-msgstr "子拓墣图"
+msgstr "子拓扑图"
 
 #: include/items.inc.php:39
 msgid "Success Audit"
@@ -14379,7 +14379,7 @@ msgstr "上传"
 
 #: include/views/monitoring.maps.php:54
 msgid "Upper level maps"
-msgstr "上层拓墣图"
+msgstr "上层拓扑图"
 
 #: include/views/configuration.services.edit.php:134
 #: include/views/configuration.services.edit.php:257
@@ -15488,7 +15488,7 @@ msgstr ""
 
 #: include/blocks.inc.php:751
 msgid "Zabbix server IP or port is not set!"
-msgstr "Zabbix主机IP或埠并未设置!"
+msgstr "Zabbix主机IP或端口并未设置!"
 
 #: adm.gui.php:43
 msgid "Zabbix server activity check interval"
@@ -15517,7 +15517,7 @@ msgstr "Zabbix主机名称"
 
 #: include/setup.inc.php:433
 msgid "Zabbix server port"
-msgstr "Zabbix主机埠"
+msgstr "Zabbix主机端口"
 
 #: include/items.inc.php:89
 msgid "Zabbix trapper"
@@ -15823,7 +15823,7 @@ msgstr "维护"
 
 #: api/classes/CMap.php:422
 msgid "map"
-msgstr "拓墣图"
+msgstr "拓扑图"
 
 #: include/classes/graphdraw/CLineGraphDraw.php:1835
 #: include/classes/graphdraw/CLineGraphDraw.php:1849
