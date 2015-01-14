@@ -418,10 +418,10 @@ function str2mem($val) {
 	switch ($last) {
 		case 'g':
 			$val *= 1024;
-			/* falls through */
+		/* falls through */
 		case 'm':
 			$val *= 1024;
-			/* falls through */
+		/* falls through */
 		case 'k':
 			$val *= 1024;
 	}
@@ -1964,7 +1964,7 @@ function make_refresh_menu($pmid, $dollid, $cur_interval, $params = null, &$menu
 			'void(0);',
 			null,
 			array('outer' => ($value == $cur_interval) ? 'pum_b_submenu' : 'pum_o_submenu', 'inner' => array('pum_i_submenu')
-		));
+			));
 	}
 	$submenu['menu_'.$dollid][] = array();
 }
@@ -2438,16 +2438,16 @@ function get_status() {
 	// triggers
 	$dbTriggers = DBselect(
 		'SELECT COUNT(DISTINCT t.triggerid) AS cnt,t.status,t.value'.
-			' FROM triggers t'.
-			' WHERE NOT EXISTS ('.
-				'SELECT f.functionid FROM functions f'.
-					' JOIN items i ON f.itemid=i.itemid'.
-					' JOIN hosts h ON i.hostid=h.hostid'.
-					' WHERE f.triggerid=t.triggerid AND (i.status<>'.ITEM_STATUS_ACTIVE.' OR h.status<>'.HOST_STATUS_MONITORED.')'.
-				')'.
-			' AND t.flags IN ('.ZBX_FLAG_DISCOVERY_NORMAL.','.ZBX_FLAG_DISCOVERY_CREATED.')'.
-			' GROUP BY t.status,t.value'
-		);
+		' FROM triggers t'.
+		' WHERE NOT EXISTS ('.
+		'SELECT f.functionid FROM functions f'.
+		' JOIN items i ON f.itemid=i.itemid'.
+		' JOIN hosts h ON i.hostid=h.hostid'.
+		' WHERE f.triggerid=t.triggerid AND (i.status<>'.ITEM_STATUS_ACTIVE.' OR h.status<>'.HOST_STATUS_MONITORED.')'.
+		')'.
+		' AND t.flags IN ('.ZBX_FLAG_DISCOVERY_NORMAL.','.ZBX_FLAG_DISCOVERY_CREATED.')'.
+		' GROUP BY t.status,t.value'
+	);
 	while ($dbTrigger = DBfetch($dbTriggers)) {
 		switch ($dbTrigger['status']) {
 			case TRIGGER_STATUS_ENABLED:
@@ -2471,12 +2471,12 @@ function get_status() {
 	// items
 	$dbItems = DBselect(
 		'SELECT COUNT(i.itemid) AS cnt,i.status,i.state'.
-				' FROM items i'.
-				' INNER JOIN hosts h ON i.hostid=h.hostid'.
-				' WHERE h.status='.HOST_STATUS_MONITORED.
-					' AND i.flags IN ('.ZBX_FLAG_DISCOVERY_NORMAL.','.ZBX_FLAG_DISCOVERY_CREATED.')'.
-					' AND i.type<>'.ITEM_TYPE_HTTPTEST.
-				' GROUP BY i.status,i.state');
+		' FROM items i'.
+		' INNER JOIN hosts h ON i.hostid=h.hostid'.
+		' WHERE h.status='.HOST_STATUS_MONITORED.
+		' AND i.flags IN ('.ZBX_FLAG_DISCOVERY_NORMAL.','.ZBX_FLAG_DISCOVERY_CREATED.')'.
+		' AND i.type<>'.ITEM_TYPE_HTTPTEST.
+		' GROUP BY i.status,i.state');
 	while ($dbItem = DBfetch($dbItems)) {
 		if ($dbItem['status'] == ITEM_STATUS_ACTIVE) {
 			if ($dbItem['state'] == ITEM_STATE_NORMAL) {
@@ -2491,16 +2491,16 @@ function get_status() {
 		}
 	}
 	$status['items_count'] = $status['items_count_monitored'] + $status['items_count_disabled']
-			+ $status['items_count_not_supported'];
+		+ $status['items_count_not_supported'];
 
 	// hosts
 	$dbHosts = DBselect(
 		'SELECT COUNT(*) AS cnt,h.status'.
 		' FROM hosts h'.
 		' WHERE '.dbConditionInt('h.status', array(
-				HOST_STATUS_MONITORED, HOST_STATUS_NOT_MONITORED, HOST_STATUS_TEMPLATE
-			)).
-			' AND '.dbConditionInt('h.flags', array(ZBX_FLAG_DISCOVERY_NORMAL, ZBX_FLAG_DISCOVERY_CREATED)).
+			HOST_STATUS_MONITORED, HOST_STATUS_NOT_MONITORED, HOST_STATUS_TEMPLATE
+		)).
+		' AND '.dbConditionInt('h.flags', array(ZBX_FLAG_DISCOVERY_NORMAL, ZBX_FLAG_DISCOVERY_CREATED)).
 		' GROUP BY h.status');
 	while ($dbHost = DBfetch($dbHosts)) {
 		switch ($dbHost['status']) {
@@ -2516,23 +2516,23 @@ function get_status() {
 		}
 	}
 	$status['hosts_count'] = $status['hosts_count_monitored'] + $status['hosts_count_not_monitored']
-			+ $status['hosts_count_template'];
+		+ $status['hosts_count_template'];
 
 	// users
 	$row = DBfetch(DBselect(
-			'SELECT COUNT(*) AS usr_cnt'.
-			' FROM users u'.
-			whereDbNode('u.userid')
+		'SELECT COUNT(*) AS usr_cnt'.
+		' FROM users u'.
+		whereDbNode('u.userid')
 	));
 	$status['users_count'] = $row['usr_cnt'];
 	$status['users_online'] = 0;
 
 	$db_sessions = DBselect(
-			'SELECT s.userid,s.status,MAX(s.lastaccess) AS lastaccess'.
-			' FROM sessions s'.
-			' WHERE s.status='.ZBX_SESSION_ACTIVE.
-				andDbNode('s.userid').
-			' GROUP BY s.userid,s.status'
+		'SELECT s.userid,s.status,MAX(s.lastaccess) AS lastaccess'.
+		' FROM sessions s'.
+		' WHERE s.status='.ZBX_SESSION_ACTIVE.
+		andDbNode('s.userid').
+		' GROUP BY s.userid,s.status'
 	);
 	while ($session = DBfetch($db_sessions)) {
 		if (($session['lastaccess'] + ZBX_USER_ONLINE_TIME) >= time()) {
@@ -2543,12 +2543,12 @@ function get_status() {
 	// comments: !!! Don't forget sync code with C !!!
 	$row = DBfetch(DBselect(
 		'SELECT SUM(CAST(1.0/i.delay AS DECIMAL(20,10))) AS qps'.
-				' FROM items i,hosts h'.
-				' WHERE i.status='.ITEM_STATUS_ACTIVE.
-				' AND i.hostid=h.hostid'.
-				' AND h.status='.HOST_STATUS_MONITORED.
-				' AND i.delay<>0'.
-				' AND i.flags<>'.ZBX_FLAG_DISCOVERY_PROTOTYPE
+		' FROM items i,hosts h'.
+		' WHERE i.status='.ITEM_STATUS_ACTIVE.
+		' AND i.hostid=h.hostid'.
+		' AND h.status='.HOST_STATUS_MONITORED.
+		' AND i.delay<>0'.
+		' AND i.flags<>'.ZBX_FLAG_DISCOVERY_PROTOTYPE
 	));
 	$status['qps_total'] = round($row['qps'], 2);
 
@@ -2618,8 +2618,8 @@ function imageOut(&$image, $format = null) {
 
 function encode_log($data) {
 	return (defined('ZBX_LOG_ENCODING_DEFAULT') && function_exists('mb_convert_encoding'))
-			? mb_convert_encoding($data, _('UTF-8'), ZBX_LOG_ENCODING_DEFAULT)
-			: $data;
+		? mb_convert_encoding($data, _('UTF-8'), ZBX_LOG_ENCODING_DEFAULT)
+		: $data;
 }
 
 /**
@@ -2812,7 +2812,7 @@ function getMenuPopupTrigger(array $trigger, array $items = null, array $acknowl
 	);
 
 	if ((CWebUser::$data['type'] == USER_TYPE_ZABBIX_ADMIN || CWebUser::$data['type'] == USER_TYPE_SUPER_ADMIN)
-			&& $trigger['flags'] == ZBX_FLAG_DISCOVERY_NORMAL) {
+		&& $trigger['flags'] == ZBX_FLAG_DISCOVERY_NORMAL) {
 		$host = reset($trigger['hosts']);
 
 		$data['configuration'] = array(

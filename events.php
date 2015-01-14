@@ -266,7 +266,7 @@ if ($source == EVENT_SOURCE_TRIGGERS) {
 $frmForm->addItem(new CSubmit('csv_export', _('Export to CSV')));
 
 $eventsWidget->addPageHeader(
-	_('HISTORY OF EVENTS').SPACE.'['.zbx_date2str(_('d M Y H:i:s')).']',
+	_('HISTORY OF EVENTS').SPACE.'['.zbx_date2str(_('Y.M.d H:i:s')).']',
 	array(
 		$frmForm,
 		SPACE,

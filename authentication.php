@@ -86,13 +86,13 @@ if ($config['authentication_type'] == ZBX_AUTH_INTERNAL) {
 			$isAuthenticationTypeChanged = false;
 
 			add_audit(AUDIT_ACTION_UPDATE, AUDIT_RESOURCE_ZABBIX_CONFIG,
-				_('Authentication method changed to Zabbix internal')
+				_('Authentication method changed to OnceMon internal')
 			);
 
-			show_message(_('Authentication method changed to Zabbix internal'));
+			show_message(_('Authentication method changed to OnceMon internal'));
 		}
 		else {
-			show_error_message(_('Cannot change authentication method to Zabbix internal'));
+			show_error_message(_('Cannot change authentication method to OnceMon internal'));
 		}
 	}
 }

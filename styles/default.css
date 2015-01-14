@@ -424,7 +424,7 @@ table.warningTable tr.content.center { text-align: center; }
 
 /* history */
 table.history { color: #448; margin: 0 0 0 2px; }
-table.history td.caption { width: 48px; font-weight: bold; }
+table.history td.caption { width: 60px; font-weight: bold; }
 
 /* message */
 table.msgok { width: 100%; border: 1px #44CC44 solid; }

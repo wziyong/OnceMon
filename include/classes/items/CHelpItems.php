@@ -574,7 +574,7 @@ class CHelpItems {
 			ITEM_TYPE_AGGREGATE => array(
 				array(
 					'key' => 'grpfunc[<group>,<key>,<func>,<param>]',
-					'description' => _('Aggregate checks do not require any agent running on a host being monitored. Zabbix server collects aggregate information by doing direct database queries. See Zabbix Manual.')
+					'description' => _('Aggregate checks do not require any agent running on a host being monitored. Zabbix server collects aggregate information by doing direct database queries.')
 				)
 			),
 			ITEM_TYPE_SIMPLE => array(
