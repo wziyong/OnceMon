@@ -1051,20 +1051,20 @@ msgstr "配置主机"
 
 #: adm.housekeeper.php:141
 msgid "CONFIGURATION OF HOUSEKEEPING"
-msgstr "Housekeeping的配置"
+msgstr "配置Housekeeping"
 
 #: adm.iconmapping.php:130
 msgid "CONFIGURATION OF ICON MAPPING"
-msgstr "图标映射的配置"
+msgstr "配置图标映射"
 
 #: adm.images.php:150
 msgid "CONFIGURATION OF IMAGES"
-msgstr "图片的配置"
+msgstr "配置图片"
 
 #: include/views/configuration.services.edit.php:30
 #: include/views/configuration.services.list.php:25
 msgid "CONFIGURATION OF IT SERVICES"
-msgstr "IT服务的配置"
+msgstr "配置IT服务"
 
 #: disc_prototypes.php:349
 #: include/views/configuration.item.prototype.list.php:29
@@ -1139,40 +1139,40 @@ msgstr "触发器原型的配置"
 
 #: adm.triggerseverities.php:94
 msgid "CONFIGURATION OF TRIGGER SEVERITIES"
-msgstr "触发器严重性的配置"
+msgstr "配置触发器严重性"
 
 #: include/views/configuration.triggers.edit.php:40
 #: include/views/configuration.triggers.list.php:54
 #: include/views/configuration.triggers.massupdate.php:42 triggers.php:336
 msgid "CONFIGURATION OF TRIGGERS"
-msgstr "触发器的配置"
+msgstr "配置触发器"
 
 #: include/views/administration.usergroups.edit.php:23
 #: include/views/administration.usergroups.list.php:31
 msgid "CONFIGURATION OF USER GROUPS"
-msgstr "用户组的配置"
+msgstr "配置用户组"
 
 #: include/views/administration.users.edit.php:30
 #: include/views/administration.users.list.php:31
 msgid "CONFIGURATION OF USERS"
-msgstr "用户的配置"
+msgstr "配置用户"
 
 #: adm.valuemapping.php:147
 msgid "CONFIGURATION OF VALUE MAPPING"
-msgstr "数值映射的配置"
+msgstr "配置数值映射"
 
 #: include/views/configuration.httpconf.edit.php:25
 #: include/views/configuration.httpconf.list.php:39
 msgid "CONFIGURATION OF WEB MONITORING"
-msgstr "WEB监控的配置"
+msgstr "配置WEB监控"
 
 #: adm.workingtime.php:76
 msgid "CONFIGURATION OF WORKING TIME"
-msgstr "工作时间的配置"
+msgstr "配置工作时间"
 
 #: adm.triggerdisplayoptions.php:90
 msgid "CONFIGURATION OF Zabbix"
-msgstr "OnceMon的配置"
+msgstr "配置OnceMon"
 
 #: include/classes/items/CHelpItems.php:185
 #: include/classes/items/CHelpItems.php:447
@@ -1489,7 +1489,7 @@ msgstr "无法复制监控项"
 #: include/triggers.inc.php:400
 #, c-format
 msgid "Cannot copy trigger \"%1$s:%2$s\", because it has multiple hosts in the expression."
-msgstr "无法复制触发器 \"%1$s:%2$s\", 因为在其表示式中有多重主机."
+msgstr "无法复制触发器 \"%1$s:%2$s\", 因为在其表达式中有多重主机."
 
 #: api/classes/CHostPrototype.php:151
 #, c-format
@@ -2070,7 +2070,7 @@ msgstr "不能有空白的可见模板名称"
 #: api/classes/CTriggerPrototype.php:730 api/classes/CTriggerPrototype.php:788
 #, c-format
 msgid "Cannot implode expression \"%s\"."
-msgstr "不能implode表示式 \"%s\"."
+msgstr "不能implode表达式 \"%s\"."
 
 #: include/classes/import/importers/CScreenImporter.php:78
 #, c-format
@@ -2525,7 +2525,7 @@ msgstr "无法更新用户. 两次输入的密码必须一致."
 
 #: adm.valuemapping.php:66
 msgid "Cannot update value map"
-msgstr "无法更新值对应"
+msgstr "无法更新值映射"
 
 #: httpconf.php:141
 msgid "Cannot update web scenario"
@@ -2604,7 +2604,7 @@ msgstr "检查已存在."
 #: include/classes/parsers/CTriggerExpression.php:290
 #, c-format
 msgid "Check expression part starting from \"%1$s\"."
-msgstr "检查开始于\"%1$s\"的表示式部份."
+msgstr "检查开始于\"%1$s\"的表达式部份."
 
 #: include/classes/items/CHelpItems.php:261
 #: include/classes/items/CHelpItems.php:523
@@ -2710,7 +2710,7 @@ msgstr "循环式模板关联是不允许的."
 
 #: include/classes/core/ZBase.php:233
 msgid "Classic"
-msgstr "典型的"
+msgstr "经典"
 
 #: jsLoader.php:169
 msgid "Clear"
@@ -2767,7 +2767,7 @@ msgstr "关闭"
 
 #: include/views/configuration.triggers.edit.php:235
 msgid "Close expression constructor"
-msgstr "关闭表示式建构"
+msgstr "关闭表达式建构"
 
 #: include/views/administration.general.triggerDisplayOptions.edit.php:26
 #: include/views/administration.general.triggerSeverity.edit.php:28
@@ -2875,15 +2875,15 @@ msgstr "导入配置"
 
 #: adm.gui.php:24
 msgid "Configuration of GUI"
-msgstr "图表化接口的配置"
+msgstr "配置GUI"
 
 #: services.php:27
 msgid "Configuration of IT services"
-msgstr "IT服务的配置"
+msgstr "配置IT服务"
 
 #: include/audit.inc.php:25
 msgid "Configuration of Zabbix"
-msgstr "Zabbix的配置"
+msgstr "配置OnceMon"
 
 #: actionconf.php:27
 msgid "Configuration of actions"
@@ -3773,7 +3773,7 @@ msgstr "删除发现规则?"
 #: include/views/configuration.triggers.edit.php:158 jsLoader.php:113
 #: tr_logform.php:337
 msgid "Delete expression?"
-msgstr "删除表示式?"
+msgstr "删除表达式?"
 
 #: include/views/configuration.graph.edit.php:302
 msgid "Delete graph prototype?"
@@ -4508,7 +4508,7 @@ msgstr "不要计算"
 
 #: jsLoader.php:103
 msgid "Do you wish to replace the conditional expression?"
-msgstr "您想要替换条件式表示式吗?"
+msgstr "您想要替换条件式表达式吗?"
 
 #: jsLoader.php:138
 msgid "Done"
@@ -4558,17 +4558,17 @@ msgstr "绘图风格"
 
 #: include/views/administration.general.gui.edit.php:32
 msgid "Dropdown first entry"
-msgstr "下拉的第一个输入项"
+msgstr "下拉列表首选项"
 
 #: adm.gui.php:77
 #, c-format
 msgid "Dropdown first entry \"%1$s\"."
-msgstr "下拉的第一个输入项 \"%1$s\"."
+msgstr "下拉列表首选项 \"%1$s\"."
 
 #: adm.gui.php:78
 #, c-format
 msgid "Dropdown remember selected \"%1$s\"."
-msgstr "下拉记住所选的 \"%1$s\"."
+msgstr "下拉记住所选 \"%1$s\"."
 
 #: api/classes/CTrigger.php:1588
 #, c-format
@@ -4956,11 +4956,11 @@ msgstr "事件ID"
 
 #: popup_trexpr.php:443
 msgid "Event ID of last log entry matching regular expression T, then N = 1, 0 - otherwise"
-msgstr "符合正则表示式T的最末纪录项的事件 ID, 则 N = 1, 0 - 除外"
+msgstr "符合正则表达式T的最末纪录项的事件 ID, 则 N = 1, 0 - 除外"
 
 #: popup_trexpr.php:448
 msgid "Event ID of last log entry matching regular expression T, then N NOT 1, 0 - otherwise"
-msgstr "符合正则表示式T的最末纪录项的事件 ID, 则 N 非 1, 0 - 除外"
+msgstr "符合正则表达式T的最末纪录项的事件 ID, 则 N 非 1, 0 - 除外"
 
 #: acknow.php:156 include/actions.inc.php:88
 msgid "Event acknowledged"
@@ -5099,36 +5099,36 @@ msgstr "汇出到CSV"
 #: triggers.php:42 triggers.php:48 tr_logform.php:299 tr_logform.php:307
 #: tr_testexpr.php:131
 msgid "Expression"
-msgstr "表示式"
+msgstr "表达式"
 
 #: include/forms.inc.php:1499 include/forms.inc.php:1504
 #: include/forms.inc.php:1517
 msgid "Expression Syntax Error."
-msgstr "表示式语法错误."
+msgstr "表达式语法错误."
 
 #: tr_testexpr.php:50
 msgid "Expression Variable Elements"
-msgstr "表示式变数组成"
+msgstr "表达式变数组成"
 
 #: include/triggers.inc.php:569 include/views/js/adm.regexprs.edit.js.php:215
 msgid "Expression cannot be empty"
-msgstr "表示式不能为空白"
+msgstr "表达式不能为空白"
 
 #: include/views/configuration.triggers.edit.php:128
 msgid "Expression constructor"
-msgstr "表示式建构子"
+msgstr "表达式建构子"
 
 #: include/views/administration.general.regularexpressions.edit.php:43
 #: include/views/administration.general.regularexpressions.edit.php:52
 #: include/views/administration.general.regularexpressions.edit.php:73
 msgid "Expression type"
-msgstr "表示式类型"
+msgstr "表达式类型"
 
 #: include/views/administration.general.regularexpressions.edit.php:48
 #: include/views/administration.general.regularexpressions.edit.php:80
 #: include/views/administration.general.regularexpressions.list.php:33
 msgid "Expressions"
-msgstr "表示式"
+msgstr "表达式"
 
 #: include/items.inc.php:91
 msgid "External check"
@@ -5434,15 +5434,15 @@ msgstr "GSM 调制解调器"
 #: adm.valuemapping.php:126 adm.workingtime.php:61
 #: include/views/administration.general.gui.edit.php:51
 msgid "GUI"
-msgstr "图表化使用者接口"
+msgstr "GUI"
 
 #: include/classes/class.cwebuser.php:41 include/classes/class.cwebuser.php:98
 msgid "GUI access disabled."
-msgstr "图表化使用者接口存取已停用"
+msgstr "GUI存取已停用"
 
 #: include/menu.inc.php:226
 msgid "General"
-msgstr "一般"
+msgstr "通用"
 
 #: chart4.php:168 chart5.php:200
 #: include/classes/graphdraw/CBarGraphDraw.php:779
@@ -5484,11 +5484,11 @@ msgstr "千兆"
 
 #: include/triggers.inc.php:1764 tr_testexpr.php:35
 msgid "Given expression is not a macro"
-msgstr "此表示式不是宏"
+msgstr "此表达式不是宏"
 
 #: include/classes/class.globalregexp.php:78
 msgid "Global expression does not exist."
-msgstr "全域表示式不存在."
+msgstr "全域表达式不存在."
 
 #: include/views/configuration.action.edit.php:726
 msgid "Global script"
@@ -6610,17 +6610,17 @@ msgstr "图标映射\"%s\"已存在."
 #: api/classes/CIconMap.php:443
 #, c-format
 msgid "Icon map \"%s\" cannot have mapping with empty expression."
-msgstr "图标映射\"%s\"无法以空白的表示式对应."
+msgstr "图标映射\"%s\"无法以空白的表达式对应."
 
 #: api/classes/CIconMap.php:447
 #, c-format
 msgid "Icon map \"%s\" cannot have mapping with global expression that does not exist."
-msgstr "图标映射\"%s\"无法以不存在的全域表示式对应."
+msgstr "图标映射\"%s\"无法以不存在的全域表达式对应."
 
 #: api/classes/CIconMap.php:451
 #, c-format
 msgid "Icon map \"%s\" has incorrect expression."
-msgstr "图标映射\"%s\"含有不正确的表示式."
+msgstr "图标映射\"%s\"含有不正确的表达式."
 
 #: api/classes/CIconMap.php:404 api/classes/CIconMap.php:409
 #, c-format
@@ -7152,7 +7152,7 @@ msgstr "不正确的监控项予轴值."
 #: api/classes/CTrigger.php:725 include/triggers.inc.php:1029
 #, c-format
 msgid "Incorrect item key \"%1$s\" provided for trigger expression on \"%2$s\"."
-msgstr "提供不正确的监控项键值\"%1$s\"给\"%2$s\"上的触发器表示式."
+msgstr "提供不正确的监控项键值\"%1$s\"给\"%2$s\"上的触发器表达式."
 
 #: include/classes/validators/CTriggerFunctionValidator.php:254
 #, c-format
@@ -7379,26 +7379,26 @@ msgstr "不正确的触发器ID予服务\"%1$s\"."
 
 #: include/triggers.inc.php:628
 msgid "Incorrect trigger expression"
-msgstr "不正确的触发器表示式"
+msgstr "不正确的触发器表达式"
 
 #: include/classes/parsers/CTriggerExpression.php:285
 #: include/classes/parsers/CTriggerExpression.php:290
 msgid "Incorrect trigger expression."
-msgstr "不正确的触发器表示式."
+msgstr "不正确的触发器表达式."
 
 #: include/triggers.inc.php:1132
 #, c-format
 msgid "Incorrect trigger expression. Host \"%1$s\" does not exist or you have no access to this host."
-msgstr "不正确的触发器表示式. 主机 \"%1$s\"不存在或您不能存取此主机."
+msgstr "不正确的触发器表达式. 主机 \"%1$s\"不存在或您不能存取此主机."
 
 #: api/classes/CTrigger.php:705
 #, c-format
 msgid "Incorrect trigger expression. Host \"%s\" does not exist or you have no access to this host."
-msgstr "不正确的触发器表示式. 主机 \"%s\"不存在或您不能存取此主机."
+msgstr "不正确的触发器表达式. 主机 \"%s\"不存在或您不能存取此主机."
 
 #: api/classes/CTrigger.php:711
 msgid "Incorrect trigger expression. Trigger expression elements should not belong to a template and a host simultaneously."
-msgstr "不正确的触发器表示式. 触发器表示式组件不该同时属于一个模板和一个主机."
+msgstr "不正确的触发器表达式. 触发器表达式组件不该同时属于一个模板和一个主机."
 
 #: include/classes/validators/CTriggerFunctionValidator.php:248
 #: include/classes/validators/CTriggerFunctionValidator.php:260
@@ -7406,7 +7406,7 @@ msgstr "不正确的触发器表示式. 触发器表示式组件不该同时属�
 #: include/classes/validators/CTriggerFunctionValidator.php:294
 #, c-format
 msgid "Incorrect trigger function \"%1$s\" provided in expression."
-msgstr "用了不正确的触发器方程式\"%1$s\"于表示式中."
+msgstr "用了不正确的触发器方程式\"%1$s\"于表达式中."
 
 #: include/func.inc.php:1182
 msgid "Incorrect type of asort_by_key."
@@ -8772,7 +8772,7 @@ msgstr "主节点已经存在."
 
 #: adm.gui.php:41 include/views/administration.general.gui.edit.php:39
 msgid "Max count of elements to show inside table cell"
-msgstr "表格位中最多可显示的的组件数量."
+msgstr "表格中最多可显示的的组件数量"
 
 #: adm.gui.php:79
 #, c-format
@@ -8781,7 +8781,7 @@ msgstr "表格位\"%1$s\"中最多可显示的的组件数量."
 
 #: adm.gui.php:38 include/views/administration.general.gui.edit.php:45
 msgid "Max count of events per trigger to show"
-msgstr "可显示的每触发器最多事件计数"
+msgstr "可显示的每触发器最多事件数"
 
 #: include/classes/class.cwidget.php:124 include/classes/class.cwidget.php:127
 #: include/func.inc.php:2206
@@ -10687,7 +10687,7 @@ msgstr "原始的"
 
 #: include/classes/core/ZBase.php:234
 msgid "Original blue"
-msgstr "原始的蓝色"
+msgstr "默认（蓝）"
 
 #: adm.gui.php:105 adm.housekeeper.php:136 adm.iconmapping.php:119
 #: adm.images.php:141 adm.macros.php:168 adm.other.php:120 adm.regexps.php:204
@@ -11477,19 +11477,19 @@ msgstr "正则表达式\"%s\"已存在."
 
 #: popup_trexpr.php:423
 msgid "Regular expression V matching last value in period T, then N = 1, 0 - otherwise"
-msgstr "正则表示式V符合期间T的最末值, 则 N = 1, 0 - 除外"
+msgstr "正则表达式V符合期间T的最末值, 则 N = 1, 0 - 除外"
 
 #: popup_trexpr.php:433
 msgid "Regular expression V matching last value in period T, then N = 1, 0 - otherwise (non case-sensitive)"
-msgstr "正则表示式V符合期间T的最末值, 则 N = 1, 0 - 除外 (大小写不分)"
+msgstr "正则表达式V符合期间T的最末值, 则 N = 1, 0 - 除外 (大小写不分)"
 
 #: popup_trexpr.php:428
 msgid "Regular expression V matching last value in period T, then N NOT 1, 0 - otherwise"
-msgstr "正则表示式V符合期间T的最末值, 则 N 非 1, 0 - 除外"
+msgstr "正则表达式V符合期间T的最末值, 则 N 非 1, 0 - 除外"
 
 #: popup_trexpr.php:438
 msgid "Regular expression V matching last value in period T, then N NOT 1, 0 - otherwise (non case-sensitive)"
-msgstr "正则表示式V符合期间T的最末值, 则 N 非 1, 0 - 除外 (大小写不分)"
+msgstr "正则表达式V符合期间T的最末值, 则 N 非 1, 0 - 除外 (大小写不分)"
 
 #: adm.regexps.php:132
 msgid "Regular expression added"
@@ -11645,7 +11645,7 @@ msgstr "要求的"
 
 #: api/classes/CIconMap.php:419
 msgid "Required field \"expression\" is missing in icon mapping."
-msgstr "要求的栏位\"表示式\"不存在于图标映射中."
+msgstr "要求的栏位\"表达式\"不存在于图标映射中."
 
 #: api/classes/CIconMap.php:425
 msgid "Required field \"iconid\" is missing in icon mapping."
@@ -11740,7 +11740,7 @@ msgstr "结果"
 
 #: include/regexp.inc.php:196 include/views/js/adm.regexprs.edit.js.php:121
 msgid "Result is FALSE"
-msgstr "结果为伪"
+msgstr "结果为假"
 
 #: include/regexp.inc.php:195 include/views/js/adm.regexprs.edit.js.php:118
 msgid "Result is TRUE"
@@ -12626,12 +12626,12 @@ msgstr "显示事件最多\"%1$s\"."
 
 #: adm.gui.php:37 include/views/administration.general.gui.edit.php:43
 msgid "Show events not older than (in days)"
-msgstr "显示事件不能久于(日计)"
+msgstr "显示事件不能久于(天)"
 
 #: adm.gui.php:75
 #, c-format
 msgid "Show events not older than (in days) \"%1$s\"."
-msgstr "显示事件不能久于(日计)\"%1$s\"."
+msgstr "显示事件不能久于(天)\"%1$s\"."
 
 #: include/views/monitoring.dashconf.php:87 tr_status.php:326
 msgid "Show hosts in maintenance"
@@ -12684,7 +12684,7 @@ msgstr "显示值"
 
 #: include/views/administration.general.gui.edit.php:47
 msgid "Show warning if Zabbix server is down"
-msgstr "当Zabbix服务器停机时显示警告"
+msgstr "监控服务器宕机时报警"
 
 #: include/views/configuration.graph.edit.php:68
 msgid "Show working time"
@@ -13735,11 +13735,11 @@ msgstr ""
 
 #: include/views/configuration.triggers.expression.php:120
 msgid "Trigger expression condition"
-msgstr "触发器表示式条件"
+msgstr "触发器表达式条件"
 
 #: api/classes/CTrigger.php:685 api/classes/CTriggerPrototype.php:776
 msgid "Trigger expression must contain at least one host:key reference."
-msgstr "触发器表示式必需包含至少一个 主机:键值 参照."
+msgstr "触发器表达式必需包含至少一个 主机:键值 参照."
 
 #: tr_logform.php:27
 msgid "Trigger form"
@@ -14846,39 +14846,39 @@ msgstr "值不能被对应到空字串."
 #: include/audit.inc.php:38
 #: include/views/administration.general.valuemapping.list.php:26
 msgid "Value map"
-msgstr "值对应"
+msgstr "值映射"
 
 #: adm.valuemapping.php:106
 #, c-format
 msgid "Value map \"%1$s\" \"%2$s\"."
-msgstr "值对应 \"%1$s\" \"%2$s\"."
+msgstr "值映射 \"%1$s\" \"%2$s\"."
 
 #: include/valuemap.inc.php:40 include/valuemap.inc.php:78
 #, c-format
 msgid "Value map \"%1$s\" already exists."
-msgstr "值对应 \"%1$s\"已存在."
+msgstr "值映射 \"%1$s\"已存在."
 
 #: adm.valuemapping.php:80
 #, c-format
 msgid "Value map \"%1$s\"."
-msgstr "值对应 \"%1$s\"."
+msgstr "值映射 \"%1$s\"."
 
 #: adm.valuemapping.php:73
 msgid "Value map added"
-msgstr "值对应已添加"
+msgstr "值映射已添加"
 
 #: adm.valuemapping.php:89
 msgid "Value map deleted"
-msgstr "值对应已删除"
+msgstr "值映射已删除"
 
 #: adm.valuemapping.php:65
 msgid "Value map updated"
-msgstr "值对应已更新"
+msgstr "值映射已更新"
 
 #: adm.valuemapping.php:100 include/valuemap.inc.php:67
 #, c-format
 msgid "Value map with valuemapid \"%1$s\" does not exist."
-msgstr "valuemapid为\"%1$s\"的值对应不存在."
+msgstr "valuemapid为\"%1$s\"的值映射不存在."
 
 #: adm.gui.php:101 adm.housekeeper.php:132 adm.iconmapping.php:115
 #: adm.images.php:137 adm.macros.php:164 adm.other.php:116 adm.regexps.php:200
@@ -14886,11 +14886,11 @@ msgstr "valuemapid为\"%1$s\"的值对应不存在."
 #: adm.valuemapping.php:132 adm.valuemapping.php:199 adm.workingtime.php:67
 #: include/views/administration.general.valuemapping.edit.php:55
 msgid "Value mapping"
-msgstr "值对应"
+msgstr "值映射"
 
 #: include/valuemap.inc.php:129
 msgid "Value mapping must have at least one mapping."
-msgstr "值对应必需至少有一个对应."
+msgstr "值映射必需至少有一个对应."
 
 #: include/classes/items/CHelpItems.php:133
 #: include/classes/items/CHelpItems.php:395
@@ -15960,7 +15960,7 @@ msgstr ""
 
 #: include/views/administration.general.gui.edit.php:35
 msgid "remember selected"
-msgstr "记住所选的"
+msgstr "记住所选"
 
 #: include/services.inc.php:70 include/services.inc.php:73
 #: include/services.inc.php:166
@@ -16004,7 +16004,7 @@ msgstr "显示图标映射"
 #: include/views/configuration.item.edit.php:435
 #: include/views/configuration.item.massupdate.php:442
 msgid "show value mappings"
-msgstr "显示值对应"
+msgstr "显示值映射"
 
 #: api/classes/CHostBase.php:53
 #, c-format
