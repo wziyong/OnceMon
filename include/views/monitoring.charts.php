@@ -49,20 +49,11 @@ $columns = array_fill(0, 2, array());
 $graph_title = isset($this->data['pageFilter']->graphs[$this->data['graphid']]['name'])
 		? $this->data['pageFilter']->graphs[$this->data['graphid']]['name']
 		: null;
-$left_grph = new CUIWidget('hat_favgrph', $leftForm);
+$left_grph = new CUIWidget('hat_choose', $leftForm);
 $left_grph->setHeader('选择图表');
 $left_grph->setFooter(null, true);
 $columns[0][0] = $left_grph;
 
-//$chartsWidget->addHeader(
-//	isset($this->data['pageFilter']->graphs[$this->data['graphid']]['name'])
-//		? $this->data['pageFilter']->graphs[$this->data['graphid']]['name']
-//		: null,
-//	$chartForm
-//);
-//$chartsWidget->addItem(BR());
-//
-//$chartsWidget->addFlicker(new CDiv(null, null, 'scrollbar_cntr'), CProfile::get('web.charts.filter.state', 1));
 $rightForm = new CForm('get');
 $rightForm->addItem(new CDiv(null, null, 'scrollbar_cntr'));
 if (!empty($this->data['graphid'])) {
