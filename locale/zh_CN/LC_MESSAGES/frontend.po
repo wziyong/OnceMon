@@ -14900,7 +14900,7 @@ msgstr ""
 #: include/classes/graphdraw/CPieGraphDraw.php:342
 #, c-format
 msgid "Value: no data"
-msgstr "值: 无资料"
+msgstr "Value: no data"
 
 #: include/views/monitoring.history.php:63
 msgid "Values"
@@ -15608,7 +15608,7 @@ msgstr "自动被注册的主机"
 #: include/views/js/configuration.graph.edit.js.php:41
 #: include/views/js/configuration.graph.edit.js.php:49 popup_bitem.php:145
 msgid "avg"
-msgstr "平均"
+msgstr "avg"
 
 #: include/func.inc.php:564 jsLoader.php:97
 msgctxt "day short"
@@ -15789,7 +15789,7 @@ msgstr ""
 #: include/classes/graphdraw/CPieGraphDraw.php:315 include/graphs.inc.php:92
 #: include/views/js/configuration.graph.edit.js.php:43
 msgid "last"
-msgstr "最新"
+msgstr "last"
 
 #: hosts.php:778 hosts.php:779 hosts.php:780 include/actions.inc.php:29
 #: include/forms.inc.php:477 include/forms.inc.php:484
@@ -15831,7 +15831,7 @@ msgstr "拓扑图"
 #: include/views/js/configuration.graph.edit.js.php:42
 #: include/views/js/configuration.graph.edit.js.php:50 popup_bitem.php:146
 msgid "max"
-msgstr "最大"
+msgstr "max"
 
 #: include/classes/graphdraw/CLineGraphDraw.php:1833
 #: include/classes/graphdraw/CLineGraphDraw.php:1846
@@ -15839,7 +15839,7 @@ msgstr "最大"
 #: include/views/js/configuration.graph.edit.js.php:40
 #: include/views/js/configuration.graph.edit.js.php:48 popup_bitem.php:144
 msgid "min"
-msgstr "最小"
+msgstr "min"
 
 #: include/views/configuration.action.edit.php:353
 msgid "minimum 60 seconds"
@@ -15874,7 +15874,7 @@ msgstr ""
 #: include/classes/graphdraw/CPieGraphDraw.php:343
 #, c-format
 msgid "no data"
-msgstr "没有数据"
+msgstr "no data"
 
 #: include/actions.inc.php:39
 msgid "not in"

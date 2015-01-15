@@ -477,7 +477,7 @@ class CLineGraphDraw extends CGraphDraw {
 					'skipdraw' => ($val <= $minY || $val >= $maxY),
 					'y' => $this->sizeY - (($val - $minY) / ($maxY - $minY)) * $this->sizeY + $this->shiftY,
 					'color' => getSeverityColor($trigger['priority']),
-					'description' => _('Trigger').NAME_DELIMITER.CMacrosResolverHelper::resolveTriggerName($trigger),
+					'description' => 'Trigger'.NAME_DELIMITER.CMacrosResolverHelper::resolveTriggerName($trigger),
 					'constant' => '['.$arr[2].' '.$arr[3].$arr[4].']'
 				);
 				++$cnt;
