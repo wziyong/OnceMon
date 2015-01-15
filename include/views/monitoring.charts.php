@@ -20,11 +20,12 @@
 
 
 $chartsWidget = new CWidget('hat_charts');
-$chartForm = new CForm('get');
-$chartForm->addVar('fullscreen', $this->data['fullscreen']);
-$chartForm->addItem(array(_('Group').SPACE, $this->data['pageFilter']->getGroupsCB(true)));
-$chartForm->addItem(array(SPACE._('Host').SPACE, $this->data['pageFilter']->getHostsCB(true)));
-$chartForm->addItem(array(SPACE._('Graph').SPACE, $this->data['pageFilter']->getGraphsCB(true)));
+
+$leftForm = new CForm('get');
+$leftForm->addVar('fullscreen', $this->data['fullscreen']);
+$leftForm->addItem(array(_('Group').SPACE, $this->data['pageFilter']->getGroupsCB(true)));
+$leftForm->addItem(array(SPACE._('Host').SPACE, $this->data['pageFilter']->getHostsCB(true)));
+$leftForm->addItem(array(SPACE._('Graph').SPACE, $this->data['pageFilter']->getGraphsCB(true)));
 
 if ($this->data['graphid']) {
 	$chartsWidget->addPageHeader(_('GRAPHS'), array(
@@ -45,11 +46,13 @@ $chartTable = new CTable(null, 'maxwidth');
  * Columns
  */
 $columns = array_fill(0, 2, array());
-
-//$columns[0][0] = isset($this->data['pageFilter']->graphs[$this->data['graphid']]['name'])
-//	? $this->data['pageFilter']->graphs[$this->data['graphid']]['name']
-//	: null;
-$columns[0][0] = $chartForm;
+$graph_title = isset($this->data['pageFilter']->graphs[$this->data['graphid']]['name'])
+		? $this->data['pageFilter']->graphs[$this->data['graphid']]['name']
+		: null;
+$left_grph = new CUIWidget('hat_favgrph', $leftForm);
+$left_grph->setHeader('选择图表');
+$left_grph->setFooter(null, true);
+$columns[0][0] = $left_grph;
 
 //$chartsWidget->addHeader(
 //	isset($this->data['pageFilter']->graphs[$this->data['graphid']]['name'])
@@ -60,8 +63,8 @@ $columns[0][0] = $chartForm;
 //$chartsWidget->addItem(BR());
 //
 //$chartsWidget->addFlicker(new CDiv(null, null, 'scrollbar_cntr'), CProfile::get('web.charts.filter.state', 1));
-$columns[1][0] = new CDiv(null, null, 'scrollbar_cntr');
-
+$rightForm = new CForm('get');
+$rightForm->addItem(new CDiv(null, null, 'scrollbar_cntr'));
 if (!empty($this->data['graphid'])) {
 	// append chart to widget
 	$screen = CScreenBuilder::getScreen(array(
@@ -71,7 +74,11 @@ if (!empty($this->data['graphid'])) {
 		'profileIdx2' => $this->data['graphid']
 	));
 
-	$columns[1][1] = $screen->get();
+	$rightForm->addItem($screen->get());
+	$right_grph = new CUIWidget('hat_favgrph', $rightForm);
+	$right_grph->setHeader($graph_title);
+	$right_grph->setFooter(null, true);
+	$columns[1][0] = $right_grph;
 
 	CScreenBuilder::insertScreenStandardJs(array(
 		'timeline' => $screen->timeline,

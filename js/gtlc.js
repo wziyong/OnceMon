@@ -1255,6 +1255,7 @@ var CScrollBar = Class.create(CDebug, {
 	},
 
 	scrollCreate: function(width) {
+		var mywidth = width - 250;
 		var scr_cntr = $('scrollbar_cntr');
 		if (is_null(scr_cntr)) {
 			throw('ERROR: SCROLL [scrollcreate]: scroll container node is not found!');
@@ -1265,20 +1266,20 @@ var CScrollBar = Class.create(CDebug, {
 
 		scr_cntr.style.paddingRight = '2px';
 		scr_cntr.style.paddingLeft = '2px';
-		scr_cntr.style.margin = '5px 0 0 0';
+		scr_cntr.style.margin = '5px 0 5px 0';
 
 		this.dom.scrollbar = document.createElement('div');
 		this.dom.scrollbar.className = 'scrollbar';
 		scr_cntr.appendChild(this.dom.scrollbar);
 
 		Element.extend(this.dom.scrollbar);
-		this.dom.scrollbar.setStyle({width: width + 'px'});
+		this.dom.scrollbar.setStyle({width: mywidth + 'px'});
 
 		// <info>
 		this.dom.info = document.createElement('div');
 		this.dom.scrollbar.appendChild(this.dom.info);
 		this.dom.info.className = 'info';
-		$(this.dom.info).setStyle({width: width + 'px'});
+		$(this.dom.info).setStyle({width: mywidth + 'px'});
 
 		this.dom.zoom = document.createElement('div');
 		this.dom.info.appendChild(this.dom.zoom);
@@ -1321,7 +1322,7 @@ var CScrollBar = Class.create(CDebug, {
 		this.dom.sublevel = document.createElement('div');
 		this.dom.scrollbar.appendChild(this.dom.sublevel);
 		this.dom.sublevel.className = 'sublevel';
-		$(this.dom.sublevel).setStyle({width: width + 'px'});
+		$(this.dom.sublevel).setStyle({width: mywidth + 'px'});
 
 		this.dom.left = document.createElement('div');
 		this.dom.sublevel.appendChild(this.dom.left);
@@ -1341,7 +1342,7 @@ var CScrollBar = Class.create(CDebug, {
 		this.dom.overlevel = document.createElement('div');
 		this.dom.scrollbar.appendChild(this.dom.overlevel);
 		this.dom.overlevel.className = 'overlevel';
-		$(this.dom.overlevel).setStyle({width: (width - 34) + 'px'});
+		$(this.dom.overlevel).setStyle({width: (mywidth - 34) + 'px'});
 
 		this.dom.bar = document.createElement('div');
 		this.dom.overlevel.appendChild(this.dom.bar);
@@ -1371,7 +1372,7 @@ var CScrollBar = Class.create(CDebug, {
 		this.dom.subline = document.createElement('div');
 		this.dom.scrollbar.appendChild(this.dom.subline);
 		this.dom.subline.className = 'subline';
-		$(this.dom.subline).setStyle({width: width + 'px'});
+		$(this.dom.subline).setStyle({width: mywidth + 'px'});
 
 		// additional positioning links
 		this.dom.nav_links = document.createElement('div');

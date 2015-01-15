@@ -104,7 +104,7 @@ if ($height <= 0) {
 $graph->showLegend($dbGraph['show_legend']);
 $graph->showWorkPeriod($dbGraph['show_work_period']);
 $graph->showTriggers($dbGraph['show_triggers']);
-$graph->setWidth($width);
+$graph->setWidth($width - 250);
 $graph->setHeight($height);
 $graph->setYMinAxisType($dbGraph['ymin_type']);
 $graph->setYMaxAxisType($dbGraph['ymax_type']);

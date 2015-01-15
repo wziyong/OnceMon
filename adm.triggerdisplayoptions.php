@@ -87,7 +87,7 @@ $form->addItem($cmbConf);
 
 
 $cnf_wdgt = new CWidget();
-$cnf_wdgt->addPageHeader(_('CONFIGURATION OF Zabbix'), $form);
+$cnf_wdgt->addPageHeader(_('CONFIGURATION OF ZABBIX'), $form);
 
 $data = array();
 $data['form_refresh'] = get_request('form_refresh', 0);

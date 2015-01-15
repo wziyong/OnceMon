@@ -267,11 +267,11 @@ msgstr "已处理"
 
 #: include/views/administration.general.triggerDisplayOptions.edit.php:83
 msgid "Acknowledged OK events"
-msgstr "处理正常的事件"
+msgstr "确认正常的事件"
 
 #: include/views/administration.general.triggerDisplayOptions.edit.php:49
 msgid "Acknowledged PROBLEM events"
-msgstr "处理异常的事件"
+msgstr "确认异常的事件"
 
 #: acknow.php:27 tr_events.php:121
 msgid "Acknowledges"
@@ -833,7 +833,7 @@ msgstr "自动注册"
 
 #: include/views/administration.users.edit.php:160
 msgid "Auto-login"
-msgstr "自动登入"
+msgstr "自动登录"
 
 #: include/views/administration.users.edit.php:161 profile.php:50 users.php:61
 msgid "Auto-logout (min 90 seconds)"
@@ -1009,11 +1009,11 @@ msgstr "配置动作"
 #: include/views/configuration.application.edit.php:23
 #: include/views/configuration.application.list.php:40
 msgid "CONFIGURATION OF APPLICATIONS"
-msgstr "应用的配置"
+msgstr "配置应用"
 
 #: include/views/administration.authentication.edit.php:23
 msgid "CONFIGURATION OF AUTHENTICATION"
-msgstr "授权的配置"
+msgstr "配置认证方式"
 
 #: host_discovery.php:303 include/views/configuration.discovery.edit.php:25
 #: include/views/configuration.discovery.list.php:28
@@ -1089,7 +1089,7 @@ msgstr "配置维护"
 #: include/views/administration.mediatypes.edit.php:23
 #: include/views/administration.mediatypes.list.php:27
 msgid "CONFIGURATION OF MEDIA TYPES"
-msgstr "Media类型的配置"
+msgstr "配置报警媒介类型"
 
 #: include/views/configuration.sysmap.constructor.php:25
 #: include/views/configuration.sysmap.edit.php:25
@@ -1211,7 +1211,7 @@ msgstr "计算磁盘空间，单位是KB。如果没有mode，使用total。对�
 #: include/items.inc.php:97 include/views/configuration.graph.edit.php:96
 #: include/views/configuration.graph.edit.php:154
 msgid "Calculated"
-msgstr "计算的"
+msgstr "可计算项"
 
 #: include/views/administration.usergroups.edit.php:120
 msgid "Calculated permissions"
@@ -3553,7 +3553,7 @@ msgstr "数据库主机"
 
 #: include/items.inc.php:92
 msgid "Database monitor"
-msgstr "数据库监视"
+msgstr "数据库监测"
 
 #: include/setup.inc.php:303 include/setup.inc.php:422 setup.php:44
 msgid "Database name"
@@ -3565,7 +3565,7 @@ msgstr "数据库密码"
 
 #: include/setup.inc.php:295 include/setup.inc.php:419 setup.php:43
 msgid "Database port"
-msgstr "数据端口"
+msgstr "数据库端口"
 
 #: include/setup.inc.php:311 include/setup.inc.php:426
 msgid "Database schema"
@@ -3736,7 +3736,7 @@ msgstr "延迟(秒)"
 
 #: queue.php:202
 msgid "Delayed by"
-msgstr "被延迟由于"
+msgstr "被延迟的原因"
 
 #: include/classes/class.cbuttondelete.php:25
 #: include/views/administration.auditlogs.list.php:47
@@ -3785,7 +3785,7 @@ msgstr "删除图表?"
 
 #: include/views/configuration.httpconf.list.php:106
 msgid "Delete history of selected WEB scenarios?"
-msgstr "删除所选的WEB方桉的历史资料?"
+msgstr "删除所选的WEB方案的历史资料?"
 
 #: include/views/configuration.item.list.php:288
 msgid "Delete history of selected items?"
@@ -4292,7 +4292,7 @@ msgstr "停用所选"
 
 #: include/views/configuration.httpconf.list.php:102
 msgid "Disable selected WEB scenarios?"
-msgstr "停用所选的WEB方桉?"
+msgstr "停用所选的WEB方案?"
 
 #: include/views/configuration.action.list.php:102
 msgid "Disable selected actions?"
@@ -4483,7 +4483,7 @@ msgstr "自发现状态"
 
 #: include/views/administration.general.triggerDisplayOptions.edit.php:105
 msgid "Display OK triggers for"
-msgstr "显示OK触发器予"
+msgstr "触发器显示正常"
 
 #: include/func.inc.php:1892
 msgid "Displaying"
@@ -4848,7 +4848,7 @@ msgstr "启用所选"
 
 #: include/views/configuration.httpconf.list.php:98
 msgid "Enable selected WEB scenarios?"
-msgstr "启用所选的WEB方桉?"
+msgstr "启用所选的WEB方案?"
 
 #: include/views/configuration.action.list.php:98
 msgid "Enable selected actions?"
@@ -5132,7 +5132,7 @@ msgstr "表达式"
 
 #: include/items.inc.php:91
 msgid "External check"
-msgstr "外在检查"
+msgstr "外部检查"
 
 #: include/media.inc.php:28
 #: include/views/administration.mediatypes.edit.php:46
@@ -5775,7 +5775,7 @@ msgstr "群组已删除"
 
 #: include/views/administration.general.other.edit.php:36
 msgid "Group for discovered hosts"
-msgstr "自发现到的主机的群组"
+msgstr "自发现的主机群组"
 
 #: adm.other.php:74
 #, c-format
@@ -5928,7 +5928,7 @@ msgstr "隐藏所有"
 
 #: include/views/configuration.httpconf.list.php:49
 msgid "Hide disabled scenarios"
-msgstr "隐藏失效的方桉"
+msgstr "隐藏失效的方案"
 
 #: include/views/configuration.triggers.list.php:63
 msgid "Hide disabled trigger prototypes"
@@ -6473,35 +6473,35 @@ msgstr "IPMI"
 
 #: include/items.inc.php:93
 msgid "IPMI agent"
-msgstr "IPMI监测节点"
+msgstr "IPMI 监测节点"
 
 #: include/views/configuration.host.massupdate.php:222
 msgid "IPMI authentication algorithm"
-msgstr "IPMI认证演算法"
+msgstr "IPMI 认证演算法"
 
 #: include/views/configuration.host.edit.php:300
 #: include/views/configuration.host.edit.php:376
 #: include/views/configuration.host.prototype.edit.php:146
 #: include/views/inventory.host.view.php:177
 msgid "IPMI interfaces"
-msgstr "IPMI接口"
+msgstr "IPMI 接口"
 
 #: include/views/configuration.host.massupdate.php:251
 msgid "IPMI password"
-msgstr "IPMI密码"
+msgstr "IPMI 密码"
 
 #: include/views/configuration.host.massupdate.php:233
 msgid "IPMI privilege level"
-msgstr "IPMI优先层级"
+msgstr "IPMI 优先层级"
 
 #: disc_prototypes.php:100 host_discovery.php:97
 #: include/views/configuration.item.edit.php:173 items.php:107
 msgid "IPMI sensor"
-msgstr "IPMI感应器"
+msgstr "IPMI 感应器"
 
 #: include/views/configuration.host.massupdate.php:242
 msgid "IPMI username"
-msgstr "IPMI用户名"
+msgstr "IPMI 用户名"
 
 #: srv_status.php:161
 msgid "IT SERVICES"
@@ -8100,11 +8100,11 @@ msgstr "LDAP主机"
 
 #: authentication.php:159
 msgid "LDAP login successful"
-msgstr "LDAP登入成功"
+msgstr "LDAP登录成功"
 
 #: authentication.php:159
 msgid "LDAP login was not successful"
-msgstr "LDAP登入并不成功"
+msgstr "LDAP登录并不成功"
 
 #: include/classes/screens/CScreenClock.php:81
 msgid "LOCAL"
@@ -8422,7 +8422,7 @@ msgstr "日志与SNMP捉捕器不符"
 
 #: include/classes/class.cserverinfo.php:43
 msgid "Logged in as"
-msgstr "登入为"
+msgstr "登录为"
 
 #: auditlogs.php:143 include/func.inc.php:2102 include/func.inc.php:2119
 #: include/menu.inc.php:282 include/page_header.php:227
@@ -8430,16 +8430,16 @@ msgstr "登入为"
 #: include/views/administration.authentication.edit.php:111
 #: include/views/administration.users.list.php:61
 msgid "Login"
-msgstr "登入"
+msgstr "登录"
 
 #: include/views/general.login.php:80
 msgid "Login as Guest"
-msgstr "登入为访客"
+msgstr "登录为访客"
 
 #: api/classes/CUser.php:1136
 #, c-format
 msgid "Login failed \"%s\"."
-msgstr "登入失败\"%s\"."
+msgstr "登录失败\"%s\"."
 
 #: api/classes/CUser.php:1104
 #, c-format
@@ -8453,7 +8453,7 @@ msgstr ""
 #: api/classes/CUser.php:984 api/classes/CUser.php:1003
 #: api/classes/CUser.php:1052
 msgid "Login name or password is incorrect."
-msgstr "登入名称或密码是不正确的."
+msgstr "登录名称或密码是不正确的."
 
 #: auditlogs.php:146 include/page_header.php:233 include/page_header.php:237
 #: include/views/administration.auditlogs.list.php:44
@@ -9519,7 +9519,7 @@ msgstr ""
 #: include/views/administration.auditacts.list.php:67
 #: include/views/administration.auditlogs.list.php:83
 msgid "No audit entries found."
-msgstr ""
+msgstr "审计词条不存在"
 
 #: api/classes/CAction.php:1354
 #, c-format
@@ -9817,7 +9817,7 @@ msgstr "没有找到匹配"
 
 #: include/views/administration.users.edit.php:173
 msgid "No media found."
-msgstr ""
+msgstr "未发现报警媒介"
 
 #: include/views/administration.mediatypes.list.php:36
 msgid "No media types found."
@@ -10453,7 +10453,7 @@ msgstr "作业系统( 简)"
 
 #: adm.other.php:125
 msgid "OTHER CONFIGURATION PARAMETERS"
-msgstr "其它配置参数"
+msgstr "其它参数"
 
 #: include/views/monitoring.overview.php:77
 msgid "OVERVIEW"
@@ -10491,7 +10491,7 @@ msgstr "开"
 
 #: include/views/administration.general.triggerDisplayOptions.edit.php:111
 msgid "On status change triggers blink for"
-msgstr "于状态改变时, 触发器因此闪烁于"
+msgstr "触发器因状态改变闪烁"
 
 #: include/views/administration.users.edit.php:230
 msgid "Once"
@@ -10764,7 +10764,7 @@ msgstr "全局视图"
 
 #: queue.php:70
 msgid "Overview by proxy"
-msgstr "依proxy概览"
+msgstr "根据代理概览"
 
 #: include/func.inc.php:680
 msgctxt "Peta short"
@@ -10990,7 +10990,7 @@ msgstr "解析错误"
 #: include/views/administration.proxy.edit.php:43
 #: include/views/administration.proxy.list.php:93
 msgid "Passive"
-msgstr "被动式"
+msgstr "被动模式"
 
 #: httpconf.php:55 include/setup.inc.php:326
 #: include/views/administration.mediatypes.edit.php:82
@@ -11014,7 +11014,7 @@ msgstr "密码"
 
 #: include/views/administration.users.edit.php:88
 msgid "Password (once again)"
-msgstr "密码 (再次确认)"
+msgstr "确认密码"
 
 #: users.php:163
 #, c-format
@@ -11075,7 +11075,7 @@ msgstr "许可权"
 
 #: include/views/administration.users.edit.php:363
 msgid "Permissions can be assigned for user groups only."
-msgstr "许可权只能被指派予用户群组"
+msgstr "许可权只能被授予用户群组"
 
 #: include/locales.inc.php:73
 msgid "Persian (fa_IR)"
@@ -11394,7 +11394,7 @@ msgstr "读"
 #: include/forms.inc.php:269 include/perm.inc.php:32
 #: include/views/administration.usergroups.edit.php:82
 msgid "Read only"
-msgstr "唯读"
+msgstr "只读"
 
 #: include/forms.inc.php:269 include/perm.inc.php:31
 #: include/views/administration.usergroups.edit.php:82
@@ -11853,11 +11853,11 @@ msgstr "执行命令"
 
 #: include/actions.inc.php:503
 msgid "Run custom commands on Zabbix agent"
-msgstr "于Zabbix监测节点上执行自订命令"
+msgstr "在OnceMon监测节点上执行自定义命令"
 
 #: include/actions.inc.php:506
 msgid "Run custom commands on Zabbix server"
-msgstr "于Zabbix服务器上执行自订命令"
+msgstr "在OnceMon服务器上执行自订命令"
 
 #: include/actions.inc.php:516
 msgid "Run global script"
@@ -11865,7 +11865,7 @@ msgstr "执行全域脚本"
 
 #: include/actions.inc.php:379
 msgid "Run remote commands on current host"
-msgstr "于目前主机上执行远程命令"
+msgstr "在当前主机上执行远程命令"
 
 #: include/actions.inc.php:398
 msgid "Run remote commands on host groups"
@@ -11873,7 +11873,7 @@ msgstr "于主机群组上执行远程命令"
 
 #: include/actions.inc.php:386
 msgid "Run remote commands on hosts"
-msgstr "于主机上执行远程命令"
+msgstr "在主机上执行远程命令"
 
 #: include/classes/items/CHelpItems.php:201
 #: include/classes/items/CHelpItems.php:463
@@ -12125,19 +12125,19 @@ msgstr "Scale"
 
 #: include/audit.inc.php:43 include/views/configuration.httpconf.edit.php:241
 msgid "Scenario"
-msgstr "方桉"
+msgstr "方案"
 
 #: httpconf.php:145
 msgid "Scenario added"
-msgstr "方桉已添加"
+msgstr "方案已添加"
 
 #: httpconf.php:140
 msgid "Scenario updated"
-msgstr "方桉已更新"
+msgstr "方案已更新"
 
 #: include/views/configuration.httpconf.list.php:46
 msgid "Scenarios"
-msgstr "方桉"
+msgstr "方案"
 
 #: include/views/configuration.maintenance.edit.php:101
 msgid "Schedule"
@@ -12609,7 +12609,7 @@ msgstr "显示详细信息"
 
 #: include/views/configuration.httpconf.list.php:49
 msgid "Show disabled scenarios"
-msgstr "显示失效的方桉"
+msgstr "显示失效的方案"
 
 #: include/views/configuration.triggers.list.php:63
 msgid "Show disabled trigger prototypes"
@@ -13011,7 +13011,7 @@ msgstr "步骤持续时间"
 
 #: include/views/configuration.httpconf.popup.php:87 popup_httpstep.php:24
 msgid "Step of scenario"
-msgstr "方桉的步骤"
+msgstr "方案的步骤"
 
 #: include/views/configuration.httpconf.popup.php:32
 #, c-format
@@ -13168,7 +13168,7 @@ msgstr "TCP"
 
 #: include/items.inc.php:95
 msgid "TELNET agent"
-msgstr "TELNET监测节点"
+msgstr "TELNET 监测节点"
 
 #: httpdetails.php:245
 msgid "TOTAL"
@@ -13388,12 +13388,12 @@ msgstr ""
 #: include/classes/db/PostgresqlDbBackend.php:41
 #: include/classes/db/SqliteDbBackend.php:34
 msgid "The frontend does not match Zabbix database."
-msgstr "前端不匹配Zabbix数据库."
+msgstr "前端不匹配OnceMon数据库."
 
 #: include/classes/db/DbBackend.php:48
 #, c-format
 msgid "The frontend does not match Zabbix database. Current database version (mandatory/optional): %d/%d. Required mandatory version: %d. Contact your system administrator."
-msgstr "前端不匹配Zabbix数据库.当前数据库版本(强制/可选):%d/%d. 需要的版本为: %d.  联系你的系统管理员."
+msgstr "前端不匹配OnceMon数据库.当前数据库版本(强制/可选):%d/%d. 需要的版本为: %d.  联系你的系统管理员."
 
 #: include/views/configuration.hostgroups.list.php:137
 #, c-format
@@ -13424,7 +13424,7 @@ msgstr "已无法自发现此监控项了, 将删除于%1$s (在%2$s在%3$s)."
 
 #: queue.php:78
 msgid "The queue is empty."
-msgstr "队列是空."
+msgstr "队列是空的"
 
 #: api/rpc/class.cjsonrpc.php:187
 msgid "The received JSON is not a valid JSON-RPC Request."
@@ -14087,11 +14087,11 @@ msgstr "未处理的"
 
 #: include/views/administration.general.triggerDisplayOptions.edit.php:66
 msgid "Unacknowledged OK events"
-msgstr "未处理的OK事件"
+msgstr "未处理的正常事件"
 
 #: include/views/administration.general.triggerDisplayOptions.edit.php:32
 msgid "Unacknowledged PROBLEM events"
-msgstr "未处理的Problem事件"
+msgstr "未处理的异常事件"
 
 #: include/views/configuration.sysmap.edit.php:123
 #: include/views/monitoring.dashconf.php:106
@@ -14105,11 +14105,11 @@ msgstr ""
 
 #: include/views/administration.users.list.php:135
 msgid "Unblock selected"
-msgstr "解除封锁所选的"
+msgstr "解锁所选"
 
 #: include/views/administration.users.list.php:136
 msgid "Unblock selected users?"
-msgstr "解除封锁所选的用户?"
+msgstr "解锁所选用户?"
 
 #: include/views/configuration.item.edit.php:240
 #: include/views/configuration.item.massupdate.php:237
@@ -14407,11 +14407,11 @@ msgstr "使用自订倍数"
 
 #: popup_media.php:133
 msgid "Use if severity"
-msgstr "用此如果示警度"
+msgstr "使用条件"
 
 #: include/views/administration.mediatypes.list.php:43
 msgid "Used in actions"
-msgstr "用于动作中"
+msgstr "使用条件"
 
 #: httpconf.php:53 include/acknow.inc.php:49 include/actions.inc.php:965
 #: include/audit.inc.php:24 include/hosts.inc.php:67 include/setup.inc.php:319
@@ -14498,7 +14498,7 @@ msgstr[0] ""
 
 #: include/views/administration.general.other.edit.php:37
 msgid "User group for database down message"
-msgstr "用于资料库断线信息的用户群组"
+msgstr "用于数据库离线信息的用户群组"
 
 #: adm.other.php:94
 #, c-format
@@ -15073,7 +15073,7 @@ msgstr "每周"
 
 #: popup_media.php:123
 msgid "When active"
-msgstr "当作用中时"
+msgstr "生效时间段"
 
 #: graphs.php:42 include/views/configuration.graph.edit.php:56
 #: include/views/configuration.graph.list.php:79
@@ -15343,7 +15343,7 @@ msgstr "您未被允许来帮用户\"%s\"转换优先权."
 
 #: include/func.inc.php:2112
 msgid "You are not logged in."
-msgstr "您尚未登入."
+msgstr "您尚未登录。"
 
 #: popup.php:519
 msgid "You can not switch hosts for current selection."
@@ -15398,7 +15398,7 @@ msgstr "你没有许可权来访问这个页面."
 
 #: include/func.inc.php:2114
 msgid "You must login to view this page."
-msgstr "您必需登入才能浏览此页面."
+msgstr "您必需登录才能浏览此页面."
 
 #: include/func.inc.php:2090
 msgid "Your are logged in as"
@@ -15406,7 +15406,7 @@ msgstr "你已经登录作为"
 
 #: include/views/administration.node.list.php:28
 msgid "Your setup is not configured for distributed monitoring."
-msgstr "您的设定并未配置为分散式监测."
+msgstr "您并未配置分布式监测."
 
 #: include/func.inc.php:682
 msgctxt "Zetta short"
@@ -15449,23 +15449,23 @@ msgstr "OnceMon 代理"
 
 #: include/items.inc.php:82
 msgid "Zabbix agent (active)"
-msgstr "Zabbix监测节点(主动式)"
+msgstr "OnceMon 监测节点(主动式)"
 
 #: include/items.inc.php:90
 msgid "Zabbix aggregate"
-msgstr "Zabbix整合"
+msgstr "OnceMon 整合"
 
 #: include/validate.inc.php:513
 msgid "Zabbix has received an incorrect request."
-msgstr "Zabbix已接收到一个不正确的请求."
+msgstr "OnceMon 已接收到一个不正确的请求."
 
 #: include/items.inc.php:88
 msgid "Zabbix internal"
-msgstr "Zabbix自身"
+msgstr "OnceMon 自身"
 
 #: include/perm.inc.php:48
 msgid "Zabbix internal authentication"
-msgstr "Zabbix内部认证"
+msgstr "OnceMon 内部认证"
 
 #: include/classes/class.cserverinfo.php:37
 #: include/classes/class.cserverinfo.php:38 include/setup.inc.php:432

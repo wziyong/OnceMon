@@ -110,7 +110,7 @@ switch ($page['type']) {
 		if (isset($ZBX_SERVER_NAME) && !zbx_empty($ZBX_SERVER_NAME)) {
 			$pageTitle = $ZBX_SERVER_NAME.NAME_DELIMITER;
 		}
-		$pageTitle .= isset($page['title']) ? $page['title'] : _('OnceMon');
+		$pageTitle .= isset($page['title']) ? $page['title'] : _('Zabbix');
 
 		if (ZBX_DISTRIBUTED) {
 			if (isset($ZBX_VIEWED_NODES) && $ZBX_VIEWED_NODES['selected'] == 0) { // all selected
