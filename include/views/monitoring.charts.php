@@ -26,8 +26,6 @@ $chartForm->addItem(array(_('Group').SPACE, $this->data['pageFilter']->getGroups
 $chartForm->addItem(array(SPACE._('Host').SPACE, $this->data['pageFilter']->getHostsCB(true)));
 $chartForm->addItem(array(SPACE._('Graph').SPACE, $this->data['pageFilter']->getGraphsCB(true)));
 
-$chartsWidget->addFlicker(new CDiv(null, null, 'scrollbar_cntr'), CProfile::get('web.charts.filter.state', 1));
-
 if ($this->data['graphid']) {
 	$chartsWidget->addPageHeader(_('GRAPHS'), array(
 		get_icon('favourite', array('fav' => 'web.favorite.graphids', 'elname' => 'graphid', 'elid' => $this->data['graphid'])),
@@ -41,13 +39,28 @@ else {
 	$chartsWidget->addPageHeader(_('GRAPHS'), array(get_icon('fullscreen', array('fullscreen' => $this->data['fullscreen']))));
 }
 
-$chartsWidget->addHeader(
-	isset($this->data['pageFilter']->graphs[$this->data['graphid']]['name'])
-		? $this->data['pageFilter']->graphs[$this->data['graphid']]['name']
-		: null,
-	$chartForm
-);
-$chartsWidget->addItem(BR());
+$chartTable = new CTable(null, 'maxwidth');
+
+/*
+ * Columns
+ */
+$columns = array_fill(0, 2, array());
+
+//$columns[0][0] = isset($this->data['pageFilter']->graphs[$this->data['graphid']]['name'])
+//	? $this->data['pageFilter']->graphs[$this->data['graphid']]['name']
+//	: null;
+$columns[0][0] = $chartForm;
+
+//$chartsWidget->addHeader(
+//	isset($this->data['pageFilter']->graphs[$this->data['graphid']]['name'])
+//		? $this->data['pageFilter']->graphs[$this->data['graphid']]['name']
+//		: null,
+//	$chartForm
+//);
+//$chartsWidget->addItem(BR());
+//
+//$chartsWidget->addFlicker(new CDiv(null, null, 'scrollbar_cntr'), CProfile::get('web.charts.filter.state', 1));
+$columns[1][0] = new CDiv(null, null, 'scrollbar_cntr');
 
 if (!empty($this->data['graphid'])) {
 	// append chart to widget
@@ -58,10 +71,7 @@ if (!empty($this->data['graphid'])) {
 		'profileIdx2' => $this->data['graphid']
 	));
 
-	$chartTable = new CTable(null, 'maxwidth');
-	$chartTable->addRow($screen->get());
-
-	$chartsWidget->addItem($chartTable);
+	$columns[1][1] = $screen->get();
 
 	CScreenBuilder::insertScreenStandardJs(array(
 		'timeline' => $screen->timeline,
@@ -74,7 +84,11 @@ else {
 		'timeline' => $screen->timeline
 	));
 
-	$chartsWidget->addItem(new CTableInfo(_('No graphs found.')));
+	$columns[1][1] = new CTableInfo(_('No graphs found.'));
 }
+
+$chartTable->addRow(array(new CDiv($columns[0], 'column'), new CDiv($columns[1], 'column')), 'top');
+
+$chartsWidget->addItem($chartTable);
 
 return $chartsWidget;
