@@ -22,6 +22,7 @@
 require_once dirname(__FILE__).'/include/config.inc.php';
 require_once dirname(__FILE__).'/include/hosts.inc.php';
 require_once dirname(__FILE__).'/include/graphs.inc.php';
+require_once dirname(__FILE__).'/include/charts.inc.php';
 
 $page['title'] = _('Custom graphs');
 $page['file'] = 'charts.php';

@@ -21,12 +21,6 @@
 
 $chartsWidget = new CWidget('hat_charts');
 
-$leftForm = new CForm('get');
-$leftForm->addVar('fullscreen', $this->data['fullscreen']);
-$leftForm->addItem(array(_('Group').SPACE, $this->data['pageFilter']->getGroupsCB(true)));
-$leftForm->addItem(array(SPACE._('Host').SPACE, $this->data['pageFilter']->getHostsCB(true)));
-$leftForm->addItem(array(SPACE._('Graph').SPACE, $this->data['pageFilter']->getGraphsCB(true)));
-
 if ($this->data['graphid']) {
 	$chartsWidget->addPageHeader(_('GRAPHS'), array(
 		get_icon('favourite', array('fav' => 'web.favorite.graphids', 'elname' => 'graphid', 'elid' => $this->data['graphid'])),
@@ -46,6 +40,31 @@ $chartTable = new CTable(null, 'maxwidth');
  * Columns
  */
 $columns = array_fill(0, 2, array());
+
+/*
+ * Left Column
+ */
+$leftForm = new CForm('get');
+$leftForm->addVar('fullscreen', $this->data['fullscreen']);
+$leftForm->addItem(array(_('Group').SPACE, $this->data['pageFilter']->getGroupsCB(true)));
+$leftForm->addItem(array(SPACE._('Host').SPACE, $this->data['pageFilter']->getHostsCB(true)));
+$leftForm->addItem(array(SPACE._('Graph').SPACE, $this->data['pageFilter']->getGraphsCB(true)));
+
+$treeData = array();
+createChooseTree($treeData);
+//$tree = new CServiceTree('service_conf_tree', $treeData, array(
+//	'caption' => _('Service'),
+//	'algorithm' => _('Status calculation'),
+//	'description' => _('Trigger')
+//));
+//if (empty($tree)) {
+//	error(_('Cannot format tree.'));
+//}
+//
+//$data = array('tree' => $tree);
+// Choose Tree
+
+
 $graph_title = isset($this->data['pageFilter']->graphs[$this->data['graphid']]['name'])
 		? $this->data['pageFilter']->graphs[$this->data['graphid']]['name']
 		: null;
@@ -54,6 +73,9 @@ $left_grph->setHeader('选择图表');
 $left_grph->setFooter(null, true);
 $columns[0][0] = $left_grph;
 
+/*
+ * Right Column
+ */
 $rightForm = new CForm('get');
 $rightForm->addItem(new CDiv(null, null, 'scrollbar_cntr'));
 if (!empty($this->data['graphid'])) {
@@ -66,7 +88,7 @@ if (!empty($this->data['graphid'])) {
 	));
 
 	$rightForm->addItem($screen->get());
-	$right_grph = new CUIWidget('hat_favgrph', $rightForm);
+	$right_grph = new CUIWidget('hat_chartgrph', $rightForm);
 	$right_grph->setHeader($graph_title);
 	$right_grph->setFooter(null, true);
 	$columns[1][0] = $right_grph;
@@ -77,12 +99,18 @@ if (!empty($this->data['graphid'])) {
 	));
 }
 else {
+	// append empty chart to widget
 	$screen = new CScreenBuilder();
 	CScreenBuilder::insertScreenStandardJs(array(
 		'timeline' => $screen->timeline
 	));
 
-	$columns[1][1] = new CTableInfo(_('No graphs found.'));
+	$right_info = new CTableInfo(_('No graphs found.'));
+	$rightForm->addItem($right_info);
+	$right_grph = new CUIWidget('hat_chartgrph', $rightForm);
+	$right_grph->setHeader(null);
+	$right_grph->setFooter(null, true);
+	$columns[1][0] = $right_grph;
 }
 
 $chartTable->addRow(array(new CDiv($columns[0], 'column'), new CDiv($columns[1], 'column')), 'top');
