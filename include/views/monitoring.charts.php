@@ -46,24 +46,21 @@ $columns = array_fill(0, 2, array());
  */
 $leftForm = new CForm('get');
 $leftForm->addVar('fullscreen', $this->data['fullscreen']);
-$leftForm->addItem(array(_('Group').SPACE, $this->data['pageFilter']->getGroupsCB(true)));
-$leftForm->addItem(array(SPACE._('Host').SPACE, $this->data['pageFilter']->getHostsCB(true)));
-$leftForm->addItem(array(SPACE._('Graph').SPACE, $this->data['pageFilter']->getGraphsCB(true)));
 
+// Add Host Select Tree
 $treeData = array();
-createChooseTree($treeData);
-//$tree = new CServiceTree('service_conf_tree', $treeData, array(
-//	'caption' => _('Service'),
-//	'algorithm' => _('Status calculation'),
-//	'description' => _('Trigger')
-//));
-//if (empty($tree)) {
-//	error(_('Cannot format tree.'));
-//}
-//
-//$data = array('tree' => $tree);
-// Choose Tree
+createChooseTree($this->data['pageFilter'], $treeData);
+$tree = new CTree('选择树', $treeData, array(
+	'caption' => _('Host'),
+	'state' => _('State')
+));
+if (empty($tree)) {
+	error(_('Cannot format tree.'));
+}
+$leftForm->addItem($tree->getHTML());
 
+// Add Chart Selector
+$leftForm->addItem(array(SPACE._('Graph').SPACE, $this->data['pageFilter']->getGraphsCB(true)));
 
 $graph_title = isset($this->data['pageFilter']->graphs[$this->data['graphid']]['name'])
 		? $this->data['pageFilter']->graphs[$this->data['graphid']]['name']

@@ -2060,7 +2060,7 @@ msgstr "无法形成树状格式. 检查服务关联的逻辑结构."
 
 #: services.php:471
 msgid "Cannot format tree."
-msgstr "无法形成树状格式"
+msgstr "无法构建树"
 
 #: api/classes/CTemplate.php:924
 msgid "Cannot have empty visible template name"
@@ -8434,7 +8434,7 @@ msgstr "登录"
 
 #: include/views/general.login.php:80
 msgid "Login as Guest"
-msgstr "登录为访客"
+msgstr "以访客身份登录"
 
 #: api/classes/CUser.php:1136
 #, c-format
@@ -11518,7 +11518,7 @@ msgstr "正则表达式"
 
 #: include/views/general.login.php:74
 msgid "Remember me for 30 days"
-msgstr "记住我三十日"
+msgstr "30天内自动登录"
 
 #: include/actions.inc.php:636
 msgid "Remote command"
@@ -12696,7 +12696,7 @@ msgstr "已显示"
 
 #: include/views/general.login.php:77 index.php:55 index.php:64
 msgid "Sign in"
-msgstr "签入"
+msgstr "登录"
 
 #: include/graphs.inc.php:47
 #: include/views/js/configuration.graph.edit.js.php:30

@@ -17,7 +17,62 @@
 ** along with this program; if not, write to the Free Software
 ** Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 **/
-?>
-<?php
 
-function createChooseTree
+function createChooseTree($pageFilter, &$tree){
+    $groupsData = $pageFilter->groups;
+    $hostsData = $pageFilter->hosts;
+
+    $root = new CLink('root', '#', 'group-choose-menu');
+    $root->setAttribute('data-menu', array(
+        'serviceid' => 0,
+        'name' => 'root',
+        'hasDependencies' => true
+    ));
+
+    $rootNode = array(
+        'id' => 0,
+        'parentid' => 0,
+        'caption' => $root,
+        'trigger' => array(),
+        'state' => SPACE
+    );
+    $index = 0;
+    $tree[$index] = $rootNode;
+    $index = $index + 1;
+
+    $caption = new CLink('群组', '#', 'group-choose-menu');
+    $caption->setAttribute('data-menu', array(
+        'serviceid' => 1,
+        'name' => '群组',
+        'hasDependencies' => true
+    ));
+    $serviceNode = array(
+        'id' => 1,
+        'parentid' => 0,
+        'caption' => $caption,
+        'trigger' => array(),
+        'state' => SPACE
+    );
+    $tree[$index] = $serviceNode;
+    $index = $index + 1;
+
+    // add all top level services as children of "root"
+    foreach ($groupsData as $groupNode) {
+        $captionGroup = new CLink('Haha', '#', 'group-choose-menu');
+        $captionGroup->setAttribute('data-menu', array(
+            'serviceid' => $groupNode['groupid'],
+            'name' => 'Haha',
+            'hasDependencies' => true
+        ));
+        $groupNode = array(
+            'id' => $groupNode['groupid'],
+            'caption' => $captionGroup,
+            'parentid' => 1,
+            'state' => _('Normal')
+        );
+        $tree[$index] = $groupNode;
+        $index = $index + 1;
+    }
+
+    var_dump($tree);
+}
