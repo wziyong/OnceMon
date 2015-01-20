@@ -14009,7 +14009,7 @@ msgstr "类型 "
 
 #: include/translateDefines.inc.php:24
 msgid "UNKNOWN"
-msgstr "未知的"
+msgstr "未知"
 
 #: include/triggers.inc.php:171
 msgid "UP"
@@ -14143,11 +14143,11 @@ msgstr "单位"
 #: include/users.inc.php:66 include/users.inc.php:88
 #: include/views/js/configuration.discovery.edit.js.php:192
 msgid "Unknown"
-msgstr "未知的"
+msgstr "未知"
 
 #: auditlogs.php:155
 msgid "Unknown action"
-msgstr "未知的操作"
+msgstr "未知操作"
 
 #: httpdetails.php:163 httpdetails.php:235 httpmon.php:145
 msgid "Unknown error"
@@ -14155,7 +14155,7 @@ msgstr ""
 
 #: include/classes/validators/CTriggerFunctionValidator.php:249
 msgid "Unknown function."
-msgstr "未知的方程式."
+msgstr "未知方程式"
 
 #: include/triggers.inc.php:1763 popup_trexpr.php:592 tr_testexpr.php:34
 msgid "Unknown host item, no such item in selected host"

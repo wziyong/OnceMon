@@ -20,59 +20,64 @@
 
 function createChooseTree($pageFilter, &$tree){
     $groupsData = $pageFilter->groups;
-    $hostsData = $pageFilter->hosts;
+    $index = 0;
 
-    $root = new CLink('root', '#', 'group-choose-menu');
-    $root->setAttribute('data-menu', array(
-        'serviceid' => 0,
-        'name' => 'root',
-        'hasDependencies' => true
+    // add "群组"
+    $caption = new CLink('群组', '#', 'group-choose-menu');
+    $caption->setAttribute('data-menu', array(
+        'name' => '群组'
     ));
-
     $rootNode = array(
-        'id' => 0,
-        'parentid' => 0,
-        'caption' => $root,
-        'trigger' => array(),
+        'id' => (string)$index,
+        'parentid' => $index,
+        'caption' => $caption,
         'state' => SPACE
     );
-    $index = 0;
     $tree[$index] = $rootNode;
     $index = $index + 1;
 
-    $caption = new CLink('群组', '#', 'group-choose-menu');
-    $caption->setAttribute('data-menu', array(
-        'serviceid' => 1,
-        'name' => '群组',
-        'hasDependencies' => true
-    ));
-    $serviceNode = array(
-        'id' => 1,
-        'parentid' => 0,
-        'caption' => $caption,
-        'trigger' => array(),
-        'state' => SPACE
-    );
-    $tree[$index] = $serviceNode;
-    $index = $index + 1;
-
-    // add all top level services as children of "root"
-    foreach ($groupsData as $groupNode) {
-        $captionGroup = new CLink('Haha', '#', 'group-choose-menu');
+    // add all groups as children of "群组"
+    foreach ($groupsData as $groupData) {
+        $captionGroup = new CLink($groupData['name'], '#', 'group-choose-menu');
         $captionGroup->setAttribute('data-menu', array(
-            'serviceid' => $groupNode['groupid'],
-            'name' => 'Haha',
-            'hasDependencies' => true
+            'name' => $groupData['name']
         ));
         $groupNode = array(
-            'id' => $groupNode['groupid'],
+            'id' => (string)$index,
             'caption' => $captionGroup,
-            'parentid' => 1,
-            'state' => _('Normal')
+            'parentid' => '0',
+            'state' => ''
         );
         $tree[$index] = $groupNode;
         $index = $index + 1;
-    }
 
-    var_dump($tree);
+        // add hosts of group
+        $hostsData = $pageFilter->getHostByGroup($groupData['groupid']);
+        foreach ($hostsData as $hostData) {
+            $captionHost = new CLink($hostData['name'], 'charts.php?form_refresh=1&fullscreen=0&'.
+                'groupid='.$groupData['groupid'].'&hostid='.$hostData['hostid']);
+            $captionHost->setAttribute('data-menu', array(
+                'name' => $hostData['name']
+            ));
+            switch ($hostData['available']) {
+                case HOST_AVAILABLE_TRUE:
+                    $stateSpan = new CSpan(_('Normal'), 'off');
+                    break;
+                case HOST_AVAILABLE_FALSE:
+                    $stateSpan = new CSpan(_('Problem'), 'on');
+                    break;
+                case HOST_AVAILABLE_UNKNOWN:
+                    $stateSpan = new CSpan(_('Unknown'), 'on');
+                    break;
+            }
+            $hostNode = array(
+                'id' => (string)$index,
+                'caption' => $captionHost,
+                'parentid' => $groupNode['id'],
+                'state' => $stateSpan
+            );
+            $tree[$index] = $hostNode;
+            $index = $index + 1;
+        }
+    }
 }

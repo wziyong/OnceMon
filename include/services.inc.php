@@ -142,6 +142,8 @@ function createServiceConfigurationTree(array $services, &$tree, array $parentSe
 
 		$tree[$serviceNode['id'].'.'.$dependency['linkid']] = $serviceNode;
 	}
+//	echo "====================";
+//	var_dump($tree);
 }
 
 /**

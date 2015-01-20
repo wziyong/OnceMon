@@ -1334,7 +1334,6 @@ function zbx_array_merge() {
 			$result[$key] = $value;
 		}
 	}
-
 	return $result;
 }
 

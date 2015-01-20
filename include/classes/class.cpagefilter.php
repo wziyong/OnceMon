@@ -467,6 +467,22 @@ class CPageFilter {
 		$this->ids['groupid'] = $groupid;
 	}
 
+	public function getHostByGroup($groupid){
+		$hostsOfGroup = array();
+		$defaultOptions = array(
+			'nodeids' => $this->config['all_nodes'] ? get_current_nodeid() : null,
+			'output' => array('hostid', 'name', 'status', 'available'),
+			'groupids' => ($groupid > 0) ? $groupid : null
+		);
+		$hosts = API::Host()->get(zbx_array_merge($defaultOptions));
+		if ($hosts) {
+			order_result($hosts, 'name');
+			foreach ($hosts as $host) {
+				$hostsOfGroup[$host['hostid']] = $host;
+			}
+		}
+		return $hostsOfGroup;
+	}
 	/**
 	 * Load available hosts, choose the selected host and remember the selection.
 	 * If no host group is selected, reset the selected host to 0.
