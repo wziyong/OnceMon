@@ -29,7 +29,7 @@ table.formtable tr td.form_row_first, table.formtable tr td.form_row_last,
 table.tableinfo tr.footer td,
 table.ack_msgs tr.title,
 table.tableinfo caption{
-	background: url("images/menu_not_active2.gif") repeat-x scroll left top #6F89B4
+	background: #57b382;
 }
 
 table.tableinfo { border-spacing: 1px; background-color: #ddd; }
@@ -61,11 +61,11 @@ ul.favorites { margin: 0; padding: 4px 4px 4px 1em; border: 1px solid #AAAAAA; }
 }
 
 .classic .filter .ui-state-default {
-	background: url("images/menu_not_active2.gif") repeat-x scroll left top #5473AA; color: #FFF;
+	background: #57b382; color: #FFF;
 }
 
 .classic .filter .ui-state-hover {
-	background: #5473AA
+	background: #4ba575
 }
 
 .classic .ui-state-default a,

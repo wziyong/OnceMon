@@ -47,9 +47,9 @@ ul li.linear { float: left; list-style-type: none; margin-right: 2px; }
 .inlineblock { display: inline-block; }
 .thin_header {
 	width: 100%; color: #FFFFFF; border: 0 #000000 solid; text-align: center;
-	background: #5c9ccc url(themes/originalblue/images/bg_h-hard_55.png) 50% 50% repeat-x;
+	background: #5c9ccc url(themes/originalblue/images/bg_h-hard_55.gif) 50% 50% repeat-x;
 }
-.divider { color: #558; font-weight: normal; }
+.divider { color: #ffffff; font-weight: normal; }
 .vert { width: 1px; }
 .rarr { font-size: 16px; }
 .nowrap { white-space: nowrap; word-spacing: 0; }
