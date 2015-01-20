@@ -18,10 +18,10 @@
 **/
 @import "jquery-ui.css";
 
-body { background: #E5E5E5; }
+body { background: #f1f4f6; }
 
-.ui-widget-header.sub_menu, .ui-widget-header.page_footer { background: url("images/bg_h-hard_55.gif") repeat-x scroll left top #365081; border: 0; }
-table.menu tr td.active { background: url("images/bg_h-hard_55.gif") repeat-x scroll left top #5C9CCC; border-color: #365081; }
+.ui-widget-header.sub_menu, .ui-widget-header.page_footer { background: url("images/bg_h-hard_55.gif") repeat-x scroll left top #2b2b38; border: 0; }
+table.menu tr td.active { color: #ffffff; background: url("images/bg_h-hard_65.gif") repeat-x scroll left top #22222c; border-color: #22222c; }
 .thin_header { background: url("images/menu_not_active2.gif") repeat-x scroll left top #4E6EA7; }
 
 table.flicker,
@@ -32,13 +32,13 @@ table.tableinfo caption{
 	background: url("images/menu_not_active2.gif") repeat-x scroll left top #6F89B4
 }
 
-table.tableinfo { border-spacing: 1px; background-color: #AAA; }
+table.tableinfo { border-spacing: 1px; background-color: #ddd; }
 table.tableinfo tr td { border-radius: 0; }
-table.tableinfo tr.header td { background: #CCC; }
+table.tableinfo tr.header td { background: #ddd; }
 table.tableinfo tr.header td.hover_grey { background: #BBB; }
 table.tableinfo tr.header td.hover_grey:hover { background: #999; color: #EEE; }
-table.tableinfo tr.odd_row > td { background: #DDD; }
-table.tableinfo tr.even_row > td{ background: #EEE; }
+table.tableinfo tr.odd_row > td { background: #ffffff; }
+table.tableinfo tr.even_row > td{ background: #ffffff; }
 
 ul.favorites { margin: 0; padding: 4px 4px 4px 1em; border: 1px solid #AAAAAA; }
 
@@ -50,9 +50,9 @@ ul.favorites { margin: 0; padding: 4px 4px 4px 1em; border: 1px solid #AAAAAA; }
 .classic .ui-corner-all { border-radius: 0; }
 .classic #dashboard_wdgt .ui-widget-content,
 .classic #search_wdgt .ui-widget-content {
-	border: 0; background: #EEE;
+	border: 0; background: #ffffff;
 }
-.footer.ui-widget-content { background: url("images/widget_header.gif") repeat-x scroll #4E6EA7; }
+.footer.ui-widget-content { background: url("images/widget_header.gif") repeat-x scroll #e4eaec; }
 .border_dotted { border-color: #777; }
 .link_menu[disabled] { color: #AAA; }
 
