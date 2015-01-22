@@ -680,7 +680,7 @@ function getTriggersInfo($selement, $i, $showUnack) {
 		$info['iconid'] = $selement['iconid_off'];
 		$info['icon_type'] = SYSMAP_ELEMENT_ICON_OFF;
 		$info['info']['ok'] = array(
-			'msg' => _('OK'),
+			'msg' => 'OK',
 			'color' => $colors['Dark Green']
 		);
 	}
@@ -762,7 +762,7 @@ function getHostsInfo($selement, $i, $show_unack) {
 		$info['iconid'] = $selement['iconid_off'];
 		$info['icon_type'] = SYSMAP_ELEMENT_ICON_OFF;
 		$info['info']['ok'] = array(
-			'msg' => _('OK'),
+			'msg' => 'OK',
 			'color' => $colors['Dark Green']
 		);
 	}
@@ -852,7 +852,7 @@ function getHostGroupsInfo($selement, $i, $show_unack) {
 		$info['icon_type'] = SYSMAP_ELEMENT_ICON_OFF;
 		$info['iconid'] = $selement['iconid_off'];
 		$info['info']['ok'] = array(
-			'msg' => _('OK'),
+			'msg' => 'OK',
 			'color' => $colors['Dark Green']
 		);
 	}
@@ -942,7 +942,7 @@ function getMapsInfo($selement, $i, $show_unack) {
 		$info['icon_type'] = SYSMAP_ELEMENT_ICON_OFF;
 		$info['iconid'] = $selement['iconid_off'];
 		$info['info']['ok'] = array(
-			'msg' => _('OK'),
+			'msg' => 'OK',
 			'color' => $colors['Dark Green']
 		);
 	}

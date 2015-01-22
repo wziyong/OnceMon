@@ -165,7 +165,7 @@ msgstr ""
 
 #: include/views/configuration.sysmap.edit.php:55
 msgid "<manual>"
-msgstr "<手册>"
+msgstr "手动"
 
 #: include/views/configuration.item.edit.php:160
 #: include/views/configuration.item.massupdate.php:172
@@ -972,7 +972,7 @@ msgstr "粗线"
 
 #: include/items.inc.php:136
 msgid "Boolean"
-msgstr "二元逻辑"
+msgstr "布尔类型"
 
 #: include/views/configuration.screen.constructor.edit.php:630
 #: include/views/configuration.sysmap.edit.php:115
@@ -3121,7 +3121,7 @@ msgstr "联系号码"
 
 #: include/views/js/configuration.sysmaps.js.php:161
 msgid "Coordinates"
-msgstr "座标"
+msgstr "坐标"
 
 #: include/views/configuration.copy.elements.php:102
 #: include/views/configuration.item.copy.php:82
@@ -3589,7 +3589,7 @@ msgstr "日期"
 
 #: include/hosts.inc.php:335
 msgid "Date HW decommissioned"
-msgstr "硬件退役日期"
+msgstr "硬件弃用日期"
 
 #: include/hosts.inc.php:325
 msgid "Date HW installed"
@@ -3678,7 +3678,7 @@ msgstr "12"
 
 #: include/items.inc.php:138
 msgid "Decimal"
-msgstr "十进位数字"
+msgstr "十进制数"
 
 #: include/hosts.inc.php:37
 #: include/views/administration.general.iconmap.edit.php:133
@@ -3732,7 +3732,7 @@ msgstr "延迟"
 
 #: include/views/configuration.discovery.edit.php:50
 msgid "Delay (in sec)"
-msgstr "延迟(秒)"
+msgstr "频率(秒)"
 
 #: queue.php:202
 msgid "Delayed by"
@@ -4400,7 +4400,7 @@ msgstr "自发现检查"
 #: include/views/js/configuration.discovery.edit.js.php:599
 #: include/views/js/configuration.discovery.edit.js.php:616
 msgid "Discovery check error"
-msgstr ""
+msgstr "自发现检查错误"
 
 #: popup.php:112
 msgid "Discovery checks"
@@ -4412,7 +4412,7 @@ msgstr "自发现清单"
 
 #: include/actions.inc.php:74
 msgid "Discovery object"
-msgstr "自发现物件"
+msgstr "自发现目标"
 
 #: include/actions.inc.php:70 include/audit.inc.php:44
 #: include/blocks.inc.php:1204 include/forms.inc.php:1150
@@ -5108,7 +5108,7 @@ msgstr "表达式语法错误."
 
 #: tr_testexpr.php:50
 msgid "Expression Variable Elements"
-msgstr "表达式变数组成"
+msgstr "表达式变量元素"
 
 #: include/triggers.inc.php:569 include/views/js/adm.regexprs.edit.js.php:215
 msgid "Expression cannot be empty"
@@ -5208,7 +5208,7 @@ msgstr ""
 #: include/validate.inc.php:451
 #, c-format
 msgid "Field \"%1$s\" is mandatory."
-msgstr ""
+msgstr "字段\"%1$s\"不能为空"
 
 #: include/validate.inc.php:314
 #, c-format
@@ -5885,7 +5885,7 @@ msgstr "HTTPS"
 
 #: include/hosts.inc.php:250
 msgid "HW architecture"
-msgstr "硬体架构"
+msgstr "硬件架构"
 
 #: include/hosts.inc.php:170
 msgid "Hardware"
@@ -5893,7 +5893,7 @@ msgstr "硬件"
 
 #: include/hosts.inc.php:175
 msgid "Hardware (Full details)"
-msgstr "硬体(全细节)"
+msgstr "硬件(全细节)"
 
 #: graphs.php:43 include/views/configuration.graph.edit.php:57
 #: include/views/configuration.graph.list.php:80
@@ -5911,7 +5911,7 @@ msgstr "帮助"
 
 #: include/items.inc.php:139
 msgid "Hexadecimal"
-msgstr "十六进位数字"
+msgstr "十六进制数"
 
 #: include/views/configuration.sysmap.constructor.php:41 jsLoader.php:144
 msgid "Hidden"
@@ -6572,15 +6572,15 @@ msgstr "图示(异常)"
 
 #: include/views/configuration.sysmap.edit.php:64
 msgid "Icon highlight"
-msgstr "图示标记"
+msgstr "图标高亮显示"
 
 #: include/views/configuration.sysmap.edit.php:116
 msgid "Icon label location"
-msgstr "图示标示位置"
+msgstr "图示标签位置"
 
 #: include/views/configuration.sysmap.edit.php:111
 msgid "Icon label type"
-msgstr "图示标示类型"
+msgstr "图示标签类型"
 
 #: include/views/administration.general.iconmap.edit.php:138
 #: include/views/administration.general.iconmap.list.php:26
@@ -7452,17 +7452,17 @@ msgstr "不正确的值\"%1$s\"于无正负整数栏位\"%2$s\"中."
 #: include/reports.inc.php:547 include/reports.inc.php:551
 #, c-format
 msgid "Incorrect value for field \"%1$s\"."
-msgstr ""
+msgstr "\"%1$s\"的值不正确。"
 
 #: include/validate.inc.php:493
 #, c-format
 msgid "Incorrect value for field \"%1$s\": cannot be empty."
-msgstr ""
+msgstr "\"%1$s\"的值不能为空。"
 
 #: include/classes/class.cbuttonqmessage.php:52
 #, c-format
 msgid "Incorrect value for setMessage(): \"%s\"."
-msgstr "不正确的值于setMessage(): \"%s\"."
+msgstr "setMessage()函数需要的值\"%s\"不正确。"
 
 #: api/classes/CProxy.php:220 api/classes/CProxy.php:231
 #, c-format
@@ -7471,7 +7471,7 @@ msgstr "不正确的值用于代理服务器状态 \"%1$s\"."
 
 #: include/profiles.inc.php:273
 msgid "Incorrect working time."
-msgstr "不正确的工作时间."
+msgstr "不正确的工作时间。"
 
 #: include/classes/import/CXmlImport18.php:1586
 #, c-format
@@ -7623,27 +7623,27 @@ msgstr "第四个参数无效."
 #: api/classes/CUserMacro.php:685
 #, c-format
 msgid "Invalid hostid for macro \"%1$s\"."
-msgstr "无效的主机ID予宏 \"%1$s\"."
+msgstr "宏\"%1$s\"的hostid无效."
 
 #: api/classes/CDiscoveryRule.php:42
 #, c-format
 msgid "Invalid key \"%1$s\" for discovery rule \"%2$s\" on \"%3$s\": %4$s."
-msgstr ""
+msgstr "用于\"%3$s\"上面的发现规则\"%2$s\"的key\"%1$s\"非法：%4$s。"
 
 #: api/classes/CItem.php:39
 #, c-format
 msgid "Invalid key \"%1$s\" for item \"%2$s\" on \"%3$s\": %4$s."
-msgstr ""
+msgstr "用于\"%3$s\"上面的监控项\"%2$s\"的key\"%1$s\"非法：%4$s。"
 
 #: api/classes/CItemPrototype.php:39
 #, c-format
 msgid "Invalid key \"%1$s\" for item prototype \"%2$s\" on \"%3$s\": %4$s."
-msgstr ""
+msgstr "用于\"%3$s\"上面的监控项原型\"%2$s\"的key\"%1$s\"非法：%4$s。"
 
 #: api/classes/CDRule.php:311 discoveryconf.php:101
 #, c-format
 msgid "Invalid key \"%1$s\": %2$s."
-msgstr ""
+msgstr "非法的key \"%1$s\": %2$s。"
 
 #: maintenance.php:306
 msgid "Invalid maintenance period"
@@ -8418,7 +8418,7 @@ msgstr "日志时间格式"
 
 #: include/views/administration.general.other.edit.php:38
 msgid "Log unmatched SNMP traps"
-msgstr "日志与SNMP捉捕器不符"
+msgstr "日志与SNMP traps不符"
 
 #: include/classes/class.cserverinfo.php:43
 msgid "Logged in as"
@@ -8683,7 +8683,7 @@ msgstr "拓扑图\"%s\"已更新."
 
 #: sysmap.php:86
 msgid "Map is saved! Return?"
-msgstr "拓扑图已存!返回?"
+msgstr "拓扑图已经保存"
 
 #: include/views/configuration.sysmap.edit.php:99
 msgid "Map label type"
@@ -8730,7 +8730,7 @@ msgstr "03"
 
 #: include/views/configuration.sysmap.edit.php:65
 msgid "Mark elements on trigger status change"
-msgstr "触发器状态上的标记组件改变"
+msgstr "状态改变后是否标记触发器上的元素"
 
 #: include/views/monitoring.history.php:117
 msgid "Mark others"
@@ -9402,7 +9402,7 @@ msgstr "下一步"
 #: include/func.inc.php:1870
 msgctxt "page navigation"
 msgid "Next"
-msgstr "次"
+msgstr "下一页"
 
 #: events.php:839 include/events.inc.php:362 include/events.inc.php:380
 #: include/func.inc.php:2436 include/triggers.inc.php:1635
@@ -9729,7 +9729,7 @@ msgstr ""
 
 #: include/views/configuration.sysmap.edit.php:47
 msgid "No image"
-msgstr "没有图片"
+msgstr "无"
 
 #: include/views/administration.general.image.list.php:36
 msgid "No images found."
@@ -10213,7 +10213,7 @@ msgstr "备注"
 
 #: include/maps.inc.php:49
 msgid "Nothing"
-msgstr "空"
+msgstr "无"
 
 #: include/profiles.inc.php:365
 msgid "Nothing to do."
@@ -10394,7 +10394,7 @@ msgstr "数字的 (浮点)"
 #: include/triggers.inc.php:2245 include/triggers.inc.php:2255
 #: include/triggers.inc.php:2260 include/triggers.inc.php:2264
 msgid "Numeric (integer 64bit)"
-msgstr "数字的(64位元整数)"
+msgstr "数值型(64位整数)"
 
 #: include/forms.inc.php:429 include/items.inc.php:121
 #: include/views/configuration.item.edit.php:222
@@ -10465,7 +10465,7 @@ msgstr "10"
 
 #: include/items.inc.php:137
 msgid "Octal"
-msgstr "八进位"
+msgstr "八进制数"
 
 #: include/forms.inc.php:1713 include/func.inc.php:138
 #: include/func.inc.php:275 jsLoader.php:127
@@ -10931,7 +10931,7 @@ msgstr "异常"
 
 #: include/validate.inc.php:566
 msgid "Page received incorrect data"
-msgstr "页面接收到不正确的资料"
+msgstr "页面接收的数据不正确"
 
 #: include/reports.inc.php:455
 msgid "Palette"
@@ -11183,12 +11183,12 @@ msgstr "预览"
 
 #: include/setup.inc.php:138
 msgid "Previous"
-msgstr "前"
+msgstr "上一页"
 
 #: include/func.inc.php:1843
 msgctxt "page navigation"
 msgid "Previous"
-msgstr "前"
+msgstr "上一页"
 
 #: popup_trexpr.php:299
 msgid "Previous value is < N"
@@ -11979,11 +11979,11 @@ msgstr "SNMP接口"
 
 #: include/items.inc.php:87
 msgid "SNMP trap"
-msgstr "SNMP捉捕"
+msgstr "SNMP trap"
 
 #: api/classes/CItemGeneral.php:351
 msgid "SNMP trap key is invalid."
-msgstr "SNMP捉捕键值是无效的"
+msgstr "SNMP trap键值是无效的"
 
 #: include/discovery.inc.php:66 include/items.inc.php:84
 #: include/views/js/configuration.discovery.edit.js.php:178
@@ -15445,7 +15445,7 @@ msgstr "用户"
 #: include/views/js/configuration.action.edit.js.php:118
 #: include/views/js/configuration.discovery.edit.js.php:184
 msgid "Zabbix agent"
-msgstr "OnceMon 代理"
+msgstr "OnceMon agent"
 
 #: include/items.inc.php:82
 msgid "Zabbix agent (active)"
@@ -15461,7 +15461,7 @@ msgstr "OnceMon 已接收到一个不正确的请求."
 
 #: include/items.inc.php:88
 msgid "Zabbix internal"
-msgstr "OnceMon 自身"
+msgstr "OnceMon internal"
 
 #: include/perm.inc.php:48
 msgid "Zabbix internal authentication"
@@ -15521,7 +15521,7 @@ msgstr "Zabbix主机端口"
 
 #: include/items.inc.php:89
 msgid "Zabbix trapper"
-msgstr "Zabbix捉捕器"
+msgstr "OnceMon trapper"
 
 #: include/func.inc.php:682
 msgid "Zetta"
@@ -15783,7 +15783,7 @@ msgstr "监控项"
 
 #: api/classes/CItemKey.php:62
 msgid "key is empty"
-msgstr ""
+msgstr "key是空的"
 
 #: include/classes/graphdraw/CLineGraphDraw.php:1832
 #: include/classes/graphdraw/CPieGraphDraw.php:315 include/graphs.inc.php:92
