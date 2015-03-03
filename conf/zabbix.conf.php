@@ -4,7 +4,7 @@ global $DB;
 
 $DB['TYPE']     = 'MYSQL';
 $DB['SERVER']   = '133.133.135.13';
-$DB['PORT']     = '3306';
+$DB['PORT']     = '0';
 $DB['DATABASE'] = 'zabbix';
 $DB['USER']     = 'root';
 $DB['PASSWORD'] = 'onceas';
@@ -14,7 +14,7 @@ $DB['SCHEMA'] = '';
 
 $ZBX_SERVER      = '133.133.135.13';
 $ZBX_SERVER_PORT = '10051';
-$ZBX_SERVER_NAME = 'zabbix-server';
+$ZBX_SERVER_NAME = 'OnceMonServer';
 
 $IMAGE_FORMAT_DEFAULT = IMAGE_FORMAT_PNG;
 ?>

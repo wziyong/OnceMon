@@ -9925,7 +9925,7 @@ msgstr "没有系统存取的许可权"
 #: api/classes/CUser.php:879 api/classes/CUser.php:938
 #: api/classes/CUser.php:1363 include/func.inc.php:2076
 msgid "No permissions to referred object or it does not exist!"
-msgstr "没有所说的物件的许可权或其不存在!"
+msgstr "无权限或者目标不存在!"
 
 #: api/classes/CAction.php:1366
 #, c-format
