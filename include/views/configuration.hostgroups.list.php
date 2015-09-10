@@ -59,6 +59,7 @@ $hostGroupTable->setHeader(array(
 	new CCheckBox('all_groups', null, "checkAll('".$hostGroupForm->getName()."', 'all_groups', 'groups');"),
 	$this->data['displayNodes'] ? _('Node') : null,
 	make_sorting_header(_('Name'), 'name'),
+	' 应用管理 ',
 	' # ',
 	_('Members'),
 	($showStatus) ? _('Status') : null
@@ -147,9 +148,11 @@ foreach ($this->data['groups'] as $group) {
 		new CCheckBox('groups['.$group['groupid'].']', null, null, $group['groupid']),
 		$this->data['displayNodes'] ? $group['nodename'] : null,
 		$name,
+		new CLink(_('统一部署'), 'templates.php?groupid='.$group['groupid'], 'unknown'),
 		array(
-			array(new CLink(_('Templates'), 'templates.php?groupid='.$group['groupid'], 'unknown'), ' ('.$templateCount.')'),
-			BR(),
+			//array(new CLink(_('Templates'), 'templates.php?groupid='.$group['groupid'], 'unknown'), ' ('.$templateCount.')'),
+			array(new CLink(_('拓扑图'), 'templates.php?groupid='.$group['groupid'], 'unknown')),
+			' ',
 			array(new CLink(_('Hosts'), 'hosts.php?groupid='.$group['groupid']), ' ('.$hostCount.')')
 		),
 		new CCol(empty($hostsOutput) ? '-' : $hostsOutput, 'wraptext'),

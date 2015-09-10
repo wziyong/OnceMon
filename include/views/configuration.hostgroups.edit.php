@@ -88,7 +88,7 @@ else {
 	$hostGroupForm->addItem(makeFormFooter(
 		new CSubmit('save', _('Save')),
 		array(
-			new CSubmit('clone', _('Clone')),
+			///new CSubmit('clone', _('Clone')),TODO 删除clone；
 			$deleteButton,
 			new CButtonCancel())
 	));
