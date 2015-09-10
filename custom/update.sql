@@ -1,0 +1,2 @@
+ALTER TABLE `groups`
+ADD COLUMN `comment` VARCHAR(256) NULL COMMENT '备注';

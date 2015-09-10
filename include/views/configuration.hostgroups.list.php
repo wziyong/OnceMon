@@ -18,7 +18,7 @@
 ** Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 **/
 
-
+//集群列表页面
 $hostGroupWidget = new CWidget();
 
 // create new hostgroup button
@@ -32,7 +32,7 @@ else {
 	$tmpItem->setEnabled(false);
 }
 $createForm->addItem($tmpItem);
-
+//页头label，提示加右侧的创建按钮；
 $hostGroupWidget->addPageHeader(_('CONFIGURATION OF HOST GROUPS'), $createForm);
 
 // header
@@ -52,8 +52,9 @@ foreach ($this->data['groups'] as $hostGroup) {
 	}
 }
 
-// create table
+// create table 查询列表的table
 $hostGroupTable = new CTableInfo(_('No host groups found.'));
+// TODO 新增统一部署列；
 $hostGroupTable->setHeader(array(
 	new CCheckBox('all_groups', null, "checkAll('".$hostGroupForm->getName()."', 'all_groups', 'groups');"),
 	$this->data['displayNodes'] ? _('Node') : null,

@@ -267,6 +267,12 @@ return array(
 				'length' => 10,
 				'default' => '0',
 			),
+			'comment' => array(
+				'null' => false,
+				'type' => DB::FIELD_TYPE_CHAR,
+				'length' => 256,
+				'default' => '',
+			),
 		),
 	),
 	'group_prototype' => array(

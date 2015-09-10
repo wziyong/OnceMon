@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: Zabbix 2.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-12-02 03:57+0200\n"
-"PO-Revision-Date: 2013-08-25 15:11+0200\n"
+"PO-Revision-Date: 2015-09-10 14:21+0800\n"
 "Last-Translator: solutionware <shiys@solutionware.com.cn>\n"
 "Language-Team: Zabbix <info@zabbix.com>\n"
 "Language: zh_CN\n"
@@ -14,9 +14,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Pootle 2.1.6\n"
-"X-Poedit-Basepath: ../../\n"
+"X-Generator: Poedit 1.8.4\n"
+"X-Poedit-Basepath: ../..\n"
 
+# start add by wziyong
+msgid "Comment"
+msgstr "备注"
+
+# end add by wziyong
 #: api/classes/CMaintenance.php:387 api/classes/CMaintenance.php:392
 #: api/classes/CMaintenance.php:500 api/classes/CMaintenance.php:505
 #: maintenance.php:141 maintenance.php:153 services.php:184 services.php:198
@@ -483,11 +488,11 @@ msgstr "添加到常用"
 
 #: include/actions.inc.php:641
 msgid "Add to host group"
-msgstr "添加到主机群组"
+msgstr "添加到集群"
 
 #: include/actions.inc.php:429 include/views/configuration.action.edit.php:865
 msgid "Add to host groups"
-msgstr "添加到主机群组"
+msgstr "添加到集群"
 
 #: auditlogs.php:134
 msgid "Added"
@@ -571,8 +576,7 @@ msgstr "对齐图标"
 #: include/views/configuration.hostgroups.edit.php:44
 #: include/views/configuration.sysmap.edit.php:121
 #: include/views/monitoring.dashconf.php:48
-#: include/views/monitoring.dashconf.php:104 jsLoader.php:90
-#: popup_right.php:72
+#: include/views/monitoring.dashconf.php:104 jsLoader.php:90 popup_right.php:72
 msgid "All"
 msgstr "所有"
 
@@ -675,8 +679,8 @@ msgstr "接近中"
 msgid "Apr"
 msgstr "04"
 
-#: include/forms.inc.php:1711 include/func.inc.php:132
-#: include/func.inc.php:269 jsLoader.php:121
+#: include/forms.inc.php:1711 include/func.inc.php:132 include/func.inc.php:269
+#: jsLoader.php:121
 msgid "April"
 msgstr "04"
 
@@ -781,8 +785,8 @@ msgstr "审计日志"
 msgid "Aug"
 msgstr "08"
 
-#: include/forms.inc.php:1703 include/func.inc.php:136
-#: include/func.inc.php:273 jsLoader.php:125
+#: include/forms.inc.php:1703 include/func.inc.php:136 include/func.inc.php:273
+#: jsLoader.php:125
 msgid "August"
 msgstr "08"
 
@@ -1038,7 +1042,7 @@ msgstr "图表化接口的配置"
 #: include/views/configuration.hostgroups.edit.php:23
 #: include/views/configuration.hostgroups.list.php:36
 msgid "CONFIGURATION OF HOST GROUPS"
-msgstr "主机群组的配置"
+msgstr "集群的配置"
 
 #: include/views/configuration.host.prototype.edit.php:29
 #: include/views/configuration.host.prototype.list.php:31
@@ -1514,7 +1518,7 @@ msgstr "无法创建自发现规则"
 
 #: api/classes/CHost.php:1186
 msgid "Cannot create host group."
-msgstr "无法创建主机群组。"
+msgstr "无法创建集群。"
 
 #: adm.iconmapping.php:81
 msgid "Cannot create icon map"
@@ -1602,7 +1606,7 @@ msgstr "无法删除主机"
 
 #: api/classes/CHost.php:1197
 msgid "Cannot delete host group."
-msgstr "无法删除主机群组."
+msgstr "无法删除集群."
 
 #: api/classes/CDiscoveryRule.php:413
 msgid "Cannot delete host prototype."
@@ -1952,7 +1956,7 @@ msgstr "无法找到用在屏幕\"%2$s\"中的主机\"%1$s\"。"
 #: include/classes/import/CConfigurationImport.php:764
 #, c-format
 msgid "Cannot find host group \"%1$s\" for host prototype \"%2$s\" of discovery rule \"%3$s\" on \"%4$s\"."
-msgstr "不能找到主机原型\"%2$s\"对应的主机群组，该原型由\"%4$s\"上面的发现规则\"%3$s\"创建。"
+msgstr "不能找到主机原型\"%2$s\"对应的集群，该原型由\"%4$s\"上面的发现规则\"%3$s\"创建。"
 
 #: api/classes/CDiscoveryRule.php:749 api/classes/CDiscoveryRule.php:825
 #: api/classes/CItemGeneral.php:100 include/items.inc.php:380
@@ -2863,7 +2867,7 @@ msgstr "条件"
 #: include/menu.inc.php:149 include/views/inventory.host.view.php:256
 #: jsLoader.php:200
 msgid "Configuration"
-msgstr "配置"
+msgstr "集群管理"
 
 #: include/classes/items/CHelpItems.php:863
 msgid "Configuration cache statistics. Cache - buffer (modes: pfree, total, used, free)."
@@ -2911,7 +2915,7 @@ msgstr "配置图标"
 
 #: hostgroups.php:25
 msgid "Configuration of host groups"
-msgstr "配置主机群组"
+msgstr "配置集群"
 
 #: host_prototypes.php:27
 msgid "Configuration of host prototypes"
@@ -3187,7 +3191,7 @@ msgstr "创建主机"
 #: include/views/configuration.hostgroups.list.php:28
 #: include/views/configuration.hostgroups.list.php:31
 msgid "Create host group"
-msgstr "创建主机群组"
+msgstr "创建集群"
 
 #: include/views/configuration.host.prototype.list.php:30
 msgid "Create host prototype"
@@ -3671,8 +3675,8 @@ msgstr "调试模式已更新"
 msgid "Dec"
 msgstr "12"
 
-#: include/forms.inc.php:1723 include/func.inc.php:140
-#: include/func.inc.php:277 jsLoader.php:129
+#: include/forms.inc.php:1723 include/func.inc.php:140 include/func.inc.php:277
+#: jsLoader.php:129
 msgid "December"
 msgstr "12"
 
@@ -3910,7 +3914,7 @@ msgstr "删除所选的群组?"
 
 #: include/views/configuration.hostgroups.list.php:168
 msgid "Delete selected host groups?"
-msgstr "删除所选的主机群组?"
+msgstr "删除所选的集群?"
 
 #: include/views/configuration.host.prototype.edit.php:333
 msgid "Delete selected host prototype?"
@@ -4156,8 +4160,7 @@ msgid "Description"
 msgstr "描述"
 
 #: include/actions.inc.php:966 include/blocks.inc.php:742
-#: include/func.inc.php:2204
-#: include/views/administration.auditlogs.list.php:92
+#: include/func.inc.php:2204 include/views/administration.auditlogs.list.php:92
 #: include/views/administration.mediatypes.list.php:44
 #: include/views/configuration.action.edit.php:361
 #: include/views/configuration.action.edit.php:365
@@ -4268,7 +4271,7 @@ msgstr "停用主机?"
 
 #: include/views/configuration.hostgroups.list.php:165
 msgid "Disable hosts in the selected host groups?"
-msgstr "停用所选的主机群组中的主机?"
+msgstr "停用所选的集群中的主机?"
 
 #: include/views/administration.proxy.list.php:109
 msgid "Disable hosts monitored by selected proxies?"
@@ -4685,8 +4688,7 @@ msgstr "组件"
 msgid "Element name"
 msgstr "组件名称"
 
-#: include/media.inc.php:24
-#: include/views/administration.mediatypes.edit.php:41
+#: include/media.inc.php:24 include/views/administration.mediatypes.edit.php:41
 msgid "Email"
 msgstr "电子邮件"
 
@@ -5134,8 +5136,7 @@ msgstr "表达式"
 msgid "External check"
 msgstr "外部检查"
 
-#: include/media.inc.php:28
-#: include/views/administration.mediatypes.edit.php:46
+#: include/media.inc.php:28 include/views/administration.mediatypes.edit.php:46
 msgid "Ez Texting"
 msgstr "Ez简讯"
 
@@ -5191,8 +5192,8 @@ msgstr "常用的"
 msgid "Feb"
 msgstr "02"
 
-#: include/forms.inc.php:1701 include/func.inc.php:130
-#: include/func.inc.php:267 jsLoader.php:119
+#: include/forms.inc.php:1701 include/func.inc.php:130 include/func.inc.php:267
+#: jsLoader.php:119
 msgid "February"
 msgstr "02"
 
@@ -5276,8 +5277,7 @@ msgid "Filled region"
 msgstr "填满的区域"
 
 #: events.php:362 hosts.php:784 include/classes/class.cwidget.php:130
-#: include/forms.inc.php:646
-#: include/views/administration.auditacts.list.php:49
+#: include/forms.inc.php:646 include/views/administration.auditacts.list.php:49
 #: include/views/administration.auditlogs.list.php:65
 #: include/views/configuration.item.edit.php:340
 #: include/views/inventory.host.list.php:52
@@ -5289,7 +5289,7 @@ msgstr "过滤"
 
 #: report2.php:321
 msgid "Filter by host group"
-msgstr "根据主机群组过滤"
+msgstr "根据集群过滤"
 
 #: tr_status.php:325
 msgid "Filter by name"
@@ -5775,7 +5775,7 @@ msgstr "群组已删除"
 
 #: include/views/administration.general.other.edit.php:36
 msgid "Group for discovered hosts"
-msgstr "自发现的主机群组"
+msgstr "自发现的集群"
 
 #: adm.other.php:74
 #, c-format
@@ -5785,7 +5785,7 @@ msgstr ""
 #: include/views/administration.usergroups.edit.php:41
 #: include/views/configuration.hostgroups.edit.php:40
 msgid "Group name"
-msgstr "组名"
+msgstr "集群名"
 
 #: api/classes/CHostPrototype.php:395 api/classes/CHostPrototype.php:402
 msgid "Group prototype ID cannot be empty."
@@ -5917,8 +5917,8 @@ msgstr "十六进制数"
 msgid "Hidden"
 msgstr "隐藏的"
 
-#: include/classes/class.cuiwidget.php:58
-#: include/classes/class.cwidget.php:183 include/html.inc.php:162
+#: include/classes/class.cuiwidget.php:58 include/classes/class.cwidget.php:183
+#: include/html.inc.php:162
 msgid "Hide"
 msgstr "隐藏"
 
@@ -6115,31 +6115,31 @@ msgstr[0] ""
 #: include/views/js/configuration.sysmaps.js.php:91 jsLoader.php:149
 #: report2.php:343 search.php:266
 msgid "Host group"
-msgstr "主机群组"
+msgstr "集群"
 
 #: api/classes/CHostGroup.php:487 api/classes/CHostGroup.php:565
 #, c-format
 msgid "Host group \"%1$s\" already exists."
-msgstr "主机群组 \"%1$s\" 已存在."
+msgstr "集群 \"%1$s\" 已存在."
 
 #: api/classes/CHostGroup.php:658
 #, c-format
 msgid "Host group \"%1$s\" cannot be deleted, because it is used in a global script."
-msgstr "主机群组“%1$s”不能被删除，因为它被用于全局脚本"
+msgstr "集群“%1$s”不能被删除，因为它被用于全局脚本"
 
 #: api/classes/CHostGroup.php:639
 #, c-format
 msgid "Host group \"%1$s\" cannot be deleted, because some hosts depend on it."
-msgstr "主机群组“%1$s”不能被删除，因为多主机属于其中"
+msgstr "集群“%1$s”不能被删除，因为多主机属于其中"
 
 #: api/classes/CHostGroup.php:613
 #, c-format
 msgid "Host group \"%1$s\" is internal and can not be deleted."
-msgstr "主机群组 \"%1$s\" 为内建的且不能被删除"
+msgstr "集群 \"%1$s\" 为内建的且不能被删除"
 
 #: include/views/js/configuration.sysmaps.js.php:33
 msgid "Host group elements"
-msgstr "主机群组组件"
+msgstr "集群组件"
 
 #: include/screens.inc.php:39
 msgid "Host group issues"
@@ -6147,11 +6147,11 @@ msgstr ""
 
 #: include/views/configuration.sysmap.edit.php:75
 msgid "Host group label type"
-msgstr "主机群组标示类型"
+msgstr "集群标示类型"
 
 #: api/classes/CHostGroup.php:484 api/classes/CHostGroup.php:557
 msgid "Host group name cannot be empty."
-msgstr "主机群组名不能是空的"
+msgstr "集群名不能是空的"
 
 #: include/forms.inc.php:202 include/menu.inc.php:160
 #: include/views/configuration.copy.elements.php:47
@@ -6159,7 +6159,7 @@ msgstr "主机群组名不能是空的"
 #: include/views/configuration.item.copy.php:43
 #: include/views/monitoring.dashconf.php:53 popup.php:48 search.php:332
 msgid "Host groups"
-msgstr "主机群组"
+msgstr "集群"
 
 #: include/views/configuration.item.edit.php:116
 #: include/views/configuration.item.massupdate.php:84
@@ -6336,9 +6336,9 @@ msgid "Host with the same visible name \"%s\" already exists."
 msgstr "可视名称同样为 \"%s\" 的主机已存在."
 
 #: hostinventoriesoverview.php:85 hosts.php:771 include/forms.inc.php:225
-#: include/forms.inc.php:916 include/items.inc.php:728
-#: include/menu.inc.php:112 include/menu.inc.php:168
-#: include/reports.inc.php:384 include/views/administration.proxy.edit.php:88
+#: include/forms.inc.php:916 include/items.inc.php:728 include/menu.inc.php:112
+#: include/menu.inc.php:168 include/reports.inc.php:384
+#: include/views/administration.proxy.edit.php:88
 #: include/views/administration.proxy.list.php:52
 #: include/views/configuration.copy.elements.php:46
 #: include/views/configuration.graph.list.php:77
@@ -6651,8 +6651,7 @@ msgstr "有iconmapid \"%s\"的图标映射不存在."
 #: adm.gui.php:98 adm.housekeeper.php:129 adm.iconmapping.php:112
 #: adm.iconmapping.php:176 adm.images.php:134 adm.macros.php:161
 #: adm.other.php:113 adm.regexps.php:197 adm.triggerdisplayoptions.php:77
-#: adm.triggerseverities.php:82 adm.valuemapping.php:129
-#: adm.workingtime.php:64
+#: adm.triggerseverities.php:82 adm.valuemapping.php:129 adm.workingtime.php:64
 msgid "Icon mapping"
 msgstr "图标映射"
 
@@ -6851,7 +6850,7 @@ msgstr "不正确的动作条件时间类型."
 
 #: api/classes/CAction.php:1690
 msgid "Incorrect action condition host group. Host group does not exist or you have no access to it."
-msgstr "不正确的动作条件主机群组. 主机群组不存在或您不能访问它."
+msgstr "不正确的动作条件集群. 集群不存在或您不能访问它."
 
 #: api/classes/CAction.php:1693
 msgid "Incorrect action condition host. Host does not exist or you have no access to it."
@@ -6922,7 +6921,7 @@ msgstr "不正确的动作操作升级步骤值."
 
 #: api/classes/CAction.php:1460
 msgid "Incorrect action operation host group. Host group does not exist or you have no access to this host group."
-msgstr "不正确的动作操作主机群组. 主机群组不存在或您没有存取权."
+msgstr "不正确的动作操作集群. 集群不存在或您没有存取权."
 
 #: api/classes/CAction.php:1463
 msgid "Incorrect action operation host. Host does not exist or you have no access to this host."
@@ -7101,7 +7100,7 @@ msgstr ""
 
 #: include/profiles.inc.php:291
 msgid "Incorrect host group."
-msgstr "不正确的主机群组."
+msgstr "不正确的集群."
 
 #: api/classes/CHostPrototype.php:190
 #, c-format
@@ -7261,7 +7260,7 @@ msgstr "予维护不正确的参数."
 
 #: api/classes/CUserGroup.php:248 api/classes/CUserGroup.php:297
 msgid "Incorrect parameters for user group."
-msgstr "予主机群组不正确的参数."
+msgstr "予集群不正确的参数."
 
 #: api/classes/CService.php:1211
 #, c-format
@@ -7694,8 +7693,7 @@ msgstr "无效的时间期间"
 msgid "Invalid view name given \"%s\". Allowed chars: \"a-z\" and \".\"."
 msgstr "所给的\"%s\"为无效的检视名称.  可用的: \"a-z\" 和 \".\"."
 
-#: include/menu.inc.php:101
-#: include/views/configuration.host.massupdate.php:316
+#: include/menu.inc.php:101 include/views/configuration.host.massupdate.php:316
 msgid "Inventory"
 msgstr "资源"
 
@@ -7993,8 +7991,7 @@ msgstr "JSON-rpc 参数不是一个阵列."
 msgid "JSON-rpc version is not specified."
 msgstr "JSON-rpc 版本并未指定."
 
-#: include/media.inc.php:27
-#: include/views/administration.mediatypes.edit.php:44
+#: include/media.inc.php:27 include/views/administration.mediatypes.edit.php:44
 msgid "Jabber"
 msgstr "Jabber"
 
@@ -8007,8 +8004,8 @@ msgstr "Jabber 标识符"
 msgid "Jan"
 msgstr "01"
 
-#: include/forms.inc.php:1696 include/func.inc.php:129
-#: include/func.inc.php:266 jsLoader.php:118
+#: include/forms.inc.php:1696 include/func.inc.php:129 include/func.inc.php:266
+#: jsLoader.php:118
 msgid "January"
 msgstr "01"
 
@@ -8020,8 +8017,8 @@ msgstr "日语 (ja_JP)"
 msgid "Jul"
 msgstr "07"
 
-#: include/forms.inc.php:1698 include/func.inc.php:135
-#: include/func.inc.php:272 jsLoader.php:124
+#: include/forms.inc.php:1698 include/func.inc.php:135 include/func.inc.php:272
+#: jsLoader.php:124
 msgid "July"
 msgstr "07"
 
@@ -8029,8 +8026,8 @@ msgstr "07"
 msgid "Jun"
 msgstr "06"
 
-#: include/forms.inc.php:1721 include/func.inc.php:134
-#: include/func.inc.php:271 jsLoader.php:123
+#: include/forms.inc.php:1721 include/func.inc.php:134 include/func.inc.php:271
+#: jsLoader.php:123
 msgid "June"
 msgstr "06"
 
@@ -8652,9 +8649,8 @@ msgstr "手动的"
 msgid "Manual Logout"
 msgstr "手动登出"
 
-#: include/audit.inc.php:40 include/blocks.inc.php:1357
-#: include/maps.inc.php:27 include/screens.inc.php:34
-#: include/views/configuration.sysmap.edit.php:184
+#: include/audit.inc.php:40 include/blocks.inc.php:1357 include/maps.inc.php:27
+#: include/screens.inc.php:34 include/views/configuration.sysmap.edit.php:184
 #: include/views/js/configuration.sysmaps.js.php:18
 #: include/views/js/configuration.sysmaps.js.php:111 jsLoader.php:147
 #: map.php:25
@@ -8723,8 +8719,8 @@ msgstr "拓扑图"
 msgid "Mar"
 msgstr "03"
 
-#: include/forms.inc.php:1706 include/func.inc.php:131
-#: include/func.inc.php:268 jsLoader.php:120
+#: include/forms.inc.php:1706 include/func.inc.php:131 include/func.inc.php:268
+#: jsLoader.php:120
 msgid "March"
 msgstr "03"
 
@@ -8849,8 +8845,8 @@ msgid "Maximum visible host name length is %1$d characters, \"%2$s\" is %3$d cha
 msgid_plural "Maximum visible host name length is %1$d characters, \"%2$s\" is %3$d characters."
 msgstr[0] ""
 
-#: include/forms.inc.php:1716 include/func.inc.php:133
-#: include/func.inc.php:270 jsLoader.php:122
+#: include/forms.inc.php:1716 include/func.inc.php:133 include/func.inc.php:270
+#: jsLoader.php:122
 msgid "May"
 msgstr "05"
 
@@ -8898,8 +8894,7 @@ msgstr[0] "报警媒介类型已启用"
 msgid "Media type updated"
 msgstr "报警媒介类型已更新"
 
-#: include/menu.inc.php:256
-#: include/views/administration.mediatypes.list.php:28
+#: include/menu.inc.php:256 include/views/administration.mediatypes.list.php:28
 msgid "Media types"
 msgstr "报警媒介类型"
 
@@ -9215,11 +9210,10 @@ msgid "NTLM authentication"
 msgstr "NTLM认证"
 
 #: actionconf.php:37 actionconf.php:166 adm.regexps.php:37 adm.regexps.php:140
-#: adm.regexps.php:172 applications.php:38 disc_prototypes.php:42
-#: graphs.php:41 host_discovery.php:41 hosts.php:778 hosts.php:812
-#: httpconf.php:44 httpmon.php:88 include/forms.inc.php:621
-#: include/hosts.inc.php:115 include/reports.inc.php:174
-#: include/setup.inc.php:384
+#: adm.regexps.php:172 applications.php:38 disc_prototypes.php:42 graphs.php:41
+#: host_discovery.php:41 hosts.php:778 hosts.php:812 httpconf.php:44
+#: httpmon.php:88 include/forms.inc.php:621 include/hosts.inc.php:115
+#: include/reports.inc.php:174 include/setup.inc.php:384
 #: include/views/administration.general.iconmap.edit.php:29
 #: include/views/administration.general.iconmap.list.php:25
 #: include/views/administration.general.image.edit.php:35
@@ -9377,7 +9371,7 @@ msgstr "新的群组"
 
 #: include/views/configuration.host.massupdate.php:142
 msgid "New host group"
-msgstr "新的主机群组"
+msgstr "新的集群"
 
 #: popup_bitem.php:96
 msgid "New item for the graph"
@@ -9660,7 +9654,7 @@ msgstr "没有群组的主机 \"%s\"."
 
 #: api/classes/CHost.php:1076
 msgid "No groups for hosts."
-msgstr "没有主机群组"
+msgstr "没有集群"
 
 #: api/classes/CTemplate.php:833
 msgid "No groups for template"
@@ -9690,7 +9684,7 @@ msgstr ""
 
 #: api/classes/CScreenItem.php:465
 msgid "No host group ID provided for screen element."
-msgstr "没有提供主机群组给屏幕组件"
+msgstr "没有提供集群给屏幕组件"
 
 #: include/blocks.inc.php:195 include/blocks.inc.php:396
 #: include/views/configuration.hostgroups.list.php:56 popup.php:930
@@ -9701,7 +9695,7 @@ msgstr ""
 #: include/hosts.inc.php:493
 #, c-format
 msgid "No host groups with groupid \"%s\"."
-msgstr "没有含群组ID\"%s\"的主机群组."
+msgstr "没有含群组ID\"%s\"的集群."
 
 #: include/views/configuration.host.prototype.list.php:44
 msgid "No host prototypes found."
@@ -10129,8 +10123,7 @@ msgstr "具有相同ID的节点已存在."
 
 #: include/actions.inc.php:827 include/actions.inc.php:906
 #: include/actions.inc.php:964 include/classes/screens/CScreenActions.php:123
-#: include/forms.inc.php:179
-#: include/views/administration.auditacts.list.php:69
+#: include/forms.inc.php:179 include/views/administration.auditacts.list.php:69
 #: include/views/administration.node.list.php:25
 #: include/views/administration.node.list.php:32
 #: include/views/administration.proxy.list.php:26 popup.php:104
@@ -10155,8 +10148,7 @@ msgstr "正常"
 msgid "Normal view"
 msgstr "正常检视"
 
-#: include/actions.inc.php:256
-#: include/views/configuration.action.edit.php:1054
+#: include/actions.inc.php:256 include/views/configuration.action.edit.php:1054
 msgid "Not Ack"
 msgstr "未处理"
 
@@ -10231,8 +10223,8 @@ msgstr "警报"
 msgid "Nov"
 msgstr "11"
 
-#: include/forms.inc.php:1718 include/func.inc.php:139
-#: include/func.inc.php:276 jsLoader.php:128
+#: include/forms.inc.php:1718 include/func.inc.php:139 include/func.inc.php:276
+#: jsLoader.php:128
 msgid "November"
 msgstr "11"
 
@@ -10409,10 +10401,9 @@ msgstr "OEM"
 #: chart4.php:159 chart5.php:192 httpdetails.php:152 httpdetails.php:240
 #: httpmon.php:163 include/classes/tree/CServiceTree.php:46
 #: include/maps.inc.php:683 include/maps.inc.php:765 include/maps.inc.php:855
-#: include/maps.inc.php:945 include/setup.inc.php:198
-#: include/setup.inc.php:239 include/setup.inc.php:351
-#: include/setup.inc.php:515 include/triggers.inc.php:154
-#: include/views/monitoring.overview.php:41
+#: include/maps.inc.php:945 include/setup.inc.php:198 include/setup.inc.php:239
+#: include/setup.inc.php:351 include/setup.inc.php:515
+#: include/triggers.inc.php:154 include/views/monitoring.overview.php:41
 msgid "OK"
 msgstr "正常"
 
@@ -10467,8 +10458,8 @@ msgstr "10"
 msgid "Octal"
 msgstr "八进制数"
 
-#: include/forms.inc.php:1713 include/func.inc.php:138
-#: include/func.inc.php:275 jsLoader.php:127
+#: include/forms.inc.php:1713 include/func.inc.php:138 include/func.inc.php:275
+#: jsLoader.php:127
 msgid "October"
 msgstr "10"
 
@@ -10516,7 +10507,7 @@ msgstr "只有超级管理员可以创建全域宏."
 
 #: api/classes/CHostGroup.php:479
 msgid "Only Super Admins can create host groups."
-msgstr "只有超级管理员可以创建主机群组."
+msgstr "只有超级管理员可以创建集群."
 
 #: api/classes/CIconMap.php:166
 msgid "Only Super Admins can create icon maps."
@@ -11584,11 +11575,11 @@ msgstr "自常用的移除"
 
 #: include/actions.inc.php:642
 msgid "Remove from host group"
-msgstr "自主机群组移除"
+msgstr "自集群移除"
 
 #: include/actions.inc.php:432 include/views/configuration.action.edit.php:866
 msgid "Remove from host groups"
-msgstr "自主机群组移除"
+msgstr "自集群移除"
 
 #: include/actions.inc.php:406 include/actions.inc.php:638
 msgid "Remove host"
@@ -11617,7 +11608,7 @@ msgstr "替换相依关系"
 
 #: include/views/configuration.host.massupdate.php:66
 msgid "Replace host groups"
-msgstr "替换主机群组"
+msgstr "替换集群"
 
 #: chart_bar.php:66 report2.php:183 report5.php:53 report6.php:210
 msgid "Report"
@@ -11869,7 +11860,7 @@ msgstr "在当前主机上执行远程命令"
 
 #: include/actions.inc.php:398
 msgid "Run remote commands on host groups"
-msgstr "于主机群组上执行远程命令"
+msgstr "于集群上执行远程命令"
 
 #: include/actions.inc.php:386
 msgid "Run remote commands on hosts"
@@ -11924,8 +11915,7 @@ msgstr "SLA"
 msgid "SLIDE SHOWS"
 msgstr "幻灯片显示"
 
-#: include/media.inc.php:26
-#: include/views/administration.mediatypes.edit.php:43
+#: include/media.inc.php:26 include/views/administration.mediatypes.edit.php:43
 msgid "SMS"
 msgstr "短信"
 
@@ -12020,8 +12010,7 @@ msgstr "SQL陈述式执行已失败: \"%1$s\""
 msgid "SQL statement execution has failed \"%1$s\"."
 msgstr "SQL陈述式执行已失败: \"%1$s\"."
 
-#: include/discovery.inc.php:56
-#: include/views/configuration.action.edit.php:724
+#: include/discovery.inc.php:56 include/views/configuration.action.edit.php:724
 #: include/views/js/configuration.discovery.edit.js.php:182
 msgid "SSH"
 msgstr "SSH"
@@ -12473,8 +12462,8 @@ msgstr "09"
 msgid "Separated"
 msgstr "分开的"
 
-#: include/forms.inc.php:1708 include/func.inc.php:137
-#: include/func.inc.php:274 jsLoader.php:126
+#: include/forms.inc.php:1708 include/func.inc.php:137 include/func.inc.php:274
+#: jsLoader.php:126
 msgid "September"
 msgstr "09"
 
@@ -12486,8 +12475,7 @@ msgstr "序列号A"
 msgid "Serial number B"
 msgstr "序列号B"
 
-#: include/views/administration.script.list.php:67 popup.php:1888
-#: queue.php:146
+#: include/views/administration.script.list.php:67 popup.php:1888 queue.php:146
 msgid "Server"
 msgstr "服务器"
 
@@ -12572,8 +12560,8 @@ msgid "Session terminated, re-login, please."
 msgstr "连线期已中断, 请重连."
 
 #: events.php:588 events.php:601 include/classes/screens/CScreenEvents.php:44
-#: include/classes/screens/CScreenHistory.php:168
-#: include/triggers.inc.php:1630 include/views/configuration.item.list.php:137
+#: include/classes/screens/CScreenHistory.php:168 include/triggers.inc.php:1630
+#: include/views/configuration.item.list.php:137
 #: include/views/configuration.triggers.edit.php:247
 #: include/views/configuration.triggers.list.php:108
 #: include/views/configuration.triggers.massupdate.php:70 popup.php:1024
@@ -12589,10 +12577,9 @@ msgstr "严重性(降幂)"
 msgid "Severity name cannot be empty."
 msgstr "严重性的名称不能是空白."
 
-#: include/classes/class.cuiwidget.php:58
-#: include/classes/class.cwidget.php:183 include/html.inc.php:162
-#: include/reports.inc.php:129 include/reports.inc.php:272
-#: include/reports.inc.php:456
+#: include/classes/class.cuiwidget.php:58 include/classes/class.cwidget.php:183
+#: include/html.inc.php:162 include/reports.inc.php:129
+#: include/reports.inc.php:272 include/reports.inc.php:456
 #: include/views/configuration.application.list.php:63
 #: include/views/js/configuration.sysmaps.js.php:26 report2.php:422
 #: tr_status.php:768 tr_status.php:773
@@ -13214,15 +13201,14 @@ msgstr "目标清单"
 msgid "Target type"
 msgstr "目标类型"
 
-#: include/discovery.inc.php:70
-#: include/views/configuration.action.edit.php:725
+#: include/discovery.inc.php:70 include/views/configuration.action.edit.php:725
 #: include/views/js/configuration.discovery.edit.js.php:183
 msgid "Telnet"
 msgstr "Telnet"
 
 #: include/actions.inc.php:62 include/audit.inc.php:51
-#: include/forms.inc.php:627 include/forms.inc.php:946
-#: include/html.inc.php:363 include/views/configuration.template.edit.php:35
+#: include/forms.inc.php:627 include/forms.inc.php:946 include/html.inc.php:363
+#: include/views/configuration.template.edit.php:35
 #: include/views/configuration.template.edit.php:397
 #: include/views/configuration.triggers.list.php:126 report2.php:259
 msgid "Template"
@@ -13852,8 +13838,7 @@ msgstr "触发器值"
 
 #: hosts.php:815 hosts.php:907 include/forms.inc.php:612
 #: include/html.inc.php:450 include/html.inc.php:454 include/menu.inc.php:52
-#: include/triggers.inc.php:1251
-#: include/views/configuration.action.list.php:33
+#: include/triggers.inc.php:1251 include/views/configuration.action.list.php:33
 #: include/views/configuration.host.discovery.list.php:52
 #: include/views/configuration.host.edit.php:483
 #: include/views/configuration.item.list.php:65
@@ -13937,8 +13922,7 @@ msgstr "两个监控项 (\"%1$s\"和\"%2$s\")不能填入一个主机资产纪�
 #: include/actions.inc.php:829 include/classes/screens/CScreenActions.php:48
 #: include/classes/screens/CScreenActions.php:53
 #: include/classes/screens/CScreenActions.php:125 include/forms.inc.php:541
-#: include/hosts.inc.php:105
-#: include/views/administration.auditacts.list.php:71
+#: include/hosts.inc.php:105 include/views/administration.auditacts.list.php:71
 #: include/views/administration.general.image.edit.php:36
 #: include/views/administration.general.image.list.php:27
 #: include/views/administration.mediatypes.edit.php:53
@@ -14582,8 +14566,7 @@ msgstr "使用别名\"%s\"的用户已存在."
 msgid "Username"
 msgstr "用户名称"
 
-#: include/menu.inc.php:251
-#: include/views/administration.usergroups.edit.php:55
+#: include/menu.inc.php:251 include/views/administration.usergroups.edit.php:55
 #: include/views/administration.usergroups.list.php:29
 #: include/views/administration.usergroups.list.php:126
 #: include/views/administration.users.list.php:29
@@ -15309,8 +15292,7 @@ msgstr "Y.m.d H:i"
 msgid "Y.m.d H:i:s"
 msgstr "Y.m.d H:i:s"
 
-#: report3.php:70 report3.php:89 report4.php:115 report4.php:143
-#: report5.php:47
+#: report3.php:70 report3.php:89 report4.php:115 report4.php:143 report5.php:47
 msgid "Year"
 msgstr "年"
 
@@ -15322,8 +15304,7 @@ msgstr "每年"
 #: events.php:839 include/blocks.inc.php:750
 #: include/classes/class.cserverinfo.php:33 include/events.inc.php:365
 #: include/events.inc.php:383 include/func.inc.php:2436
-#: include/triggers.inc.php:1635
-#: include/views/administration.users.list.php:76
+#: include/triggers.inc.php:1635 include/views/administration.users.list.php:76
 #: include/views/js/adm.regexprs.edit.js.php:139
 msgid "Yes"
 msgstr "是"
@@ -15355,7 +15336,7 @@ msgstr "您没有指定主机来操作."
 
 #: include/views/js/configuration.action.edit.js.php:315
 msgid "You did not specify host group for operation."
-msgstr "您没有指定主机群组来操作."
+msgstr "您没有指定集群来操作."
 
 #: api/classes/CAction.php:1426
 #, c-format
@@ -15749,7 +15730,7 @@ msgstr "主机"
 
 #: api/classes/CMap.php:419
 msgid "host group"
-msgstr "主机群组"
+msgstr "集群"
 
 #: api/classes/CMap.php:416
 msgid "icon"
@@ -16015,8 +15996,7 @@ msgstr "模板ID\"%1$s\"已传送%2$s次"
 msgid "to"
 msgstr "-"
 
-#: api/classes/CMap.php:421 include/events.inc.php:34
-#: include/events.inc.php:63
+#: api/classes/CMap.php:421 include/events.inc.php:34 include/events.inc.php:63
 msgid "trigger"
 msgstr "触发器"
 

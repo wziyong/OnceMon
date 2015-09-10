@@ -566,7 +566,7 @@ class CHostGroup extends CZBXAPI {
 				}
 
 				$update[] = array(
-					'values' => array('name' => $group['name']),
+					'values' => array('name' => $group['name'],'comment'=>$group['comment']),
 					'where' => array('groupid' => $group['groupid'])
 				);
 			}

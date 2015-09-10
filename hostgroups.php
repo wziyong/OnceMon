@@ -37,6 +37,7 @@ $fields = array(
 	// group
 	'groupid' =>		array(T_ZBX_INT, O_OPT, P_SYS,	DB_ID,		'isset({form})&&{form}=="update"'),
 	'name' =>			array(T_ZBX_STR, O_OPT, null,	NOT_EMPTY,	'isset({save})'),
+	'comment' =>			array(T_ZBX_STR, O_OPT, null,	NOT_EMPTY,	'isset({save})'),
 	'twb_groupid' =>	array(T_ZBX_INT, O_OPT, P_SYS,	DB_ID,		null),
 	// actions
 	'go' =>				array(T_ZBX_STR, O_OPT, P_SYS|P_ACT, null,	null),
@@ -67,7 +68,7 @@ if (isset($_REQUEST['clone']) && isset($_REQUEST['groupid'])) {
 	unset($_REQUEST['groupid']);
 	$_REQUEST['form'] = 'clone';
 }
-elseif (isset($_REQUEST['save'])) {
+elseif (isset($_REQUEST['save'])) {//TODO 保存集群信息；
 	$hostIds = get_request('hosts', array());
 
 	$hosts = API::Host()->get(array(
@@ -81,7 +82,7 @@ elseif (isset($_REQUEST['save'])) {
 		'output' => array('templateid')
 	));
 
-	if (!empty($_REQUEST['groupid'])) {
+	if (!empty($_REQUEST['groupid'])) {//TODO  修改集群；
 		DBstart();
 
 		$oldGroup = API::HostGroup()->get(array(
@@ -95,7 +96,8 @@ elseif (isset($_REQUEST['save'])) {
 		if ($oldGroup['flags'] != ZBX_FLAG_DISCOVERY_CREATED) {
 			$result = API::HostGroup()->update(array(
 				'groupid' => $_REQUEST['groupid'],
-				'name' => $_REQUEST['name']
+				'name' => $_REQUEST['name'],
+				'comment' => $_REQUEST['comment']
 			));
 		}
 
@@ -125,9 +127,13 @@ elseif (isset($_REQUEST['save'])) {
 		$msgFail = _('Cannot update group');
 	}
 	else {
-		DBstart();
-
-		$result = API::HostGroup()->create(array('name' => $_REQUEST['name']));
+		DBstart();//TODO 新增集群
+        //start modify by wziyong 新增备注字段；
+		$result = API::HostGroup()->create(array(
+			'name' => $_REQUEST['name'],
+			'comment' => $_REQUEST['comment'])
+		);
+		//end modify by wziyong 新增备注字段；
 
 		if ($result) {
 			$groups = API::HostGroup()->get(array(
@@ -236,7 +242,7 @@ elseif (str_in_array(getRequest('go'), array('activate', 'disable'))) {
 }
 
 /*
- * Display
+ * Display  controller显示；
  */
 if (isset($_REQUEST['form'])) {
 	$data = array(
@@ -244,6 +250,7 @@ if (isset($_REQUEST['form'])) {
 		'groupid' => get_request('groupid', 0),
 		'hosts' => get_request('hosts', array()),
 		'name' => get_request('name', ''),
+		'comment' => get_request('comment', ''),
 		'twb_groupid' => get_request('twb_groupid', -1)
 	);
 
@@ -253,6 +260,7 @@ if (isset($_REQUEST['form'])) {
 		// if first time select all hosts for group from db
 		if (!isset($_REQUEST['form_refresh'])) {
 			$data['name'] = $data['group']['name'];
+			$data['comment'] = $data['group']['comment'];
 
 			$data['hosts'] = API::Host()->get(array(
 				'groupids' => $data['groupid'],
@@ -326,7 +334,7 @@ if (isset($_REQUEST['form'])) {
 	$hostgroupView->render();
 	$hostgroupView->show();
 }
-else {
+else {//查询列表
 	$data = array(
 		'config' => $config,
 		'displayNodes' => is_array(get_current_nodeid())
@@ -353,7 +361,7 @@ else {
 	));
 	$data['groupCounts'] = zbx_toHash($data['groupCounts'], 'groupid');
 
-	// get host groups
+	// get host groups //查询集群相关的host和template
 	$data['groups'] = API::HostGroup()->get(array(
 		'groupids' => zbx_objectValues($groups, 'groupid'),
 		'selectHosts' => array('hostid', 'name', 'status'),
@@ -372,7 +380,7 @@ else {
 		}
 	}
 
-	// render view
+	// render view //TODO 集群的查询列表；
 	$hostgroupView = new CView('configuration.hostgroups.list', $data);
 	$hostgroupView->render();
 	$hostgroupView->show();
