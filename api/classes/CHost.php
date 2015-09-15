@@ -855,6 +855,14 @@ class CHost extends CHostGeneral {
 	 * @param string $hosts ['ipmi_username'] IPMI username. OPTIONAL
 	 * @param string $hosts ['ipmi_password'] IPMI password. OPTIONAL
 	 *
+	 * @param string $hosts ['groups'] 集群id数组
+	 * @param string $hosts ['templates'] 模板数组，TODO 貌似为空的啊！！！
+	 * @param string $hosts ['interfaces'] 接口数组；type、ip、dns、useip、port、main；
+	 * @param string $hosts ['macros'] 宏数组；macro=value；
+	 * @param string $hosts ['inventory'] 资产信息，字段非常的多；
+	 * @param string $hosts ['inventory_mode'] 资产模式；
+	 *
+	 *
 	 * @return boolean
 	 */
 	public function create($hosts) {
@@ -895,7 +903,7 @@ class CHost extends CHostGeneral {
 				$options['interfaces'] = $host['interfaces'];
 			}
 
-			$result = API::Host()->massAdd($options);
+			$result = API::Host()->massAdd($options);//TODO 新增host相关的模板、interface、宏、接口；
 			if (!$result) {
 				self::exception();
 			}

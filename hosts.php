@@ -442,7 +442,7 @@ elseif (isset($_REQUEST['save'])) {
 
 			$groups = zbx_toObject($groups, 'groupid');
 
-			$host = array(
+			$host = array(//TODO 新增host；
 				'host' => $_REQUEST['host'],
 				'name' => $_REQUEST['visiblename'],
 				'status' => $_REQUEST['status'],
@@ -465,7 +465,7 @@ elseif (isset($_REQUEST['save'])) {
 		}
 
 		if ($createNew) {
-			$hostIds = API::Host()->create($host);
+			$hostIds = API::Host()->create($host);//TODO 插入数据库；
 
 			if ($hostIds) {
 				$hostId = reset($hostIds['hostids']);

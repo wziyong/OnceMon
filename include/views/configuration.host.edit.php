@@ -18,7 +18,7 @@
 ** Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 **/
 
-
+//TODO 新增&修改主机的页面；
 require_once dirname(__FILE__).'/js/configuration.host.edit.js.php';
 
 $divTabs = new CTabView();
@@ -169,7 +169,7 @@ if ($isDiscovered) {
 		)
 	);
 }
-
+//TODO 信息输入框；
 $hostTB = new CTextBox('host', $host, ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
 $hostTB->setAttribute('maxlength', 64);
 $hostTB->setAttribute('autofocus', 'autofocus');
@@ -181,7 +181,7 @@ $hostList->addRow(_('Visible name'), $visiblenameTB);
 
 // groups for normal hosts
 if (!$isDiscovered) {
-	$grp_tb = new CTweenBox($frmHost, 'groups', $host_groups, 10);
+	$grp_tb = new CTweenBox($frmHost, 'groups', $host_groups, 10); //TODO 查询主机；
 	$all_groups = API::HostGroup()->get(array(
 		'editable' => true,
 		'output' => API_OUTPUT_EXTEND
