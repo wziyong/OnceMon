@@ -51,7 +51,7 @@ $fields = array(
 	'groupid' =>		array(T_ZBX_INT, O_OPT, P_SYS,			DB_ID,		null),
 	'hostid' =>			array(T_ZBX_INT, O_OPT, P_SYS,			DB_ID,		'isset({form})&&{form}=="update"'),
 	'host' =>			array(T_ZBX_STR, O_OPT, null,			NOT_EMPTY,	'isset({save})', _('Host name')),
-	'visiblename' =>	array(T_ZBX_STR, O_OPT, null,			null,		'isset({save})'),
+	'visiblename' =>	array(T_ZBX_STR, O_OPT, null,			null,		null),
 	'proxy_hostid' =>	array(T_ZBX_INT, O_OPT, P_SYS,		    DB_ID,		null),
 	'status' =>			array(T_ZBX_INT, O_OPT, null,			IN('0,1,3'), 'isset({save})'),
 	'newgroup' =>		array(T_ZBX_STR, O_OPT, null,			null,		null),
@@ -356,7 +356,7 @@ elseif (isset($_REQUEST['go']) && $_REQUEST['go'] == 'massupdate' && isset($_REQ
 	}
 	unset($_REQUEST['save']);
 }
-elseif (isset($_REQUEST['save'])) {
+elseif (isset($_REQUEST['save'])) {//TODO 保存主机信息；
 	try {
 		DBstart();
 
@@ -444,7 +444,8 @@ elseif (isset($_REQUEST['save'])) {
 
 			$host = array(//TODO 新增host；
 				'host' => $_REQUEST['host'],
-				'name' => $_REQUEST['visiblename'],
+				//'name' => $_REQUEST['visiblename'],
+				'name' => null,
 				'status' => $_REQUEST['status'],
 				'proxy_hostid' => get_request('proxy_hostid', 0),
 				'ipmi_authtype' => get_request('ipmi_authtype'),
@@ -456,7 +457,11 @@ elseif (isset($_REQUEST['save'])) {
 				'interfaces' => $interfaces,
 				'macros' => $macros,
 				'inventory' => (get_request('inventory_mode') != HOST_INVENTORY_DISABLED) ? get_request('host_inventory', array()) : null,
-				'inventory_mode' => get_request('inventory_mode')
+				'inventory_mode' => get_request('inventory_mode'),
+				//add start by wziyong 新增 服务器类型；父节点类型字段；
+				'server_type' => get_request('server_type'),
+				'parentid' => get_request('parentid')
+                //add end by wziyong 新增 服务器类型；父节点类型字段；
 			);
 
 			if (!$createNew) {

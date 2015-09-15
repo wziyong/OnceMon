@@ -20,6 +20,7 @@
 
 //TODO 新增&修改主机的页面；
 require_once dirname(__FILE__).'/js/configuration.host.edit.js.php';
+require_once dirname(__FILE__).'/js/custom/custom.host.edit.js.php';
 
 $divTabs = new CTabView();
 if (!isset($_REQUEST['form_refresh'])) {
@@ -170,37 +171,105 @@ if ($isDiscovered) {
 	);
 }
 //TODO 信息输入框；
+//modify start by wziyong 新增服务器类型
+$serverType = new CComboBox('serverType');
+$serverType->addItem(0, _('负载均衡器'));
+$serverType->addItem(1, _('应用服务器'));
+$serverType->addItem(2, _('缓存服务器'));
+$serverType->addStyle('width: 330px;');
+$hostList->addRow(_('服务器类型'), $serverType);
+//modify end by wziyong 新增服务器类型
+
+
+
 $hostTB = new CTextBox('host', $host, ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
 $hostTB->setAttribute('maxlength', 64);
 $hostTB->setAttribute('autofocus', 'autofocus');
-$hostList->addRow(_('Host name'), $hostTB);
+$hostList->addRow(_('服务器名称'), $hostTB);
 
-$visiblenameTB = new CTextBox('visiblename', $visiblename, ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
-$visiblenameTB->setAttribute('maxlength', 64);
-$hostList->addRow(_('Visible name'), $visiblenameTB);
+//$visiblenameTB = new CTextBox('visiblename', $visiblename, ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
+//$visiblenameTB->setAttribute('maxlength', 64);
+//$hostList->addRow(_('服务器//名称'), $visiblenameTB);
 
 // groups for normal hosts
 if (!$isDiscovered) {
-	$grp_tb = new CTweenBox($frmHost, 'groups', $host_groups, 10); //TODO 查询主机；
+	//$grp_tb = new CTweenBox($frmHost, 'groups', $host_groups, 10); //TODO 查询主机；
 	$all_groups = API::HostGroup()->get(array(
 		'editable' => true,
 		'output' => API_OUTPUT_EXTEND
 	));
 	order_result($all_groups, 'name');
+
+	//modify start by wziyong 所属集群
+	//$grpList = new CComboBox('ipmi_authtype', $ipmi_authtype);
+	$grpxList = new CComboBox('groups');
+	//$grpList->addClass('openView');
+	//$grpList->setAttribute('size', 5);
+	$grpxList->addStyle('width: 330px;');
 	foreach ($all_groups as $group) {
-		$grp_tb->addItem($group['groupid'], $group['name']);
+		//$grp_tb->addItem($group['groupid'], $group['name']);
+		$grpxList->addItem($group['groupid'],$group['name']);
 	}
+	//$hostList->addRow(_('Groups'), $grp_tb->get(_('In groups'), _('Other groups')));
+	$hostList->addRow(_('所属集群'), $grpxList);
+    //modify start by wziyong 所属集群
 
-	$hostList->addRow(_('Groups'), $grp_tb->get(_('In groups'), _('Other groups')));
+	//modify start by wziyong 父节点
+	$parentList = new CComboBox('parentid');
+	//$parentList->addClass('openView');
+	//$grpList->setAttribute('size', 5);
+	$parentList->addStyle('width: 330px;');
+	$parentList->addItem(0,'后台查询啦啦啦啦啦啦啦');
+	//$hostList->addRow(_('Groups'), $grp_tb->get(_('In groups'), _('Other groups')));
+	$hostList->addRow(_('父节点'), $parentList);
+	//modify start by wziyong 父节点
 
-	$newgroupTB = new CTextBox('newgroup', $newgroup, ZBX_TEXTBOX_SMALL_SIZE);
-	$newgroupTB->setAttribute('maxlength', 64);
-	$tmp_label = _('New group');
-	if (CWebUser::$data['type'] != USER_TYPE_SUPER_ADMIN) {
-		$tmp_label .= SPACE._('(Only super admins can create groups)');
-		$newgroupTB->setReadonly(true);
-	}
-	$hostList->addRow(SPACE, array(new CLabel($tmp_label, 'newgroup'), BR(), $newgroupTB), null, null, 'new');
+	//modify start by wziyong 屏蔽新建群组
+	//$newgroupTB = new CTextBox('newgroup', $newgroup, ZBX_TEXTBOX_SMALL_SIZE);
+	//$newgroupTB->setAttribute('maxlength', 64);
+	//$tmp_label = _('New group');
+	//if (CWebUser::$data['type'] != USER_TYPE_SUPER_ADMIN) {
+	//	$tmp_label .= SPACE._('(Only super admins can create groups)');
+	//	$newgroupTB->setReadonly(true);
+	//}
+	//$hostList->addRow(SPACE, array(new CLabel($tmp_label, 'newgroup'), BR(), $newgroupTB), null, null, 'new');
+    //modify end by wziyong 屏蔽新建群组
+
+	//modify start by wziyong http端口配置
+	$hostList->addRow(SPACE, array(new CLabel('服务器配置')), null, 'label_server_cfg', 'new');
+
+	//application server configuration
+	$apphttpportTBx = new CTextBox('app_http_port', $host, ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
+	$apphttpportTBx->setAttribute('maxlength', 64);
+	$apphttpportTBx->setAttribute('autofocus', 'autofocus');
+	$apphttpportTBx->setAttribute('style', 'display: table-row;');
+	$hostList->addRow(_('HTTP端口'), $apphttpportTBx, true, null, 'app_server');
+
+	//start load balance server configuration
+	$lbslistenportTBx = new CTextBox('lbs_listen_port', $host, ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
+	$lbslistenportTBx->setAttribute('maxlength', 64);
+	$lbslistenportTBx->setAttribute('autofocus', 'autofocus');
+	$hostList->addRow(_('监听端口'), $lbslistenportTBx, false, null, 'lbs_server');
+
+	$lbsservernameTBx = new CTextBox('lbs_server_name', '', ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
+	$lbsservernameTBx->setAttribute('maxlength', 64);
+	$lbsservernameTBx->setAttribute('autofocus', 'autofocus');
+	$hostList->addRow(_('服务器名称'), $lbsservernameTBx, false, null, 'lbs_server');
+
+	$lbs_upstream_type = new CComboBox('lbs_upstream_type');
+	$lbs_upstream_type->addStyle('width: 330px;');
+	$lbs_upstream_type->addItem(0,'RR(轮询)');
+	$lbs_upstream_type->addItem(1,'Weight(权重)');
+	$lbs_upstream_type->addItem(2,'IP Hash');
+	$lbs_upstream_type->addItem(3,'Least_conn(最少连接数)');
+	$lbs_upstream_type->addItem(4,'Consistent Hash(一致性算法)');
+	$hostList->addRow(_('负载策略'), $lbs_upstream_type, false, null, 'lbs_server');
+	//end load balance server configuration
+
+	$hostList->addRow(SPACE, array(new CLabel('监控配置')), null, null, 'new');
+	//modify end by wziyong http端口配置
+
+
 }
 // groups for discovered hosts
 else {
@@ -403,6 +472,7 @@ else {
 		$proxyControl = new CTextBox('proxy_host', _('(no proxy)'), null, true);
 	}
 }
+
 $hostList->addRow(_('Monitored by proxy'), $proxyControl);
 
 $cmbStatus = new CComboBox('status', $status);

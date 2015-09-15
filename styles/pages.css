@@ -49,7 +49,7 @@
 .hostprototype-edit .interface-row-first .objectgroup { border-top-width: 1px; padding-top: 0; }
 .host-edit .dropArea .interface-add-control,
 .hostprototype-edit .dropArea .interface-add-control { visibility: hidden; }
-.host-edit #groups { height: 140px; }
+/*.host-edit #groups { height: 140px; }*/
 .host-edit #linkedTemplateTable { min-width: 400px; }
 .host-edit.host-edit-discovered #linkedTemplateTable { min-width: 250px; }
 
