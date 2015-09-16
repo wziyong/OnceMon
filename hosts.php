@@ -734,6 +734,8 @@ elseif (isset($_REQUEST['form'])) {
 	if ($hostId = get_request('hostid', 0)) {
 		$hostsWidget->addItem(get_header_host_table('', $_REQUEST['hostid']));
 
+
+		//TODO 查询主机信息；
 		$dbHosts = API::Host()->get(array(
 			'hostids' => $hostId,
 			'selectGroups' => API_OUTPUT_EXTEND,

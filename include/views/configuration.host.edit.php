@@ -236,52 +236,20 @@ if (!$isDiscovered) {
     //modify end by wziyong 屏蔽新建群组
 
 	//modify start by wziyong http端口配置
-	$hostList->addRow(SPACE, array(new CLabel('服务器配置')), null, 'label_server_cfg', 'new');
-
-	//application server configuration
-	$lbslistenportTBkey = new CTextBox('appcfg[0][name]', $host, ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
-	$lbslistenportTBkey->setAttribute('value', 'app_http_port');
-	$hostList->addRow(_('HTTP端口key'), $lbslistenportTBkey, true, null, null);
-	$apphttpportTBx = new CTextBox('appcfg[0][value]', $host, ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
-	$apphttpportTBx->setAttribute('maxlength', 64);
-	$apphttpportTBx->setAttribute('autofocus', 'autofocus');
-	$apphttpportTBx->setAttribute('style', 'display: table-row;');
-	$hostList->addRow(_('HTTP端口'), $apphttpportTBx, false, null, 'app_server');
-
-	//start load balance server configuration
-	$lbslistenportTBkey = new CTextBox('lbscfg[0][name]', $host, ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
-	$lbslistenportTBkey->setAttribute('value', 'lbs_listen_port');
-	$hostList->addRow(_('监听端口key'), $lbslistenportTBkey, true, null, null);
-	$lbslistenportTBx = new CTextBox('lbscfg[0][value]', $host, ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
-	$lbslistenportTBx->setAttribute('maxlength', 64);
-	$lbslistenportTBx->setAttribute('autofocus', 'autofocus');
-	$hostList->addRow(_('监听端口'), $lbslistenportTBx, false, null, 'lbs_server');
-
-	$lbslistenportTBkey = new CTextBox('lbscfg[1][name]', $host, ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
-	$lbslistenportTBkey->setAttribute('value', 'lbs_server_name');
-	$hostList->addRow(_('服务器名称key'), $lbslistenportTBkey, true, null, null);
-	$lbsservernameTBx = new CTextBox('lbscfg[1][value]', '', ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
-	$lbsservernameTBx->setAttribute('maxlength', 64);
-	$lbsservernameTBx->setAttribute('autofocus', 'autofocus');
-	$hostList->addRow(_('服务器名称'), $lbsservernameTBx, false, null, 'lbs_server');
-
-	$lbslistenportTBkey = new CTextBox('lbscfg[2][name]', $host, ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
-	$lbslistenportTBkey->setAttribute('value', 'lbs_upstream_type');
-	$hostList->addRow(_('负载策略key'), $lbslistenportTBkey, true, null, null);
-	$lbs_upstream_type = new CComboBox('lbscfg[2][value]');
-	$lbs_upstream_type->addStyle('width: 330px;');
-	$lbs_upstream_type->addItem(0,'RR(轮询)');
-	$lbs_upstream_type->addItem(1,'Weight(权重)');
-	$lbs_upstream_type->addItem(2,'IP Hash');
-	$lbs_upstream_type->addItem(3,'Least_conn(最少连接数)');
-	$lbs_upstream_type->addItem(4,'Consistent Hash(一致性算法)');
-	$hostList->addRow(_('负载策略'), $lbs_upstream_type, false, null, 'lbs_server');
+	if (empty($macros)) {
+		//$macrosxx = array(array('macro' => '', 'value' => ''));
+	}
+	$macrosViewx = new CView('custom/common.hostcfg', array(
+		//'macros' => $macrosxx,
+		'readonly' => $isDiscovered,
+		'hostList' =>$hostList
+	));
+	$macrosViewx->render();
 	//end load balance server configuration
 
 	$hostList->addRow(SPACE, array(new CLabel('监控配置')), null, null, 'new');
 	//modify end by wziyong http端口配置
-
-
+	//$divTabs->addTab('macroTab', _('Macros'), $macrosViewx->render());
 }
 // groups for discovered hosts
 else {
