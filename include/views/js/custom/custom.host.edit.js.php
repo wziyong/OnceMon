@@ -2,12 +2,12 @@
     jQuery(document).ready(function () {
         setServerCfg();
 
-        jQuery('#serverType').on('change', function () {
+        jQuery('#server_type').on('change', function () {
             setServerCfg();
         });
 
         function setServerCfg() {
-            var selected = jQuery("#serverType").find("option:selected").val();
+            var selected = jQuery("#server_type").find("option:selected").val();
             //如果是lbs server，则将app_server class的隐藏；
             if ('0' == selected) {
                 jQuery('#label_server_cfg').removeClass('hidden');

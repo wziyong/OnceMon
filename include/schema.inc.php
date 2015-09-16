@@ -238,6 +238,11 @@ return array(
 				'ref_table' => 'hosts',
 				'ref_field' => 'hostid',
 			),
+			'server_type' => array(
+				'null' => true,
+				'type' => DB::FIELD_TYPE_INT,
+				'length' => 11
+			),
 		),
 	),
 	'groups' => array(
@@ -2933,6 +2938,13 @@ return array(
 				'length' => 20,
 				'ref_table' => 'groups',
 				'ref_field' => 'groupid',
+			),
+			'parentid' => array(
+				'null' => false,
+				'type' => DB::FIELD_TYPE_ID,
+				'length' => 20,
+				'ref_table' => 'hosts',
+				'ref_field' => 'hostid',
 			),
 		),
 	),
@@ -6059,5 +6071,43 @@ return array(
 			),
 		),
 	),
+
+	// add start by wziyong
+	't_custom_hostconfig' => array(
+		'type' => DB::TABLE_TYPE_CONFIG,
+		'key' => 'hostconfigid',
+		'fields' => array(
+			'hostconfigid' => array(
+				'null' => false,
+				'type' => DB::FIELD_TYPE_ID,
+				'length' => 20,
+			),
+			'hostid' => array(
+				'null' => false,
+				'type' => DB::FIELD_TYPE_ID,
+				'length' => 20,
+				'ref_table' => 'hosts',
+				'ref_field' => 'hostid',
+			),
+			'type' => array(
+				'null' => false,
+				'type' => DB::FIELD_TYPE_INT,
+				'length' => 11
+			),
+			'name' => array(
+				'null' => false,
+				'type' => DB::FIELD_TYPE_CHAR,
+				'length' => 256,
+				'default' => '',
+			),
+			'value' => array(
+				'null' => false,
+				'type' => DB::FIELD_TYPE_CHAR,
+				'length' => 1024,
+				'default' => '',
+			),
+		),
+	),
+	// add end by wziyong
 );
 ?>

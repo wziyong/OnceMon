@@ -172,10 +172,10 @@ if ($isDiscovered) {
 }
 //TODO 信息输入框；
 //modify start by wziyong 新增服务器类型
-$serverType = new CComboBox('serverType');
-$serverType->addItem(0, _('负载均衡器'));
-$serverType->addItem(1, _('应用服务器'));
-$serverType->addItem(2, _('缓存服务器'));
+$serverType = new CComboBox('server_type');
+$serverType->addItem(HOST_SERVER_TYPE_LBS, _('负载均衡器'));
+$serverType->addItem(HOST_SERVER_TYPE_APP, _('应用服务器'));
+$serverType->addItem(HOST_SERVER_TYPE_CACHE, _('缓存服务器'));
 $serverType->addStyle('width: 330px;');
 $hostList->addRow(_('服务器类型'), $serverType);
 //modify end by wziyong 新增服务器类型
@@ -239,24 +239,36 @@ if (!$isDiscovered) {
 	$hostList->addRow(SPACE, array(new CLabel('服务器配置')), null, 'label_server_cfg', 'new');
 
 	//application server configuration
-	$apphttpportTBx = new CTextBox('app_http_port', $host, ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
+	$lbslistenportTBkey = new CTextBox('appcfg[0][name]', $host, ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
+	$lbslistenportTBkey->setAttribute('value', 'app_http_port');
+	$hostList->addRow(_('HTTP端口key'), $lbslistenportTBkey, true, null, null);
+	$apphttpportTBx = new CTextBox('appcfg[0][value]', $host, ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
 	$apphttpportTBx->setAttribute('maxlength', 64);
 	$apphttpportTBx->setAttribute('autofocus', 'autofocus');
 	$apphttpportTBx->setAttribute('style', 'display: table-row;');
-	$hostList->addRow(_('HTTP端口'), $apphttpportTBx, true, null, 'app_server');
+	$hostList->addRow(_('HTTP端口'), $apphttpportTBx, false, null, 'app_server');
 
 	//start load balance server configuration
-	$lbslistenportTBx = new CTextBox('lbs_listen_port', $host, ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
+	$lbslistenportTBkey = new CTextBox('lbscfg[0][name]', $host, ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
+	$lbslistenportTBkey->setAttribute('value', 'lbs_listen_port');
+	$hostList->addRow(_('监听端口key'), $lbslistenportTBkey, true, null, null);
+	$lbslistenportTBx = new CTextBox('lbscfg[0][value]', $host, ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
 	$lbslistenportTBx->setAttribute('maxlength', 64);
 	$lbslistenportTBx->setAttribute('autofocus', 'autofocus');
 	$hostList->addRow(_('监听端口'), $lbslistenportTBx, false, null, 'lbs_server');
 
-	$lbsservernameTBx = new CTextBox('lbs_server_name', '', ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
+	$lbslistenportTBkey = new CTextBox('lbscfg[1][name]', $host, ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
+	$lbslistenportTBkey->setAttribute('value', 'lbs_server_name');
+	$hostList->addRow(_('服务器名称key'), $lbslistenportTBkey, true, null, null);
+	$lbsservernameTBx = new CTextBox('lbscfg[1][value]', '', ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
 	$lbsservernameTBx->setAttribute('maxlength', 64);
 	$lbsservernameTBx->setAttribute('autofocus', 'autofocus');
 	$hostList->addRow(_('服务器名称'), $lbsservernameTBx, false, null, 'lbs_server');
 
-	$lbs_upstream_type = new CComboBox('lbs_upstream_type');
+	$lbslistenportTBkey = new CTextBox('lbscfg[2][name]', $host, ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
+	$lbslistenportTBkey->setAttribute('value', 'lbs_upstream_type');
+	$hostList->addRow(_('负载策略key'), $lbslistenportTBkey, true, null, null);
+	$lbs_upstream_type = new CComboBox('lbscfg[2][value]');
 	$lbs_upstream_type->addStyle('width: 330px;');
 	$lbs_upstream_type->addItem(0,'RR(轮询)');
 	$lbs_upstream_type->addItem(1,'Weight(权重)');

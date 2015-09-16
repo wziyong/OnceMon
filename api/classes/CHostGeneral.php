@@ -38,6 +38,8 @@ abstract class CHostGeneral extends CHostBase {
 	 * - groups         - an array of host groups to add the host to
 	 * - templates_link - an array of templates to link to the hosts
 	 * - macros         - an array of macros to create on the host
+	 * - appcfg         - an array of appcfg to create on the host
+	 * - lbscfg         - an array of lbscfg to create on the host
 	 *
 	 * @param array $data
 	 *
@@ -77,6 +79,27 @@ abstract class CHostGeneral extends CHostBase {
 
 			API::UserMacro()->create($hostMacrosToAdd);
 		}
+
+		// add start by wziyong for create cfg
+		$hostServerCfg = null;
+		if (!empty($data['lbscfg']) && $data['hosts']['server_type'] == HOST_SERVER_TYPE_LBS) {
+			$hostServerCfg = zbx_toArray($data['lbscfg']);
+		} else if (!empty($data['appcfg']) && $data['hosts']['server_type'] == HOST_SERVER_TYPE_APP) {
+			$hostServerCfg = zbx_toArray($data['appcfg']);
+		} else {
+			//nothing
+		}
+		if (!empty($hostServerCfg)) {
+			$hostCfgToAdd = array();
+			foreach ($hostServerCfg as $hostCfg) {
+				foreach ($allHostIds as $hostid) {
+					$hostCfg['hostid'] = $hostid;
+					$hostCfgToAdd[] = $hostCfg;
+				}
+			}
+			API::HostServerCfg()->create($hostCfgToAdd);
+		}
+		// add end by wziyong for create cfg
 
 		$ids = array('hostids' => $hostIds, 'templateids' => $templateIds);
 

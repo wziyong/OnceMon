@@ -75,7 +75,10 @@ class API {
 		'usermacro' => 'CUserMacro',
 		'usermedia' => 'CUserMedia',
 		'httptest' => 'CHttpTest',
-		'webcheck' => 'CHttpTest'
+		'webcheck' => 'CHttpTest',
+		//add start by wziyong
+		'hostservercfg' => 'CHostServerCfg'
+		//add end by wziyong
 	);
 
 	/**
@@ -425,4 +428,14 @@ class API {
 	public static function HttpTest() {
 		return self::getObject('httptest');
 	}
+
+
+	//add start by wziyong
+	/**
+	 * @return CHostServerCfg
+	 */
+	public static function HostServerCfg() {
+		return self::getObject('hostservercfg');
+	}
+	//add end by wziyong
 }

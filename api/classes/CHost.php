@@ -62,7 +62,7 @@ class CHost extends CHostGeneral {
 	 *
 	 * @return array|boolean Host data as array or false if error
 	 */
-	public function get($options = array()) {
+	public function get($options = array()) {//TODO 查询主机
 		$result = array();
 		$userType = self::$userData['type'];
 		$userid = self::$userData['userid'];
@@ -856,16 +856,18 @@ class CHost extends CHostGeneral {
 	 * @param string $hosts ['ipmi_password'] IPMI password. OPTIONAL
 	 *
 	 * @param string $hosts ['groups'] 集群id数组
-	 * @param string $hosts ['templates'] 模板数组，TODO 貌似为空的啊！！！
+	 * @param string $hosts ['templates'] 模板数组
 	 * @param string $hosts ['interfaces'] 接口数组；type、ip、dns、useip、port、main；
 	 * @param string $hosts ['macros'] 宏数组；macro=value；
 	 * @param string $hosts ['inventory'] 资产信息，字段非常的多；
 	 * @param string $hosts ['inventory_mode'] 资产模式；
+	 * @param string $hosts ['appcfg'] 应用服务器配置；key/value形式；
+	 * @param string $hosts ['lbscfg'] 负载均衡服务器配置；key/value形式；
 	 *
 	 *
 	 * @return boolean
 	 */
-	public function create($hosts) {
+	public function create($hosts) {//TODO 新增host入口；
 		$hosts = zbx_toArray($hosts);
 		$hostids = array();
 
@@ -883,10 +885,11 @@ class CHost extends CHostGeneral {
 			foreach ($host['groups'] as $group) {
 				$groupsToAdd[] = array(
 					'hostid' => $hostid,
-					'groupid' => $group['groupid']
+					'groupid' => $group['groupid'],
+					'parentid' => $host['parentid']
 				);
 			}
-			DB::insert('hosts_groups', $groupsToAdd);
+			DB::insert('hosts_groups', $groupsToAdd);//TODO 增加parentid
 
 			$options = array();
 			$options['hosts'] = $host;
@@ -903,7 +906,16 @@ class CHost extends CHostGeneral {
 				$options['interfaces'] = $host['interfaces'];
 			}
 
-			$result = API::Host()->massAdd($options);//TODO 新增host相关的模板、interface、宏、接口；
+			// add start by wziyong
+			if (isset($host['appcfg']) && !is_null($host['appcfg'])) {
+				$options['appcfg'] = $host['appcfg'];
+			}
+			if (isset($host['lbscfg']) && !is_null($host['lbscfg'])) {
+				$options['lbscfg'] = $host['lbscfg'];
+			}
+			// add end by wziyong
+
+			$result = API::Host()->massAdd($options);//TODO 新增基础配置；
 			if (!$result) {
 				self::exception();
 			}
@@ -943,7 +955,7 @@ class CHost extends CHostGeneral {
 	 *
 	 * @return boolean
 	 */
-	public function update($hosts) {
+	public function update($hosts) {//TODO 修改host入口；
 		$hosts = zbx_toArray($hosts);
 		$hostids = zbx_objectValues($hosts, 'hostid');
 

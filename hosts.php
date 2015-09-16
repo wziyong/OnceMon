@@ -101,7 +101,13 @@ $fields = array(
 	// ajax
 	'favobj' =>			array(T_ZBX_STR, O_OPT, P_ACT,		null,			null),
 	'favref' =>			array(T_ZBX_STR, O_OPT, P_ACT,		NOT_EMPTY,		'isset({favobj})'),
-	'favstate' =>		array(T_ZBX_INT, O_OPT, P_ACT,		NOT_EMPTY,		'isset({favobj})&&"filter"=={favobj}')
+	'favstate' =>		array(T_ZBX_INT, O_OPT, P_ACT,		NOT_EMPTY,		'isset({favobj})&&"filter"=={favobj}'),
+	//start modify by wziyong
+	'parentid' =>		array(T_ZBX_INT, O_OPT, P_SYS,			DB_ID,		null),
+	'server_type' =>			array(T_ZBX_STR, O_OPT, P_SYS,			null,		null),
+	'appcfg' =>			array(T_ZBX_STR, O_OPT, P_SYS,			null,		null),
+	'lbscfg' =>			array(T_ZBX_STR, O_OPT, P_SYS,			null,		null),
+	//end modify by wziyong
 );
 check_fields($fields);
 validate_sort_and_sortorder('name', ZBX_SORT_UP);
@@ -432,18 +438,18 @@ elseif (isset($_REQUEST['save'])) {//TODO 保存主机信息；
 			}
 
 			// create new group
-			if (!zbx_empty($_REQUEST['newgroup'])) {
-				if (!$newGroup = API::HostGroup()->create(array('name' => $_REQUEST['newgroup']))) {
-					throw new Exception();
-				}
-
-				$groups[] = reset($newGroup['groupids']);
-			}
+			//if (!zbx_empty($_REQUEST['newgroup'])) {
+			//	if (!$newGroup = API::HostGroup()->create(array('name' => $_REQUEST['newgroup']))) {
+			//		throw new Exception();
+			//	}
+            //
+			//	$groups[] = reset($newGroup['groupids']);
+			//}
 
 			$groups = zbx_toObject($groups, 'groupid');
 
 			$host = array(//TODO 新增host；
-				'host' => $_REQUEST['host'],
+				'host' => $_REQUEST['host'],//服务器名称
 				//'name' => $_REQUEST['visiblename'],
 				'name' => null,
 				'status' => $_REQUEST['status'],
@@ -459,8 +465,10 @@ elseif (isset($_REQUEST['save'])) {//TODO 保存主机信息；
 				'inventory' => (get_request('inventory_mode') != HOST_INVENTORY_DISABLED) ? get_request('host_inventory', array()) : null,
 				'inventory_mode' => get_request('inventory_mode'),
 				//add start by wziyong 新增 服务器类型；父节点类型字段；
-				'server_type' => get_request('server_type'),
-				'parentid' => get_request('parentid')
+				'appcfg' => $_REQUEST['appcfg'],
+				'lbscfg' => $_REQUEST['lbscfg'],
+				'parentid' => $_REQUEST['parentid'],
+				'server_type' => $_REQUEST['server_type']
                 //add end by wziyong 新增 服务器类型；父节点类型字段；
 			);
 
