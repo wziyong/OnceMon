@@ -1003,7 +1003,7 @@ class CHost extends CHostGeneral {
 			}
 		}
 
-		if ($macros) {
+		if ($macros) {//TODO 修改macros
 			API::UserMacro()->replaceMacros($macros);
 		}
 
@@ -1198,7 +1198,7 @@ class CHost extends CHostGeneral {
 			$hostGroupids = zbx_objectValues($hostGroups, 'groupid');
 			$newGroupids = zbx_objectValues($updateGroups, 'groupid');
 
-			$result = $this->massAdd(array(
+			$result = $this->massAdd(array(//TODO 修改主机、主机组关联关系；
 				'hosts' => $hosts,
 				'groups' => $updateGroups
 			));

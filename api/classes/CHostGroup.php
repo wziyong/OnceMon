@@ -817,12 +817,21 @@ class CHostGroup extends CZBXAPI {
 		}
 
 		$insert = array();
+		$parentid = '';
 		foreach ($groupids as $groupid) {
 			foreach ($objectids as $hostid) {
 				if (isset($linked[$groupid][$hostid])) {
 					continue;
 				}
-				$insert[] = array('hostid' => $hostid, 'groupid' => $groupid);
+				// add by wziyong 修改集群id；
+				foreach ($hosts as $hostx) {
+					if ($hostx['hostid'] == $hostid) {
+						$parentid = $hostx['parentid'];
+					}
+				}
+				$insert[] = array('hostid' => $hostid, 'groupid' => $groupid, 'parentid' => $parentid);
+				$parentid = '';
+				// add by wziyong
 			}
 		}
 		DB::insert('hosts_groups', $insert);
