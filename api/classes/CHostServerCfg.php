@@ -45,4 +45,21 @@ class CHostServerCfg extends CZBXAPI {
 	}
 
 
+	public function get($options = array()) {
+		$result = array();
+		if(empty($options['hostids']))
+		{
+			return $result;
+		}
+		$hostids = '('.implode(',',$options['hostids']).')';
+		$dbApps = DBselect('SELECT t.hostconfigid,t.hostid,t.name,t.value FROM t_custom_hostconfig t WHERE t.hostid in '.$hostids);
+		while ($dbApp = DBfetch($dbApps)) {
+			$result[$dbApp['hostid']][$dbApp['name']] = $dbApp['value'];
+		}
+		//返回key/value形式；
+		return $result;
+	}
+
+
+
 }

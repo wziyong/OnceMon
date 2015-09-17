@@ -884,6 +884,17 @@ abstract class CHostGeneral extends CHostBase {
 			$result = $relationMap->mapMany($result, $macros, 'macros', $options['limitSelects']);
 		}
 
+		// add start by wziyong for query server cfg
+		$selectCfgsx = !empty($options['selectCfgs']) ? $options['selectCfgs'] : null;
+		if ($selectCfgsx !== null ) {
+			$serverCfgs = API::HostServerCfg()->get(array(
+				'hostids' => $hostids
+			));
+			foreach($result as &$xx){
+				$xx['hostservercfgs'] = $serverCfgs[$xx['hostid']];
+			}
+		}
+		// add start by wziyong for query server cfg
 		return $result;
 	}
 }

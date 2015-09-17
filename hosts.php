@@ -741,6 +741,7 @@ elseif (isset($_REQUEST['form'])) {
 			'selectGroups' => API_OUTPUT_EXTEND,
 			'selectParentTemplates' => array('templateid', 'name'),
 			'selectMacros' => API_OUTPUT_EXTEND,
+			'selectCfgs' => API_OUTPUT_EXTEND,
 			'selectInventory' => true,
 			'selectDiscoveryRule' => array('name', 'itemid'),
 			'output' => API_OUTPUT_EXTEND
