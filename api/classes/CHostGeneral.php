@@ -605,7 +605,26 @@ abstract class CHostGeneral extends CHostBase {
 
 		// adding groups
 		if ($options['selectGroups'] !== null) {
-			$relationMap = $this->createRelationMap($result, 'hostid', 'groupid', 'hosts_groups');
+			//$relationMap = $this->createRelationMap($result, 'hostid', 'groupid', 'hosts_groups');
+
+			//modify by wziyong 查询父节点
+			$relationMap = new CRelationMap();
+			$res = DBselect(API::getApi()->createSelectQuery('hosts_groups', array(
+				'output' => array('hostid', 'groupid','parentid'),
+				'filter' => array('hostid' => array_keys($result)),
+				'nodeids' => get_current_nodeid(true)
+			)));
+			// 只有一个parentid
+			while ($relation = DBfetch($res)) {
+				$relationMap->addRelation($relation['hostid'], $relation['groupid']);
+				foreach ($result as $hostid => &$xx) {
+					if ($hostid == $relation['hostid']) {
+						$xx['parentid'] = $relation['parentid'];
+					}
+				}
+			}
+            //modify by wziyong
+
 			$groups = API::HostGroup()->get(array(
 				'nodeids' => $options['nodeids'],
 				'output' => $options['selectGroups'],

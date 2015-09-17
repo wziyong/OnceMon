@@ -1826,4 +1826,24 @@ class CHost extends CHostGeneral {
 			self::exception(ZBX_API_ERROR_PERMISSIONS, _('No permissions to referred object or it does not exist!'));
 		}
 	}
+
+
+	/**
+	 * 查询该该主机组下的所有的负载均衡器节点；
+	 * @param $groupid
+	 * @return array
+	 */
+	public function  getParentHosts($groupid)
+	{
+		$result = array();
+		if (empty($groupid)) {
+			return $result;
+		}
+		$hosts = DBselect('select h.hostid,h.name from (select hostid from hosts_groups where groupid = ' . $groupid . ') as t,hosts as h where t.hostid = h.hostid and h.server_type=0');
+		while ($host = DBfetch($hosts)) {
+			$result[$host['hostid']] = $host['name'];
+		}
+		//返回key/value形式；
+		return $result;
+	}
 }

@@ -226,11 +226,23 @@ if (!$isDiscovered) {
     //modify start by wziyong 所属集群
 
 	//modify start by wziyong 父节点
+	$myParentid = '';
+	if(!empty($data['dbHost']))
+	{
+		$myParentid = $data['dbHost']['parentid'];
+	}
+	$parentIdHidden = new CTextBox('parentIdHidden',$myParentid, ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
+	$hostList->addRow(_('父节点隐藏'), $parentIdHidden, true, null, null);
+	$hostIdHidden = new CTextBox('hostIdHidden', $_REQUEST['hostid'], ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
+	$hostList->addRow(_('主机ID隐藏'), $hostIdHidden, true, null, null);
+
+
 	$parentList = new CComboBox('parentid');
 	//$parentList->addClass('openView');
 	//$grpList->setAttribute('size', 5);
 	$parentList->addStyle('width: 330px;');
-	$parentList->addItem(0,'后台查询啦啦啦啦啦啦啦');
+
+	//$parentList->addItem(0,'后台查询啦啦啦啦啦啦啦');
 	//$hostList->addRow(_('Groups'), $grp_tb->get(_('In groups'), _('Other groups')));
 	$hostList->addRow(_('父节点'), $parentList);
 	//modify start by wziyong 父节点
