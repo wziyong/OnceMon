@@ -206,9 +206,20 @@ if (!$isDiscovered) {
 	//$grpList->addClass('openView');
 	//$grpList->setAttribute('size', 5);
 	$grpxList->addStyle('width: 330px;');
+
+	$myGroupid = '';
+	if(!empty($data['dbHost']) && !empty($data['dbHost']['groups']) && !empty($data['dbHost']['groups'][0]))
+	{
+		$myGroupid = $data['dbHost']['groups'][0]['groupid'];
+	}
+
 	foreach ($all_groups as $group) {
-		//$grp_tb->addItem($group['groupid'], $group['name']);
-		$grpxList->addItem($group['groupid'],$group['name']);
+		if ($myGroupid == $group['groupid']) {
+			$grpxList->addItem($group['groupid'], $group['name'],$myGroupid);
+		} else {
+			$grpxList->addItem($group['groupid'], $group['name']);
+		}
+
 	}
 	//$hostList->addRow(_('Groups'), $grp_tb->get(_('In groups'), _('Other groups')));
 	$hostList->addRow(_('所属集群'), $grpxList);
