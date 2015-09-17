@@ -44,6 +44,15 @@ class CHostServerCfg extends CZBXAPI {
 		return array('hostcfgids' => $hostCfgids);
 	}
 
+	public function removeAllCfg($hostid) {
+		//$this->validateCreate($hostMacros);
+		if(empty($hostid))
+		{
+			return;
+		}
+		DB::delete('t_custom_hostconfig', array('hostid'=>$hostid));
+	}
+
 
 	public function get($options = array()) {
 		$result = array();

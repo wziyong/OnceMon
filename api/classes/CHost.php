@@ -1289,12 +1289,33 @@ class CHost extends CHostGeneral {
 		// macros
 		if (isset($updateMacros)) {
 			DB::delete('hostmacro', array('hostid' => $hostids));
-
 			$this->massAdd(array(
 				'hosts' => $hosts,
 				'macros' => $updateMacros
 			));
 		}
+
+		// add start by wziyong for create cfg
+		$hostServerCfg = null;
+		if (!empty($data['lbscfg']) && $data['server_type'] == HOST_SERVER_TYPE_LBS) {
+			$hostServerCfg = zbx_toArray($data['lbscfg']);
+		} else if (!empty($data['appcfg']) && $data['server_type'] == HOST_SERVER_TYPE_APP) {
+			$hostServerCfg = zbx_toArray($data['appcfg']);
+		} else {
+			//nothing
+		}
+		if (!empty($hostServerCfg)) {
+			$hostCfgToAdd = array();
+			foreach ($hostServerCfg as $hostCfg) {
+				foreach ($hosts as $host) {
+					$hostCfg['hostid'] = $host['hostid'];
+					$hostCfgToAdd[] = $hostCfg;
+					API::HostServerCfg()->removeAllCfg($host['hostid']);
+				}
+			}
+			API::HostServerCfg()->create($hostCfgToAdd);
+		}
+		// add end by wziyong for create cfg
 
 		/*
 		 * Inventory
