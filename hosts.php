@@ -939,7 +939,7 @@ else {
 			$description[] = NAME_DELIMITER;
 		}
 
-		$description[] = new CLink(CHtml::encode($host['name']), 'hosts.php?form=update&hostid='.$host['hostid'].url_param('groupid'));
+		$description[] = new CLink(CHtml::encode($host['host']), 'hosts.php?form=update&hostid='.$host['hostid'].url_param('groupid'));
 
 		$hostInterface = ($interface['useip'] == INTERFACE_USE_IP) ? $interface['ip'] : $interface['dns'];
 		$hostInterface .= empty($interface['port']) ? '' : NAME_DELIMITER.$interface['port'];
