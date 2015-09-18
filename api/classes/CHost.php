@@ -1619,6 +1619,10 @@ class CHost extends CHostGeneral {
 // delete host
 		DB::delete('hosts', array('hostid' => $hostIds));
 
+//add by wziyong delete t_custom_hostconfig
+		DB::delete('t_custom_hostconfig', array('hostid' => $hostIds));
+//add by wziyong delete t_custom_hostconfig
+
 // TODO: remove info from API
 		foreach ($hosts as $host) {
 			info(_s('Deleted: Host "%1$s".', $host['name']));
