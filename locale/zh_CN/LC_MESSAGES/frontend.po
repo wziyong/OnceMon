@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: Zabbix 2.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-12-02 03:57+0200\n"
-"PO-Revision-Date: 2015-09-10 14:21+0800\n"
+"PO-Revision-Date: 2015-09-18 17:07+0800\n"
 "Last-Translator: solutionware <shiys@solutionware.com.cn>\n"
 "Language-Team: Zabbix <info@zabbix.com>\n"
 "Language: zh_CN\n"
@@ -451,7 +451,7 @@ msgstr "添加组件"
 
 #: include/actions.inc.php:403 include/actions.inc.php:637
 msgid "Add host"
-msgstr "添加主机"
+msgstr "添加服务器"
 
 #: include/views/configuration.sysmap.constructor.php:33
 msgid "Add link"
@@ -467,7 +467,7 @@ msgstr "添加新的或者已经存在的应用"
 
 #: include/views/configuration.host.massupdate.php:119
 msgid "Add new or existing host groups"
-msgstr "添加新的或者已经存在的主机组"
+msgstr "添加新的或者已经存在的服务器组"
 
 #: include/views/configuration.graph.edit.php:241
 msgid "Add prototype"
@@ -533,7 +533,7 @@ msgstr "Agent"
 #: include/classes/items/CHelpItems.php:65
 #: include/classes/items/CHelpItems.php:315
 msgid "Agent host name defined in the configuration file. String value."
-msgstr "Agent主机名字是字符串类型，在配置文件中定义"
+msgstr "Agent服务器名字是字符串类型，在配置文件中定义"
 
 #: include/views/configuration.host.edit.php:253
 #: include/views/configuration.host.edit.php:337
@@ -548,7 +548,7 @@ msgstr "Agent或SNMP或JMX或IPMI的接口"
 
 #: include/classes/items/CHelpItems.php:577
 msgid "Aggregate checks do not require any agent running on a host being monitored. Zabbix server collects aggregate information by doing direct database queries."
-msgstr "聚集检查不需要监控运行在主机上的任何agent。Server通过直接的数据库查询收集聚集信息"
+msgstr "聚集检查不需要监控运行在服务器上的任何agent。Server通过直接的数据库查询收集聚集信息"
 
 #: include/hosts.inc.php:120 include/views/administration.users.edit.php:52
 #: include/views/administration.users.list.php:55 popup.php:631 users.php:44
@@ -597,7 +597,7 @@ msgstr "所有节点"
 #: include/views/configuration.item.edit.php:438
 #: include/views/configuration.item.massupdate.php:457
 msgid "Allowed hosts"
-msgstr "允许的主机"
+msgstr "允许的服务器"
 
 #: include/classes/items/CHelpItems.php:293
 #: include/classes/items/CHelpItems.php:555
@@ -749,7 +749,7 @@ msgstr "于(时:分)"
 
 #: api/classes/CMaintenance.php:332 api/classes/CMaintenance.php:524
 msgid "At least one host or group should be selected."
-msgstr "至少要选择一个主机或群组."
+msgstr "至少要选择一个服务器或群组."
 
 #: api/classes/CMaintenance.php:402 api/classes/CMaintenance.php:515
 msgid "At least one maintenance period must be created."
@@ -999,7 +999,7 @@ msgstr "整批处理"
 
 #: report2.php:177
 msgid "By host"
-msgstr "主机"
+msgstr "服务器"
 
 #: report2.php:178
 msgid "By trigger template"
@@ -1051,7 +1051,7 @@ msgstr ""
 
 #: hosts.php:653 hosts.php:718 hosts.php:766
 msgid "CONFIGURATION OF HOSTS"
-msgstr "配置主机"
+msgstr "配置服务器"
 
 #: adm.housekeeper.php:141
 msgid "CONFIGURATION OF HOUSEKEEPING"
@@ -1295,7 +1295,7 @@ msgstr "无法添加应用集"
 
 #: api/classes/CTrigger.php:1412
 msgid "Cannot add dependency from a host to a template."
-msgstr "无法添加从主机到模板的依赖关系"
+msgstr "无法添加从服务器到模板的依赖关系"
 
 #: include/triggers.inc.php:493
 #, c-format
@@ -1320,11 +1320,11 @@ msgstr "无法添加群组"
 
 #: hosts.php:378
 msgid "Cannot add host"
-msgstr "无法添加主机"
+msgstr "无法添加服务器"
 
 #: host_prototypes.php:202
 msgid "Cannot add host prototype"
-msgstr "不能添加主机原型"
+msgstr "不能添加服务器原型"
 
 #: adm.images.php:62
 msgid "Cannot add image"
@@ -1468,7 +1468,7 @@ msgstr "无法克隆图表原型"
 
 #: api/classes/CDiscoveryRule.php:1001
 msgid "Cannot clone host prototypes."
-msgstr "无法克隆主机原型"
+msgstr "无法克隆服务器原型"
 
 #: api/classes/CDiscoveryRule.php:837
 msgid "Cannot clone item prototypes."
@@ -1493,12 +1493,12 @@ msgstr "无法复制监控项"
 #: include/triggers.inc.php:400
 #, c-format
 msgid "Cannot copy trigger \"%1$s:%2$s\", because it has multiple hosts in the expression."
-msgstr "无法复制触发器 \"%1$s:%2$s\", 因为在其表达式中有多重主机."
+msgstr "无法复制触发器 \"%1$s:%2$s\", 因为在其表达式中有多重服务器."
 
 #: api/classes/CHostPrototype.php:151
 #, c-format
 msgid "Cannot create a host prototype on a discovered host \"%1$s\"."
-msgstr "无法在已经发现的主机\"%1$s\"上创建主机原型。"
+msgstr "无法在已经发现的服务器\"%1$s\"上创建服务器原型。"
 
 #: include/db.inc.php:34
 msgid "Cannot create another database connection."
@@ -1602,7 +1602,7 @@ msgstr "无法删除群组"
 
 #: hosts.php:583 hosts.php:600
 msgid "Cannot delete host"
-msgstr "无法删除主机"
+msgstr "无法删除服务器"
 
 #: api/classes/CHost.php:1197
 msgid "Cannot delete host group."
@@ -1610,11 +1610,11 @@ msgstr "无法删除集群."
 
 #: api/classes/CDiscoveryRule.php:413
 msgid "Cannot delete host prototype."
-msgstr "无法删除主机原型。"
+msgstr "无法删除服务器原型。"
 
 #: host_prototypes.php:119 host_prototypes.php:244
 msgid "Cannot delete host prototypes"
-msgstr "无法删除主机原型。"
+msgstr "无法删除服务器原型。"
 
 #: adm.iconmapping.php:97
 msgid "Cannot delete icon map"
@@ -1721,7 +1721,7 @@ msgstr "无法删除模板化的图表。"
 
 #: api/classes/CHostPrototype.php:1076
 msgid "Cannot delete templated host prototype."
-msgstr "无法删除模板化的的主机原型。"
+msgstr "无法删除模板化的的服务器原型。"
 
 #: api/classes/CItem.php:693
 msgid "Cannot delete templated item."
@@ -1803,12 +1803,12 @@ msgstr[0] "不能停用发现规则"
 #: hostgroups.php:231 hosts.php:629 proxies.php:183
 msgid "Cannot disable host"
 msgid_plural "Cannot disable hosts"
-msgstr[0] "不能禁用主机"
+msgstr[0] "不能禁用服务器"
 
 #: host_prototypes.php:236
 msgid "Cannot disable host prototype"
 msgid_plural "Cannot disable host prototypes"
-msgstr[0] "不能禁用主机原型"
+msgstr[0] "不能禁用服务器原型"
 
 #: applications.php:213 items.php:682
 msgid "Cannot disable item"
@@ -1873,12 +1873,12 @@ msgstr[0] "不能启用发现规则"
 #: hostgroups.php:230 hosts.php:628 proxies.php:182
 msgid "Cannot enable host"
 msgid_plural "Cannot enable hosts"
-msgstr[0] "不能启用主机"
+msgstr[0] "不能启用服务器"
 
 #: host_prototypes.php:235
 msgid "Cannot enable host prototype"
 msgid_plural "Cannot enable host prototypes"
-msgstr[0] "不能启用主机原型"
+msgstr[0] "不能启用服务器原型"
 
 #: applications.php:212 items.php:681
 msgid "Cannot enable item"
@@ -1945,31 +1945,31 @@ msgstr "无法找到用在屏幕\"%2$s\"中的群组\"%1$s\"。"
 #: include/classes/import/importers/CMapImporter.php:217
 #, c-format
 msgid "Cannot find host \"%1$s\" used in map \"%2$s\"."
-msgstr "无法找到用在图表\"%2$s\"中的主机\"%1$s\"。"
+msgstr "无法找到用在图表\"%2$s\"中的服务器\"%1$s\"。"
 
 #: include/classes/import/CXmlImport18.php:498
 #: include/classes/import/importers/CAbstractScreenImporter.php:61
 #, c-format
 msgid "Cannot find host \"%1$s\" used in screen \"%2$s\"."
-msgstr "无法找到用在屏幕\"%2$s\"中的主机\"%1$s\"。"
+msgstr "无法找到用在屏幕\"%2$s\"中的服务器\"%1$s\"。"
 
 #: include/classes/import/CConfigurationImport.php:764
 #, c-format
 msgid "Cannot find host group \"%1$s\" for host prototype \"%2$s\" of discovery rule \"%3$s\" on \"%4$s\"."
-msgstr "不能找到主机原型\"%2$s\"对应的集群，该原型由\"%4$s\"上面的发现规则\"%3$s\"创建。"
+msgstr "不能找到服务器原型\"%2$s\"对应的集群，该原型由\"%4$s\"上面的发现规则\"%3$s\"创建。"
 
 #: api/classes/CDiscoveryRule.php:749 api/classes/CDiscoveryRule.php:825
 #: api/classes/CItemGeneral.php:100 include/items.inc.php:380
 #: include/items.inc.php:431
 #, c-format
 msgid "Cannot find host interface on \"%1$s\" for item key \"%2$s\"."
-msgstr "找不到\"%1$s\"上的用于监控项key\"%2$s\"的主机接口。"
+msgstr "找不到\"%1$s\"上的用于监控项key\"%2$s\"的服务器接口。"
 
 #: include/classes/import/CConfigurationImport.php:927
 #: include/classes/import/CConfigurationImport.php:1039
 #, c-format
 msgid "Cannot find host or template \"%1$s\" used in graph \"%2$s\"."
-msgstr "不能找到用于图表\"%2$s\"的主机或者模板\"%1$s\"。"
+msgstr "不能找到用于图表\"%2$s\"的服务器或者模板\"%1$s\"。"
 
 #: include/classes/import/CXmlImport18.php:767
 #: include/classes/import/importers/CMapImporter.php:250
@@ -2038,7 +2038,7 @@ msgstr "无法找到用于屏幕\"%2$s\"的屏幕\"%1$s\"。"
 #: include/classes/import/CConfigurationImport.php:783
 #, c-format
 msgid "Cannot find template \"%1$s\" for host prototype \"%2$s\" of discovery rule \"%3$s\" on \"%4$s\"."
-msgstr "不能找到用于主机原型的"
+msgstr "不能找到用于服务器原型的"
 
 #: include/classes/import/CXmlImport18.php:745
 #: include/classes/import/CXmlImport18.php:788
@@ -2115,7 +2115,7 @@ msgstr "不能登出"
 
 #: api/classes/CHost.php:1094
 msgid "Cannot mass update host name."
-msgstr "不能大量更新主机名称."
+msgstr "不能大量更新服务器名称."
 
 #: api/classes/CTemplate.php:874
 msgid "Cannot mass update template name"
@@ -2123,7 +2123,7 @@ msgstr "不能大量更新模板名称"
 
 #: api/classes/CHost.php:1084
 msgid "Cannot mass update visible host name."
-msgstr "不能大量更新可见主机名称"
+msgstr "不能大量更新可见服务器名称"
 
 #: api/classes/CTemplate.php:841
 msgid "Cannot mass update visible template name"
@@ -2215,7 +2215,7 @@ msgstr "无法设置审计字段为已经禁止的审计."
 
 #: api/classes/CHostInterface.php:324
 msgid "Cannot switch host for interface."
-msgstr "无法为接口切换主机."
+msgstr "无法为接口切换服务器."
 
 #: users.php:354
 msgid "Cannot unblock users"
@@ -2260,7 +2260,7 @@ msgstr "无法断连模板"
 #: api/classes/CHostGeneral.php:233
 #, c-format
 msgid "Cannot unlink trigger \"%s\", it has items from template that is left linked to host."
-msgstr "不能断连触发器\"%s\", 其已有监控项来自于留存连到主机的模板."
+msgstr "不能断连触发器\"%s\", 其已有监控项来自于留存连到服务器的模板."
 
 #: api/classes/CHost.php:684
 #, c-format
@@ -2389,7 +2389,7 @@ msgstr ""
 
 #: hosts.php:366
 msgid "Cannot update host"
-msgstr "无法更新主机"
+msgstr "无法更新服务器"
 
 #: host_prototypes.php:188
 msgid "Cannot update host prototype"
@@ -2397,7 +2397,7 @@ msgstr ""
 
 #: hosts.php:355
 msgid "Cannot update hosts"
-msgstr "无法更新主机"
+msgstr "无法更新服务器"
 
 #: adm.iconmapping.php:76
 msgid "Cannot update icon map"
@@ -2923,7 +2923,7 @@ msgstr ""
 
 #: hosts.php:32
 msgid "Configuration of hosts"
-msgstr "配置主机"
+msgstr "配置服务器"
 
 #: adm.housekeeper.php:24
 msgid "Configuration of housekeeping"
@@ -3074,9 +3074,9 @@ msgid ""
 "1. Incorrect server IP/DNS in the \"zabbix.conf.php\";\n"
 "2. Incorrect DNS server configuration.\n"
 msgstr ""
-"连接到Zabbix主机 \"%s\" 失败. 可能的原因是:\n"
+"连接到Zabbix服务器 \"%s\" 失败. 可能的原因是:\n"
 "1. 不正确的 IP/DNS 设于 \"zabbix.conf.php\";\n"
-"2. 不正确的 DNS 主机配置.\n"
+"2. 不正确的 DNS 服务器配置.\n"
 
 #: include/classes/server/CZabbixServer.php:271
 #, c-format
@@ -3087,10 +3087,10 @@ msgid ""
 "3. Zabbix server daemon not running;\n"
 "4. Firewall is blocking TCP connection.\n"
 msgstr ""
-"连接到Zabbix主机  \"%s\" 被拒绝. 可能的原因是:\n"
+"连接到Zabbix服务器  \"%s\" 被拒绝. 可能的原因是:\n"
 "1. 不正确的 IP/DNS 设于\"zabbix.conf.php\";\n"
 "2. 安全环境 (例如, SELinux) 阻断了连线;\n"
-"3. Zabbix主机的服务未运行;\n"
+"3. Zabbix服务器的服务未运行;\n"
 "4. 防火墙阻断了TCP连线.\n"
 
 #: include/classes/server/CZabbixServer.php:279
@@ -3100,7 +3100,7 @@ msgid ""
 "1. Incorrect server IP/DNS in the \"zabbix.conf.php\";\n"
 "2. Firewall is blocking TCP connection.\n"
 msgstr ""
-"连接到Zabbix主机  \"%s\" 超时. 可能的原因是:\n"
+"连接到Zabbix服务器  \"%s\" 超时. 可能的原因是:\n"
 "1. 不正确的 IP/DNS 设于\"zabbix.conf.php\";\n"
 "2. 防火牆阻断了TCP连线.\n"
 
@@ -3165,7 +3165,7 @@ msgstr "创建应用集"
 
 #: include/views/configuration.application.list.php:30
 msgid "Create application (select host first)"
-msgstr "创建应用程序 (先选择主机)"
+msgstr "创建应用程序 (先选择服务器)"
 
 #: include/views/configuration.discovery.list.php:27
 #: include/views/configuration.host.discovery.list.php:28
@@ -3178,7 +3178,7 @@ msgstr "创建图表"
 
 #: include/views/configuration.graph.list.php:45
 msgid "Create graph (select host first)"
-msgstr "创建图表(先选择主机)"
+msgstr "创建图表(先选择服务器)"
 
 #: include/views/configuration.graph.list.php:29
 msgid "Create graph prototype"
@@ -3186,7 +3186,7 @@ msgstr "创建图表原型"
 
 #: hosts.php:761
 msgid "Create host"
-msgstr "创建主机"
+msgstr "创建服务器"
 
 #: include/views/configuration.hostgroups.list.php:28
 #: include/views/configuration.hostgroups.list.php:31
@@ -3211,7 +3211,7 @@ msgstr "创建监控项"
 
 #: include/views/configuration.item.list.php:31
 msgid "Create item (select host first)"
-msgstr "创建监控项(先选择主机)"
+msgstr "创建监控项(先选择服务器)"
 
 #: include/views/configuration.item.prototype.list.php:28
 msgid "Create item prototype"
@@ -3243,7 +3243,7 @@ msgstr "创建场景"
 
 #: include/views/configuration.httpconf.list.php:29
 msgid "Create scenario (select host first)"
-msgstr "创建场景(先选择主机)"
+msgstr "创建场景(先选择服务器)"
 
 #: include/views/configuration.screen.list.php:27
 msgid "Create screen"
@@ -3267,7 +3267,7 @@ msgstr "创建触发器"
 
 #: include/views/configuration.triggers.list.php:46
 msgid "Create trigger (select host first)"
-msgstr "创建触发器(先选择主机)"
+msgstr "创建触发器(先选择服务器)"
 
 #: include/views/configuration.triggers.list.php:40
 msgid "Create trigger prototype"
@@ -3353,7 +3353,7 @@ msgstr "当前日期不是 N"
 #: include/views/js/configuration.action.edit.js.php:87
 #: include/views/js/configuration.action.edit.js.php:212
 msgid "Current host"
-msgstr "当前主机"
+msgstr "当前服务器"
 
 #: include/page_header.php:333
 msgid "Current node"
@@ -3553,7 +3553,7 @@ msgstr "数据库文件"
 
 #: include/setup.inc.php:283
 msgid "Database host"
-msgstr "数据库主机"
+msgstr "数据库服务器"
 
 #: include/items.inc.php:92
 msgid "Database monitor"
@@ -3755,11 +3755,11 @@ msgstr "删除并清除"
 
 #: templates.php:655
 msgid "Delete and clear selected templates? (Warning: all linked hosts will be cleared!)"
-msgstr "删除并清除所选的模板? (警告: 所有关联的主机将被清除!)"
+msgstr "删除并清除所选的模板? (警告: 所有关联的服务器将被清除!)"
 
 #: include/views/configuration.template.edit.php:480
 msgid "Delete and clear template? (Warning: all linked hosts will be cleared!)"
-msgstr "删除并清除模板? (警告: 所有关联的主机将被清除!)"
+msgstr "删除并清除模板? (警告: 所有关联的服务器将被清除!)"
 
 #: include/views/configuration.application.edit.php:55
 msgid "Delete application?"
@@ -3926,11 +3926,11 @@ msgstr ""
 
 #: include/views/configuration.host.edit.php:872
 msgid "Delete selected host?"
-msgstr "删除所选的主机?"
+msgstr "删除所选的服务器?"
 
 #: hosts.php:1024
 msgid "Delete selected hosts?"
-msgstr "删除所选的主机?"
+msgstr "删除所选的服务器?"
 
 #: include/views/administration.general.image.edit.php:61
 msgid "Delete selected image?"
@@ -4064,7 +4064,7 @@ msgstr "已删除: 图表 \"%1$s\" 于 \"%2$s\"."
 #: api/classes/CHost.php:1583
 #, c-format
 msgid "Deleted: Host \"%1$s\"."
-msgstr "已删除: 主机 \"%1$s\"."
+msgstr "已删除: 服务器 \"%1$s\"."
 
 #: api/classes/CHostPrototype.php:971
 #, c-format
@@ -4263,19 +4263,19 @@ msgstr "停用所选的群组的调试模式?"
 
 #: include/actions.inc.php:412 include/actions.inc.php:640
 msgid "Disable host"
-msgstr "停用主机"
+msgstr "停用服务器"
 
 #: hosts.php:944 hosts.php:957
 msgid "Disable host?"
-msgstr "停用主机?"
+msgstr "停用服务器?"
 
 #: include/views/configuration.hostgroups.list.php:165
 msgid "Disable hosts in the selected host groups?"
-msgstr "停用所选的集群中的主机?"
+msgstr "停用所选的集群中的服务器?"
 
 #: include/views/administration.proxy.list.php:109
 msgid "Disable hosts monitored by selected proxies?"
-msgstr "停用所选的proxy所监测的主机?"
+msgstr "停用所选的proxy所监测的服务器?"
 
 #: hosts.php:1020 include/views/administration.mediatypes.list.php:117
 #: include/views/administration.proxy.list.php:108
@@ -4320,7 +4320,7 @@ msgstr ""
 
 #: hosts.php:1021
 msgid "Disable selected hosts?"
-msgstr "停用所选的主机?"
+msgstr "停用所选的服务器?"
 
 #: include/views/configuration.item.prototype.list.php:117
 msgid "Disable selected item prototypes?"
@@ -4591,12 +4591,12 @@ msgstr ""
 #: api/classes/CHost.php:747
 #, c-format
 msgid "Duplicate host. Host with the same host name \"%s\" already exists in data."
-msgstr "重复的主机. 有相同主机名称 \"%s\" 的主机已存于数据中."
+msgstr "重复的服务器. 有相同服务器名称 \"%s\" 的服务器已存于数据中."
 
 #: api/classes/CHost.php:779
 #, c-format
 msgid "Duplicate host. Host with the same visible name \"%s\" already exists in data."
-msgstr "重复的主机. 有相同主机可视名称\"%s\"的主机已存于数据中."
+msgstr "重复的服务器. 有相同服务器可视名称\"%s\"的服务器已存于数据中."
 
 #: api/classes/CMap.php:400
 #, c-format
@@ -4813,15 +4813,15 @@ msgstr "启用事件处理"
 
 #: include/actions.inc.php:409 include/actions.inc.php:639
 msgid "Enable host"
-msgstr "启用主机"
+msgstr "启用服务器"
 
 #: hosts.php:951
 msgid "Enable host?"
-msgstr "启用主机?"
+msgstr "启用服务器?"
 
 #: include/views/administration.proxy.list.php:105
 msgid "Enable hosts monitored by selected proxies?"
-msgstr "启用受所选的proxy所监测的主机?"
+msgstr "启用受所选的proxy所监测的服务器?"
 
 #: include/views/administration.general.housekeeper.edit.php:29
 #: include/views/administration.general.housekeeper.edit.php:67
@@ -4875,7 +4875,7 @@ msgstr ""
 
 #: hosts.php:1018 include/views/configuration.hostgroups.list.php:162
 msgid "Enable selected hosts?"
-msgstr "启用所选的主机?"
+msgstr "启用所选的服务器?"
 
 #: include/views/configuration.item.prototype.list.php:113
 msgid "Enable selected item prototypes?"
@@ -5594,7 +5594,7 @@ msgstr "略过图表\"%1$s\"-用户规则."
 #: api/classes/CGraph.php:38
 #, c-format
 msgid "Graph \"%1$s\" with templated items cannot contain items from other hosts."
-msgstr "含模板监控项的图表\"%1$s\"不能包含其它主机的监控项."
+msgstr "含模板监控项的图表\"%1$s\"不能包含其它服务器的监控项."
 
 #: graphs.php:246
 msgid "Graph added"
@@ -5633,7 +5633,7 @@ msgstr ""
 #: api/classes/CGraphPrototype.php:38
 #, c-format
 msgid "Graph prototype \"%1$s\" with templated items cannot contain items from other hosts."
-msgstr "含模板监控项的图表原型\"%1$s\"不能包含其它主机的监控项."
+msgstr "含模板监控项的图表原型\"%1$s\"不能包含其它服务器的监控项."
 
 #: api/classes/CGraphPrototype.php:609
 #, c-format
@@ -5763,7 +5763,7 @@ msgstr "群组 \"%1$s\" 不存在."
 #: include/classes/import/importers/CHostImporter.php:131
 #, c-format
 msgid "Group \"%1$s\" for host \"%2$s\" does not exist."
-msgstr "主机 \"%2$s\" 的群组 \"%1$s\" 不存在."
+msgstr "服务器 \"%2$s\" 的群组 \"%1$s\" 不存在."
 
 #: hostgroups.php:153 usergrps.php:186
 msgid "Group added"
@@ -5858,7 +5858,7 @@ msgstr ""
 
 #: hostinventoriesoverview.php:65
 msgid "HOST INVENTORY OVERVIEW"
-msgstr "主机资产记录概览"
+msgstr "服务器资产记录概览"
 
 #: include/classes/screens/CScreenHostTriggers.php:131
 msgid "HOST ISSUES"
@@ -6046,51 +6046,51 @@ msgstr "横向对齐"
 #: popup.php:520 popup.php:537 popup.php:1141 queue.php:204 report2.php:364
 #: report2.php:400 report5.php:59 tr_status.php:260 tr_status.php:377
 msgid "Host"
-msgstr "主机"
+msgstr "服务器"
 
 #: api/classes/CHost.php:1107 api/classes/CTemplate.php:512
 #, c-format
 msgid "Host \"%1$s\" already exists."
-msgstr "主机 \"%1$s\" 已存在."
+msgstr "服务器 \"%1$s\" 已存在."
 
 #: api/classes/CProxy.php:591
 #, c-format
 msgid "Host \"%1$s\" is monitored with proxy \"%2$s\"."
-msgstr "主机\"%1$s\"是以proxy\"%2$s\"来监控的."
+msgstr "服务器\"%1$s\"是以proxy\"%2$s\"来监控的."
 
 #: include/classes/import/CXmlImport18.php:927
 #, c-format
 msgid "Host \"%s\" has \"useipmi\" parameter checked, but has no \"ipmi_ip\" parameter! Using host IP address as an address for IPMI interface."
-msgstr "主机 \"%s\" 有 \"useipmi\" 参数已检验,  但是没有 \"ipmi_ip\" 参数! 使用主机IP位址为IPMI接口的位址."
+msgstr "服务器 \"%s\" 有 \"useipmi\" 参数已检验,  但是没有 \"ipmi_ip\" 参数! 使用服务器IP位址为IPMI接口的位址."
 
 #: include/views/configuration.screen.constructor.edit.php:358
 msgid "Host (ascending)"
-msgstr "主机(升幂)"
+msgstr "服务器(升幂)"
 
 #: include/actions.inc.php:76
 msgid "Host IP"
-msgstr "主机IP地址"
+msgstr "服务器IP地址"
 
 #: include/views/administration.script.list.php:45
 msgid "Host access"
-msgstr "主机存取"
+msgstr "服务器存取"
 
 #: hosts.php:377
 msgid "Host added"
-msgstr "已添加主机"
+msgstr "已添加服务器"
 
 #: api/classes/CHostInterface.php:844
 msgid "Host cannot have more than one default interface of the same type."
-msgstr "主机不能有超过一个同类型的预设接口."
+msgstr "服务器不能有超过一个同类型的预设接口."
 
 #: hostinventoriesoverview.php:92
 #: include/views/administration.proxy.list.php:49
 msgid "Host count"
-msgstr "主机计数"
+msgstr "服务器计数"
 
 #: hosts.php:583 hosts.php:600
 msgid "Host deleted"
-msgstr "主机已删除"
+msgstr "服务器已删除"
 
 #: hostgroups.php:228 hosts.php:626 proxies.php:180
 msgid "Host disabled"
@@ -6130,7 +6130,7 @@ msgstr "集群“%1$s”不能被删除，因为它被用于全局脚本"
 #: api/classes/CHostGroup.php:639
 #, c-format
 msgid "Host group \"%1$s\" cannot be deleted, because some hosts depend on it."
-msgstr "集群“%1$s”不能被删除，因为多主机属于其中"
+msgstr "集群“%1$s”不能被删除，因为多服务器属于其中"
 
 #: api/classes/CHostGroup.php:613
 #, c-format
@@ -6164,20 +6164,20 @@ msgstr "集群"
 #: include/views/configuration.item.edit.php:116
 #: include/views/configuration.item.massupdate.php:84
 msgid "Host interface"
-msgstr "主机接口"
+msgstr "服务器接口"
 
 #: jsLoader.php:185
 msgid "Host inventories"
-msgstr "主机资产记录"
+msgstr "服务器资产记录"
 
 #: hostinventories.php:26 include/views/configuration.host.edit.php:861
 #: include/views/configuration.host.prototype.edit.php:324 jsLoader.php:204
 msgid "Host inventory"
-msgstr "主机资产记录"
+msgstr "服务器资产记录"
 
 #: hostinventoriesoverview.php:26
 msgid "Host inventory overview"
-msgstr "主机资产记录概览"
+msgstr "服务器资产记录概览"
 
 #: include/screens.inc.php:40
 msgid "Host issues"
@@ -6185,22 +6185,22 @@ msgstr ""
 
 #: include/views/configuration.sysmap.edit.php:83
 msgid "Host label type"
-msgstr "主机标示类型"
+msgstr "服务器标示类型"
 
 #: include/html.inc.php:347
 msgid "Host list"
-msgstr "主机清单"
+msgstr "服务器清单"
 
 #: include/actions.inc.php:96
 msgid "Host metadata"
-msgstr "主机元数据"
+msgstr "服务器元数据"
 
 #: host_prototypes.php:40 hosts.php:53 include/actions.inc.php:58
 #: include/views/configuration.host.edit.php:176
 #: include/views/configuration.host.prototype.edit.php:65
 #: include/views/inventory.host.view.php:45
 msgid "Host name"
-msgstr "主机名称"
+msgstr "服务器名称"
 
 #: api/classes/CHostPrototype.php:174
 #, c-format
@@ -6214,7 +6214,7 @@ msgstr ""
 
 #: include/hosts.inc.php:290
 msgid "Host networks"
-msgstr "主机网路"
+msgstr "服务器网路"
 
 #: api/classes/CHostPrototype.php:785
 #, c-format
@@ -6289,31 +6289,31 @@ msgstr ""
 
 #: include/hosts.inc.php:300
 msgid "Host router"
-msgstr "主机路由"
+msgstr "服务器路由"
 
 #: host_screen.php:27 jsLoader.php:181 jsLoader.php:205
 msgid "Host screens"
-msgstr "主机屏幕"
+msgstr "服务器屏幕"
 
 #: dashboard.php:383
 msgid "Host status"
-msgstr "主机状态"
+msgstr "服务器状态"
 
 #: include/hosts.inc.php:295
 msgid "Host subnet mask"
-msgstr "主机子网路遮罩"
+msgstr "服务器子网路遮罩"
 
 #: include/views/configuration.screen.constructor.edit.php:538
 msgid "Host time"
-msgstr "主机时间"
+msgstr "服务器时间"
 
 #: api/classes/CHost.php:982
 msgid "Host update failed."
-msgstr "主机更新失败."
+msgstr "服务器更新失败."
 
 #: hosts.php:365
 msgid "Host updated"
-msgstr "主机已更新"
+msgstr "服务器已更新"
 
 #: api/classes/CTemplate.php:899
 #, c-format
@@ -6323,7 +6323,7 @@ msgstr ""
 #: api/classes/CHost.php:809
 #, c-format
 msgid "Host with the same name \"%s\" already exists."
-msgstr "名称同样为 \"%s\" 的主机已存在."
+msgstr "名称同样为 \"%s\" 的服务器已存在."
 
 #: api/classes/CTemplate.php:526 api/classes/CTemplate.php:866
 #, c-format
@@ -6333,7 +6333,7 @@ msgstr ""
 #: api/classes/CHost.php:815
 #, c-format
 msgid "Host with the same visible name \"%s\" already exists."
-msgstr "可视名称同样为 \"%s\" 的主机已存在."
+msgstr "可视名称同样为 \"%s\" 的服务器已存在."
 
 #: hostinventoriesoverview.php:85 hosts.php:771 include/forms.inc.php:225
 #: include/forms.inc.php:916 include/items.inc.php:728 include/menu.inc.php:112
@@ -6351,40 +6351,40 @@ msgstr "可视名称同样为 \"%s\" 的主机已存在."
 #: search.php:131 search.php:226 search.php:272 search.php:292 search.php:297
 #: search.php:313
 msgid "Hosts"
-msgstr "主机"
+msgstr "服务器"
 
 #: include/views/configuration.maintenance.edit.php:187
 msgid "Hosts & Groups"
-msgstr "主机&群组"
+msgstr "服务器&群组"
 
 #: include/classes/class.cserverinfo.php:46
 msgid "Hosts (m/n/t)"
-msgstr "主机 (m/n/t)"
+msgstr "服务器 (m/n/t)"
 
 #: include/views/configuration.template.edit.php:171
 msgid "Hosts / templates"
-msgstr "主机/模板"
+msgstr "服务器/模板"
 
 #: include/views/configuration.hostgroups.edit.php:63
 msgid "Hosts in"
-msgstr "主机在于"
+msgstr "服务器在于"
 
 #: include/views/configuration.maintenance.edit.php:169
 msgid "Hosts in maintenance"
-msgstr "维护中主机"
+msgstr "维护中服务器"
 
 #: include/classes/class.chostsinfo.php:104 include/screens.inc.php:33
 msgid "Hosts info"
-msgstr "主机资讯"
+msgstr "服务器资讯"
 
 #: include/views/configuration.screen.constructor.edit.php:587
 #: include/views/monitoring.overview.php:90
 msgid "Hosts location"
-msgstr "主机列表位于"
+msgstr "服务器列表位于"
 
 #: hosts.php:348
 msgid "Hosts updated"
-msgstr "主机已更新"
+msgstr "服务器已更新"
 
 #: include/reports.inc.php:60 include/reports.inc.php:402
 #: include/reports.inc.php:410
@@ -6450,7 +6450,7 @@ msgstr "IP地址"
 
 #: api/classes/CHostInterface.php:347
 msgid "IP and DNS cannot be empty for host interface."
-msgstr "主机接口的IP和DNS不能是空白."
+msgstr "服务器接口的IP和DNS不能是空白."
 
 #: include/views/configuration.discovery.edit.php:49
 #: include/views/configuration.discovery.list.php:42
@@ -6854,7 +6854,7 @@ msgstr "不正确的动作条件集群. 集群不存在或您不能访问它."
 
 #: api/classes/CAction.php:1693
 msgid "Incorrect action condition host. Host does not exist or you have no access to it."
-msgstr "不正确的动作条件主机. 主机不存在或您不能访问它."
+msgstr "不正确的动作条件服务器. 服务器不存在或您不能访问它."
 
 #: api/classes/CAction.php:1603
 #, c-format
@@ -6925,7 +6925,7 @@ msgstr "不正确的动作操作集群. 集群不存在或您没有存取权."
 
 #: api/classes/CAction.php:1463
 msgid "Incorrect action operation host. Host does not exist or you have no access to this host."
-msgstr "不正确的动作操作主机. 主机不存在或您没有存取权."
+msgstr "不正确的动作操作服务器. 服务器不存在或您没有存取权."
 
 #: api/classes/CAction.php:1395 api/classes/CAction.php:1399
 #, c-format
@@ -7004,7 +7004,7 @@ msgstr ""
 #: api/classes/CHost.php:743 api/classes/CHost.php:1090
 #, c-format
 msgid "Incorrect characters used for host name \"%s\"."
-msgstr "不正确的字元用于主机名称\"%s\"."
+msgstr "不正确的字元用于服务器名称\"%s\"."
 
 #: api/classes/CProxy.php:241
 #, c-format
@@ -7388,16 +7388,16 @@ msgstr "不正确的触发器表达式."
 #: include/triggers.inc.php:1132
 #, c-format
 msgid "Incorrect trigger expression. Host \"%1$s\" does not exist or you have no access to this host."
-msgstr "不正确的触发器表达式. 主机 \"%1$s\"不存在或您不能存取此主机."
+msgstr "不正确的触发器表达式. 服务器 \"%1$s\"不存在或您不能存取此服务器."
 
 #: api/classes/CTrigger.php:705
 #, c-format
 msgid "Incorrect trigger expression. Host \"%s\" does not exist or you have no access to this host."
-msgstr "不正确的触发器表达式. 主机 \"%s\"不存在或您不能存取此主机."
+msgstr "不正确的触发器表达式. 服务器 \"%s\"不存在或您不能存取此服务器."
 
 #: api/classes/CTrigger.php:711
 msgid "Incorrect trigger expression. Trigger expression elements should not belong to a template and a host simultaneously."
-msgstr "不正确的触发器表达式. 触发器表达式组件不该同时属于一个模板和一个主机."
+msgstr "不正确的触发器表达式. 触发器表达式组件不该同时属于一个模板和一个服务器."
 
 #: include/classes/validators/CTriggerFunctionValidator.php:248
 #: include/classes/validators/CTriggerFunctionValidator.php:260
@@ -7757,7 +7757,7 @@ msgstr "监控项\"%1$s\"已经存在于\"%2$s\"."
 #: api/classes/CItem.php:960
 #, c-format
 msgid "Item \"%1$s\" cannot populate a missing host inventory field number \"%2$d\". Choices are: from 0 (do not populate) to %3$d."
-msgstr "监控项\"%1$s\"不能填入一个不存在的主机资产纪录栏位号码\"%2$d\". 选择为: 从0(不填入)到%3$d."
+msgstr "监控项\"%1$s\"不能填入一个不存在的服务器资产纪录栏位号码\"%2$d\". 选择为: 从0(不填入)到%3$d."
 
 #: api/classes/CTemplateScreen.php:520
 #, c-format
@@ -7876,7 +7876,7 @@ msgstr "监控项已更新"
 
 #: api/classes/CItemGeneral.php:266
 msgid "Item uses host interface from non-parent host."
-msgstr "监控项使用来自非上层主机的主机接口."
+msgstr "监控项使用来自非上层服务器的服务器接口."
 
 #: api/classes/CItemGeneral.php:269
 msgid "Item uses incorrect interface type."
@@ -8093,7 +8093,7 @@ msgstr ""
 #: authentication.php:38
 #: include/views/administration.authentication.edit.php:67
 msgid "LDAP host"
-msgstr "LDAP主机"
+msgstr "LDAP服务器"
 
 #: authentication.php:159
 msgid "LDAP login successful"
@@ -8558,7 +8558,7 @@ msgstr "含globalmacroid  \"%1$s\"的宏不存在."
 #: api/classes/CUserMacro.php:777
 #, c-format
 msgid "Macro with hostmacroid \"%1$s\" does not exist."
-msgstr "有主机宏识别码\"%1$s\"的宏不存在."
+msgstr "有服务器宏识别码\"%1$s\"的宏不存在."
 
 #: adm.gui.php:100 adm.housekeeper.php:131 adm.iconmapping.php:114
 #: adm.images.php:136 adm.macros.php:163 adm.other.php:115 adm.regexps.php:199
@@ -9074,7 +9074,7 @@ msgstr "缺少图表的\"名称\"栏位"
 #: include/classes/import/CXmlImport18.php:1590
 #, c-format
 msgid "Missing item \"%1$s\" for host \"%2$s\"."
-msgstr "主机 \"%2$s\"缺少了监控项\"%1$s\"."
+msgstr "服务器 \"%2$s\"缺少了监控项\"%1$s\"."
 
 #: api/classes/CGraph.php:40
 #, c-format
@@ -9089,7 +9089,7 @@ msgstr "缺少图原型项\"%1$s\"."
 #: include/graphs.inc.php:332
 #, c-format
 msgid "Missing key \"%1$s\" for host \"%2$s\"."
-msgstr "缺少主机\"%2$s\"的键值 \"%1$s\"."
+msgstr "缺少服务器\"%2$s\"的键值 \"%1$s\"."
 
 #: api/classes/CUserGroup.php:413
 msgid "Missing parameter: usrgrpids."
@@ -9127,7 +9127,7 @@ msgstr "监控代理"
 
 #: include/views/monitoring.discovery.php:42
 msgid "Monitored host"
-msgstr "已监控的主机"
+msgstr "已监控的服务器"
 
 #: include/menu.inc.php:26
 msgid "Monitoring"
@@ -9166,7 +9166,7 @@ msgstr "10分钟以上"
 #: api/classes/CGraphGeneral.php:790
 #, c-format
 msgid "More than one graph with name \"%1$s\" within host."
-msgstr "于主机中多于一个名为\"%1$s\"的图表."
+msgstr "于服务器中多于一个名为\"%1$s\"的图表."
 
 #: report5.php:24
 msgid "Most busy triggers top 100"
@@ -9650,7 +9650,7 @@ msgstr "图表不存在"
 #: api/classes/CHost.php:701 api/classes/CHost.php:711
 #, c-format
 msgid "No groups for host \"%s\"."
-msgstr "没有群组的主机 \"%s\"."
+msgstr "没有群组的服务器 \"%s\"."
 
 #: api/classes/CHost.php:1076
 msgid "No groups for hosts."
@@ -9667,16 +9667,16 @@ msgstr ""
 
 #: api/classes/CHost.php:1443
 msgid "No host ID given."
-msgstr "没有给定主机ID."
+msgstr "没有给定服务器ID."
 
 #: api/classes/CDiscoveryRule.php:447
 msgid "No host IDs given."
-msgstr "没有所知的主机IDs"
+msgstr "没有所知的服务器IDs"
 
 #: api/classes/CUserMacro.php:682
 #, c-format
 msgid "No host given for macro \"%1$s\"."
-msgstr "没有所知的宏\"%1$s\"的主机."
+msgstr "没有所知的宏\"%1$s\"的服务器."
 
 #: api/classes/CHostPrototype.php:240
 msgid "No host group ID for group prototype."
@@ -9704,13 +9704,13 @@ msgstr ""
 #: include/hosts.inc.php:536
 #, c-format
 msgid "No host with hostid \"%s\"."
-msgstr "没有含主机ID\"%s\"的主机."
+msgstr "没有含服务器ID\"%s\"的服务器."
 
 #: hostinventoriesoverview.php:88 hosts.php:808
 #: include/views/inventory.host.list.php:74 popup.php:775 popup.php:852
 #: search.php:128
 msgid "No hosts found."
-msgstr "主机不存在"
+msgstr "服务器不存在"
 
 #: api/classes/CMapElement.php:70
 #, c-format
@@ -9747,7 +9747,7 @@ msgstr "没有接口提供了代理\"%s\"."
 #: api/classes/CHost.php:705 api/classes/CHost.php:723
 #, c-format
 msgid "No interfaces for host \"%s\"."
-msgstr "没有主机\"%s\"的接口."
+msgstr "没有服务器\"%s\"的接口."
 
 #: api/classes/CScreenItem.php:491 api/classes/CScreenItem.php:500
 msgid "No item ID provided for screen element."
@@ -9835,7 +9835,7 @@ msgstr "不具图表 \"%1$s\"的许可权."
 #: include/classes/import/CXmlImport18.php:962
 #, c-format
 msgid "No permission for host \"%1$s\"."
-msgstr "不具主机 \"%1$s\"的许可权."
+msgstr "不具服务器 \"%1$s\"的许可权."
 
 #: include/classes/import/CXmlImport18.php:1512
 #, c-format
@@ -10239,7 +10239,7 @@ msgstr ""
 
 #: include/blocks.inc.php:753 include/blocks.inc.php:755
 msgid "Number of hosts (monitored/not monitored/templates)"
-msgstr "主机数量 (监控/未监控/模板)"
+msgstr "服务器数量 (监控/未监控/模板)"
 
 #: include/classes/items/CHelpItems.php:285
 #: include/classes/items/CHelpItems.php:547
@@ -10490,7 +10490,7 @@ msgstr "一次"
 
 #: api/classes/CHostGroup.php:870 api/classes/CHostGroup.php:1002
 msgid "One of the objects is left without a host group."
-msgstr "其中的一个对象被留下没有主机组."
+msgstr "其中的一个对象被留下没有服务器组."
 
 #: include/forms.inc.php:1659 include/maintenances.inc.php:34
 msgid "One time only"
@@ -10561,7 +10561,7 @@ msgstr "仅能使用字元."
 
 #: include/blocks.inc.php:763
 msgid "Only items assigned to enabled hosts are counted"
-msgstr "只计算指派给启用的主机的监控项"
+msgstr "只计算指派给启用的服务器的监控项"
 
 #: api/classes/CDRule.php:371
 msgid "Only one check can be unique."
@@ -10582,7 +10582,7 @@ msgstr "只有触发器时间能被告知."
 
 #: include/blocks.inc.php:772
 msgid "Only triggers assigned to enabled hosts and depending on enabled items are counted"
-msgstr "只计算指派给启用的主机的和相依于启用的监控项的触发器"
+msgstr "只计算指派给启用的服务器的和相依于启用的监控项的触发器"
 
 #: include/views/configuration.httpconf.edit.php:110
 msgid "Opera"
@@ -10703,13 +10703,13 @@ msgstr "其它群组"
 
 #: include/views/administration.proxy.edit.php:88
 msgid "Other hosts"
-msgstr "其它主机"
+msgstr "其它服务器"
 
 #: include/reports.inc.php:386
 #: include/views/configuration.hostgroups.edit.php:63
 #: include/views/configuration.maintenance.edit.php:168
 msgid "Other hosts | Group"
-msgstr "其它主机 | 群组"
+msgstr "其它服务器 | 群组"
 
 #: include/views/administration.general.other.edit.php:41
 msgid "Other parameters"
@@ -11119,7 +11119,7 @@ msgstr "波兰(pl_PL)"
 
 #: include/views/configuration.item.edit.php:476
 msgid "Populates host inventory field"
-msgstr "填入主机资产纪录栏位"
+msgstr "填入服务器资产纪录栏位"
 
 #: authentication.php:40 disc_prototypes.php:82 host_discovery.php:79
 #: hosts.php:781 include/forms.inc.php:498 include/setup.inc.php:379
@@ -11143,7 +11143,7 @@ msgstr "端口"
 
 #: api/classes/CHostInterface.php:671
 msgid "Port cannot be empty for host interface."
-msgstr "主机接口的端口不能是空白."
+msgstr "服务器接口的端口不能是空白."
 
 #: include/views/js/configuration.discovery.edit.js.php:33
 msgid "Port range"
@@ -11309,7 +11309,7 @@ msgstr "proxy"
 #: include/classes/import/importers/CHostImporter.php:143
 #, c-format
 msgid "Proxy \"%1$s\" for host \"%2$s\" does not exist."
-msgstr "主机\"%2$s\"的proxy\"%1$s\"不存在."
+msgstr "服务器\"%2$s\"的proxy\"%1$s\"不存在."
 
 #: api/classes/CProxy.php:571
 #, c-format
@@ -11331,7 +11331,7 @@ msgstr "proxy已删除"
 
 #: include/views/administration.proxy.edit.php:88
 msgid "Proxy hosts"
-msgstr "proxy的主机"
+msgstr "proxy的服务器"
 
 #: api/classes/CProxy.php:326
 msgid "Proxy interface creation failed."
@@ -11583,7 +11583,7 @@ msgstr "自集群移除"
 
 #: include/actions.inc.php:406 include/actions.inc.php:638
 msgid "Remove host"
-msgstr "移除主机"
+msgstr "移除服务器"
 
 #: include/views/configuration.sysmap.constructor.php:35
 msgid "Remove link"
@@ -11648,7 +11648,7 @@ msgstr "要求的栏位\"inventory_link\"不存在于图标映射中."
 
 #: include/views/administration.script.edit.php:101
 msgid "Required host permissions"
-msgstr "要求的主机许可权"
+msgstr "要求的服务器许可权"
 
 #: include/views/administration.proxy.list.php:51
 msgid "Required performance (vps)"
@@ -11856,7 +11856,7 @@ msgstr "执行全域脚本"
 
 #: include/actions.inc.php:379
 msgid "Run remote commands on current host"
-msgstr "在当前主机上执行远程命令"
+msgstr "在当前服务器上执行远程命令"
 
 #: include/actions.inc.php:398
 msgid "Run remote commands on host groups"
@@ -11864,7 +11864,7 @@ msgstr "于集群上执行远程命令"
 
 #: include/actions.inc.php:386
 msgid "Run remote commands on hosts"
-msgstr "在主机上执行远程命令"
+msgstr "在服务器上执行远程命令"
 
 #: include/classes/items/CHelpItems.php:201
 #: include/classes/items/CHelpItems.php:463
@@ -12419,7 +12419,7 @@ msgstr "选择的群组"
 
 #: include/reports.inc.php:385
 msgid "Selected hosts"
-msgstr "选择的主机"
+msgstr "选择的服务器"
 
 #: include/actions.inc.php:635
 msgid "Send message"
@@ -12622,7 +12622,7 @@ msgstr "显示事件不能久于(天)\"%1$s\"."
 
 #: include/views/monitoring.dashconf.php:87 tr_status.php:326
 msgid "Show hosts in maintenance"
-msgstr "显示维护态主机"
+msgstr "显示维护态服务器"
 
 #: latest.php:305
 msgid "Show items with name like"
@@ -12751,7 +12751,7 @@ msgstr "Zabbix服务器\"%1$s\" 收到响应的大小字节超过允许的大小
 #: include/graphs.inc.php:380
 #, c-format
 msgid "Skipped copying of graph \"%1$s\" to host \"%2$s\"."
-msgstr "略过复制图片\"%1$s\"到主机\"%2$s\"."
+msgstr "略过复制图片\"%1$s\"到服务器\"%2$s\"."
 
 #: include/views/configuration.slideconf.edit.php:102
 msgid "Slide"
@@ -13222,12 +13222,12 @@ msgstr "模板 \"%1$s\" 已存在."
 #: include/classes/import/importers/CHostImporter.php:33
 #, c-format
 msgid "Template \"%1$s\" for host \"%2$s\" does not exist."
-msgstr "用于主机 \"%2$s\"的模板 \"%1$s\"不存在."
+msgstr "用于服务器 \"%2$s\"的模板 \"%1$s\"不存在."
 
 #: api/classes/CHostBase.php:94
 #, c-format
 msgid "Template \"%1$s\" with item key \"%2$s\" already linked to host."
-msgstr "模板\"%1$s\" 的监控项键\"%2$s\"已经连接到主机."
+msgstr "模板\"%1$s\" 的监控项键\"%2$s\"已经连接到服务器."
 
 #: templates.php:165
 msgid "Template added"
@@ -13277,7 +13277,7 @@ msgstr "模板已更新"
 #: include/hosts.inc.php:724
 #, c-format
 msgid "Template with item key \"%1$s\" already linked to host."
-msgstr "含有监控项键值\"%1$s\"的模板已关联到主机."
+msgstr "含有监控项键值\"%1$s\"的模板已关联到服务器."
 
 #: api/classes/CTemplate.php:891
 #, c-format
@@ -13287,7 +13287,7 @@ msgstr ""
 #: api/classes/CHost.php:825
 #, c-format
 msgid "Template with the same name \"%s\" already exists."
-msgstr "含有相同名称\"%1$s\"的模板已关联到主机."
+msgstr "含有相同名称\"%1$s\"的模板已关联到服务器."
 
 #: api/classes/CTemplate.php:519 api/classes/CTemplate.php:858
 #, c-format
@@ -13297,7 +13297,7 @@ msgstr ""
 #: api/classes/CHost.php:831
 #, c-format
 msgid "Template with the same visible name \"%s\" already exists."
-msgstr "含有相同可视名称\"%1$s\"的模板已关联到主机."
+msgstr "含有相同可视名称\"%1$s\"的模板已关联到服务器."
 
 #: include/forms.inc.php:630 include/forms.inc.php:817
 msgid "Templated items"
@@ -13318,7 +13318,7 @@ msgstr "模板"
 #: api/classes/CHostBase.php:272
 #, c-format
 msgid "Templates \"%1$s\" unlinked from hosts \"%2$s\"."
-msgstr "模板\"%1$s\"自主机\"%2$s\"断连."
+msgstr "模板\"%1$s\"自服务器\"%2$s\"断连."
 
 #: include/func.inc.php:679
 msgid "Tera"
@@ -13422,7 +13422,7 @@ msgstr "请求的远程程序不存在/不可用"
 
 #: api/classes/CHttpTest.php:573
 msgid "The web scenario application belongs to a different host than the web scenario host."
-msgstr "应用应用属于一个不同的主机而不是 应用主机."
+msgstr "应用应用属于一个不同的服务器而不是 应用服务器."
 
 #: include/views/administration.users.edit.php:152
 msgid "Theme"
@@ -13571,7 +13571,7 @@ msgstr "到"
 
 #: include/views/js/configuration.item.edit.js.php:51
 msgid "To set a host interface select a single item type for all items"
-msgstr "要设定一个主机接口, 选择一个单一的监控项类型给所有的监控项"
+msgstr "要设定一个服务器接口, 选择一个单一的监控项类型给所有的监控项"
 
 #: srv_status.php:35
 msgid "Today"
@@ -13725,7 +13725,7 @@ msgstr "触发器表达式条件"
 
 #: api/classes/CTrigger.php:685 api/classes/CTriggerPrototype.php:776
 msgid "Trigger expression must contain at least one host:key reference."
-msgstr "触发器表达式必需包含至少一个 主机:键值 参照."
+msgstr "触发器表达式必需包含至少一个 服务器:键值 参照."
 
 #: tr_logform.php:27
 msgid "Trigger form"
@@ -13734,7 +13734,7 @@ msgstr "触发器形式"
 #: api/classes/CHostBase.php:187
 #, c-format
 msgid "Trigger has items from template \"%1$s\" that is not linked to host."
-msgstr "触发器有监控项来自于模板\"%1$s\"其并未关联到主机."
+msgstr "触发器有监控项来自于模板\"%1$s\"其并未关联到服务器."
 
 #: include/actions.inc.php:1157
 msgid "Trigger in \"normal\" state"
@@ -13917,7 +13917,7 @@ msgstr "两个组件必需被选择"
 #: api/classes/CItem.php:1021
 #, c-format
 msgid "Two items (\"%1$s\" and \"%2$s\") cannot populate one host inventory field \"%3$s\", this would lead to a conflict."
-msgstr "两个监控项 (\"%1$s\"和\"%2$s\")不能填入一个主机资产纪录栏位\"%3$s\", 这会造成冲突."
+msgstr "两个监控项 (\"%1$s\"和\"%2$s\")不能填入一个服务器资产纪录栏位\"%3$s\", 这会造成冲突."
 
 #: include/actions.inc.php:829 include/classes/screens/CScreenActions.php:48
 #: include/classes/screens/CScreenActions.php:53
@@ -14143,11 +14143,11 @@ msgstr "未知方程式"
 
 #: include/triggers.inc.php:1763 popup_trexpr.php:592 tr_testexpr.php:34
 msgid "Unknown host item, no such item in selected host"
-msgstr "未知的主机监控项, 在所选的主机中没有这样的监控项"
+msgstr "未知的服务器监控项, 在所选的服务器中没有这样的监控项"
 
 #: include/triggers.inc.php:1762 tr_testexpr.php:33
 msgid "Unknown host, no such host present in system"
-msgstr "未知的主机, 在系统中没有出现这样的主机."
+msgstr "未知的服务器, 在系统中没有出现这样的服务器."
 
 #: include/hosts.inc.php:480
 msgid "Unknown interface type."
@@ -14307,7 +14307,7 @@ msgstr "更新"
 
 #: include/hosts.inc.php:571
 msgid "Updated status of host"
-msgstr "主机的已更新状态"
+msgstr "服务器的已更新状态"
 
 #: include/blocks.inc.php:390 include/blocks.inc.php:730
 #: include/blocks.inc.php:799 include/blocks.inc.php:1054
@@ -14937,7 +14937,7 @@ msgstr "可见名称"
 
 #: api/classes/CHost.php:758
 msgid "Visible name cannot be empty if host name is missing."
-msgstr "如果缺少主机名称, 可见的名称不能是空白."
+msgstr "如果缺少服务器名称, 可见的名称不能是空白."
 
 #: jsLoader.php:132
 msgctxt "Wednesday short"
@@ -14977,7 +14977,7 @@ msgstr "应用状态"
 #: api/classes/managers/CHttpTestManager.php:391
 #, c-format
 msgid "Web scenario \"%1$s\" already exists on host \"%2$s\"."
-msgstr "应用 \"%1$s\" 已经存在在主机 \"%2$s\"."
+msgstr "应用 \"%1$s\" 已经存在在服务器 \"%2$s\"."
 
 #: api/classes/CHttpTest.php:480 api/classes/CHttpTest.php:529
 #, c-format
@@ -15133,7 +15133,7 @@ msgstr "错误的组件栏位."
 #: api/classes/CHost.php:665
 #, c-format
 msgid "Wrong fields for host \"%s\"."
-msgstr "错误的主机栏位\"%s\"."
+msgstr "错误的服务器栏位\"%s\"."
 
 #: api/classes/CImage.php:253
 #, c-format
@@ -15328,11 +15328,11 @@ msgstr "您尚未登录。"
 
 #: popup.php:519
 msgid "You can not switch hosts for current selection."
-msgstr "您无法为目前的选择切换主机."
+msgstr "您无法为目前的选择切换服务器."
 
 #: include/views/js/configuration.action.edit.js.php:349
 msgid "You did not specify host for operation."
-msgstr "您没有指定主机来操作."
+msgstr "您没有指定服务器来操作."
 
 #: include/views/js/configuration.action.edit.js.php:315
 msgid "You did not specify host group for operation."
@@ -15454,7 +15454,7 @@ msgstr "OnceMon 内部认证"
 #: include/views/configuration.action.edit.php:740
 #: include/views/js/configuration.action.edit.js.php:122
 msgid "Zabbix server"
-msgstr "网路监测主机"
+msgstr "网路监测服务器"
 
 #: include/classes/server/CZabbixServer.php:275
 #, c-format
@@ -15469,11 +15469,11 @@ msgstr ""
 
 #: include/blocks.inc.php:751
 msgid "Zabbix server IP or port is not set!"
-msgstr "Zabbix主机IP或端口并未设置!"
+msgstr "Zabbix服务器IP或端口并未设置!"
 
 #: adm.gui.php:43
 msgid "Zabbix server activity check interval"
-msgstr "Zabbix主机活动检查间隔"
+msgstr "Zabbix服务器活动检查间隔"
 
 #: include/classes/class.cserverinfo.php:40
 msgid "Zabbix server info"
@@ -15490,15 +15490,15 @@ msgstr "监控服务器正常运行"
 #: adm.gui.php:80
 #, c-format
 msgid "Zabbix server is running check interval \"%1$s\"."
-msgstr "OnceMon主机正运作检查间隔\"%1$s\"."
+msgstr "OnceMon服务器正运作检查间隔\"%1$s\"."
 
 #: include/setup.inc.php:434
 msgid "Zabbix server name"
-msgstr "Zabbix主机名称"
+msgstr "Zabbix服务器名称"
 
 #: include/setup.inc.php:433
 msgid "Zabbix server port"
-msgstr "Zabbix主机端口"
+msgstr "Zabbix服务器端口"
 
 #: include/items.inc.php:89
 msgid "Zabbix trapper"
@@ -15581,7 +15581,7 @@ msgstr "自动注册"
 
 #: include/events.inc.php:66
 msgid "auto-registered host"
-msgstr "自动被注册的主机"
+msgstr "自动被注册的服务器"
 
 #: include/classes/graphdraw/CLineGraphDraw.php:1834
 #: include/classes/graphdraw/CLineGraphDraw.php:1856
@@ -15664,7 +15664,7 @@ msgstr "分隔符"
 
 #: include/events.inc.php:64
 msgid "discovered host"
-msgstr "被发现的主机"
+msgstr "被发现的服务器"
 
 #: include/events.inc.php:65
 msgid "discovered service"
@@ -15726,7 +15726,7 @@ msgstr "hh"
 
 #: api/classes/CMap.php:420
 msgid "host"
-msgstr "主机"
+msgstr "服务器"
 
 #: api/classes/CMap.php:419
 msgid "host group"
