@@ -732,6 +732,70 @@ if ($_REQUEST['form'] == 'full_clone') {
 }
 $divTabs->addTab('hostTab', _('Host'), $hostList);
 
+/**
+ * start by wziyong  新增的配置tab，包括日志和应用的；
+ */
+
+$logiList = new CFormList('loglist');
+
+
+$lbslistenportTBkey = new CTextBox('appcfg[100][name]', '', ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
+$lbslistenportTBkey->setAttribute('value', 'app_log_level');
+$logiList->addRow(_('应用服务器日志等级key'), $lbslistenportTBkey, true, null, null);
+$lbslistenportTBx = new CTextBox('appcfg[100][value]', empty($cfgstmp['app_log_level']) ? null : $cfgstmp['app_listen_port'], ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
+$lbslistenportTBx->setAttribute('maxlength', 64);
+$lbslistenportTBx->setAttribute('autofocus', 'autofocus');
+$logiList->addRow(_('日志等级'), $lbslistenportTBx, false, null, 'app_server');
+
+$lbslistenportTBkey = new CTextBox('appcfg[101][name]', '', ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
+$lbslistenportTBkey->setAttribute('value', 'app_log_path');
+$logiList->addRow(_('LBS日志路径key'), $lbslistenportTBkey, true, null, null);
+$lbslistenportTBx = new CTextBox('appcfg[100][value]', empty($cfgstmp['app_log_path']) ? null : $cfgstmp['app_log_path'], ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
+$lbslistenportTBx->setAttribute('maxlength', 64);
+$lbslistenportTBx->setAttribute('autofocus', 'autofocus');
+$logiList->addRow(_('日志路径'), $lbslistenportTBx, false, null, 'app_server');
+
+
+$lbslistenportTBkey = new CTextBox('lbscfg[102][name]', '', ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
+$lbslistenportTBkey->setAttribute('value', 'lbs_log_level');
+$logiList->addRow(_('LBS日志等级key'), $lbslistenportTBkey, true, null, null);
+$lbslistenportTBx = new CTextBox('lbscfg[100][value]', empty($cfgstmp['lbs_log_level']) ? null : $cfgstmp['lbs_listen_port'], ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
+$lbslistenportTBx->setAttribute('maxlength', 64);
+$lbslistenportTBx->setAttribute('autofocus', 'autofocus');
+$logiList->addRow(_('日志等级'), $lbslistenportTBx, false, null, 'lbs_server');
+
+$lbslistenportTBkey = new CTextBox('lbscfg[103][name]', '', ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
+$lbslistenportTBkey->setAttribute('value', 'lbs_log_path');
+$logiList->addRow(_('LBS日志路径key'), $lbslistenportTBkey, true, null, null);
+$lbslistenportTBx = new CTextBox('lbscfg[100][value]', empty($cfgstmp['lbs_log_path']) ? null : $cfgstmp['lbs_log_path'], ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
+$lbslistenportTBx->setAttribute('maxlength', 64);
+$lbslistenportTBx->setAttribute('autofocus', 'autofocus');
+$logiList->addRow(_('日志路径'), $lbslistenportTBx, false, null, 'lbs_server');
+
+
+$divTabs->addTab('ipmiTab', _('日志配置'), $logiList);
+
+
+/**
+ * end by wziyong  新增的配置tab，包括日志和应用的；
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // templates
 $tmplList = new CFormList('tmpllist');
 

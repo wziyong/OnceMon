@@ -34,8 +34,8 @@ $hostCfgFormList->addRow(_('HTTP端口key'), $lbslistenportTBkey, true, null, nu
 $apphttpportTBx = new CTextBox('appcfg[0][value]', !empty($hostservercfgs['app_http_port']) ? $hostservercfgs['app_http_port'] : null, ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
 $apphttpportTBx->setAttribute('maxlength', 64);
 $apphttpportTBx->setAttribute('autofocus', 'autofocus');
-$apphttpportTBx->setAttribute('style', 'display: table-row;');
 $hostCfgFormList->addRow(_('HTTP端口'), $apphttpportTBx, false, null, 'app_server');
+
 
 //start load balance server configuration
 $lbslistenportTBkey = new CTextBox('lbscfg[0][name]', '', ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
