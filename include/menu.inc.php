@@ -92,7 +92,7 @@ $ZBX_MENU = array(
 		)
 	),
 	'view' => array(
-		'label'				=> _('Monitoring'),
+		'label'				=> _('集群监控'),
 		'user_type'			=> USER_TYPE_ZABBIX_USER,
 		'node_perm'			=> PERM_READ,
 		'default_page_id'	=> 0,
@@ -167,14 +167,14 @@ $ZBX_MENU = array(
 		)
 	),
 	'cm' => array(
-		'label'				=> _('Inventory'),
+		'label'				=> _('监控配置'),
 		'user_type'			=> USER_TYPE_ZABBIX_USER,
 		'node_perm'			=> PERM_READ,
 		'default_page_id'	=> 0,
 		'pages' => array(
 			array(
-				'url' => 'hostinventoriesoverview.php',
-				'label' => _('Overview')
+				'url' => 'templates.php',
+				'label' => _('Templates')
 			),
 			array(
 				'url' => 'hostinventories.php',
@@ -182,41 +182,58 @@ $ZBX_MENU = array(
 			)
 		)
 	),
-	'reports' => array(
-		'label'				=> _('Reports'),
-		'user_type'			=> USER_TYPE_ZABBIX_USER,
-		'node_perm'			=> PERM_READ,
-		'default_page_id'	=> 0,
-		'pages' => array(
-			array(
-				'url' => 'report1.php',
-				'label' => _('Status of Zabbix'),
-				'user_type' => USER_TYPE_SUPER_ADMIN
-			),
-			array(
-				'url' => 'report2.php',
-				'label' => _('Availability report')
-			),
-			array(
-				'url' => 'report5.php',
-				'label' => _('Triggers top 100')
-			),
-			array(
-				'url' => 'report6.php',
-				'label' => _('Bar reports'),
-				'sub_pages' => array('popup_period.php', 'popup_bitem.php', 'chart_bar.php')
-			),
-			array(
-				'url' => 'popup.php'
-			),
-			array(
-				'url' => 'popup_right.php'
-			)
-		),
-	),
+
+	//'cm' => array(
+	//	'label'				=> _('Inventory'),
+	//	'user_type'			=> USER_TYPE_ZABBIX_USER,
+	//	'node_perm'			=> PERM_READ,
+	//	'default_page_id'	=> 0,
+	//	//'pages' => array(
+	//		array(
+	//			'url' => 'hostinventoriesoverview.php',
+	//			'label' => _('Overview')
+	//		),
+	//		array(
+	//			'url' => 'hostinventories.php',
+	//			'label' => _('Hosts')
+	//		)
+	//	)
+	//),
+	//'reports' => array(
+	//	'label'				=> _('Reports'),
+	//	'user_type'			=> USER_TYPE_ZABBIX_USER,
+	//	'node_perm'			=> PERM_READ,
+	//	'default_page_id'	=> 0,
+	//	'pages' => array(
+	//		array(
+	//			'url' => 'report1.php',
+	//			'label' => _('Status of Zabbix'),
+	//			'user_type' => USER_TYPE_SUPER_ADMIN
+	//		),
+	//		array(
+	//			'url' => 'report2.php',
+	//			'label' => _('Availability report')
+	//		),
+	//		array(
+	//			'url' => 'report5.php',
+	//			'label' => _('Triggers top 100')
+	//		),
+	//		array(
+	//			'url' => 'report6.php',
+	//			'label' => _('Bar reports'),
+	//			'sub_pages' => array('popup_period.php', 'popup_bitem.php', 'chart_bar.php')
+	//		),
+	//		array(
+	//			'url' => 'popup.php'
+	//		),
+	//		array(
+	//			'url' => 'popup_right.php'
+	//		)
+	//	),
+	//),
 
 	'admin' => array(
-		'label'				=> _('Administration'),
+		'label'				=> _('选项'),
 		'user_type'			=> USER_TYPE_SUPER_ADMIN,
 		'node_perm'			=> PERM_READ_WRITE,
 		'default_page_id'	=> 1,
