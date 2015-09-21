@@ -22,6 +22,75 @@
 global $ZBX_MENU;
 
 $ZBX_MENU = array(
+	'config' => array(
+		'label'				=> _('Configuration'),
+		'user_type'			=> USER_TYPE_ZABBIX_ADMIN,
+		'node_perm'			=> PERM_READ,
+		'default_page_id'	=> 0,
+		'force_disable_all_nodes' => true,
+		'pages' => array(
+			array(
+				'url' => 'conf.import.php'
+			),
+			array(
+				'url' => 'hostgroups.php',
+				'label' => _('Host groups')
+			),
+			array(
+				'url' => 'templates.php'
+				//'label' => _('Templates')
+			),
+			array(
+				'url' => 'hosts.php',
+				'label' => _('Hosts'),
+				'sub_pages' => array(
+					'items.php',
+					'triggers.php',
+					'graphs.php',
+					'applications.php',
+					'tr_logform.php',
+					'tr_testexpr.php',
+					'popup_trexpr.php',
+					'host_discovery.php',
+					'disc_prototypes.php',
+					'trigger_prototypes.php',
+					'host_prototypes.php',
+					'httpconf.php',
+					'popup_httpstep.php'
+				)
+			),
+			array(
+				'url' => 'maintenance.php'
+				//'label' => _('Maintenance')
+			),
+			array(
+				'url' => 'actionconf.php'
+				//'label' => _('Actions')
+			),
+			array(
+				'url' => 'screenconf.php',
+				//'label' => _('Screens'),
+				'sub_pages' => array('screenedit.php')
+			),
+			array(
+				'url' => 'slideconf.php'
+				//'label' => _('Slide shows'),
+			),
+			array(
+				'url' => 'sysmaps.php',
+				//'label' => _('Maps'),
+				'sub_pages' => array('image.php', 'sysmap.php')
+			),
+			array(
+				'url' => 'discoveryconf.php'
+				//'label' => _('Discovery')
+			),
+			array(
+				'url' => 'services.php',
+				//'label' => _('IT services')
+			),
+		)
+	),
 	'view' => array(
 		'label'				=> _('Monitoring'),
 		'user_type'			=> USER_TYPE_ZABBIX_USER,
@@ -145,75 +214,7 @@ $ZBX_MENU = array(
 			)
 		),
 	),
-	'config' => array(
-		'label'				=> _('Configuration'),
-		'user_type'			=> USER_TYPE_ZABBIX_ADMIN,
-		'node_perm'			=> PERM_READ,
-		'default_page_id'	=> 0,
-		'force_disable_all_nodes' => true,
-		'pages' => array(
-			array(
-				'url' => 'conf.import.php'
-			),
-			array(
-				'url' => 'hostgroups.php',
-				'label' => _('Host groups')
-			),
-			array(
-				'url' => 'templates.php',
-				'label' => _('Templates')
-			),
-			array(
-				'url' => 'hosts.php',
-				'label' => _('Hosts'),
-				'sub_pages' => array(
-					'items.php',
-					'triggers.php',
-					'graphs.php',
-					'applications.php',
-					'tr_logform.php',
-					'tr_testexpr.php',
-					'popup_trexpr.php',
-					'host_discovery.php',
-					'disc_prototypes.php',
-					'trigger_prototypes.php',
-					'host_prototypes.php',
-					'httpconf.php',
-					'popup_httpstep.php'
-				)
-			),
-			array(
-				'url' => 'maintenance.php',
-				'label' => _('Maintenance')
-			),
-			array(
-				'url' => 'actionconf.php',
-				'label' => _('Actions')
-			),
-			array(
-				'url' => 'screenconf.php',
-				'label' => _('Screens'),
-				'sub_pages' => array('screenedit.php')
-			),
-			array(
-				'url' => 'slideconf.php',
-				'label' => _('Slide shows'),
-			),
-			array(
-				'url' => 'sysmaps.php',
-				'label' => _('Maps'),
-				'sub_pages' => array('image.php', 'sysmap.php')
-			),
-			array(
-				'url' => 'discoveryconf.php',
-				'label' => _('Discovery')
-			),
-			array(
-				'url' => 'services.php',
-				'label' => _('IT services')
-			),
-		)
-	),
+
 	'admin' => array(
 		'label'				=> _('Administration'),
 		'user_type'			=> USER_TYPE_SUPER_ADMIN,
