@@ -278,6 +278,12 @@ return array(
 				'length' => 256,
 				'default' => '',
 			),
+			'ishidden' => array(
+				'null' => false,
+				'type' => DB::FIELD_TYPE_CHAR,
+				'length' => 256,
+				'default' => '',
+			),
 		),
 	),
 	'group_prototype' => array(

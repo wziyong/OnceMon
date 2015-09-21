@@ -1,5 +1,9 @@
 ALTER TABLE `groups`
 ADD COLUMN `comment` VARCHAR(256) NULL COMMENT '备注';
+ALTER TABLE `groups`
+CHANGE COLUMN `ishidden` `ishiddenx` VARCHAR(45) NULL DEFAULT '1' COMMENT '0 不可见；1可见；' ;
+update groups set ishidden = '0' where groupid in (1,2,4,5,6,7);
+commit;
 
 
 ALTER TABLE `hosts`

@@ -803,7 +803,7 @@ else {
 	$tmplList->addRow(_('Linked templates'), new CDiv($linkedTemplateTable, 'objectgroup inlineblock border_dotted ui-corner-all'));
 }
 
-$divTabs->addTab('templateTab', _('Templates'), $tmplList);
+//$divTabs->addTab('templateTab', _('Templates'), $tmplList);
 
 /*
  * IPMI
@@ -837,7 +837,7 @@ else {
 
 $ipmiList->addRow(_('Username'), new CTextBox('ipmi_username', $ipmi_username, ZBX_TEXTBOX_SMALL_SIZE, $isDiscovered));
 $ipmiList->addRow(_('Password'), new CTextBox('ipmi_password', $ipmi_password, ZBX_TEXTBOX_SMALL_SIZE, $isDiscovered));
-$divTabs->addTab('ipmiTab', _('IPMI'), $ipmiList);
+//$divTabs->addTab('ipmiTab', _('IPMI'), $ipmiList);
 
 /*
  * Macros
@@ -850,7 +850,7 @@ $macrosView = new CView('common.macros', array(
 	'macros' => $macros,
 	'readonly' => $isDiscovered
 ));
-$divTabs->addTab('macroTab', _('Macros'), $macrosView->render());
+//$divTabs->addTab('macroTab', _('Macros'), $macrosView->render());
 
 $inventoryFormList = new CFormList('inventorylist');
 
@@ -933,7 +933,7 @@ $clearFixDiv = new CDiv();
 $clearFixDiv->addStyle('clear: both;');
 $inventoryFormList->addRow('', $clearFixDiv);
 
-$divTabs->addTab('inventoryTab', _('Host inventory'), $inventoryFormList);
+//$divTabs->addTab('inventoryTab', _('Host inventory'), $inventoryFormList);
 $frmHost->addItem($divTabs);
 
 /*

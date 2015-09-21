@@ -347,7 +347,8 @@ else {//查询列表
 		'editable' => true,
 		'output' => array('groupid'),
 		'sortfield' => $sortfield,
-		'limit' => $config['search_limit'] + 1
+		'limit' => $config['search_limit'] + 1,
+		'filter' => array('ishidden'=>'1')
 	));
 
 	$data['paging'] = getPagingLine($groups, array('groupid'));
