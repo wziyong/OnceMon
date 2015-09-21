@@ -775,7 +775,7 @@ else {
 	$frmForm->cleanItems();
 	$frmForm->addItem(new CDiv(array(
 		new CSubmit('form', _('Create host')),
-		new CButton('form', _('Import'), 'redirect("conf.import.php?rules_preset=host")')
+		//new CButton('form', _('Import'), 'redirect("conf.import.php?rules_preset=host")')
 	)));
 	$frmForm->addItem(new CVar('groupid', $_REQUEST['groupid'], 'filter_groupid_id'));
 
@@ -1028,14 +1028,14 @@ else {
 	}
 
 	$goBox = new CComboBox('go');
-	$goBox->addItem('export', _('Export selected'));
-	$goBox->addItem('massupdate', _('Mass update'));
+	//$goBox->addItem('export', _('Export selected'));
+	//$goBox->addItem('massupdate', _('Mass update'));
 	$goOption = new CComboItem('activate', _('Enable selected'));
 	$goOption->setAttribute('confirm', _('Enable selected hosts?'));
-	$goBox->addItem($goOption);
+	//$goBox->addItem($goOption);
 	$goOption = new CComboItem('disable', _('Disable selected'));
 	$goOption->setAttribute('confirm', _('Disable selected hosts?'));
-	$goBox->addItem($goOption);
+	//$goBox->addItem($goOption);
 	$goOption = new CComboItem('delete', _('Delete selected'));
 	$goOption->setAttribute('confirm', _('Delete selected hosts?'));
 	$goBox->addItem($goOption);
