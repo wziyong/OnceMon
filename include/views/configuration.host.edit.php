@@ -757,7 +757,7 @@ $logiList = new CFormList('loglist');
 $lbslistenportTBkey = new CTextBox('appcfg[100][name]', '', ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
 $lbslistenportTBkey->setAttribute('value', 'app_log_level');
 $logiList->addRow(_('应用服务器日志等级key'), $lbslistenportTBkey, true, null, null);
-$lbslistenportTBx = new CTextBox('appcfg[100][value]', empty($cfgstmp['app_log_level']) ? null : $cfgstmp['app_listen_port'], ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
+$lbslistenportTBx = new CTextBox('appcfg[100][value]', empty($cfgstmp['app_log_level']) ? null : $cfgstmp['app_log_level'], ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
 $lbslistenportTBx->setAttribute('maxlength', 64);
 $lbslistenportTBx->setAttribute('autofocus', 'autofocus');
 $logiList->addRow(_('日志等级'), $lbslistenportTBx, false, null, 'app_server');
