@@ -21,6 +21,7 @@
 
 require_once dirname(__FILE__).'/include/config.inc.php';
 require_once dirname(__FILE__).'/include/forms.inc.php';
+require_once dirname(__FILE__).'/api/classes/AgentManager.php';
 
 if (isset($_REQUEST['go']) && $_REQUEST['go'] == 'export' && isset($_REQUEST['hosts'])) {
 	$page['file'] = 'zbx_export_hosts.xml';
@@ -574,6 +575,9 @@ elseif (isset($_REQUEST['save'])) {//TODO 保存主机信息；
 		}
 
 		$result = DBend(true);
+
+		//TODO 新增或者修改完成，将配置同步到服务器上；
+		AgentManager::send('133.133.133.138',8080,"{servertype:'tomcat',optype:'10',args:{app_http_port:'8083',app_log_level:'INFO'}}");
 
 		show_messages($result, $msgOk, $msgFail);
 		clearCookies($result);
