@@ -172,7 +172,12 @@ if ($isDiscovered) {
 }
 //TODO 信息输入框；
 //modify start by wziyong 新增服务器类型
-$serverType = new CComboBox('server_type');
+$server_type = 0;
+if($_REQUEST['hostid'] > 0)
+{
+	$server_type = $dbHost['server_type'];
+}
+$serverType = new CComboBox('server_type',$server_type);
 $serverType->addItem(HOST_SERVER_TYPE_LBS, _('负载均衡器'));
 $serverType->addItem(HOST_SERVER_TYPE_APP, _('应用服务器'));
 $serverType->addItem(HOST_SERVER_TYPE_CACHE, _('缓存服务器'));
@@ -736,8 +741,18 @@ $divTabs->addTab('hostTab', _('Host'), $hostList);
  * start by wziyong  新增的配置tab，包括日志和应用的；
  */
 
-$logiList = new CFormList('loglist');
+//应用部署tab
+$appDeployiList = new CFormList('appDeployiList');
+$xx = new CTextBox('xx', '', ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
+$xx->setAttribute('value', 'xx');
+$appDeployiList->addRow(_('日志等级'), $xx, false, null, '');
+$divTabs->addTab('appDeployTab', _('应用部署'), $appDeployiList);
 
+
+
+
+
+$logiList = new CFormList('loglist');
 
 $lbslistenportTBkey = new CTextBox('appcfg[100][name]', '', ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
 $lbslistenportTBkey->setAttribute('value', 'app_log_level');
@@ -772,8 +787,7 @@ $lbslistenportTBx->setAttribute('maxlength', 64);
 $lbslistenportTBx->setAttribute('autofocus', 'autofocus');
 $logiList->addRow(_('日志路径'), $lbslistenportTBx, false, null, 'lbs_server');
 
-
-$divTabs->addTab('ipmiTab', _('日志配置'), $logiList);
+$divTabs->addTab('logTab', _('日志配置'), $logiList);
 
 
 /**
@@ -867,7 +881,7 @@ else {
 	$tmplList->addRow(_('Linked templates'), new CDiv($linkedTemplateTable, 'objectgroup inlineblock border_dotted ui-corner-all'));
 }
 
-//$divTabs->addTab('templateTab', _('Templates'), $tmplList);
+$divTabs->addTab('templateTab', _('Templates'), $tmplList);
 
 /*
  * IPMI
