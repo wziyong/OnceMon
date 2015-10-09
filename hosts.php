@@ -576,8 +576,16 @@ elseif (isset($_REQUEST['save'])) {//TODO 保存主机信息；
 
 		$result = DBend(true);
 
-		//TODO 新增或者修改完成，将配置同步到服务器上；
-		AgentManager::send('133.133.133.138',8080,"{servertype:'tomcat',optype:'10',args:{app_http_port:'8083',app_log_level:'INFO'}}");
+		if($result)
+		{
+			//TODO 新增或者修改完成，将配置同步到服务器上；
+			$response_result = AgentManager::send('133.133.133.138',8080,"{servertype:'tomcat',optype:'10',args:{app_http_port:'8083',app_log_level:'INFO'}}");
+			if('false'===$response_result["result"])
+			{
+				$result = false;
+				$msgFail = $msgFail.' and '.$response_result["message"];
+			}
+		}
 
 		show_messages($result, $msgOk, $msgFail);
 		clearCookies($result);

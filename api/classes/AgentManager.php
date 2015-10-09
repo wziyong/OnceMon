@@ -44,15 +44,11 @@ class AgentManager {
 		socket_write($socket, $msg . "\n==END==\n");
 		flush();
 
-//		while ($out = socket_read($socket, 8192)) {
-//			echo $out;
-//		}
-
-		$str = socket_read ( $socket, 1024, PHP_NORMAL_READ );
+		$response = socket_read ( $socket, 4096, PHP_NORMAL_READ );
 
 		socket_close($socket);
 
-
+		return json_decode($response,true);
 	}
 
 
