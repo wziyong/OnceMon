@@ -6114,6 +6114,31 @@ return array(
 			),
 		),
 	),
+	't_custom_myapplication' => array(
+		'type' => DB::TABLE_TYPE_CONFIG,
+		'key' => 'applicationid',
+		'fields' => array(
+			'applicationid' => array(
+				'null' => false,
+				'type' => DB::FIELD_TYPE_ID,
+				'length' => 20,
+			),
+			'name' => array(
+				'null' => false,
+				'type' => DB::FIELD_TYPE_CHAR,
+				'length' => 256
+			),
+			'comment' => array(
+				'type' => DB::FIELD_TYPE_CHAR,
+				'length' => 1024
+			),
+			'filename' => array(
+				'null' => false,
+				'type' => DB::FIELD_TYPE_CHAR,
+				'length' => 1024
+			)
+		),
+	),
 	// add end by wziyong
 );
 ?>

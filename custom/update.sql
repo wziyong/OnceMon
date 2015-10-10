@@ -23,3 +23,11 @@ CREATE TABLE `t_custom_hostconfig` (
 
 
 
+CREATE TABLE `t_custom_myapplication` (
+  `applicationid` BIGINT(20) UNSIGNED NOT NULL,
+  `name` VARCHAR(256) NOT NULL,
+  `filename` VARCHAR(1024) NOT NULL ,
+  `comment` VARCHAR(1024) NULL,
+  PRIMARY KEY (`applicationid`));
+
+

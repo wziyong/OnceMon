@@ -77,7 +77,8 @@ class API {
 		'httptest' => 'CHttpTest',
 		'webcheck' => 'CHttpTest',
 		//add start by wziyong
-		'hostservercfg' => 'CHostServerCfg'
+		'hostservercfg' => 'CHostServerCfg',
+		'myapplication' => 'CMyApplication'
 		//add end by wziyong
 	);
 
@@ -436,6 +437,10 @@ class API {
 	 */
 	public static function HostServerCfg() {
 		return self::getObject('hostservercfg');
+	}
+
+	public static function MyApplication() {
+		return self::getObject('myapplication');
 	}
 	//add end by wziyong
 }

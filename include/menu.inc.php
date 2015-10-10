@@ -89,6 +89,10 @@ $ZBX_MENU = array(
 				'url' => 'services.php',
 				//'label' => _('IT services')
 			),
+			array(
+				'url' => 'myapplication.php',
+				'label' => _('应用')
+			),
 		)
 	),
 	'view' => array(
