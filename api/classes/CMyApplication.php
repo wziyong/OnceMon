@@ -138,60 +138,27 @@ class CMyApplication extends CZBXAPI
     }
 
 
-    public function update($mediatypes)
+    public function update($myApplications)
     {
-        if (USER_TYPE_SUPER_ADMIN != self::$userData['type']) {
-            self::exception(ZBX_API_ERROR_PERMISSIONS, _('Only Super Admins can edit media types.'));
-        }
-
-        $mediatypes = zbx_toArray($mediatypes);
+        $myApplications = zbx_toArray($myApplications);
 
         $update = array();
-        foreach ($mediatypes as $mediatype) {
-            $mediatypeDbFields = array(
-                'mediatypeid' => null
-            );
-            if (!check_db_fields($mediatypeDbFields, $mediatype)) {
-                self::exception(ZBX_API_ERROR_PARAMETERS, _('Wrong fields for media type.'));
-            }
+        foreach ($myApplications as $myApplication) {
+            $myApplicationid = $myApplication['applicationid'];
+            unset($myApplication['applicationid']);
 
-            if (isset($mediatype['description'])) {
-                $options = array(
-                    'filter' => array('description' => $mediatype['description']),
-                    'preservekeys' => true,
-                    'output' => array('mediatypeid')
-                );
-                $existMediatypes = $this->get($options);
-                $existMediatype = reset($existMediatypes);
-
-                if ($existMediatype && bccomp($existMediatype['mediatypeid'], $mediatype['mediatypeid']) != 0) {
-                    self::exception(ZBX_API_ERROR_PARAMETERS, _s('Media type "%s" already exists.', $mediatype['description']));
-                }
-            }
-
-            if (array_key_exists('passwd', $mediatype) && empty($mediatype['passwd'])) {
-                self::exception(ZBX_API_ERROR_PARAMETERS, _('Password required for media type.'));
-            }
-
-            if (array_key_exists('type', $mediatype) && !in_array($mediatype['type'], array(MEDIA_TYPE_JABBER, MEDIA_TYPE_EZ_TEXTING))) {
-                $mediatype['passwd'] = '';
-            }
-
-            $mediatypeid = $mediatype['mediatypeid'];
-            unset($mediatype['mediatypeid']);
-
-            if (!empty($mediatype)) {
+            if (!empty($myApplication)) {
                 $update[] = array(
-                    'values' => $mediatype,
-                    'where' => array('mediatypeid' => $mediatypeid)
+                    'values' => $myApplication,
+                    'where' => array('applicationid' => $myApplicationid)
                 );
             }
         }
 
-        DB::update('media_type', $update);
-        $mediatypeids = zbx_objectValues($mediatypes, 'mediatypeid');
+        DB::update('t_custom_myapplication', $update);
+        $applicationids = zbx_objectValues($myApplications, 'applicationid');
 
-        return array('mediatypeids' => $mediatypeids);
+        return array('applicationids' => $applicationids);
     }
 
     public function delete($mediatypeids)

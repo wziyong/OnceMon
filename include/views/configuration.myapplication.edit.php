@@ -35,7 +35,7 @@ $nameTextBox = new CTextBox('name', $this->data['name'], ZBX_TEXTBOX_STANDARD_SI
 $nameTextBox->attr('autofocus', 'autofocus');
 $myApplicationFormList->addRow(_('Name'), $nameTextBox);
 
-$file =  new CFile('import_file');
+$file =  new CFile('import_file',$this->data['filename']);
 $file->attr('style','width:318px');
 $myApplicationFormList->addRow(_('安装包'),$file);
 

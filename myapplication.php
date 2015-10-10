@@ -66,8 +66,8 @@ $applicationId = get_request('applicationid');
 /*
  * Permissions
  */
-if (isset($_REQUEST['mediatypeid'])) {
-    $myApplications = API::Mediatype()->get(array(
+if (isset($_REQUEST['applicationid'])) {
+    $myApplications = API::MyApplication()->get(array(
         'applicationids' => $applicationId,
         'output' => API_OUTPUT_EXTEND
     ));
@@ -106,7 +106,7 @@ if (isset($_REQUEST['save'])) { //TODO 新增或者修改； 修改的时候，�
 
     if ($applicationId) {
         $myApplication['applicationid'] = $applicationId;
-        $result = API::Mediatype()->update($myApplication);
+        $result = API::MyApplication()->update($myApplication);
 
         $action = AUDIT_ACTION_UPDATE;
         show_messages($result, _('Media type updated'), _('Cannot update media type'));
