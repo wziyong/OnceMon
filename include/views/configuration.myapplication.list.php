@@ -35,7 +35,7 @@ $myapplicationForm->setName('myapplicationForm');
 // create table
 $myapplicationTable = new CTableInfo(_('No media types found.'));
 $myapplicationTable->setHeader(array(
-	new CCheckBox('all_media_types', null, "checkAll('".$myapplicationForm->getName()."', 'all_media_types', 'mediatypeids');"),
+	new CCheckBox('all_myapplication', null, "checkAll('".$myapplicationForm->getName()."', 'all_myapplication', 'applicationids');"),
 	$this->data['displayNodes'] ? _('Node') : null,
 	make_sorting_header(_('Name'), 'description'),
 	_('安装包'),
@@ -61,7 +61,7 @@ $goComboBox->addItem($goOption);
 
 $goButton = new CSubmit('goButton', _('Go').' (0)');
 $goButton->setAttribute('id', 'goButton');
-zbx_add_post_js('chkbxRange.pageGoName = "mediatypeids";');
+zbx_add_post_js('chkbxRange.pageGoName = "applicationids";');
 
 // append table to form
 $myapplicationForm->addItem(array($this->data['paging'], $myapplicationTable, $this->data['paging'], get_table_header(array($goComboBox, $goButton))));

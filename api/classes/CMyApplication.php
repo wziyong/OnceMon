@@ -161,26 +161,10 @@ class CMyApplication extends CZBXAPI
         return array('applicationids' => $applicationids);
     }
 
-    public function delete($mediatypeids)
+    public function delete($applicationids)
     {
-        if (self::$userData['type'] != USER_TYPE_SUPER_ADMIN) {
-            self::exception(ZBX_API_ERROR_PERMISSIONS, _('Only Super Admins can delete media types.'));
-        }
-
-        $mediatypeids = zbx_toArray($mediatypeids);
-
-        $actions = API::Action()->get(array(
-            'mediatypeids' => $mediatypeids,
-            'output' => API_OUTPUT_EXTEND,
-            'preservekeys' => true
-        ));
-        if (!empty($actions)) {
-            $action = reset($actions);
-            self::exception(ZBX_API_ERROR_PARAMETERS, _s('Media types used by action "%s".', $action['name']));
-        }
-
-        DB::delete('media_type', array('mediatypeid' => $mediatypeids));
-
-        return array('mediatypeids' => $mediatypeids);
+        $applicationids = zbx_toArray($applicationids);
+        DB::delete('t_custom_myapplication', array('applicationid' => $applicationids));
+        return array('applicationids' => $applicationids);
     }
 }

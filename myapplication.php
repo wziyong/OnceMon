@@ -76,14 +76,14 @@ if (isset($_REQUEST['applicationid'])) {
     }
 }
 if (isset($_REQUEST['go'])) {
-    if (!isset($_REQUEST['mediatypeids']) || !is_array($_REQUEST['mediatypeids'])) {
+    if (!isset($_REQUEST['applicationids']) || !is_array($_REQUEST['applicationids'])) {
         access_deny();
     } else {
-        $mediaTypeChk = API::Mediatype()->get(array(
-            'mediatypeids' => $_REQUEST['mediatypeids'],
+        $mediaTypeChk = API::MyApplication()->get(array(
+            'applicationids' => $_REQUEST['applicationids'],
             'countOutput' => true
         ));
-        if ($mediaTypeChk != count($_REQUEST['mediatypeids'])) {
+        if ($mediaTypeChk != count($_REQUEST['applicationids'])) {
             access_deny();
         }
     }
@@ -132,9 +132,9 @@ if (isset($_REQUEST['save'])) { //TODO 新增或者修改； 修改的时候，�
     show_messages($result, _('Media type deleted'), _('Cannot delete media type'));
     clearCookies($result);
 } elseif ($_REQUEST['go'] == 'delete') {
-    $goResult = API::Mediatype()->delete(get_request('mediatypeids', array()));
+    $goResult = API::MyApplication()->delete(get_request('applicationids', array()));
 
-    show_messages($goResult, _('Media type deleted'), _('Cannot delete media type'));
+    show_messages($goResult, _('删除应用成功'), _('删除应用失败'));
     clearCookies($goResult);
 }
 
