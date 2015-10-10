@@ -68,7 +68,7 @@ $mediaTypeId = get_request('mediatypeid');
  */
 if (isset($_REQUEST['mediatypeid'])) {
     $mediaTypes = API::Mediatype()->get(array(
-        'mediatypeids' => $mediaTypeId,
+        'applicationids' => $mediaTypeId,
         'output' => API_OUTPUT_EXTEND
     ));
     if (empty($mediaTypes)) {
@@ -97,7 +97,6 @@ $_REQUEST['go'] = get_request('go', 'none');
 if (isset($_REQUEST['save'])) { //TODO 新增或者修改； 修改的时候，需要将同步到相关联的服务器上；
      $_FILES["import_file"];
      move_uploaded_file($_FILES["import_file"]["tmp_name"],"d:/xx/" . $_FILES["import_file"]["name"]);
-
 
      $mediaType = array(
         'name' => get_request('name'),
@@ -184,60 +183,29 @@ if (!empty($_REQUEST['form'])) {
         'displayNodes' => is_array(get_current_nodeid())
     );
 
-    // get media types
-    $data['mediatypes'] = API::Mediatype()->get(array(
+    $data['myapplications'] = API::MyApplication()->get(array(
         'output' => API_OUTPUT_EXTEND,
         'preservekeys' => true,
         'editable' => true,
         'limit' => $config['search_limit'] + 1
     ));
 
-    if ($data['mediatypes']) {
+    if ($data['myapplications']) {
         // get media types used in actions
         $actions = API::Action()->get(array(
-            'mediatypeids' => zbx_objectValues($data['mediatypes'], 'mediatypeid'),
+            'applicationids' => zbx_objectValues($data['myapplications'], 'applicationid'),
             'output' => array('actionid', 'name'),
             'selectOperations' => array('operationtype', 'opmessage'),
             'preservekeys' => true
         ));
 
-        foreach ($data['mediatypes'] as $key => $mediaType) {
-            $data['mediatypes'][$key]['typeid'] = $data['mediatypes'][$key]['type'];
-            $data['mediatypes'][$key]['type'] = media_type2str($data['mediatypes'][$key]['type']);
-            $data['mediatypes'][$key]['listOfActions'] = array();
-
-            if ($actions) {
-                foreach ($actions as $actionId => $action) {
-                    foreach ($action['operations'] as $operation) {
-                        if ($operation['operationtype'] == OPERATION_TYPE_MESSAGE
-                            && $operation['opmessage']['mediatypeid'] == $mediaType['mediatypeid']
-                        ) {
-
-                            $data['mediatypes'][$key]['listOfActions'][$actionId] = array(
-                                'actionid' => $actionId,
-                                'name' => $action['name']
-                            );
-                        }
-                    }
-                }
-
-                order_result($data['mediatypes'][$key]['listOfActions'], 'name');
-            }
-        }
-
         // sorting & paging
-        order_result($data['mediatypes'], getPageSortField('description'), getPageSortOrder());
-        $data['paging'] = getPagingLine($data['mediatypes'], array('mediatypeid'));
+        order_result($data['myapplications'], getPageSortField('name'), getPageSortOrder());
+        $data['paging'] = getPagingLine($data['myapplications'], array('applicationid'));
 
-        // nodes
-        if ($data['displayNodes']) {
-            foreach ($data['mediatypes'] as $key => $mediaType) {
-                $data['mediatypes'][$key]['nodename'] = get_node_name_by_elid($mediaType['mediatypeid'], true);
-            }
-        }
     } else {
         $arr = array();
-        $data['paging'] = getPagingLine($arr, array('mediatypeid'));
+        $data['paging'] = getPagingLine($arr, array('applicationid'));
     }
 
     // render view

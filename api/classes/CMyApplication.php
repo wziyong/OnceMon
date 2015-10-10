@@ -54,12 +54,10 @@ class CMyApplication extends CZBXAPI
     public function get($options = array())
     {
         $result = array();
-        $nodeCheck = false;
-        $userType = self::$userData['type'];
 
         $sqlParts = array(
-            'select' => array('media_type' => 'mt.mediatypeid'),
-            'from' => array('media_type' => 'media_type mt'),
+            'select' => array('t_custom_myapplication' => 'myapp.applicationid'),
+            'from' => array('t_custom_myapplication' => 't_custom_myapplication myapp'),
             'where' => array(),
             'group' => array(),
             'order' => array(),
@@ -67,10 +65,7 @@ class CMyApplication extends CZBXAPI
         );
 
         $defOptions = array(
-            'nodeids' => null,
-            'mediatypeids' => null,
-            'mediaids' => null,
-            'userids' => null,
+            'applicationids' => null,
             'editable' => null,
             // filter
             'filter' => null,
@@ -91,68 +86,20 @@ class CMyApplication extends CZBXAPI
         );
         $options = zbx_array_merge($defOptions, $options);
 
-        // permission check
-        if (USER_TYPE_SUPER_ADMIN == $userType) {
-        } elseif (is_null($options['editable']) && self::$userData['type'] == USER_TYPE_ZABBIX_ADMIN) {
-        } elseif (!is_null($options['editable']) || self::$userData['type'] != USER_TYPE_SUPER_ADMIN) {
-            return array();
-        }
-
-        // nodeids
-        $nodeids = !is_null($options['nodeids']) ? $options['nodeids'] : get_current_nodeid();
-
         // mediatypeids
-        if (!is_null($options['mediatypeids'])) {
-            zbx_value2array($options['mediatypeids']);
-            $sqlParts['where'][] = dbConditionInt('mt.mediatypeid', $options['mediatypeids']);
-
-            if (!$nodeCheck) {
-                $nodeCheck = true;
-                $sqlParts['where'] = sqlPartDbNode($sqlParts['where'], 'mt.mediatypeid', $nodeids);
-            }
-        }
-
-        // mediaids
-        if (!is_null($options['mediaids'])) {
-            zbx_value2array($options['mediaids']);
-            $sqlParts['select']['mediaid'] = 'm.mediaid';
-            $sqlParts['from']['media'] = 'media m';
-            $sqlParts['where'][] = dbConditionInt('m.mediaid', $options['mediaids']);
-            $sqlParts['where']['mmt'] = 'm.mediatypeid=mt.mediatypeid';
-
-            if (!$nodeCheck) {
-                $nodeCheck = true;
-                $sqlParts['where'] = sqlPartDbNode($sqlParts['where'], 'm.mediaid', $nodeids);
-            }
-        }
-
-        // userids
-        if (!is_null($options['userids'])) {
-            zbx_value2array($options['userids']);
-            $sqlParts['select']['userid'] = 'm.userid';
-            $sqlParts['from']['media'] = 'media m';
-            $sqlParts['where'][] = dbConditionInt('m.userid', $options['userids']);
-            $sqlParts['where']['mmt'] = 'm.mediatypeid=mt.mediatypeid';
-
-            if (!$nodeCheck) {
-                $nodeCheck = true;
-                $sqlParts['where'] = sqlPartDbNode($sqlParts['where'], 'm.userid', $nodeids);
-            }
-        }
-
-        // should last, after all ****IDS checks
-        if (!$nodeCheck) {
-            $sqlParts['where'] = sqlPartDbNode($sqlParts['where'], 'mt.mediatypeid', $nodeids);
+        if (!is_null($options['applicationids'])) {
+            zbx_value2array($options['applicationids']);
+            $sqlParts['where'][] = dbConditionInt('myapp.applicationid', $options['applicationids']);
         }
 
         // filter
         if (is_array($options['filter'])) {
-            $this->dbFilter('media_type mt', $options, $sqlParts);
+            $this->dbFilter('t_custom_myapplication myapp', $options, $sqlParts);
         }
 
         // search
         if (is_array($options['search'])) {
-            zbx_db_search('media_type mt', $options, $sqlParts);
+            zbx_db_search('t_custom_myapplication myapp', $options, $sqlParts);
         }
 
         // limit
@@ -164,36 +111,23 @@ class CMyApplication extends CZBXAPI
         $sqlParts = $this->applyQuerySortOptions($this->tableName(), $this->tableAlias(), $options, $sqlParts);
         $sqlParts = $this->applyQueryNodeOptions($this->tableName(), $this->tableAlias(), $options, $sqlParts);
         $res = DBselect($this->createSelectQueryFromParts($sqlParts), $sqlParts['limit']);
-        while ($mediatype = DBfetch($res)) {
+        while ($myapplication = DBfetch($res)) {
             if (!is_null($options['countOutput'])) {
                 if (!is_null($options['groupCount'])) {
-                    $result[] = $mediatype;
+                    $result[] = $myapplication;
                 } else {
-                    $result = $mediatype['rowscount'];
+                    $result = $myapplication['rowscount'];
                 }
             } else {
-                if (!isset($result[$mediatype['mediatypeid']])) {
-                    $result[$mediatype['mediatypeid']] = array();
+                if (!isset($result[$myapplication['applicationid']])) {
+                    $result[$myapplication['applicationid']] = array();
                 }
-
-                // userids
-                if (isset($mediatype['userid']) && is_null($options['selectUsers'])) {
-                    if (!isset($result[$mediatype['mediatypeid']]['users'])) {
-                        $result[$mediatype['mediatypeid']]['users'] = array();
-                    }
-                    $result[$mediatype['mediatypeid']]['users'][] = array('userid' => $mediatype['userid']);
-                    unset($mediatype['userid']);
-                }
-                $result[$mediatype['mediatypeid']] += $mediatype;
+                $result[$myapplication['applicationid']] += $myapplication;
             }
         }
 
         if (!is_null($options['countOutput'])) {
             return $result;
-        }
-
-        if ($result) {
-            $result = $this->addRelatedObjects($options, $result);
         }
 
         // removing keys (hash -> array)
