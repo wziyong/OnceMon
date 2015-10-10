@@ -765,7 +765,7 @@ $logiList->addRow(_('日志等级'), $lbslistenportTBx, false, null, 'app_server
 $lbslistenportTBkey = new CTextBox('appcfg[101][name]', '', ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
 $lbslistenportTBkey->setAttribute('value', 'app_log_path');
 $logiList->addRow(_('LBS日志路径key'), $lbslistenportTBkey, true, null, null);
-$lbslistenportTBx = new CTextBox('appcfg[100][value]', empty($cfgstmp['app_log_path']) ? null : $cfgstmp['app_log_path'], ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
+$lbslistenportTBx = new CTextBox('appcfg[101][value]', empty($cfgstmp['app_log_path']) ? null : $cfgstmp['app_log_path'], ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
 $lbslistenportTBx->setAttribute('maxlength', 64);
 $lbslistenportTBx->setAttribute('autofocus', 'autofocus');
 $logiList->addRow(_('日志路径'), $lbslistenportTBx, false, null, 'app_server');
