@@ -757,18 +757,17 @@ $logiList = new CFormList('loglist');
 $lbslistenportTBkey = new CTextBox('appcfg[100][name]', '', ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
 $lbslistenportTBkey->setAttribute('value', 'app_log_level');
 $logiList->addRow(_('应用服务器日志等级key'), $lbslistenportTBkey, true, null, null);
-$lbslistenportTBx = new CTextBox('appcfg[100][value]', empty($cfgstmp['app_log_level']) ? null : $cfgstmp['app_log_level'], ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
-$lbslistenportTBx->setAttribute('maxlength', 64);
-$lbslistenportTBx->setAttribute('autofocus', 'autofocus');
-$logiList->addRow(_('日志等级'), $lbslistenportTBx, false, null, 'app_server');
+$app_log_level = new CComboBox('appcfg[100][value]', empty($cfgstmp['app_log_level']) ? null : $cfgstmp['app_log_level']);
+$app_log_level->addStyle('width: 330px;');
+$app_log_level->addItem('SEVERE', 'SEVERE(highest value)');
+$app_log_level->addItem('WARNING', 'WARNING');
+$app_log_level->addItem('INFO', 'INFO');
+$app_log_level->addItem('CONFIG', 'CONFIG');
+$app_log_level->addItem('FINE', 'FINE');
+$app_log_level->addItem('FINER', 'FINER');
+$app_log_level->addItem('FINEST', 'FINEST(lowest value)');
+$logiList->addRow(_('日志等级'), $app_log_level, false, null, 'app_server');
 
-$lbslistenportTBkey = new CTextBox('appcfg[101][name]', '', ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
-$lbslistenportTBkey->setAttribute('value', 'app_log_path');
-$logiList->addRow(_('LBS日志路径key'), $lbslistenportTBkey, true, null, null);
-$lbslistenportTBx = new CTextBox('appcfg[101][value]', empty($cfgstmp['app_log_path']) ? null : $cfgstmp['app_log_path'], ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
-$lbslistenportTBx->setAttribute('maxlength', 64);
-$lbslistenportTBx->setAttribute('autofocus', 'autofocus');
-$logiList->addRow(_('日志路径'), $lbslistenportTBx, false, null, 'app_server');
 
 
 $lbslistenportTBkey = new CTextBox('lbscfg[102][name]', '', ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
