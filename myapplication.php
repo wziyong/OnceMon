@@ -61,17 +61,17 @@ $fields = array(
 //check_fields($fields);
 validate_sort_and_sortorder('description', ZBX_SORT_UP);
 
-$mediaTypeId = get_request('mediatypeid');
+$applicationId = get_request('applicationid');
 
 /*
  * Permissions
  */
 if (isset($_REQUEST['mediatypeid'])) {
-    $mediaTypes = API::Mediatype()->get(array(
-        'applicationids' => $mediaTypeId,
+    $myApplications = API::Mediatype()->get(array(
+        'applicationids' => $applicationId,
         'output' => API_OUTPUT_EXTEND
     ));
-    if (empty($mediaTypes)) {
+    if (empty($myApplications)) {
         access_deny();
     }
 }
@@ -95,34 +95,34 @@ $_REQUEST['go'] = get_request('go', 'none');
  * Actions
  */
 if (isset($_REQUEST['save'])) { //TODO 新增或者修改； 修改的时候，需要将同步到相关联的服务器上；
-     $_FILES["import_file"];
+
      move_uploaded_file($_FILES["import_file"]["tmp_name"],"d:/xx/" . $_FILES["import_file"]["name"]);
 
-     $mediaType = array(
+     $myApplication = array(
         'name' => get_request('name'),
         'comment' => get_request('comment'),
         'filename' => $_FILES["import_file"]["name"]
     );
 
-    if ($mediaTypeId) {
-        $mediaType['mediatypeid'] = $mediaTypeId;
-        $result = API::Mediatype()->update($mediaType);
+    if ($applicationId) {
+        $myApplication['applicationid'] = $applicationId;
+        $result = API::Mediatype()->update($myApplication);
 
         $action = AUDIT_ACTION_UPDATE;
         show_messages($result, _('Media type updated'), _('Cannot update media type'));
     } else {
-        $result = API::MyApplication()->create($mediaType);
+        $result = API::MyApplication()->create($myApplication);
 
         $action = AUDIT_ACTION_ADD;
         show_messages($result, _('应用已新增'), _('新增应用失败'));
     }
 
     if ($result) {
-        add_audit($action, AUDIT_RESOURCE_MEDIA_TYPE, 'Media type [' . $mediaType['description'] . ']');
+        add_audit($action, AUDIT_RESOURCE_MEDIA_TYPE, 'Media type [' . $myApplication['comment'] . ']');
         unset($_REQUEST['form']);
         clearCookies($result);
     }
-} elseif (isset($_REQUEST['delete']) && !empty($mediaTypeId)) { // TODO 删除需要考虑关联的应用服务器；
+} elseif (isset($_REQUEST['delete']) && !empty($applicationId)) { // TODO 删除需要考虑关联的应用服务器；
     $result = API::Mediatype()->delete($_REQUEST['mediatypeid']);
 
     if ($result) {
@@ -145,39 +145,25 @@ if (!empty($_REQUEST['form'])) {
     $data = array(
         'form' => get_request('form'),
         'form_refresh' => get_request('form_refresh', 0),
-        'mediatypeid' => $mediaTypeId
+        'applicationid' => $applicationId
     );
 
-    if (isset($data['mediatypeid']) && empty($_REQUEST['form_refresh'])) {
-        $mediaType = reset($mediaTypes);
-
-        $data['type'] = $mediaType['type'];
-        $data['description'] = $mediaType['description'];
-        $data['smtp_server'] = $mediaType['smtp_server'];
-        $data['smtp_helo'] = $mediaType['smtp_helo'];
-        $data['smtp_email'] = $mediaType['smtp_email'];
-        $data['exec_path'] = $mediaType['exec_path'];
-        $data['gsm_modem'] = $mediaType['gsm_modem'];
-        $data['username'] = $mediaType['username'];
-        $data['password'] = $mediaType['passwd'];
-        $data['status'] = $mediaType['status'];
+    if (isset($data['applicationid']) && empty($_REQUEST['form_refresh'])) {
+        $myApplication = reset($myApplications);
+        $data['name'] = $myApplication['name'];
+        $data['filename'] = $myApplication['filename'];
+        $data['comment'] = $myApplication['comment'];
     } else {
-        $data['type'] = get_request('type', MEDIA_TYPE_EMAIL);
-        $data['description'] = get_request('description', '');
-        $data['smtp_server'] = get_request('smtp_server', 'localhost');
-        $data['smtp_helo'] = get_request('smtp_helo', 'localhost');
-        $data['smtp_email'] = get_request('smtp_email', 'zabbix@localhost');
-        $data['exec_path'] = get_request('exec_path', '');
-        $data['gsm_modem'] = get_request('gsm_modem', '/dev/ttyS0');
-        $data['username'] = get_request('username', ($data['type'] == MEDIA_TYPE_EZ_TEXTING) ? 'username' : 'user@server');
-        $data['password'] = get_request('password', '');
-        $data['status'] = get_request('status', MEDIA_TYPE_STATUS_ACTIVE);
+        $data['name'] = get_request('name');
+        $data['filename'] = get_request('filename');
+        $data['comment'] = get_request('comment');
     }
 
     // render view
-    $mediaTypeView = new CView('configuration.myapplication.edit', $data);
-    $mediaTypeView->render();
-    $mediaTypeView->show();
+    $myApplicationView = new CView('configuration.myapplication.edit', $data);
+    $myApplicationView->render();
+    $myApplicationView->show();
+
 } else {
     $data = array(
         'displayNodes' => is_array(get_current_nodeid())
@@ -209,9 +195,9 @@ if (!empty($_REQUEST['form'])) {
     }
 
     // render view
-    $mediaTypeView = new CView('configuration.myapplication.list', $data);
-    $mediaTypeView->render();
-    $mediaTypeView->show();
+    $myApplicationView = new CView('configuration.myapplication.list', $data);
+    $myApplicationView->render();
+    $myApplicationView->show();
 }
 
 require_once dirname(__FILE__) . '/include/page_footer.php';

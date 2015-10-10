@@ -27,7 +27,7 @@ $myApplicationForm = new CForm('post', null, 'multipart/form-data');
 $myApplicationForm->setName('myApplicationForm');
 $myApplicationForm->addVar('form', $this->data['form']);
 $myApplicationForm->addVar('form_refresh', $this->data['form_refresh'] + 1);
-$myApplicationForm->addVar('myapplicationid', $this->data['myapplicationid']);
+$myApplicationForm->addVar('applicationid', $this->data['applicationid']);
 
 // create form list
 $myApplicationFormList = new CFormList('myApplicationFormList');
