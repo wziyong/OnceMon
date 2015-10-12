@@ -17,4 +17,16 @@ $ZBX_SERVER_PORT = '10051';
 $ZBX_SERVER_NAME = 'OnceMonServer';
 
 $IMAGE_FORMAT_DEFAULT = IMAGE_FORMAT_PNG;
+
+
+//start wziyong custom  ftp configuration
+global $FTP;
+$FTP['FTP_HOST']="133.133.134.149";
+$FTP['FTP_PORT']=21;
+$FTP['FTP_USER']="myftp";
+$FTP['FTP_PASS']="123456";
+//end wziyong custom  ftp configuration
+
+
+
 ?>

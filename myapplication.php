@@ -23,6 +23,9 @@ require_once dirname(__FILE__) . '/include/config.inc.php';
 require_once dirname(__FILE__) . '/include/media.inc.php';
 require_once dirname(__FILE__) . '/include/forms.inc.php';
 
+require_once dirname(__FILE__) . '/include/classes/class.ftp.php';
+
+
 $page['title'] = _('应用管理');
 $page['file'] = 'myapplication.php';
 $page['hist_arg'] = array();
@@ -95,33 +98,44 @@ $_REQUEST['go'] = get_request('go', 'none');
  * Actions
  */
 if (isset($_REQUEST['save'])) { //TODO 新增或者修改； 修改的时候，需要将同步到相关联的服务器上；
+     $filename = $_FILES["import_file"]["name"];
+     if("" == $filename || null == $filename )
+     {
+         show_messages(false, '', _('未选择应用安装包'));
+     }
+     else{
+        $ftp = new class_ftp($FTP['FTP_HOST'],$FTP['FTP_PORT'],$FTP['FTP_USER'],$FTP['FTP_PASS']); // 打开FTP连接
+        $isUpload = $ftp->up_file($_FILES["import_file"]["tmp_name"],"~/".$filename);
 
-     move_uploaded_file($_FILES["import_file"]["tmp_name"],"d:/xx/" . $_FILES["import_file"]["name"]);
+         if($isUpload)//上传ftp成功后，更新到数据库
+         {
+             $myApplication = array(
+                 'name' => get_request('name'),
+                 'comment' => get_request('comment'),
+                 'filename' =>$filename
+             );
 
-     $myApplication = array(
-        'name' => get_request('name'),
-        'comment' => get_request('comment'),
-        'filename' => $_FILES["import_file"]["name"]
-    );
+             if ($applicationId) {
+                 $myApplication['applicationid'] = $applicationId;
+                 $result = API::MyApplication()->update($myApplication);
+                 $action = AUDIT_ACTION_UPDATE;
+                 show_messages($result, _('更新应用成功'), _('更新应用失败'));
+             } else {
+                 $result = API::MyApplication()->create($myApplication);
+                 $action = AUDIT_ACTION_ADD;
+                 show_messages($result, _('应用已新增'), _('新增应用失败'));
+             }
+             if ($result) {
+                 add_audit($action, AUDIT_RESOURCE_MEDIA_TYPE, 'Media type [' . $myApplication['comment'] . ']');
+                 unset($_REQUEST['form']);
+                 clearCookies($result);
+             }
+         }
+         else{
+             show_messages(false, '', _('安装包上传FTP失败'));
+         }
+     }
 
-    if ($applicationId) {
-        $myApplication['applicationid'] = $applicationId;
-        $result = API::MyApplication()->update($myApplication);
-
-        $action = AUDIT_ACTION_UPDATE;
-        show_messages($result, _('Media type updated'), _('Cannot update media type'));
-    } else {
-        $result = API::MyApplication()->create($myApplication);
-
-        $action = AUDIT_ACTION_ADD;
-        show_messages($result, _('应用已新增'), _('新增应用失败'));
-    }
-
-    if ($result) {
-        add_audit($action, AUDIT_RESOURCE_MEDIA_TYPE, 'Media type [' . $myApplication['comment'] . ']');
-        unset($_REQUEST['form']);
-        clearCookies($result);
-    }
 } elseif (isset($_REQUEST['delete']) && !empty($applicationId)) { // TODO 删除需要考虑关联的应用服务器；
     $result = API::Mediatype()->delete($_REQUEST['mediatypeid']);
 
