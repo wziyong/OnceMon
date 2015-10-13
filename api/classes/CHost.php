@@ -546,6 +546,12 @@ class CHost extends CHostGeneral {
 					}
 				}
 
+				//查询部署的应用
+				$resX = DBselect('select t1.applicationid,t1.name from t_custom_myapplication t1,t_custom_hostapps t2  where t1.applicationid = t2.applicationid and t2.hostid ='.$host['hostid']);
+				while ($myApplication = DBfetch($resX)) {
+					$result[$host['hostid']]['selectedMyApplicationids'][] = array($myApplication['applicationid'] => $myApplication['name']);
+				}
+
 				$result[$host['hostid']] += $host;
 			}
 		}

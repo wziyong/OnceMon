@@ -789,6 +789,7 @@ $linkedApplications = API::Template()->get(array(
     'templateids' => $templateIds,
     'output' => array('templateid', 'name')
 ));
+
 CArrayHelper::sort($linkedApplications, array('name'));
 
 $linkedApplicationTable->setHeader(array(_('Name'), _('Action')));
