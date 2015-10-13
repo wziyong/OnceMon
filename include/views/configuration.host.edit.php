@@ -783,7 +783,7 @@ CArrayHelper::sort($linkedTemplates, array('name'));
 
 // 应用
 $tmplList = new CFormList('tmpllist');
-$linkedApplicationTable = new CTable(_('尚未部署应用'), 'formElementTable');
+$linkedApplicationTable = new CTable(null, 'formElementTable');
 $linkedApplicationTable->attr('id', 'linkedApplicationTable');
 $linkedApplications = API::Template()->get(array(
     'templateids' => $templateIds,
@@ -793,19 +793,24 @@ CArrayHelper::sort($linkedApplications, array('name'));
 
 $linkedApplicationTable->setHeader(array(_('Name'), _('Action')));
 $ignoredTemplates = array();
+$selectedMyApplicationids = new CDiv();
+$selectedMyApplicationids->attr("id","selectedMyApplicationids");
+
 foreach ($linkedApplications as $application) {
     $tmplList->addVar('templates[]', $application['templateid']);
     $linkedApplicationTable->addRow(
         array(
             $application['name'],
             array(
-                new CSubmit('unlink[' . $application['templateid'] . ']', _('反部署'), null, 'link_menu'),
+                new CButton('unlink[' . $application['templateid'] . ']', _('反部署'), 'javascript:undeploy('.$application['templateid'].')', 'link_menu'),
                 SPACE,
             )
         ),
         null, 'conditions_' . $application['templateid']
     );
+    $selectedMyApplicationids->addItem(new CInput('hidden','selectedMyApplicationids[]',$application['templateid']));
 }
+$tmplList->addRow($selectedMyApplicationids,null,true);
 $tmplList->addRow(_('部署应用'), new CDiv($linkedApplicationTable, 'objectgroup inlineblock border_dotted ui-corner-all'));
 
 // create new linked template table
@@ -905,7 +910,7 @@ else {
     $tmplList->addRow(_('Linked templates'), new CDiv($linkedTemplateTable, 'objectgroup inlineblock border_dotted ui-corner-all'));
 }
 
-$divTabs->addTab('templateTab', _('Templates'), $tmplList);
+//$divTabs->addTab('templateTab', _('Templates'), $tmplList);
 
 
 /*

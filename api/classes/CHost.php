@@ -931,6 +931,14 @@ class CHost extends CHostGeneral {
 
 				DBexecute('INSERT INTO host_inventory (hostid, '.$fields.') VALUES ('.$hostid.', '.$values.')');
 			}
+
+			if(!empty($host['selectedMyApplicationids']) && HOST_SERVER_TYPE_APP == $host['server_type'])
+			{
+				foreach($host['selectedMyApplicationids'] as $index=>$applicationid)
+				{
+					DBexecute('INSERT INTO t_custom_hostapps (hostid, applicationid) VALUES ('.$hostid.', '.$applicationid.')');
+				}
+			}
 		}
 
 		return array('hostids' => $hostids);

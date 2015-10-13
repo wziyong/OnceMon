@@ -30,4 +30,7 @@ CREATE TABLE `t_custom_myapplication` (
   `comment` VARCHAR(1024) NULL,
   PRIMARY KEY (`applicationid`));
 
+CREATE TABLE `zabbix`.`t_custom_hostapps` (
+  `hostid` BIGINT(20) NOT NULL COMMENT '',
+  `applicationid` BIGINT(20) NOT NULL COMMENT '');
 

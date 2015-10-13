@@ -108,6 +108,7 @@ $fields = array(
 	'server_type' =>			array(T_ZBX_STR, O_OPT, P_SYS,			null,		null),
 	'appcfg' =>			array(T_ZBX_STR, O_OPT, P_SYS,			null,		null),
 	'lbscfg' =>			array(T_ZBX_STR, O_OPT, P_SYS,			null,		null),
+	'selectedMyApplicationids' =>			array(T_ZBX_STR, O_OPT, P_SYS,			null,		null),
 	//end modify by wziyong
 );
 check_fields($fields);
@@ -469,7 +470,8 @@ elseif (isset($_REQUEST['save'])) {//TODO 保存主机信息；
 				'appcfg' => $_REQUEST['appcfg'],
 				'lbscfg' => $_REQUEST['lbscfg'],
 				'parentid' => $_REQUEST['parentid'],
-				'server_type' => $_REQUEST['server_type']
+				'server_type' => $_REQUEST['server_type'],
+				'selectedMyApplicationids' => get_request('selectedMyApplicationids', array())
                 //add end by wziyong 新增 服务器类型；父节点类型字段；
 			);
 
