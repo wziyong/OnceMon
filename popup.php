@@ -32,6 +32,10 @@ $srctbl = get_request('srctbl', ''); // source table name
 
 // set page title
 switch ($srctbl) {
+	case 'myapplications':
+		$page['title'] = _('Myapplications');
+		$min_user_type = USER_TYPE_ZABBIX_ADMIN;
+		break;
 	case 'hosts':
 		$page['title'] = _('Hosts');
 		$min_user_type = USER_TYPE_ZABBIX_ADMIN;
@@ -159,7 +163,8 @@ $allowedSrcFields = array(
 	'hosts'					=> '"hostid", "host"',
 	'templates'				=> '"hostid", "host"',
 	'host_templates'		=> '"hostid", "host"',
-	'host_groups'			=> '"groupid", "name"'
+	'host_groups'			=> '"groupid", "name"',
+	'myapplications'				=> '"hostid", "host"',
 );
 
 // VAR	TYPE	OPTIONAL	FLAGS	VALIDATION	EXCEPTION
@@ -559,10 +564,88 @@ insert_js_function('addSelectedValues');
 insert_js_function('addValues');
 insert_js_function('addValue');
 
+/**
+ * add by wziyong for 新增应用服务器时，弹出该应用列表；
+ */
+if ($srctbl == 'myapplications') {
+	$form = new CForm();
+	$form->setName('templateform');
+	$form->setAttribute('id', 'templates');
+
+	$table = new CTableInfo(_('没有应用.'));
+	$table->setHeader(array(($multiselect ? new CCheckBox('allTemplates', null,
+		"javascript: checkAll('".$form->getName()."', 'allTemplates', 'templates');") : null), _('Name')
+	));
+
+	$options = array(
+		'output' => array('applicationid', 'name'),
+		'preservekeys' => true
+	);
+
+	if (!is_null($writeonly)) {
+		$options['editable'] = true;
+	}
+
+
+	$myapplications = API::MyApplication()->get($options);
+
+	order_result($myapplications, 'name');
+
+	$data = array();
+	$parentId = $dstfld1 ? zbx_jsvalue($dstfld1) : 'null';
+
+	foreach ($myapplications as &$myapplication) {
+		$name = new CSpan($myapplication['name'], 'link');
+		$name->attr('id', 'spanid'.$myapplication['applicationid']);
+
+		$jsAction = 'javascript: addValue('.zbx_jsvalue($reference).', '.zbx_jsvalue($myapplication['applicationid']).', '.
+			$parentId.');';
+
+		if ($multiselect) {
+			$checkBox = new CCheckBox('templates['.zbx_jsValue('applicationid').']', null, null, $myapplication['applicationid']);
+		}
+
+		// check for existing
+		if (isset($excludeids[$myapplication['applicationid']])) {
+			if ($multiselect) {
+				$checkBox->setChecked(1);
+				$checkBox->setEnabled('disabled');
+			}
+			$name->removeAttr('class');
+		}
+		else {
+			$name->setAttribute('onclick', $jsAction.' jQuery(this).removeAttr("onclick");');
+
+			$data[$myapplication['applicationid']] = array(
+				'id' => $myapplication['applicationid'],
+				'name' => $myapplication['name'],
+				'prefix' => get_node_name_by_elid($myapplication['applicationid'], null, NAME_DELIMITER)
+			);
+		}
+
+		$table->addRow(array($multiselect ? $checkBox : null, $name));
+	}
+	unset($myapplication);
+
+	if ($multiselect) {
+		$button = new CButton('select', _('Select'),
+			"javascript: addSelectedValues('templates', ".zbx_jsvalue($reference).', '.$parentId.');'
+		);
+		$table->setFooter(new CCol($button, 'right'));
+	}
+
+	insert_js('var popupReference = '.zbx_jsvalue($data, true).';');
+	zbx_add_post_js('chkbxRange.pageGoName = "templates";');
+
+	$form->addItem($table);
+	$form->show();
+}
+
+
 /*
  * User group
  */
-if ($srctbl == 'usrgrp') {
+elseif ($srctbl == 'usrgrp') {
 	$form = new CForm();
 	$form->setName('usrgrpform');
 	$form->setAttribute('id', 'usrgrps');

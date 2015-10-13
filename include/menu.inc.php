@@ -93,6 +93,8 @@ $ZBX_MENU = array(
 				'url' => 'myapplication.php',
 				'label' => _('应用')
 			),
+			array('url' => 'popup.php'
+			),
 		)
 	),
 	'view' => array(
