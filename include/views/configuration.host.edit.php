@@ -785,11 +785,7 @@ CArrayHelper::sort($linkedTemplates, array('name'));
 $tmplList = new CFormList('tmpllist');
 $linkedApplicationTable = new CTable(null, 'formElementTable');
 $linkedApplicationTable->attr('id', 'linkedApplicationTable');
-$linkedApplications = API::Template()->get(array(
-    'templateids' => $templateIds,
-    'output' => array('templateid', 'name')
-));
-
+$linkedApplications = $dbHost['selectedMyApplicationids'];
 CArrayHelper::sort($linkedApplications, array('name'));
 
 $linkedApplicationTable->setHeader(array(_('Name'), _('Action')));
@@ -798,18 +794,18 @@ $selectedMyApplicationids = new CDiv();
 $selectedMyApplicationids->attr("id","selectedMyApplicationids");
 
 foreach ($linkedApplications as $application) {
-    $tmplList->addVar('templates[]', $application['templateid']);
+    //$tmplList->addVar('templates[]', $application['templateid']);
     $linkedApplicationTable->addRow(
         array(
-            $application['name'],
+            $application[key($application)],
             array(
-                new CButton('unlink[' . $application['templateid'] . ']', _('反部署'), 'javascript:undeploy('.$application['templateid'].')', 'link_menu'),
+                new CButton('unlink[' . key($application) . ']', _('反部署'), 'javascript:undeploy('.key($application).')', 'link_menu'),
                 SPACE,
             )
         ),
-        null, 'conditions_' . $application['templateid']
+        null, 'conditions_' . key($application)
     );
-    $selectedMyApplicationids->addItem(new CInput('hidden','selectedMyApplicationids[]',$application['templateid']));
+    $selectedMyApplicationids->addItem(new CInput('hidden','selectedMyApplicationids[]',key($application)));
 }
 $tmplList->addRow($selectedMyApplicationids,null,true);
 $tmplList->addRow(_('部署应用'), new CDiv($linkedApplicationTable, 'objectgroup inlineblock border_dotted ui-corner-all'));

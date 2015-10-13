@@ -4,6 +4,8 @@
     {
         var select = '#conditions_'+id;
         jQuery(select).remove();
+        select = '#selectedMyApplicationids input[value="'+ id +'"]';
+        jQuery(select).remove();
     }
 
 
