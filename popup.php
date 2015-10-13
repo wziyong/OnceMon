@@ -570,7 +570,7 @@ insert_js_function('addValue');
 if ($srctbl == 'myapplications') {
 	$form = new CForm();
 	$form->setName('templateform');
-	$form->setAttribute('id', 'templates');
+	$form->setAttribute('id', 'myapplications');
 
 	$table = new CTableInfo(_('没有应用.'));
 	$table->setHeader(array(($multiselect ? new CCheckBox('allTemplates', null,
@@ -629,7 +629,7 @@ if ($srctbl == 'myapplications') {
 
 	if ($multiselect) {
 		$button = new CButton('select', _('Select'),
-			"javascript: addSelectedValues('templates', ".zbx_jsvalue($reference).', '.$parentId.');'
+			"javascript: addSelectedValues('myapplications', ".zbx_jsvalue($reference).', '.$parentId.');'
 		);
 		$table->setFooter(new CCol($button, 'right'));
 	}

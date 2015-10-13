@@ -823,7 +823,7 @@ $newTemplateTable->addRow(array(new CMultiSelect(array(
         'height' => 450
     )
 ))));
-$newTemplateTable->addRow(array(new CSubmit('add_template', _('Add'), null, 'link_menu')));
+$newTemplateTable->addRow(array(new CButton('add_application', _('Add'), null, 'link_menu')));
 $tmplList->addRow(_('部署新应用'), new CDiv($newTemplateTable, 'objectgroup inlineblock border_dotted ui-corner-all'));
 $divTabs->addTab('myapplicationsTab', _('应用'), $tmplList);
 
