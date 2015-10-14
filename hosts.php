@@ -453,7 +453,7 @@ elseif (isset($_REQUEST['save'])) {//TODO 保存主机信息；
 			$host = array(//TODO 新增host；
 				'host' => $_REQUEST['host'],//服务器名称
 				//'name' => $_REQUEST['visiblename'],
-				'name' => null,
+				'name' => $_REQUEST['host'],
 				'status' => $_REQUEST['status'],
 				'proxy_hostid' => get_request('proxy_hostid', 0),
 				'ipmi_authtype' => get_request('ipmi_authtype'),
