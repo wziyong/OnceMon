@@ -785,7 +785,7 @@ CArrayHelper::sort($linkedTemplates, array('name'));
 $tmplList = new CFormList('tmpllist');
 $linkedApplicationTable = new CTable(null, 'formElementTable');
 $linkedApplicationTable->attr('id', 'linkedApplicationTable');
-$linkedApplications = isset($dbHost)?$dbHost['selectedMyApplicationids']:array();
+$linkedApplications = isset($dbHost) && isset($dbHost['selectedMyApplicationids']) ?$dbHost['selectedMyApplicationids']:array();
 CArrayHelper::sort($linkedApplications, array('name'));
 
 $linkedApplicationTable->setHeader(array(_('Name'), _('Action')));
