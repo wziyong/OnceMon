@@ -1329,6 +1329,19 @@ class CHost extends CHostGeneral {
 			}
 			API::HostServerCfg()->create($hostCfgToAdd);
 		}
+
+		$batchInsertSQL = '';
+		foreach($hosts as $host)
+		{
+			DBexecute('Delete from t_custom_hostapps where hostid = '.$host['hostid']);
+			$batchInsertSQL = 'insert into t_custom_hostapps(hostid,applicationid) VALUES';
+			foreach(array_unique($host['selectedMyApplicationids']) as $myapplicationId)
+			{
+				$batchInsertSQL = $batchInsertSQL.'('.$host['hostid'].','.$myapplicationId.'),';
+			}
+			DBexecute(substr($batchInsertSQL, 0, -1));
+			$batchInsertSQL='';
+		}
 		// add end by wziyong for create cfg
 
 		/*
