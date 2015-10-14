@@ -812,3 +812,87 @@ function isTemplateInHost($hosts) {
 
 	return 0;
 }
+
+
+//add by wziyong for 同步配置到服务器上；
+function synchronize($hosts) {
+	zbx_value2array($hosts);
+	$hostIds = array();
+	$errorCount = 0;
+	global  $FTP;
+
+	foreach($hosts as $host)
+	{
+		$tmp = DBselect('select * from t_custom_hostconfig where hostid = '.$host['hostid']);
+		$configs = array();
+
+		while ($config = DBfetch($tmp)) {
+			$configs[$config['name']] = $config['value'];
+		}
+
+		if(HOST_SERVER_TYPE_APP == $host['server_type']) //如果是应用服务器
+		{
+			$agent_ip = $configs['agent_ip'];
+			$agent_port = $configs['agent_port'];
+			$agent_cfg_msg="{servertype:'tomcat',optype:'10',args:{app_http_port:'".$configs['app_http_port']."',app_log_level:'".$configs['app_log_level']."'}}";
+
+			$response_result = AgentManager::send($agent_ip,$agent_port,$agent_cfg_msg);
+			if($response_result['result'])//同步成功，则部署应用
+			{
+				$myapplicationTmp = DBselect('select * from t_custom_myapplication t1,t_custom_hostapps t2 where t1.applicationid = t2.applicationid and t2.hostid ='.$host['hostid']);
+				$myapplications = array();
+				while ($myapplication = DBfetch($myapplicationTmp)) {
+					$myapplications[] = $myapplication['filename'];
+				}
+				$agent_app_msg="{servertype:'tomcat',optype:'12',args:{app_ftp_ip:'".$FTP['FTP_HOST']."',app_ftp_port:'".$FTP['FTP_PORT']."',app_ftp_name:'".$FTP['FTP_USER']."',app_ftp_password:'".$FTP['FTP_PASS']."',app_file_name:'".implode(',',$myapplications)."'}}";
+				$response_result2 = AgentManager::send($agent_ip,$agent_port,$agent_app_msg);
+				if($response_result2['result'])
+				{
+					//修改状态
+					//如果失败，失败计数；
+					if(!DB::update('hosts', array('values' => array('manage_status' => 2),'where' => array('hostid' => $host['hostid']))))
+					{
+						$errorCount ++;
+					}
+				}
+				else
+				{
+					$errorCount ++;
+				}
+			}
+			else //
+			{
+				$errorCount ++;
+			}
+		}
+
+		//TODO 同步nginx配置
+	}
+
+	return $errorCount;
+
+
+
+//	$db_hosts = DBselect(
+//		'SELECT h.hostid,h.host,h.status'.
+//		' FROM hosts h'.
+//		' WHERE '.dbConditionInt('h.hostid', $hostids).
+//		' AND h.status='.$oldStatus
+//	);
+//	while ($host = DBfetch($db_hosts)) {
+//		$hostIds[] = $host['hostid'];
+//
+//		$host_new = $host;
+//		$host_new['status'] = $status;
+//		add_audit_ext(AUDIT_ACTION_UPDATE, AUDIT_RESOURCE_HOST, $host['hostid'], $host['host'], 'hosts', $host, $host_new);
+//		info(_('Updated status of host').' "'.$host['host'].'"');
+//	}
+
+//	return DB::update('hosts', array(
+//		'values' => array('status' => $status),
+//		'where' => array('hostid' => $hostIds)
+//	));
+
+}
+
+

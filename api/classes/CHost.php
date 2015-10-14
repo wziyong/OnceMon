@@ -1901,4 +1901,5 @@ class CHost extends CHostGeneral {
 		//返回key/value形式；
 		return $result;
 	}
+
 }

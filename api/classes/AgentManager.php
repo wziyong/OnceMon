@@ -29,12 +29,12 @@ class AgentManager {
 	public static function send($address,$port,$msg) {
 		$socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
 		if ($socket === false) {
-			echo "socket_create() failed: reason: " . socket_strerror(socket_last_error()) . "\n";
+			//echo "socket_create() failed: reason: " . socket_strerror(socket_last_error()) . "\n";
 			return null;
 		}
 		$result = socket_connect($socket, $address, $port);
 		if($result === false) {
-			echo "socket_connect() failed.\nReason: ($result) " . socket_strerror(socket_last_error($socket)) . "\n";
+			//echo "socket_connect() failed.\nReason: ($result) " . socket_strerror(socket_last_error($socket)) . "\n";
 			return null;
 		}
 		$out = "";

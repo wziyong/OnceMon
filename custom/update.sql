@@ -30,7 +30,11 @@ CREATE TABLE `t_custom_myapplication` (
   `comment` VARCHAR(1024) NULL,
   PRIMARY KEY (`applicationid`));
 
-CREATE TABLE `zabbix`.`t_custom_hostapps` (
+CREATE TABLE `t_custom_hostapps` (
   `hostid` BIGINT(20) NOT NULL COMMENT '',
   `applicationid` BIGINT(20) NOT NULL COMMENT '');
+
+
+ALTER TABLE `hosts`
+ADD COLUMN `manage_status` INT(11) NULL DEFAULT 0 COMMENT '管理状态：0未同步（未同步默认为已结停止），1已启动，2已停止；' AFTER `server_type`;
 

@@ -243,6 +243,12 @@ return array(
 				'type' => DB::FIELD_TYPE_INT,
 				'length' => 11
 			),
+			'manage_status' => array(
+				'null' => true,
+				'type' => DB::FIELD_TYPE_INT,
+				'default'=>'0',
+				'length' => 11
+			),
 		),
 	),
 	'groups' => array(
