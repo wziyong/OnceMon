@@ -1648,6 +1648,9 @@ class CHost extends CHostGeneral {
 
 //add by wziyong delete t_custom_hostconfig
 		DB::delete('t_custom_hostconfig', array('hostid' => $hostIds));
+		DBexecute('Delete from t_custom_hostapps where hostid in('.implode(',',$hostIds).')');
+
+
 //add by wziyong delete t_custom_hostconfig
 
 // TODO: remove info from API
