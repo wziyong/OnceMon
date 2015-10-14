@@ -578,46 +578,6 @@ elseif (isset($_REQUEST['save'])) {//TODO 保存主机信息；
 		}
 
 		$result = DBend(true);
-
-		if($result)//TODO 新增或者修改完成，将配置同步到服务器上；
-		{
-			$agent_ip = null;
-			$agent_port=null;
-			$agent_cfg_msg = "";
-
-			if(HOST_SERVER_TYPE_APP == $host['server_type']) //如果是应用服务器
-			{
-				$agent_ip = $host['appcfg'][1]['value'];
-				$agent_port = $host['appcfg'][2]['value'];
-				$agent_cfg_msg="{servertype:'tomcat',optype:'10',args:{app_http_port:'".$host['appcfg'][0]['value']."',app_log_level:'".$host['appcfg'][100]['value']."'}}";
-			}
-			else if(HOST_SERVER_TYPE_LBS == $host['server_type'])//如果是负载均衡器
-			{
-               //TODO XXXXXXX
-			}
-			//$response_result = AgentManager::send('133.133.133.138',8080,"{servertype:'tomcat',optype:'10',args:{app_http_port:'8083',app_log_level:'INFO'}}");
-			$response_result = AgentManager::send($agent_ip,$agent_port,$agent_cfg_msg);
-			if(null==$response_result)
-			{
-				$result = false;
-				$msgFail = $msgFail.' 同步配置到服务器响应为空';
-			}
-			else
-			{
-				if('false'===$response_result["result"])
-				{
-					$result = false;
-					$msgFail = $msgFail.' 原因: '.$response_result["message"];
-				}
-				else
-				{
-					$result = true;
-					$msgOk = $msgOk.' 配置同步服务器成功';
-				}
-			}
-
-		}
-
 		show_messages($result, $msgOk, $msgFail);
 		clearCookies($result);
 

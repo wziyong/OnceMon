@@ -1333,14 +1333,17 @@ class CHost extends CHostGeneral {
 		$batchInsertSQL = '';
 		foreach($hosts as $host)
 		{
-			DBexecute('Delete from t_custom_hostapps where hostid = '.$host['hostid']);
-			$batchInsertSQL = 'insert into t_custom_hostapps(hostid,applicationid) VALUES';
-			foreach(array_unique($host['selectedMyApplicationids']) as $myapplicationId)
+			if(!empty($host['selectedMyApplicationids']) && HOST_SERVER_TYPE_APP == $host['server_type'])
 			{
-				$batchInsertSQL = $batchInsertSQL.'('.$host['hostid'].','.$myapplicationId.'),';
+				DBexecute('Delete from t_custom_hostapps where hostid = '.$host['hostid']);
+				$batchInsertSQL = 'insert into t_custom_hostapps(hostid,applicationid) VALUES';
+				foreach(array_unique($host['selectedMyApplicationids']) as $myapplicationId)
+				{
+					$batchInsertSQL = $batchInsertSQL.'('.$host['hostid'].','.$myapplicationId.'),';
+				}
+				DBexecute(substr($batchInsertSQL, 0, -1));
+				$batchInsertSQL='';
 			}
-			DBexecute(substr($batchInsertSQL, 0, -1));
-			$batchInsertSQL='';
 		}
 		// add end by wziyong for create cfg
 
