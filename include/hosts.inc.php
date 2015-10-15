@@ -867,6 +867,47 @@ function synchronize($hosts) {
 		}
 
 		//TODO 同步nginx配置
+		if(HOST_SERVER_TYPE_LBS == $host['server_type'])
+		{
+			$agent_ip = $configs['agent_ip'];
+			$agent_port = $configs['agent_port'];
+
+			$cfg_servers = '';
+			$tmp = DBselect('select h.hostid,h.server_type from hosts_groups g,hosts h  where g.hostid = h.hostid and parentId ='.$host['hostid']);
+			while ($hosttmp = DBfetch($tmp)) {
+				$hostidx = $hosttmp['hostid'];
+				$server_typex = $hosttmp['server_type'];
+				$cfgTmps = DBselect("select name,value from t_custom_hostconfig where name in('agent_ip','lbs_listen_port','app_http_port') and  hostid = ".$hosttmp['hostid']);
+				$iptmp = '';
+				$porttmp='';
+				while($cfgTms = DBfetch($cfgTmps))
+				{
+					if('agent_ip' === $cfgTms['name'])
+					{
+						$iptmp =  $cfgTms['value'];
+					}
+
+					if('lbs_listen_port' === $cfgTms['name'] || 'app_http_port' === $cfgTms['name'] )
+					{
+						$porttmp =  $cfgTms['value'];
+					}
+				}
+				$cfg_servers = $cfg_servers.$iptmp.':'.$porttmp.',';
+			}
+
+			$agent_cfg_msg="{servertype:'nginx',optype:'10',args:{lbs_log_level:'".$configs['lbs_log_level']."',lbs_log_path:'".$configs['lbs_log_path']."',lbs_listen_port:'".$configs['lbs_listen_port']."',lbs_upstream_type:'".$configs['lbs_upstream_type']."',lbs_upstream_servers:'".substr($cfg_servers,0,-1)."'}}";
+			$response_result = AgentManager::send($agent_ip,$agent_port,$agent_cfg_msg);
+			if($response_result['result'])
+			{
+				if(!DB::update('hosts', array('values' => array('manage_status' => 2),'where' => array('hostid' => $host['hostid']))))
+				{
+					$errorCount ++;
+				}
+			}
+			else{
+				$errorCount++;
+			}
+		}
 	}
 
 	return $errorCount;
