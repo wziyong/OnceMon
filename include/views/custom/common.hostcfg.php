@@ -45,13 +45,6 @@ $lbslistenportTBx->setAttribute('maxlength', 64);
 $lbslistenportTBx->setAttribute('autofocus', 'autofocus');
 $hostCfgFormList->addRow(_('监听端口'), $lbslistenportTBx, false, null, 'lbs_server');
 
-$lbslistenportTBkey = new CTextBox('lbscfg[1][name]', '', ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
-$lbslistenportTBkey->setAttribute('value', 'lbs_server_name');
-$hostCfgFormList->addRow(_('服务器名称key'), $lbslistenportTBkey, true, null, null);
-$lbsservernameTBx = new CTextBox('lbscfg[1][value]', empty($hostservercfgs['lbs_server_name']) ? null : $hostservercfgs['lbs_server_name'], ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
-$lbsservernameTBx->setAttribute('maxlength', 64);
-$lbsservernameTBx->setAttribute('autofocus', 'autofocus');
-$hostCfgFormList->addRow(_('服务器名称'), $lbsservernameTBx, false, null, 'lbs_server');
 
 $lbslistenportTBkey = new CTextBox('lbscfg[2][name]', '', ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
 $lbslistenportTBkey->setAttribute('value', 'lbs_upstream_type');
