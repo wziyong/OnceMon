@@ -626,6 +626,94 @@ class CHost extends CHostGeneral {
 		return !empty($objs);
 	}
 
+
+	protected function checkCfgs(&$hosts)
+	{
+        foreach($hosts as $host)
+        {
+            switch($host['server_type'])
+            {
+                case HOST_SERVER_TYPE_LBS:
+                     $lbscfgs =  $host['lbscfg'];
+                     foreach($lbscfgs as $lbscfg)
+                     {
+                         if($lbscfg['name'] == 'lbs_listen_port')
+                         {
+                             if (!isset($lbscfg['value']) || zbx_empty($lbscfg['value'])) {
+                                 self::exception(ZBX_API_ERROR_PARAMETERS, _('监听端口为空.'));
+                             }
+                             elseif (!validatePortNumberOrMacro($lbscfg['value'])) {
+                                 self::exception(ZBX_API_ERROR_PARAMETERS, _('监听端口不正确'.$lbscfg['value']));
+                             }
+                         }
+                         elseif($lbscfg['name'] == 'agent_ip')
+                         {
+                             if(zbx_empty($lbscfg['value']))
+                             {
+                                 self::exception(ZBX_API_ERROR_PARAMETERS, _('管理Agent IP为空.'));
+                             }elseif(!validate_ip($lbscfg['value'], $arr))
+                             {
+                                 self::exception(ZBX_API_ERROR_PARAMETERS, _('管理Agent IP格式不正确.'.$lbscfg['value']));
+                             }
+                         }
+                         elseif($lbscfg['name'] == 'agent_port')
+                         {
+                             if (!isset($lbscfg['value']) || zbx_empty($lbscfg['value'])) {
+                                 self::exception(ZBX_API_ERROR_PARAMETERS, _('管理Agent端口为空.'));
+                             }
+                             elseif (!validatePortNumberOrMacro($lbscfg['value'])) {
+                                 self::exception(ZBX_API_ERROR_PARAMETERS, _('管理Agent端口不正确'.$lbscfg['value']));
+                             }
+                         }elseif($lbscfg['name'] == 'lbs_log_path')
+                         {
+                             if (!isset($lbscfg['value']) || zbx_empty($lbscfg['value'])) {
+                                 self::exception(ZBX_API_ERROR_PARAMETERS, _('日志路径为空'));
+                             }
+                         }
+
+                     }
+                    break;
+                case HOST_SERVER_TYPE_APP:
+                    $appcfgs =  $host['appcfg'];
+                    foreach($appcfgs as $cfg)
+                    {
+                        if($cfg['name'] == 'app_http_port')
+                        {
+                            if (!isset($cfg['value']) || zbx_empty($cfg['value'])) {
+                                self::exception(ZBX_API_ERROR_PARAMETERS, _('HTTP端口为空.'));
+                            }
+                            elseif (!validatePortNumberOrMacro($cfg['value'])) {
+                                self::exception(ZBX_API_ERROR_PARAMETERS, _('HTTP端口不正确'.$cfg['value']));
+                            }
+                        }
+                        elseif($cfg['name'] == 'agent_ip')
+                        {
+                            if(zbx_empty($cfg['value']))
+                            {
+                                self::exception(ZBX_API_ERROR_PARAMETERS, _('管理Agent IP为空.'));
+                            }elseif(!validate_ip($cfg['value'], $arr))
+                            {
+                                self::exception(ZBX_API_ERROR_PARAMETERS, _('管理Agent IP格式不正确.'.$cfg['value']));
+                            }
+                        }
+                        elseif($cfg['name'] == 'agent_port')
+                        {
+                            if (!isset($cfg['value']) || zbx_empty($cfg['value'])) {
+                                self::exception(ZBX_API_ERROR_PARAMETERS, _('管理Agent端口为空.'));
+                            }
+                            elseif (!validatePortNumberOrMacro($cfg['value'])) {
+                                self::exception(ZBX_API_ERROR_PARAMETERS, _('管理Agent端口不正确'.$cfg['value']));
+                            }
+                        }
+                    }
+                    break;
+                default:
+                    //donothing;
+            }
+        }
+	}
+
+
 	protected function checkInput(&$hosts, $method) {
 		$create = ($method == 'create');
 		$update = ($method == 'update');
@@ -878,6 +966,10 @@ class CHost extends CHostGeneral {
 		$hostids = array();
 
 		$this->checkInput($hosts, __FUNCTION__);
+
+		//add by wziyong for 检查配置的参数是否合法
+		$this->checkCfgs($hosts);
+
 
 		foreach ($hosts as $host) {
 			$hostid = DB::insert('hosts', array($host));
