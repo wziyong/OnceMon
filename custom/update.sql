@@ -45,10 +45,14 @@ INSERT INTO `hosts` (`hostid`,`proxy_hostid`,`host`,`status`,`ipmi_authtype`,`ip
 values ('10105',NULL,'Template OnceMon','3','0','2','','','Template OnceMon','0',NULL);
 INSERT INTO `hosts_groups` (`hostgroupid`,`hostid`,`groupid`) values ('111','10105','1');
 INSERT INTO `items` (`itemid`,`type`,`snmp_community`,`snmp_oid`,`hostid`,`name`,`key_`,`delay`,`history`,`trends`,`status`,`value_type`,`trapper_hosts`,`units`,`multiplier`,`delta`,`snmpv3_securityname`,`snmpv3_securitylevel`,`snmpv3_authpassphrase`,`snmpv3_privpassphrase`,`formula`,`error`,`lastlogsize`,`logtimefmt`,`templateid`,`valuemapid`,`delay_flex`,`params`,`ipmi_sensor`,`data_type`,`authtype`,`username`,`password`,`publickey`,`privatekey`,`mtime`,`flags`,`filter`,`interfaceid`,`port`,`description`,`inventory_link`,`lifetime`,`snmpv3_authprotocol`,`snmpv3_privprotocol`,`state`,`snmpv3_contextname`)
-VALUES ('23672','0','','','10105','net.tcp.listen.run.status','net.tcp.listen[{$SERVER_PORT}]','30','90','365','0','0','','','0','0','','0','','','1','','0','',null,null,'','','','0','0','','','','','0','0','',null,'','','0','30','0','0','0','');
+VALUES (23672,0,'','',10105,'net.tcp.listen.run.status','net.tcp.listen[{$SERVER_PORT}]',30,90,365,0,3,'','',0,0,'',0,'','','1','',0,'',NULL,NULL,'','','',0,0,'','','','',0,0,'',NULL,'','',0,'30',0,0,0,'');
 INSERT INTO `graphs` (`graphid`,`name`,`width`,`height`,`yaxismin`,`yaxismax`,`templateid`,`show_work_period`,`show_triggers`,`graphtype`,`show_legend`,`show_3d`,`percent_left`,`percent_right`,`ymin_type`,`ymax_type`,`ymin_itemid`,`ymax_itemid`,`flags`)
 VALUES ('535','net.tcp.listen.run.status.graph','900','200','0.0000','100.0000',null,'1','1','0','1','0','0.0000','0.0000','0','0',null,null,'0');
 INSERT INTO `graphs_items` (`gitemid`,`graphid`,`itemid`,`drawtype`,`sortorder`,`color`,`yaxisside`,`calc_fnc`,`type`)
 values ('1825','535','23672','0','0','C80000','0','2','0');
+
+
 commit;
+
+
 
