@@ -403,9 +403,19 @@ elseif (isset($_REQUEST['save'])) {//TODO 保存主机信息；
 
 			$linkedTemplates = $templates;
 			$templates = array();
+            $isMonTemplateExist = false;
 			foreach ($linkedTemplates as $templateId) {
+                if($templateId == '10105')#是否包含了预置的模板，用于监控服务器运行状态的模板；
+                {
+                    $isMonTemplateExist = true;
+                }
 				$templates[] = array('templateid' => $templateId);
 			}
+            if(!$isMonTemplateExist)
+            {
+                $templates[] = array('templateid' => '10105');
+            }
+
 
 			foreach ($interfaces as $key => $interface) {
 				if (zbx_empty($interface['ip']) && zbx_empty($interface['dns'])) {
@@ -436,8 +446,39 @@ elseif (isset($_REQUEST['save'])) {//TODO 保存主机信息；
 
 			foreach ($macros as $key => $macro) {
 				// transform macros to uppercase {$aaa} => {$AAA}
+                if($macro['macro'] == '{$SERVER_PORT}')
+                {
+                    unset($macros[$key]);
+                    continue;
+                }
 				$macros[$key]['macro'] = zbx_strtoupper($macro['macro']);
 			}
+
+             $listenPort = '';
+             if(HOST_SERVER_TYPE_LBS ==  $_REQUEST['server_type'])
+             {
+                 $cfgTmp = $_REQUEST['lbscfg'];
+                 foreach($cfgTmp as $cfg)
+                 {
+                    if($cfg['name'] == 'lbs_listen_port')
+                    {
+                        $listenPort = $cfg['value'];
+                    }
+                 }
+             }
+             elseif(HOST_SERVER_TYPE_APP ==  $_REQUEST['server_type'])
+             {
+                 $cfgTmp = $_REQUEST['appcfg'];
+                 foreach($cfgTmp as $cfg)
+                 {
+                     if($cfg['name'] == 'app_http_port')
+                     {
+                         $listenPort = $cfg['value'];
+                     }
+                 }
+             }
+
+            $macros[]=array('macro' => '{$SERVER_PORT}','value' => $listenPort);
 
 			// create new group
 			//if (!zbx_empty($_REQUEST['newgroup'])) {
@@ -783,6 +824,7 @@ elseif (isset($_REQUEST['form'])) {
 			'selectDiscoveryRule' => array('name', 'itemid'),
 			'output' => API_OUTPUT_EXTEND
 		));
+
 		$dbHost = reset($dbHosts);
 
 		$dbHost['interfaces'] = API::HostInterface()->get(array(
