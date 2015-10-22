@@ -58,42 +58,4 @@ $lbs_upstream_type->addItem(3, 'Least_conn(最少连接数)');
 $lbs_upstream_type->addItem(4, 'Consistent Hash(一致性算法)');
 $hostCfgFormList->addRow(_('负载策略'), $lbs_upstream_type, false, null, 'lbs_server');
 
-
-
-$hostCfgFormList->addRow(null, array(new CLabel('管理agent配置')), null, 'label_server_cfg', 'new');
-//应用服务器agent的ip和端口；
-$lbslistenportTBkey = new CTextBox('appcfg[1][name]', '', ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
-$lbslistenportTBkey->setAttribute('value', 'agent_ip');
-$hostCfgFormList->addRow(_('agentIP地址key'), $lbslistenportTBkey, true, null, null);
-$apphttpportTBx = new CTextBox('appcfg[1][value]', !empty($hostservercfgs['agent_ip']) ? $hostservercfgs['agent_ip'] : null, ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
-$apphttpportTBx->setAttribute('maxlength', 64);
-$apphttpportTBx->setAttribute('autofocus', 'autofocus');
-$hostCfgFormList->addRow(_('IP地址'), $apphttpportTBx, false, null, 'app_server');
-
-$lbslistenportTBkey = new CTextBox('appcfg[2][name]', '', ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
-$lbslistenportTBkey->setAttribute('value', 'agent_port');
-$hostCfgFormList->addRow(_('agent port key'), $lbslistenportTBkey, true, null, null);
-$apphttpportTBx = new CTextBox('appcfg[2][value]', !empty($hostservercfgs['agent_port']) ? $hostservercfgs['agent_port'] : null, ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
-$apphttpportTBx->setAttribute('maxlength', 64);
-$apphttpportTBx->setAttribute('autofocus', 'autofocus');
-$hostCfgFormList->addRow(_('端口'), $apphttpportTBx, false, null, 'app_server');
-
-
-//负载均衡服务器agent的ip和端口；
-$lbslistenportTBkey = new CTextBox('lbscfg[3][name]', '', ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
-$lbslistenportTBkey->setAttribute('value', 'agent_ip');
-$hostCfgFormList->addRow(_('agentIP地址key'), $lbslistenportTBkey, true, null, null);
-$apphttpportTBx = new CTextBox('lbscfg[3][value]', !empty($hostservercfgs['agent_ip']) ? $hostservercfgs['agent_ip'] : null, ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
-$apphttpportTBx->setAttribute('maxlength', 64);
-$apphttpportTBx->setAttribute('autofocus', 'autofocus');
-$hostCfgFormList->addRow(_('IP地址'), $apphttpportTBx, false, null, 'lbs_server');
-
-$lbslistenportTBkey = new CTextBox('lbscfg[4][name]', '', ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
-$lbslistenportTBkey->setAttribute('value', 'agent_port');
-$hostCfgFormList->addRow(_('agent port key'), $lbslistenportTBkey, true, null, null);
-$apphttpportTBx = new CTextBox('lbscfg[4][value]', !empty($hostservercfgs['agent_port']) ? $hostservercfgs['agent_port'] : null, ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
-$apphttpportTBx->setAttribute('maxlength', 64);
-$apphttpportTBx->setAttribute('autofocus', 'autofocus');
-$hostCfgFormList->addRow(_('端口'), $apphttpportTBx, false, null, 'lbs_server');
-
 return $hostCfgFormList;

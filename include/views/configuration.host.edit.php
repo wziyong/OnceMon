@@ -272,7 +272,7 @@ if (!$isDiscovered) {
     $macrosViewx->render();
     //end load balance server configuration
 
-    $hostList->addRow(SPACE, array(new CLabel('监控配置')), null, null, 'new');
+    $hostList->addRow(SPACE, array(new CLabel('接口配置')), null, null, 'new');
     //modify end by wziyong http端口配置
     //$divTabs->addTab('macroTab', _('Macros'), $macrosViewx->render());
 } // groups for discovered hosts

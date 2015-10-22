@@ -646,25 +646,7 @@ class CHost extends CHostGeneral {
                                  self::exception(ZBX_API_ERROR_PARAMETERS, _('监听端口不正确'.$lbscfg['value']));
                              }
                          }
-                         elseif($lbscfg['name'] == 'agent_ip')
-                         {
-                             if(zbx_empty($lbscfg['value']))
-                             {
-                                 self::exception(ZBX_API_ERROR_PARAMETERS, _('管理Agent IP为空.'));
-                             }elseif(!validate_ip($lbscfg['value'], $arr))
-                             {
-                                 self::exception(ZBX_API_ERROR_PARAMETERS, _('管理Agent IP格式不正确.'.$lbscfg['value']));
-                             }
-                         }
-                         elseif($lbscfg['name'] == 'agent_port')
-                         {
-                             if (!isset($lbscfg['value']) || zbx_empty($lbscfg['value'])) {
-                                 self::exception(ZBX_API_ERROR_PARAMETERS, _('管理Agent端口为空.'));
-                             }
-                             elseif (!validatePortNumberOrMacro($lbscfg['value'])) {
-                                 self::exception(ZBX_API_ERROR_PARAMETERS, _('管理Agent端口不正确'.$lbscfg['value']));
-                             }
-                         }elseif($lbscfg['name'] == 'lbs_log_path')
+                         elseif($lbscfg['name'] == 'lbs_log_path')
                          {
                              if (!isset($lbscfg['value']) || zbx_empty($lbscfg['value'])) {
                                  self::exception(ZBX_API_ERROR_PARAMETERS, _('日志路径为空'));
@@ -684,25 +666,6 @@ class CHost extends CHostGeneral {
                             }
                             elseif (!validatePortNumberOrMacro($cfg['value'])) {
                                 self::exception(ZBX_API_ERROR_PARAMETERS, _('HTTP端口不正确'.$cfg['value']));
-                            }
-                        }
-                        elseif($cfg['name'] == 'agent_ip')
-                        {
-                            if(zbx_empty($cfg['value']))
-                            {
-                                self::exception(ZBX_API_ERROR_PARAMETERS, _('管理Agent IP为空.'));
-                            }elseif(!validate_ip($cfg['value'], $arr))
-                            {
-                                self::exception(ZBX_API_ERROR_PARAMETERS, _('管理Agent IP格式不正确.'.$cfg['value']));
-                            }
-                        }
-                        elseif($cfg['name'] == 'agent_port')
-                        {
-                            if (!isset($cfg['value']) || zbx_empty($cfg['value'])) {
-                                self::exception(ZBX_API_ERROR_PARAMETERS, _('管理Agent端口为空.'));
-                            }
-                            elseif (!validatePortNumberOrMacro($cfg['value'])) {
-                                self::exception(ZBX_API_ERROR_PARAMETERS, _('管理Agent端口不正确'.$cfg['value']));
                             }
                         }
                     }
