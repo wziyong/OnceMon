@@ -39,7 +39,8 @@ $myapplicationTable->setHeader(array(
 	$this->data['displayNodes'] ? _('Node') : null,
 	make_sorting_header(_('Name'), 'description'),
 	_('安装包'),
-	_('备注')
+	_('备注'),
+	_('操作')
 ));
 
 foreach ($this->data['myapplications'] as $myapplication) {
@@ -48,7 +49,8 @@ foreach ($this->data['myapplications'] as $myapplication) {
 		new CCheckBox('applicationids['.$myapplication['applicationid'].']', null, null, $myapplication['applicationid']),
 		new CLink($myapplication['name'], 'myapplication.php?form=update&applicationid='.$myapplication['applicationid']),
 		$myapplication['filename'],
-		$myapplication['comment']
+		$myapplication['comment'],
+		$myapplication['comment'],
 	));
 }
 

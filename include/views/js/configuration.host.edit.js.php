@@ -40,7 +40,8 @@
 				agent: 10050,
 				snmp: 161,
 				jmx: 12345,
-				ipmi: 623
+				ipmi: 623,
+				onceagent: 10060,
 			},
 			allHostInterfaces = {};
 
@@ -99,6 +100,7 @@
 			types[getHostInterfaceNumericType('snmp')] = {main: null, all: []};
 			types[getHostInterfaceNumericType('jmx')] = {main: null, all: []};
 			types[getHostInterfaceNumericType('ipmi')] = {main: null, all: []};
+			types[getHostInterfaceNumericType('onceagent')] = {main: null, all: []};
 
 			for (var hostInterfaceId in allHostInterfaces) {
 				hostInterface = allHostInterfaces[hostInterfaceId];
@@ -185,6 +187,9 @@
 				case getHostInterfaceNumericType('ipmi'):
 					footerRowId = '#IPMIInterfacesFooter';
 					break;
+				case getHostInterfaceNumericType('onceagent'):
+					footerRowId = '#OnceAgentInterfacesFooter';
+					break;
 				default:
 					throw new Error('Unknown host interface type.');
 			}
@@ -206,6 +211,9 @@
 					break;
 				case 'ipmi':
 					typeNum = '<?php echo INTERFACE_TYPE_IPMI; ?>';
+					break;
+				case 'onceagent':
+					typeNum = '<?php echo INTERFACE_TYPE_ONCEAGENT; ?>';
 					break;
 				default:
 					throw new Error('Unknown host interface type name.');
@@ -336,7 +344,7 @@
 			hostInterfacesManager.setUseipForInterface(interfaceId[0], jQuery(this).val());
 		});
 
-		jQuery('#agentInterfaces, #SNMPInterfaces, #JMXInterfaces, #IPMIInterfaces').parent().droppable({
+		jQuery('#agentInterfaces, #SNMPInterfaces, #JMXInterfaces, #IPMIInterfaces，#OnceAgentInterfaces').parent().droppable({
 			tolerance: 'pointer',
 			drop: function(event, ui) {
 				var hostInterfaceTypeName = jQuery('.formElementTable', this).data('type'),
@@ -370,6 +378,9 @@
 		});
 		jQuery('#addIPMIInterface').on('click', function() {
 			hostInterfacesManager.addNew('ipmi');
+		});
+		jQuery('#addOnceAgentInterface').on('click', function() {
+			hostInterfacesManager.addNew('onceagent');
 		});
 
 		// radio button of inventory modes was clicked

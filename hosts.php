@@ -430,7 +430,7 @@ elseif (isset($_REQUEST['save'])) {//TODO 保存主机信息；
 				$interfaces[$key]['main'] = 0;
 			}
 
-			$interfaceTypes = array(INTERFACE_TYPE_AGENT, INTERFACE_TYPE_SNMP, INTERFACE_TYPE_JMX, INTERFACE_TYPE_IPMI);
+			$interfaceTypes = array(INTERFACE_TYPE_AGENT, INTERFACE_TYPE_SNMP, INTERFACE_TYPE_JMX, INTERFACE_TYPE_IPMI,INTERFACE_TYPE_ONCEAGENT);
 			foreach ($interfaceTypes as $type) {
 				if (isset($_REQUEST['mainInterfaces'][$type])) {
 					$interfaces[$_REQUEST['mainInterfaces'][$type]]['main'] = '1';

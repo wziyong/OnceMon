@@ -3,8 +3,9 @@
 global $DB;
 
 $DB['TYPE']     = 'MYSQL';
-$DB['SERVER']   = '133.133.133.138';
-$DB['PORT']     = '0';
+#$DB['SERVER']   = '133.133.133.138';
+$DB['SERVER']   = "133.133.134.149";
+$DB['PORT']     = '3306';
 $DB['DATABASE'] = 'zabbix';
 $DB['USER']     = 'zabbix';
 $DB['PASSWORD'] = '123456';

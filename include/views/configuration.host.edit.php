@@ -290,6 +290,8 @@ else {
 if (!$isDiscovered) {
     if (empty($interfaces)) {
         $script = 'hostInterfacesManager.addNew("agent");';
+        $script_onceagent = 'hostInterfacesManager.addNew("onceagent");';
+        zbx_add_post_js($script_onceagent);
     } else {
         $json = new CJSON();
         $encodedInterfaces = $json->encode($interfaces);
@@ -297,11 +299,11 @@ if (!$isDiscovered) {
     }
     zbx_add_post_js($script);
 
+
     // table for agent interfaces with footer
     $ifTab = new CTable(null, 'formElementTable');
     $ifTab->setAttribute('id', 'agentInterfaces');
     $ifTab->setAttribute('data-type', 'agent');
-
     // headers with sizes
     $iconLabel = new CCol(SPACE, 'interface-drag-control');
     $ipLabel = new CCol(_('IP address'), 'interface-ip');
@@ -311,7 +313,6 @@ if (!$isDiscovered) {
     $defaultLabel = new CCol(_('Default'), 'interface-default');
     $removeLabel = new CCol(SPACE, 'interface-control');
     $ifTab->addRow(array($iconLabel, $ipLabel, $dnsLabel, $connectToLabel, $portLabel, $defaultLabel, $removeLabel));
-
     $helpTextWhenDragInterfaceAgent = new CSpan(_('Drag here to change the type of the interface to "agent" type.'));
     $helpTextWhenDragInterfaceAgent->addClass('dragHelpText');
     $buttonCol = new CCol(new CButton('addAgentInterface', _('Add'), null, 'link_menu'), 'interface-add-control');
@@ -319,10 +320,23 @@ if (!$isDiscovered) {
     $col->setAttribute('colspan', 6);
     $buttonRow = new CRow(array($buttonCol, $col));
     $buttonRow->setAttribute('id', 'agentInterfacesFooter');
-
     $ifTab->addRow($buttonRow);
-
     $hostList->addRow(_('Agent interfaces'), new CDiv($ifTab, 'border_dotted objectgroup inlineblock interface-group'), false, null, 'interface-row interface-row-first');
+
+    // 增加管理agent的接口
+    $ifTab = new CTable(null, 'formElementTable');
+    $ifTab->setAttribute('id', 'OnceAgentInterfaces');
+    $ifTab->setAttribute('data-type', 'onceagent');
+    $helpTextWhenDragInterfaceOnceAgent = new CSpan(_('Drag here to change the type of the interface to "Once Agent" type.'));
+    $helpTextWhenDragInterfaceOnceAgent->addClass('dragHelpText');
+    $buttonCol = new CCol(new CButton('addOnceAgentInterface', _('Add'), null, 'link_menu'), 'interface-add-control');
+    $col = new CCol($helpTextWhenDragInterfaceOnceAgent);
+    $col->setAttribute('colspan', 6);
+    $buttonRow = new CRow(array($buttonCol, $col));
+    $buttonRow->setAttribute('id', 'OnceAgentInterfacesFooter');
+    $ifTab->addRow($buttonRow);
+    $hostList->addRow(_('管理Agent接口'), new CDiv($ifTab, 'border_dotted objectgroup inlineblock interface-group'), false, null, 'interface-row');
+
 
     // table for SNMP interfaces with footer
     $ifTab = new CTable(null, 'formElementTable');
@@ -370,6 +384,8 @@ if (!$isDiscovered) {
 
     $ifTab->addRow($buttonRow);
     $hostList->addRow(_('IPMI interfaces'), new CDiv($ifTab, 'border_dotted objectgroup inlineblock interface-group'), false, null, 'interface-row');
+
+
 } // interfaces for discovered hosts
 else {
     $interfaces = array();
@@ -911,7 +927,7 @@ else {
     $tmplList->addRow(_('Linked templates'), new CDiv($linkedTemplateTable, 'objectgroup inlineblock border_dotted ui-corner-all'));
 }
 
-//$divTabs->addTab('templateTab', _('Templates'), $tmplList);
+$divTabs->addTab('templateTab', _('Templates'), $tmplList);
 
 
 /*
@@ -958,7 +974,7 @@ $macrosView = new CView('common.macros', array(
     'macros' => $macros,
     'readonly' => $isDiscovered
 ));
-//$divTabs->addTab('macroTab', _('Macros'), $macrosView->render());
+$divTabs->addTab('macroTab', _('Macros'), $macrosView->render());
 
 $inventoryFormList = new CFormList('inventorylist');
 

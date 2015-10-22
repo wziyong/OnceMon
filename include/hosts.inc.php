@@ -476,6 +476,9 @@ function hostInterfaceTypeNumToName($type) {
 		case INTERFACE_TYPE_IPMI:
 			$name = _('IPMI');
 			break;
+		case INTERFACE_TYPE_ONCEAGENT:
+			$name = _('管理Agent接口');
+			break;
 		default:
 			throw new Exception(_('Unknown interface type.'));
 	}
