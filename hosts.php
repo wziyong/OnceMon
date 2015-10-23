@@ -617,11 +617,20 @@ elseif (isset($_REQUEST['save'])) {//TODO 保存主机信息；
 				}
 			}
 		}
-
 		$result = DBend(true);
-		show_messages($result, $msgOk, $msgFail);
-		clearCookies($result);
 
+		//同步相应的服务器；
+		if($result)
+		{
+			$resultX = synchronize($host);
+			show_messages($resultX['result'], $msgOk." 更新远程服务器成功", $msgOk.$resultX['message']);
+		}
+		else
+		{
+			show_messages($result, $msgOk, $msgFail);
+		}
+
+		clearCookies($result);
 		unset($_REQUEST['form'], $_REQUEST['hostid']);
 	}
 	catch (Exception $e) {
