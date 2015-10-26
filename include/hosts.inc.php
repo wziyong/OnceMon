@@ -820,8 +820,72 @@ function isTemplateInHost($hosts) {
 //add by wziyong for 同步配置到服务器上；
 //同步负载均衡器配置
 function synchronizeLbsServer($host) {
+		foreach($host['interfaces'] as $interfaceX)
+		{
+			if($interfaceX['type'] == '5' && $interfaceX['main'] == '1')
+			{
+				$agent_ip = $interfaceX['ip'];
+				$agent_port = $interfaceX['port'];
+				break;
+			}
+		}
 
+	 if(empty($agent_ip) ||empty($agent_port))
+	 {
+		return array("result"=>false,'message'=>'负载均衡器管理agent的ip或端口为空');
+	 }
 
+		$appcfg = $host['lbscfg'];
+		$configs = array();
+		foreach($appcfg as $cfg)
+		{
+			$configs[$cfg['name']] = $cfg['value'];
+		}
+
+		$cfg_servers = '';
+		$tmp = DBselect('select h.hostid,h.server_type from hosts_groups g,hosts h  where g.hostid = h.hostid and parentId ='.$host['hostid']);
+		while ($hosttmp = DBfetch($tmp)) {
+			$hostidx = $hosttmp['hostid'];
+			$server_typex = $hosttmp['server_type'];
+
+			$hostX = API::Host()->get(array(
+				'hostids' => $hostidx,
+				'selectInterfaces' => API_OUTPUT_EXTEND,
+				'selectCfgs' => API_OUTPUT_EXTEND,
+				'output' => API_OUTPUT_EXTEND
+			));
+
+			foreach($hostX[0]['interfaces'] as $interfaceX)
+			{
+				if($interfaceX['type'] == '5' && $interfaceX['main'] == '1')
+				{
+					$iptmp = $interfaceX['ip'];
+				}
+			}
+
+			if($server_typex == HOST_SERVER_TYPE_APP)
+			{
+				$porttmp = $hostX[0]['hostservercfgs']['app_http_port'];
+			}
+			if($server_typex == HOST_SERVER_TYPE_LBS)
+			{
+				$porttmp = $hostX[0]['hostservercfgs']['lbs_listen_port'];
+			}
+
+			if(!empty($iptmp) && !empty($porttmp))
+			{
+				$cfg_servers = $cfg_servers.$iptmp.':'.$porttmp.',';
+			}
+		}
+
+		$agent_cfg_msg="{servertype:'nginx',optype:'10',args:{lbs_log_level:'".$configs['lbs_log_level']."',lbs_log_path:'".$configs['lbs_log_path']."',lbs_listen_port:'".$configs['lbs_listen_port']."',lbs_upstream_type:'".$configs['lbs_upstream_type']."',lbs_upstream_servers:'".substr($cfg_servers,0,-1)."'}}";
+		$response_result = AgentManager::send($agent_ip,$agent_port,$agent_cfg_msg);
+		if(null != $response_result && $response_result['result'] == 'true')
+		{
+			return array("result"=>true,'message'=>'负载均衡器配置同步成功');
+		}
+
+	return array("result"=>false,'message'=>$response_result['message']);
 }
 
 function synchronizeParent($hostId) {
@@ -843,6 +907,11 @@ function synchronizeParent($hostId) {
                 break;
             }
         }
+
+		if(empty($agent_ip) ||empty($agent_port))
+		{
+			return array("result"=>false,'message'=>'负载均衡器管理agent的ip或端口为空');
+		}
 
         $appcfg = $dbHost[0]['hostservercfgs'];
         $configs = array();
@@ -889,13 +958,13 @@ function synchronizeParent($hostId) {
 
         $agent_cfg_msg="{servertype:'nginx',optype:'10',args:{lbs_log_level:'".$configs['lbs_log_level']."',lbs_log_path:'".$configs['lbs_log_path']."',lbs_listen_port:'".$configs['lbs_listen_port']."',lbs_upstream_type:'".$configs['lbs_upstream_type']."',lbs_upstream_servers:'".substr($cfg_servers,0,-1)."'}}";
         $response_result = AgentManager::send($agent_ip,$agent_port,$agent_cfg_msg);
-        if($response_result['result'] == 'true')
+        if(null!= $response_result && $response_result['result'] == 'true')
         {
-
+			return true;
         }
     }
 
-
+	return false;
 }
 
 
@@ -913,7 +982,7 @@ function synchronizeAppServer($host) {
 
     if(empty($agent_ip) || empty($agent_port))
     {
-        return array("result"=>false,'message'=>'管理agent的ip或则端口为空');
+        return array("result"=>false,'message'=>'管理agent的ip或端口为空');
     }
 
     $appcfg = $host['appcfg'];
@@ -925,7 +994,7 @@ function synchronizeAppServer($host) {
     $agent_cfg_msg="{servertype:'tomcat',optype:'10',args:{app_http_port:'".$configs['app_http_port']."',app_log_level:'".$configs['app_log_level']."'}}";
 
     $response_result = AgentManager::send($agent_ip,$agent_port,$agent_cfg_msg);
-    if($response_result['result'] == 'true')//同步成功，则部署应用
+    if(null!= $response_result && $response_result['result'] == 'true')//同步成功，则部署应用
     {
         $myapplicationTmp = DBselect('select * from t_custom_myapplication t1,t_custom_hostapps t2 where t1.applicationid = t2.applicationid and t2.hostid ='.$host['hostid']);
         $myapplications = array();
@@ -935,12 +1004,19 @@ function synchronizeAppServer($host) {
         global  $FTP;
         $agent_app_msg="{servertype:'tomcat',optype:'12',args:{app_ftp_ip:'".$FTP['FTP_HOST']."',app_ftp_port:'".$FTP['FTP_PORT']."',app_ftp_name:'".$FTP['FTP_USER']."',app_ftp_password:'".$FTP['FTP_PASS']."',app_file_name:'".implode(',',$myapplications)."'}}";
         $response_result2 = AgentManager::send($agent_ip,$agent_port,$agent_app_msg);
-        if($response_result2['result'] == 'false')
+        if(null!= $response_result2 && $response_result2['result'] == 'false')
         {
             return array("result"=>false,'message'=>'部署应用失败'.$response_result2['message']);
         }
         else{
-            return synchronizeParent($host['parentid']);
+            if(synchronizeParent($host['parentid']))
+			{
+				return array("result"=>true,'message'=>'success');
+			}
+			else
+			{
+				return array("result"=>false,'message'=>'同步所属负载均衡器失败');
+			}
         }
     }
     else{
@@ -957,19 +1033,31 @@ function synchronize($host)
         return array("result"=>false,'message'=>'host is null');;
     }
 
+	$result = null;
+
     switch ($host['server_type']){
         case HOST_SERVER_TYPE_LBS:
-            return synchronizeLbsServer($host);
+			$result = synchronizeLbsServer($host);
             break;
         case HOST_SERVER_TYPE_APP:
-            return synchronizeAppServer($host);
+			$result =  synchronizeAppServer($host);
             break;
         case HOST_SERVER_TYPE_CACHE:
-            return array("result"=>true,'message'=>'success');
+			$result =  array("result"=>true,'message'=>'success');
             break;
         default:
-            return array("result"=>false,'message'=>'server_type is error');;
+			$result =  array("result"=>false,'message'=>'server_type is error');;
     }
+
+	if($result['result'] == true)
+	{
+		if(!DB::update('hosts', array('values' => array('manage_status' => 2),'where' => array('hostid' => $host['hostid']))))
+		{
+			$result = array("result"=>false,'message'=>'更新同步状态失败');;
+		}
+	}
+
+	return $result;
 }
 
 function synchronizeBAK($hosts) {
