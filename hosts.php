@@ -916,7 +916,7 @@ else {
 		new CCheckBox('all_hosts', null, "checkAll('".$form->getName()."', 'all_hosts', 'hosts');"),
 		$displayNodes ? _('Node') : null,
 		make_sorting_header(_('Name'), 'name'),
-		_('是否同步'),
+		_('运行状态'),
 		_('Applications'),
 		_('Items'),
 		_('Triggers'),
@@ -1106,39 +1106,59 @@ else {
 		//start by wizyong for 增加服务器同步操作
 		//switch ($host['status']) {
 		switch ($host['manage_status']) {
-			case 0:
-                $statusCaption = _('未同步');
-                $statusUrl = 'hosts.php?hosts'.SQUAREBRACKETS.'='.$host['hostid'].'&go=synchronize'.url_param('groupid');
-                $statusScript = 'return Confirm('.zbx_jsvalue(_('将配置同步到远程服务器?')).');';
-                $statusClass = 'disabled';
-                $isSyn = new CLink($statusCaption, $statusUrl, $statusClass, $statusScript);
-                break;
             case 1:
-                $statusCaption = _('已启动');
+                $statusCaption = _('已更新');
                 $statusClass = 'enabled';
-                $statusUrl = 'hosts.php?hosts'.SQUAREBRACKETS.'='.$host['hostid'].'&go=shutdown'.url_param('groupid');
-                $statusScript = 'return Confirm('.zbx_jsvalue(_('关闭服务器?')).');';
-                $isSyn = new CLink($statusCaption, $statusUrl, $statusClass, $statusScript);
-                break;
-            case 2:
-                $statusCaption = _('已关闭');
-                $statusClass = 'orange';
-                $statusUrl = 'hosts.php?hosts'.SQUAREBRACKETS.'='.$host['hostid'].'&go=startup'.url_param('groupid');
-                $statusScript = 'return Confirm('.zbx_jsvalue(_('启动服务器?')).');';
-                $isSyn = new CLink($statusCaption, $statusUrl, $statusClass, $statusScript);
                 break;
 			default:
-                $statusCaption = _('Unknown');
-                $statusClass = 'unknown';
-                $isSyn = new CSpan($statusCaption,$statusClass);
+				$statusCaption = _('未更新');
+                $statusClass = 'red';
 		}
+		$statusUrl = 'hosts.php?hosts'.SQUAREBRACKETS.'='.$host['hostid'].'&go=synchronize'.url_param('groupid');
+		$statusScript = 'return Confirm('.zbx_jsvalue(_('将配置同步到远程服务器?')).');';
+		$isSyn = new CLink($statusCaption, $statusUrl, $statusClass, $statusScript);
+
+
+		$statusX = DBfetch(DBselect("select h.* from history_uint h ,items i where h.itemid = i.itemid and i.hostid = ".$host['hostid']." and i.name = 'net.tcp.listen.run.status' order by h.clock desc",1));
+
+		$runStatus = '2';
+		if($statusX)
+		{
+			$runStatus = $statusX['value'];
+		}
+
+		switch ($runStatus) {
+			case '0':
+				$statusCaption = _('停止');
+				$statusClass = 'red';
+				$statusUrl = 'hosts.php?hosts'.SQUAREBRACKETS.'='.$host['hostid'].'&go=startup'.url_param('groupid');
+				$statusScript = 'return Confirm('.zbx_jsvalue(_('启动服务器?')).');';
+				$isStart = new CLink($statusCaption, $statusUrl, $statusClass, $statusScript);
+				break;
+			case '1':
+				$statusCaption = _('已启动');
+				$statusClass = 'enabled';
+				$statusUrl = 'hosts.php?hosts'.SQUAREBRACKETS.'='.$host['hostid'].'&go=shutdown'.url_param('groupid');
+				$statusScript = 'return Confirm('.zbx_jsvalue(_('关闭服务器?')).');';
+				$isStart = new CLink($statusCaption, $statusUrl, $statusClass, $statusScript);
+				break;
+			default:
+				$statusCaption = _('Unknown');
+				$statusClass = 'unknown';
+				$isStart = new CSpan($statusCaption,$statusClass);
+		}
+
+
+
+
+
 		//end by wizyong for 增加服务器同步操作
 
 		$table->addRow(array(
 			new CCheckBox('hosts['.$host['hostid'].']', null, null, $host['hostid']),
 			$displayNodes ? get_node_name_by_elid($host['hostid'], true) : null,
 			$description,
-			$isSyn,
+			array($isSyn," ",$isStart),
 			$applications,
 			$items,
 			$triggers,

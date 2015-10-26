@@ -1051,7 +1051,7 @@ function synchronize($host)
 
 	if($result['result'] == true)
 	{
-		if(!DB::update('hosts', array('values' => array('manage_status' => 2),'where' => array('hostid' => $host['hostid']))))
+		if(!DB::update('hosts', array('values' => array('manage_status' => 1),'where' => array('hostid' => $host['hostid']))))
 		{
 			$result = array("result"=>false,'message'=>'更新同步状态失败');;
 		}
