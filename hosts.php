@@ -527,6 +527,8 @@ elseif (isset($_REQUEST['save'])) {//TODO 保存主机信息；
 
 			if ($hostIds) {
 				$hostId = reset($hostIds['hostids']);
+
+				$host['hostid'] = $hostId;
 			}
 			else {
 				throw new Exception();
