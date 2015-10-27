@@ -1030,7 +1030,7 @@ function synchronize($host)
 {
     if(null == $host)
     {
-        return array("result"=>false,'message'=>'host is null');;
+        return array("result"=>false,'message'=>'host is null');
     }
 
 	$result = null;
@@ -1059,6 +1059,132 @@ function synchronize($host)
 
 	return $result;
 }
+
+function startup($hosts)
+{
+	if(empty($hosts))
+	{
+		return array("result"=>false,'message'=>'没有启动主机，主机列表为空');
+	}
+
+	$errorCount = 0;
+	$errorMsg = "";
+	foreach($hosts as $host)
+	{
+		$agent_ip = null;
+		$agent_port = null;
+		foreach($host['interfaces'] as $interface)
+		{
+			if($interface['type'] == '5' && $interface['main'] == '1' )
+			{
+				$agent_ip = $interface['ip'];
+				$agent_port = $interface['port'];
+				break;
+			}
+		}
+
+		if(empty($agent_port) || empty($agent_ip))
+		{
+			$errorCount++;
+			$errorMsg = $errorMsg."管理agent ip或者端口为空,hostid为".$host['hostid'];
+			continue;
+		}
+
+		switch( $host['server_type']){
+			case HOST_SERVER_TYPE_APP:
+				$agent_app_msg="{servertype:'tomcat',optype:'100',args:{}}";
+				break;
+			case HOST_SERVER_TYPE_LBS:
+				$agent_app_msg="{servertype:'nginx',optype:'100',args:{}}";
+				break;
+			default:
+				$errorCount++;
+				$errorMsg = $errorMsg."不支持此类型服务器,hostid为".$host['hostid'];
+				continue;
+		}
+
+		$response_result = AgentManager::send($agent_ip,$agent_port,$agent_app_msg);
+		if(null!= $response_result && $response_result['result'] == 'false')
+		{
+			$errorCount++;
+			$errorMsg = $errorMsg."启动失败,hostid为".$host['hostid'];
+		}
+	}
+
+	if($errorCount>0)
+	{
+		return array("result"=>false,'message'=>$errorMsg);
+	}
+	else
+	{
+		return array("result"=>true,'message'=>'success');
+	}
+}
+
+function shutdown($hosts)
+{
+	if(empty($hosts))
+	{
+		return array("result"=>false,'message'=>'没有停止主机，主机列表为空');
+	}
+
+	$errorCount = 0;
+	$errorMsg = "";
+	foreach($hosts as $host)
+	{
+		$agent_ip = null;
+		$agent_port = null;
+		foreach($host['interfaces'] as $interface)
+		{
+			if($interface['type'] == '5' && $interface['main'] == '1' )
+			{
+				$agent_ip = $interface['ip'];
+				$agent_port = $interface['port'];
+				break;
+			}
+		}
+
+		if(empty($agent_port) || empty($agent_ip))
+		{
+			$errorCount++;
+			$errorMsg = $errorMsg."管理agent ip或者端口为空,hostid为".$host['hostid'];
+			continue;
+		}
+
+		switch( $host['server_type']){
+			case HOST_SERVER_TYPE_APP:
+				$agent_app_msg="{servertype:'tomcat',optype:'101',args:{}}";
+				break;
+			case HOST_SERVER_TYPE_LBS:
+				$agent_app_msg="{servertype:'nginx',optype:'101',args:{}}";
+				break;
+			default:
+				$errorCount++;
+				$errorMsg = $errorMsg."不支持此类型服务器,hostid为".$host['hostid'];
+				continue;
+		}
+
+		$response_result = AgentManager::send($agent_ip,$agent_port,$agent_app_msg);
+		if(null!= $response_result && $response_result['result'] == 'false')
+		{
+			$errorCount++;
+			$errorMsg = $errorMsg."停止失败,hostid为".$host['hostid'];
+		}
+	}
+
+	if($errorCount>0)
+	{
+		return array("result"=>false,'message'=>$errorMsg);
+	}
+	else
+	{
+		return array("result"=>true,'message'=>'success');
+	}
+}
+
+
+
+
 
 function synchronizeBAK($hosts) {
 	zbx_value2array($hosts);

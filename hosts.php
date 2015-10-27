@@ -734,6 +734,30 @@ elseif (str_in_array(getRequest('go'), array('synchronize'))) {
 		clearCookies($result);
 	}
 }
+elseif (str_in_array(getRequest('go'), array('startup'))) {
+	$hosts = getRequest('hosts', array());
+	$actHosts = API::Host()->get(array(
+		'hostids' => $hosts,
+		'selectInterfaces' => API_OUTPUT_EXTEND,
+		'output' => array('hostid','server_type')
+	));
+
+	$result = startup($actHosts);
+	show_messages($result['result'], "启动成功", $result['message']);
+	clearCookies($result['result']);
+}
+elseif (str_in_array(getRequest('go'), array('shutdown'))) {
+	$hosts = getRequest('hosts', array());
+	$actHosts = API::Host()->get(array(
+		'hostids' => $hosts,
+		'selectInterfaces' => API_OUTPUT_EXTEND,
+		'output' => array('hostid','server_type')
+	));
+
+	$result = shutdown($actHosts);
+	show_messages($result['result'], "停止成功", $result['message']);
+	clearCookies($result['result']);
+}
 
 /*
  * Display
