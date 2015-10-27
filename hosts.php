@@ -1118,8 +1118,7 @@ else {
 		$statusScript = 'return Confirm('.zbx_jsvalue(_('将配置同步到远程服务器?')).');';
 		$isSyn = new CLink($statusCaption, $statusUrl, $statusClass, $statusScript);
 
-
-		$statusX = DBfetch(DBselect("select h.* from history_uint h ,items i where h.itemid = i.itemid and i.hostid = ".$host['hostid']." and i.name = 'net.tcp.listen.run.status' order by h.clock desc",1));
+		$statusX = DBfetch(DBselect("select h.* from history_uint h ,items i where h.itemid = i.itemid and i.hostid = ".$host['hostid']." and i.name = 'net.tcp.listen.run.status' and h.clock > ".(time() - 300)." order by h.clock desc",1));
 
 		$runStatus = '2';
 		if($statusX)
@@ -1129,7 +1128,7 @@ else {
 
 		switch ($runStatus) {
 			case '0':
-				$statusCaption = _('停止');
+				$statusCaption = _('已停止');
 				$statusClass = 'red';
 				$statusUrl = 'hosts.php?hosts'.SQUAREBRACKETS.'='.$host['hostid'].'&go=startup'.url_param('groupid');
 				$statusScript = 'return Confirm('.zbx_jsvalue(_('启动服务器?')).');';
@@ -1144,8 +1143,10 @@ else {
 				break;
 			default:
 				$statusCaption = _('Unknown');
-				$statusClass = 'unknown';
-				$isStart = new CSpan($statusCaption,$statusClass);
+				$statusClass = 'warning';
+				$statusUrl = 'hosts.php?hosts'.SQUAREBRACKETS.'='.$host['hostid'].'&go=startup'.url_param('groupid');
+				$statusScript = 'return Confirm('.zbx_jsvalue(_('启动服务器?')).');';
+				$isStart = new CLink($statusCaption, $statusUrl, $statusClass, $statusScript);
 		}
 
 
