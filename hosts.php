@@ -708,31 +708,34 @@ elseif (str_in_array(getRequest('go'), array('synchronize'))) {
 	$actHosts = API::Host()->get(array(
 		'hostids' => $hosts,
 		'editable' => true,
-		'templated_hosts' => true,
-		'output' => array('hostid','server_type')
+		'selectGroups' => API_OUTPUT_EXTEND,
+		'selectInterfaces' => API_OUTPUT_EXTEND,
+		'selectCfgs' => API_OUTPUT_EXTEND,
+		'output' => API_OUTPUT_EXTEND
 	));
+
+
 	//$actHosts = zbx_objectValues($actHosts, 'hostid');
-
-	if ($actHosts) {
-		DBstart();
-		$errorCount = synchronize($actHosts);
-		DBend(true);
-        $messageFailed = '';
-        $messageSuccess='';
-        if($errorCount>0)
-        {
-            $result = false;
-            $messageFailed = '总共同步'.count($actHosts).'个服务器，失败个数'.$errorCount;
-        }
-        else
-        {
-            $result = true;
-            $messageSuccess = '同步成功';
-        }
-
-		show_messages($result, $messageSuccess, $messageFailed);
-		clearCookies($result);
+	$tmpX = array();//仅仅为了适配方法；
+	if(!empty($actHosts))
+	{
+		foreach($actHosts[0]['hostservercfgs'] as $key=>$value)
+		{
+			$tmpX[] = array('name'=>$key,'value'=>$value);
+		}
 	}
+	if(HOST_SERVER_TYPE_LBS == $actHosts[0]['server_type'])
+	{
+		$actHosts[0]['lbscfg'] = $tmpX;
+	}
+	elseif(HOST_SERVER_TYPE_APP == $actHosts[0]['server_type'])
+	{
+		$actHosts[0]['appcfg'] = $tmpX;
+	}
+
+	$result = synchronize($actHosts[0]);
+	show_messages($result['result'], "同步成功", $result['message']);
+	clearCookies($result['result']);
 }
 elseif (str_in_array(getRequest('go'), array('startup'))) {
 	$hosts = getRequest('hosts', array());
