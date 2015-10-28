@@ -167,4 +167,66 @@ class CMyApplication extends CZBXAPI
         DB::delete('t_custom_myapplication', array('applicationid' => $applicationids));
         return array('applicationids' => $applicationids);
     }
+
+
+    public function deploy($applicationids)
+    {
+        $applicationids = zbx_toArray($applicationids);
+
+        $myapplications = self::get(array(
+            'applicationids' => $applicationids,
+             'output' => API_OUTPUT_EXTEND
+        ));
+
+        foreach($myapplications as $myapplication)
+        {
+            $hostids = DBfetchArray(DBselect('select h.hostid from t_custom_hostapps h,t_custom_myapplication a where h.applicationid = a.applicationid and a.applicationid = '.$myapplication['applicationid']));
+
+            $hosts = API::Host()->get(array(
+                'hostids' => zbx_objectValues($hostids, 'hostid'),
+                'selectInterfaces' => API_OUTPUT_EXTEND,
+            ));
+
+            foreach ($hosts as $host) {
+                $agent_ip = null;
+                $agent_port = null;
+                foreach($host['interfaces'] as $interface)
+                {
+                    if($interface['type'] == '5' && $interface['main'] == '1' )
+                    {
+                        $agent_ip = $interface['ip'];
+                        $agent_port = $interface['port'];
+                        break;
+                    }
+                }
+
+                if(empty($agent_port) || empty($agent_ip))
+                {
+                    return array('result'=>false,'message'=>'管理代理接口或者ip为空，部署失败！');
+                }
+
+                global  $FTP;
+                $agent_app_msg="{servertype:'tomcat',optype:'12',args:{app_ftp_ip:'".$FTP['FTP_HOST']."',app_ftp_port:'".$FTP['FTP_PORT']."',app_ftp_name:'".$FTP['FTP_USER']."',app_ftp_password:'".$FTP['FTP_PASS']."',app_file_name:'".$myapplication['filename']."'}}";
+                $response_result = AgentManager::send($agent_ip,$agent_port,$agent_app_msg);
+                if(null == $response_result || $response_result['result'] == 'false')
+                {
+                    return array('result'=>false,'message'=>'部署失败！');
+                }
+                else
+                {
+                    DBstart();
+                    $xx = DB::update('t_custom_myapplication', array(
+                        'values' => array('status'=>'3'),
+                        'where' => array('applicationid' => $myapplication['applicationid'])
+                    ));
+                    DBend($xx);
+                }
+
+            }
+        }
+        return array('result'=>true,'message'=>'部署成功！');
+    }
+
+
+
 }

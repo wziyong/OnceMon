@@ -40,17 +40,50 @@ $myapplicationTable->setHeader(array(
 	make_sorting_header(_('Name'), 'description'),
 	_('安装包'),
 	_('备注'),
-	_('操作')
+	_('状态')
 ));
 
 foreach ($this->data['myapplications'] as $myapplication) {
+	$status = null;
+	switch ($myapplication['status']) {
+		case 0:
+			$statusCaption = _('新增');
+			$statusClass = 'enabled';
+			$statusScript = 'void();';
+			$statusUrl = 'hosts.php?hosts'.SQUAREBRACKETS.'='.$myapplication['applicationid'].'&go=disable'.url_param('groupid');
+			$status = new CSpan($statusCaption);
+			break;
+		case 1:
+			$statusCaption = _('统一更新部署');
+			$statusUrl = 'myapplication.php?form=deploy&applicationid='.$myapplication['applicationid'];
+			$statusUrl = 'myapplication.php?applicationids'.SQUAREBRACKETS.'='.$myapplication['applicationid'].'&go=deploy';
+			$statusScript = 'return Confirm('.zbx_jsvalue(_('统一部署该应用到服务器上?')).');';
+			$statusClass = 'orange';
+			$status = new CLink($statusCaption, $statusUrl, $statusClass, $statusScript);
+			break;
+		case 2:
+			$statusCaption = _('统一部署失败');
+			$statusUrl = 'myapplication.php?applicationids'.SQUAREBRACKETS.'='.$myapplication['applicationid'].'&go=deploy';
+			$statusScript = 'return Confirm('.zbx_jsvalue(_('Enable host?')).');';
+			$statusClass = 'disabled';
+			$status = new CLink($statusCaption, $statusUrl, $statusClass, $statusScript);
+			break;
+		case 3:
+			$statusCaption = _('统一部署成功');
+			$statusClass = 'enabled';
+			$status = new CSpan($statusCaption, $statusClass);
+			break;
+	}
+
+
+
 	// append row
 	$myapplicationTable->addRow(array(
 		new CCheckBox('applicationids['.$myapplication['applicationid'].']', null, null, $myapplication['applicationid']),
 		new CLink($myapplication['name'], 'myapplication.php?form=update&applicationid='.$myapplication['applicationid']),
 		$myapplication['filename'],
 		$myapplication['comment'],
-		$myapplication['comment'],
+		$status,
 	));
 }
 

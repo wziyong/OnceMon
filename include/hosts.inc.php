@@ -1004,7 +1004,7 @@ function synchronizeAppServer($host) {
         global  $FTP;
         $agent_app_msg="{servertype:'tomcat',optype:'12',args:{app_ftp_ip:'".$FTP['FTP_HOST']."',app_ftp_port:'".$FTP['FTP_PORT']."',app_ftp_name:'".$FTP['FTP_USER']."',app_ftp_password:'".$FTP['FTP_PASS']."',app_file_name:'".implode(',',$myapplications)."'}}";
         $response_result2 = AgentManager::send($agent_ip,$agent_port,$agent_app_msg);
-        if(null!= $response_result2 && $response_result2['result'] == 'false')
+        if(null == $response_result2 || $response_result2['result'] == 'false')
         {
             return array("result"=>false,'message'=>'部署应用失败'.$response_result2['message']);
         }
@@ -1104,7 +1104,7 @@ function startup($hosts)
 		}
 
 		$response_result = AgentManager::send($agent_ip,$agent_port,$agent_app_msg);
-		if(null!= $response_result && $response_result['result'] == 'false')
+		if(null == $response_result || $response_result['result'] == 'false')
 		{
 			$errorCount++;
 			$errorMsg = $errorMsg."启动失败,hostid为".$host['hostid'];
@@ -1165,7 +1165,7 @@ function shutdown($hosts)
 		}
 
 		$response_result = AgentManager::send($agent_ip,$agent_port,$agent_app_msg);
-		if(null!= $response_result && $response_result['result'] == 'false')
+		if(null == $response_result || $response_result['result'] == 'false')
 		{
 			$errorCount++;
 			$errorMsg = $errorMsg."停止失败,hostid为".$host['hostid'];

@@ -153,10 +153,17 @@ if (isset($_REQUEST['save'])) { //TODO 新增或者修改； 修改的时候，�
     show_messages($goResult, _('删除应用成功'), _('删除应用失败'));
     clearCookies($goResult);
 }
+elseif ($_REQUEST['go'] == 'deploy') {
+    $applicationids = get_request('applicationids', array());
+    $goResult = API::MyApplication()->deploy($applicationids);
+    show_messages($goResult['result'], $goResult['message'], $goResult['message']);
+    clearCookies($goResult['result']);
+}
 
 /*
  * Display
  */
+
 if (!empty($_REQUEST['form'])) {
     $data = array(
         'form' => get_request('form'),
