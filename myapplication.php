@@ -112,11 +112,13 @@ if (isset($_REQUEST['save'])) { //TODO 新增或者修改； 修改的时候，�
              $myApplication = array(
                  'name' => get_request('name'),
                  'comment' => get_request('comment'),
-                 'filename' =>$filename
+                 'filename' =>$filename,
+                 'status' =>'0',//0 for new ,1 for update
              );
 
              if ($applicationId) {
                  $myApplication['applicationid'] = $applicationId;
+                 $myApplication['status'] = '1';
                  $result = API::MyApplication()->update($myApplication);
                  $action = AUDIT_ACTION_UPDATE;
                  show_messages($result, _('更新应用成功'), _('更新应用失败'));

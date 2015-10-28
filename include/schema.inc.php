@@ -6142,6 +6142,12 @@ return array(
 				'null' => false,
 				'type' => DB::FIELD_TYPE_CHAR,
 				'length' => 1024
+			),
+			'status' => array(
+				'null' => false,
+				'type' => DB::FIELD_TYPE_CHAR,
+				'default' => '0',
+				'length' => 1024
 			)
 		),
 	),

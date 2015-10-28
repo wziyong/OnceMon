@@ -30,7 +30,9 @@ CREATE TABLE `t_custom_myapplication` (
   `name` VARCHAR(256) NOT NULL,
   `filename` VARCHAR(1024) NOT NULL ,
   `comment` VARCHAR(1024) NULL,
+  `status` VARCHAR(10) NULL DEFAULT 0,
   PRIMARY KEY (`applicationid`));
+
 
 CREATE TABLE `t_custom_hostapps` (
   `hostid` BIGINT(20) NOT NULL COMMENT '',
