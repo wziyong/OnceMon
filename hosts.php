@@ -1162,7 +1162,7 @@ else {
 				$isStart = new CLink($statusCaption, $statusUrl, $statusClass, $statusScript);
 				break;
 			default:
-				$statusCaption = _('已停止');
+				$statusCaption = _('未启动');
 				$statusClass = 'red';
 				$statusUrl = 'hosts.php?hosts'.SQUAREBRACKETS.'='.$host['hostid'].'&go=startup'.url_param('groupid');
 				$statusScript = 'return Confirm('.zbx_jsvalue(_('启动服务器?')).');';
