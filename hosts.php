@@ -944,6 +944,7 @@ else {
 		$displayNodes ? _('Node') : null,
 		make_sorting_header(_('Name'), 'name'),
 		_('运行状态'),
+		_('应用管理'),
 		_('Applications'),
 		_('Items'),
 		_('Triggers'),
@@ -1169,7 +1170,8 @@ else {
 				$isStart = new CLink($statusCaption, $statusUrl, $statusClass, $statusScript);
 		}
 
-
+		//$myapplications = array(new CLink(_('应用'), 'myapplicationdeploy.php?groupid='.$_REQUEST['groupid'].'&hostid='.$host['hostid']), ' ('.$host['applications'].')');
+		$myapplications = array(new CLink(_('应用'), 'myapplicationdeploy.php?type=host&hostid='.$host['hostid']));
 		//end by wizyong for 增加服务器同步操作
 
 		$table->addRow(array(
@@ -1177,6 +1179,7 @@ else {
 			$displayNodes ? get_node_name_by_elid($host['hostid'], true) : null,
 			$description,
 			array($isSyn," ",$isStart),
+			$myapplications,
 			$applications,
 			$items,
 			$triggers,

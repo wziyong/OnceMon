@@ -96,6 +96,9 @@ $ZBX_MENU = array(
 			array(
 				'url' => 'hostgroupstopological.php',
 			),
+			array(
+				'url' => 'myapplicationdeploy.php',
+			),
 			array('url' => 'popup.php'
 			),
 		)
