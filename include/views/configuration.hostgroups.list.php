@@ -148,7 +148,7 @@ foreach ($this->data['groups'] as $group) {
 		new CCheckBox('groups['.$group['groupid'].']', null, null, $group['groupid']),
 		$this->data['displayNodes'] ? $group['nodename'] : null,
 		$name,
-		new CLink(_('统一部署'), 'templates.php?groupid='.$group['groupid'], 'unknown'),
+		new CLink(_('统一部署'), 'myapplicationdeploygroup.php?groupid='.$group['groupid'], 'unknown'),
 		array(
 			//array(new CLink(_('Templates'), 'templates.php?groupid='.$group['groupid'], 'unknown'), ' ('.$templateCount.')'),
 			array(new CLink(_('拓扑图'), 'hostgroupstopological.php?groupid='.$group['groupid'], 'unknown')),

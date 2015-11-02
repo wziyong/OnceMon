@@ -56,5 +56,9 @@ values ('1825','535','23672','0','0','C80000','0','2','0');
 
 commit;
 
+CREATE TABLE `t_custom_groupapps` (
+  `groupid` BIGINT(20) NOT NULL ,
+  `applicationid` BIGINT(20) NOT NULL );
+
 
 
