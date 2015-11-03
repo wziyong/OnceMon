@@ -945,12 +945,12 @@ else {
 		make_sorting_header(_('Name'), 'name'),
 		_('运行状态'),
 		_('应用管理'),
-		_('Applications'),
+		//_('Applications'),
 		_('Items'),
 		_('Triggers'),
 		_('Graphs'),
-		_('Discovery'),
-		_('Web'),
+		//_('Discovery'),
+		//_('Web'),
 		_('Interface'),
 		_('Templates'),
 		make_sorting_header(_('Status'), 'status'),
@@ -1171,7 +1171,14 @@ else {
 		}
 
 		//$myapplications = array(new CLink(_('应用'), 'myapplicationdeploy.php?groupid='.$_REQUEST['groupid'].'&hostid='.$host['hostid']), ' ('.$host['applications'].')');
-		$myapplications = array(new CLink(_('应用'), 'myapplicationdeploy.php?type=host&hostid='.$host['hostid']));
+		if(HOST_SERVER_TYPE_APP ==  $host['server_type'])
+		{
+			$myapplications = array(new CLink(_('应用'), 'myapplicationdeploy.php?type=host&hostid='.$host['hostid']));
+		}
+		else
+		{
+			$myapplications = array(new CSpan());
+		}
 		//end by wizyong for 增加服务器同步操作
 
 		$table->addRow(array(
@@ -1180,12 +1187,12 @@ else {
 			$description,
 			array($isSyn," ",$isStart),
 			$myapplications,
-			$applications,
+			//$applications,
 			$items,
 			$triggers,
 			$graphs,
-			$discoveries,
-			$httpTests,
+			//$discoveries,
+			//$httpTests,
 			$hostInterface,
 			new CCol($hostTemplates, 'wraptext'),
 			$status,

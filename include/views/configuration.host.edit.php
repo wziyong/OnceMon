@@ -321,7 +321,7 @@ if (!$isDiscovered) {
     $buttonRow = new CRow(array($buttonCol, $col));
     $buttonRow->setAttribute('id', 'agentInterfacesFooter');
     $ifTab->addRow($buttonRow);
-    $hostList->addRow(_('监控接口'), new CDiv($ifTab, 'border_dotted objectgroup inlineblock interface-group'), false, null, 'interface-row interface-row-first');
+    $hostList->addRow(_('检测接口'), new CDiv($ifTab, 'border_dotted objectgroup inlineblock interface-group'), false, null, 'interface-row interface-row-first');
 
     // 增加管理agent的接口
     $ifTab = new CTable(null, 'formElementTable');
