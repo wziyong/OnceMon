@@ -1109,6 +1109,12 @@ function startup($hosts)
 			$errorCount++;
 			$errorMsg = $errorMsg."启动失败,hostid为".$host['hostid'];
 		}
+		if($response_result['result'] == 'true')
+		{
+			DBstart();
+			$statusX = DBexecute("INSERT into history_uint(itemid,clock,value,ns) select i.itemid,".time().",1,999999999 from items i where i.hostid =".$host['hostid']." and i.name = 'net.tcp.listen.run.status'");
+			DBend($statusX);
+		}
 	}
 
 	if($errorCount>0)
@@ -1169,6 +1175,12 @@ function shutdown($hosts)
 		{
 			$errorCount++;
 			$errorMsg = $errorMsg."停止失败,hostid为".$host['hostid'];
+		}
+		if($response_result['result'] == 'true')
+		{
+			DBstart();
+			$statusX = DBexecute("INSERT into history_uint(itemid,clock,value,ns) select i.itemid,".time().",0,999999999 from items i where i.hostid =".$host['hostid']." and i.name = 'net.tcp.listen.run.status'");
+			DBend($statusX);
 		}
 	}
 
