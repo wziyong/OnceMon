@@ -770,7 +770,8 @@ $hostsWidget = new CWidget();
 $pageFilter = new CPageFilter(array(
 	'groups' => array(
 		'real_hosts' => true,
-		'editable' => true
+		'editable' => true,
+		'filter' => array('ishidden'=>'1')
 	),
 	'groupid' => get_request('groupid', null)
 ));
