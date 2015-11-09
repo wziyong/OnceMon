@@ -117,8 +117,8 @@ $permissionsTable->addRow(array(
 	)
 ));
 $permissionsFormList->addRow(_('集群权限管理'), $permissionsTable);
-$permissionsFormList->addRow(_('Calculated permissions'), '');
-$permissionsFormList = getPermissionsFormList($this->data['group_rights'], null, $permissionsFormList);
+//$permissionsFormList->addRow(_('Calculated permissions'), '');
+//$permissionsFormList = getPermissionsFormList($this->data['group_rights'], null, $permissionsFormList);
 
 // append form lists to tab
 $userGroupTab = new CTabView();
