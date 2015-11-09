@@ -141,10 +141,10 @@ elseif (!$allLocalesAvailable) {
 	$languageError = _('You are not able to choose some of the languages, because locales for them are not installed on the web server.');
 }
 
-$userFormList->addRow(
-	_('Language'),
-	$languageError ? array($languageComboBox, SPACE, new CSpan($languageError, 'red wrap')) : $languageComboBox
-);
+//$userFormList->addRow(
+//	_('Language'),
+//	$languageError ? array($languageComboBox, SPACE, new CSpan($languageError, 'red wrap')) : $languageComboBox
+//);
 
 // append themes to form list
 $themes = array_merge(array(THEME_DEFAULT => _('System default')), Z::getThemes());
@@ -362,7 +362,7 @@ if (!$this->data['is_profile']) {
 	$permissionsFormList = getPermissionsFormList($this->data['user_rights'], $this->data['user_type'], $permissionsFormList);
 	$permissionsFormList->addInfo(_('Permissions can be assigned for user groups only.'));
 
-	$userTab->addTab('permissionsTab', _('Permissions'), $permissionsFormList);
+	$userTab->addTab('permissionsTab', _('权限配置'), $permissionsFormList);
 }
 if (isset($userMessagingFormList)) {
 	$userTab->addTab('messagingTab', _('Messaging'), $userMessagingFormList);

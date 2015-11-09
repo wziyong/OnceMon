@@ -217,7 +217,10 @@
 				default:
 					$list_name = 'deny';
 			}
-			$lists['group'][$list_name]->addItem($group['groupid'], (empty($group['node_name']) ? '' : $group['node_name'].NAME_DELIMITER).$group['name']);
+			if($group['ishidden'] != '0')
+			{
+				$lists['group'][$list_name]->addItem($group['groupid'], (empty($group['node_name']) ? '' : $group['node_name'].NAME_DELIMITER).$group['name']);
+			}
 		}
 		unset($groups);
 
