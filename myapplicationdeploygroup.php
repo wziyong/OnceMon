@@ -167,7 +167,7 @@ if (isset($_REQUEST['add_application'])) {
 
 
 } elseif (isset($_REQUEST['unlink'])) {
-    $applications = isset($_REQUEST['selectedMyApplicationids']) ?$_REQUEST['selectedMyApplicationids']:array();
+    $applications = isset($_REQUEST['unlink']) ?$_REQUEST['unlink']:array();
     $groupid = $_REQUEST['groupid'];
 
     if(!empty($groupid) && !empty($applications))
@@ -183,7 +183,7 @@ if (isset($_REQUEST['add_application'])) {
             $group = $groups[0];
             if(!empty($group['hosts']))
             {
-                $myapplicationTmp = DBselect('select * from t_custom_myapplication t1 where t1.applicationid in ('.implode(',',$applications).')');
+                $myapplicationTmp = DBselect('select * from t_custom_myapplication t1 where t1.applicationid in ('.implode(',',array_keys($applications)).')');
                 $myapplications = array();
                 while ($myapplication = DBfetch($myapplicationTmp)) {
                     $myapplications['applicationid'] =$myapplication['filename'];
@@ -231,7 +231,7 @@ if (isset($_REQUEST['add_application'])) {
                         break;
                     }
 
-                    $xx =   DBexecute('delete from t_custom_hostapps where hostid= '.$host['hostid'].' and applicationid in ('.implode(',',$applications).')');
+                    $xx =   DBexecute('delete from t_custom_hostapps where hostid= '.$host['hostid'].' and applicationid in ('.implode(',',array_keys($applications)).')');
 
                     if(!$xx)
                     {
@@ -244,7 +244,7 @@ if (isset($_REQUEST['add_application'])) {
 
                 if( $error == 0 )
                 {
-                    $xxX =   DBexecute('delete from t_custom_groupapps where groupid= '.$group['groupid'].' and applicationid in ('.implode(',',$applications).')');
+                    $xxX =   DBexecute('delete from t_custom_groupapps where groupid= '.$group['groupid'].' and applicationid in ('.implode(',',array_keys($applications)).')');
                     if($xxX)
                     {
                         DBend(true);
