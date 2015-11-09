@@ -94,7 +94,8 @@ $hostGroupTable->setHeader(new CCol(array(
 
 $hostGroups = API::HostGroup()->get(array(
 	'output' => array('groupid', 'name'),
-	'nodeids' => ($nodeId === null) ? $availableNodeIds : $nodeId
+	'nodeids' => ($nodeId === null) ? $availableNodeIds : $nodeId,
+	'filter' => array('ishidden'=>'1')
 ));
 
 if ($availableNodeIds && $nodeId === null) {
