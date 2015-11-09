@@ -116,7 +116,7 @@ $permissionsTable->addRow(array(
 		new CSubmit('del_deny', _('Delete selected'), null, 'formlist')
 	)
 ));
-$permissionsFormList->addRow(_('Composing permissions'), $permissionsTable);
+$permissionsFormList->addRow(_('集群权限管理'), $permissionsTable);
 $permissionsFormList->addRow(_('Calculated permissions'), '');
 $permissionsFormList = getPermissionsFormList($this->data['group_rights'], null, $permissionsFormList);
 
@@ -126,7 +126,7 @@ if (!$this->data['form_refresh']) {
 	$userGroupTab->setSelected(0);
 }
 $userGroupTab->addTab('userGroupTab', _('User group'), $userGroupFormList);
-$userGroupTab->addTab('permissionsTab', _('Permissions'), $permissionsFormList);
+$userGroupTab->addTab('permissionsTab', _('权限管理'), $permissionsFormList);
 
 // append tab to form
 $userGroupForm->addItem($userGroupTab);
