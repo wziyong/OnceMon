@@ -255,6 +255,9 @@ $ZBX_MENU = array(
 		'force_disable_all_nodes'=> true,
 		'pages' => array(
 			array(
+							'url' => 'popup_right.php'
+						),
+			array(
 				'url' => 'adm.gui.php',
 				'label' => _('General'),
 				'sub_pages' => array(
