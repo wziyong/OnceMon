@@ -324,7 +324,8 @@ if (!defined('ZBX_PAGE_NO_MENU')) {
 
 	$printview = new CLink(_('Print'), '', 'small_font print-link', null, 'nosid');
 
-	$page_header_r_col = array($oncemon_name, '|', $help, '|', $printview, '|');
+	//$page_header_r_col = array($oncemon_name, '|', $help, '|', $printview, '|');
+	$page_header_r_col = array($oncemon_name, '|');
 
 	if (!CWebUser::isGuest()) {
 		array_push($page_header_r_col, new CLink(_('Profile'), 'profile.php', 'small_font', null, 'nosid'), '|');

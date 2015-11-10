@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: Zabbix 2.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-12-02 03:57+0200\n"
-"PO-Revision-Date: 2015-09-18 17:07+0800\n"
+"PO-Revision-Date: 2015-11-10 14:12+0800\n"
 "Last-Translator: solutionware <shiys@solutionware.com.cn>\n"
 "Language-Team: Zabbix <info@zabbix.com>\n"
 "Language: zh_CN\n"
@@ -196,7 +196,7 @@ msgstr "与 / 或"
 
 #: include/views/administration.auditacts.list.php:31
 msgid "AUDIT ACTIONS"
-msgstr "审计动作"
+msgstr "审计报警规则"
 
 #: include/views/administration.auditlogs.list.php:31
 msgid "AUDIT LOGS"
@@ -311,31 +311,31 @@ msgstr "处理被禁用"
 #: include/views/configuration.triggers.massupdate.php:89 tr_logform.php:303
 #: tr_logform.php:307
 msgid "Action"
-msgstr "动作"
+msgstr "报警规则"
 
 #: api/classes/CAction.php:544 api/classes/CAction.php:558
 #: api/classes/CAction.php:675 api/classes/CAction.php:697
 #, c-format
 msgid "Action \"%1$s\" already exists."
-msgstr "动作 \"%1$s\" 已经存在."
+msgstr "报警规则 \"%1$s\" 已经存在."
 
 #: api/classes/CAction.php:541 api/classes/CAction.php:660
 #, c-format
 msgid "Action \"%1$s\" has incorrect value for \"esc_period\" (minimum %2$s seconds)."
-msgstr "动作 \"%1$s\" 返回值不正确已达 \"esc_period\" (最少%2$s秒)."
+msgstr "报警规则 \"%1$s\" 返回值不正确已达 \"esc_period\" (最少%2$s秒)."
 
 #: api/classes/CAction.php:742
 #, c-format
 msgid "Action \"%1$s\" no operations defined."
-msgstr "动作 \"%1$s\" 没有定义的操作."
+msgstr "报警规则 \"%1$s\" 没有定义的操作."
 
 #: actionconf.php:158
 msgid "Action added"
-msgstr "动作已添加"
+msgstr "报警规则已添加"
 
 #: actionconf.php:177
 msgid "Action deleted"
-msgstr "动作已删除"
+msgstr "报警规则已删除"
 
 #: actionconf.php:345
 msgid "Action disabled"
@@ -349,11 +349,11 @@ msgstr[0] ""
 
 #: include/views/configuration.action.edit.php:444
 msgid "Action operations"
-msgstr "动作关联的操作"
+msgstr "报警规则关联的操作"
 
 #: actionconf.php:150
 msgid "Action updated"
-msgstr "动作已更新"
+msgstr "报警规则已更新"
 
 #: events.php:591 events.php:604 include/blocks.inc.php:937
 #: include/blocks.inc.php:1513 include/events.inc.php:205
@@ -362,7 +362,7 @@ msgstr "动作已更新"
 #: include/views/administration.auditlogs.list.php:29
 #: include/views/configuration.action.list.php:40
 msgid "Actions"
-msgstr "动作"
+msgstr "报警规则"
 
 #: include/views/administration.proxy.edit.php:42
 #: include/views/administration.proxy.list.php:93
@@ -686,7 +686,7 @@ msgstr "04"
 
 #: include/classes/class.cbuttonqmessage.php:49
 msgid "Are you sure you want perform this action?"
-msgstr "您确定要执行这个动作吗?"
+msgstr "您确定要执行这个报警规则吗?"
 
 #: include/views/js/common.macros.js.php:53
 msgid "Are you sure you want to delete"
@@ -766,7 +766,7 @@ msgstr "审计"
 
 #: auditacts.php:27
 msgid "Audit actions"
-msgstr "审计动作"
+msgstr "审计报警规则"
 
 #: adm.housekeeper.php:51
 msgid "Audit data storage period"
@@ -1008,7 +1008,7 @@ msgstr "触发器模板"
 #: include/views/configuration.action.edit.php:25
 #: include/views/configuration.action.list.php:29
 msgid "CONFIGURATION OF ACTIONS"
-msgstr "配置动作"
+msgstr "配置报警规则"
 
 #: include/views/configuration.application.edit.php:23
 #: include/views/configuration.application.list.php:40
@@ -1093,7 +1093,7 @@ msgstr "配置维护"
 #: include/views/administration.mediatypes.edit.php:23
 #: include/views/administration.mediatypes.list.php:27
 msgid "CONFIGURATION OF MEDIA TYPES"
-msgstr "配置报警媒介类型"
+msgstr "配置报警方式类型"
 
 #: include/views/configuration.sysmap.constructor.php:25
 #: include/views/configuration.sysmap.edit.php:25
@@ -1283,11 +1283,11 @@ msgstr "不能添加一个非数字监控项 \"%1$s\"."
 
 #: actionconf.php:158
 msgid "Cannot add action"
-msgstr "无法添加动作"
+msgstr "无法添加报警规则"
 
 #: actionconf.php:233
 msgid "Cannot add action condition"
-msgstr "不能添加动作条件"
+msgstr "不能添加报警规则条件"
 
 #: applications.php:108
 msgid "Cannot add application"
@@ -1553,7 +1553,7 @@ msgstr "无法删除OnceMon内部用户 \"%1$s\", 请尝试禁用那用户."
 
 #: actionconf.php:177
 msgid "Cannot delete action"
-msgstr "无法删除动作"
+msgstr "无法删除报警规则"
 
 #: applications.php:142 applications.php:181
 msgid "Cannot delete application"
@@ -1654,7 +1654,7 @@ msgstr "无法删除维护"
 
 #: media_types.php:143 media_types.php:174
 msgid "Cannot delete media type"
-msgstr "无法删除报警媒介类型"
+msgstr "无法删除报警方式类型"
 
 #: sysmaps.php:207
 msgid "Cannot delete network map"
@@ -1697,7 +1697,7 @@ msgstr "无法删除脚本。脚本\"%1$s\"不存在。"
 
 #: actionconf.php:356
 msgid "Cannot delete selected actions"
-msgstr "无法删除所选的动作"
+msgstr "无法删除所选的报警规则"
 
 #: services.php:107
 msgid "Cannot delete service"
@@ -1775,7 +1775,7 @@ msgstr "无法删除用户"
 
 #: api/classes/CUser.php:949
 msgid "Cannot delete user media."
-msgstr "无法删除用户报警媒介。"
+msgstr "无法删除用户报警方式。"
 
 #: adm.valuemapping.php:90
 msgid "Cannot delete value map"
@@ -1824,7 +1824,7 @@ msgstr[0] "不能禁用监控项原型"
 #, fuzzy
 msgid "Cannot disable media type"
 msgid_plural "Cannot disable media types"
-msgstr[0] "无法关闭报警媒介类型"
+msgstr[0] "无法关闭报警方式类型"
 
 #: triggers.php:276
 msgid "Cannot disable trigger"
@@ -1894,7 +1894,7 @@ msgstr[0] "不能启用监控项原型"
 #, fuzzy
 msgid "Cannot enable media type"
 msgid_plural "Cannot enable media types"
-msgstr[0] "不能启用报警媒介类型"
+msgstr[0] "不能启用报警方式类型"
 
 #: triggers.php:275
 msgid "Cannot enable trigger"
@@ -2099,7 +2099,7 @@ msgstr ""
 
 #: api/classes/CUser.php:738
 msgid "Cannot insert user media."
-msgstr "不能插入用户报警媒介"
+msgstr "不能插入用户报警方式"
 
 #: api/classes/CHost.php:1265
 msgid "Cannot link template"
@@ -2813,7 +2813,7 @@ msgstr "命令"
 
 #: tr_events.php:132
 msgid "Command actions"
-msgstr "命令动作"
+msgstr "命令报警规则"
 
 #: scripts.php:99
 msgid "Command cannot be empty."
@@ -2891,7 +2891,7 @@ msgstr "配置OnceMon"
 
 #: actionconf.php:27
 msgid "Configuration of actions"
-msgstr "动作的配置"
+msgstr "报警规则的配置"
 
 #: applications.php:26
 msgid "Configuration of applications"
@@ -3157,7 +3157,7 @@ msgstr "幻灯片数量"
 
 #: include/views/configuration.action.list.php:28
 msgid "Create action"
-msgstr "创建动作"
+msgstr "创建报警规则"
 
 #: include/views/configuration.application.list.php:35
 msgid "Create application"
@@ -3767,7 +3767,7 @@ msgstr "删除应用集?"
 
 #: include/views/configuration.action.edit.php:1091
 msgid "Delete current action?"
-msgstr "删除目前的动作?"
+msgstr "删除目前的报警规则?"
 
 #: include/views/configuration.discovery.edit.php:85
 #: include/views/configuration.item.edit.php:506
@@ -3880,7 +3880,7 @@ msgstr "删除所选的 应用?"
 
 #: include/views/configuration.action.list.php:106
 msgid "Delete selected actions?"
-msgstr "删除所选的动作?"
+msgstr "删除所选的报警规则?"
 
 #: include/views/configuration.application.list.php:121
 msgid "Delete selected applications?"
@@ -4299,7 +4299,7 @@ msgstr "停用所选的WEB方案?"
 
 #: include/views/configuration.action.list.php:102
 msgid "Disable selected actions?"
-msgstr "停用所选的动作?"
+msgstr "停用所选的报警规则?"
 
 #: include/views/configuration.application.list.php:117
 msgid "Disable selected applications?"
@@ -4332,7 +4332,7 @@ msgstr "停用所选的监控项?"
 
 #: include/views/administration.mediatypes.list.php:118
 msgid "Disable selected media types?"
-msgstr "停用所选的报警媒介类型?"
+msgstr "停用所选的报警方式类型?"
 
 #: include/views/configuration.triggers.list.php:274
 msgid "Disable selected trigger prototypes?"
@@ -4705,7 +4705,7 @@ msgstr "空"
 #: api/classes/CAction.php:1644 api/classes/CAction.php:1654
 #: api/classes/CAction.php:1663 api/classes/CAction.php:1678
 msgid "Empty action condition."
-msgstr "空的动作条件."
+msgstr "空的报警规则条件."
 
 #: include/classes/validators/CColorValidator.php:33
 msgid "Empty color."
@@ -4854,7 +4854,7 @@ msgstr "启用所选的WEB方案?"
 
 #: include/views/configuration.action.list.php:98
 msgid "Enable selected actions?"
-msgstr "启用所选的动作?"
+msgstr "启用所选的报警规则?"
 
 #: include/views/configuration.application.list.php:113
 msgid "Enable selected applications?"
@@ -4887,7 +4887,7 @@ msgstr "启用所选的监控项?"
 
 #: include/views/administration.mediatypes.list.php:114
 msgid "Enable selected media types?"
-msgstr "启用所选的报警媒介类型?"
+msgstr "启用所选的报警方式类型?"
 
 #: include/views/configuration.triggers.list.php:267
 msgid "Enable selected trigger prototypes?"
@@ -5984,7 +5984,7 @@ msgstr ""
 
 #: include/screens.inc.php:31
 msgid "History of actions"
-msgstr "动作的历史"
+msgstr "报警规则的历史"
 
 #: include/screens.inc.php:32
 msgid "History of events"
@@ -6826,57 +6826,57 @@ msgstr "不正确的可接受SLA予服务\"%1$s\"."
 
 #: api/classes/CAction.php:1612
 msgid "Incorrect action condition discovery check."
-msgstr "不正确的动作条件自发现检查."
+msgstr "不正确的报警规则条件自发现检查."
 
 #: api/classes/CAction.php:1705
 msgid "Incorrect action condition discovery check. Discovery check does not exist or you have no access to it."
-msgstr "不正确的动作条件自发现检查. 自发现检查不存在或您没有存取权."
+msgstr "不正确的报警规则条件自发现检查. 自发现检查不存在或您没有存取权."
 
 #: api/classes/CAction.php:1587
 msgid "Incorrect action condition discovery object."
-msgstr "不正确的动作条件自发现对象."
+msgstr "不正确的报警规则条件自发现对象."
 
 #: api/classes/CAction.php:1702
 msgid "Incorrect action condition discovery rule. Discovery rule does not exist or you have no access to it."
-msgstr "不正确的动作条件自发现规则. 自发现规则不存在或您不能访问它."
+msgstr "不正确的报警规则条件自发现规则. 自发现规则不存在或您不能访问它."
 
 #: api/classes/CAction.php:1632
 msgid "Incorrect action condition discovery status."
-msgstr "不正确的动作条件自发现状态."
+msgstr "不正确的报警规则条件自发现状态."
 
 #: api/classes/CAction.php:1666
 msgid "Incorrect action condition event type."
-msgstr "不正确的动作条件时间类型."
+msgstr "不正确的报警规则条件时间类型."
 
 #: api/classes/CAction.php:1690
 msgid "Incorrect action condition host group. Host group does not exist or you have no access to it."
-msgstr "不正确的动作条件集群. 集群不存在或您不能访问它."
+msgstr "不正确的报警规则条件集群. 集群不存在或您不能访问它."
 
 #: api/classes/CAction.php:1693
 msgid "Incorrect action condition host. Host does not exist or you have no access to it."
-msgstr "不正确的动作条件服务器. 服务器不存在或您不能访问它."
+msgstr "不正确的报警规则条件服务器. 服务器不存在或您不能访问它."
 
 #: api/classes/CAction.php:1603
 #, c-format
 msgid "Incorrect action condition ip \"%1$s\"."
-msgstr "不正确的动作条件ip \"%1$s\"."
+msgstr "不正确的报警规则条件ip \"%1$s\"."
 
 #: api/classes/CAction.php:1525
 msgid "Incorrect action condition operator."
-msgstr "不正确的动作条件操作符."
+msgstr "不正确的报警规则条件操作符."
 
 #: api/classes/CAction.php:1622
 #, c-format
 msgid "Incorrect action condition port \"%1$s\"."
-msgstr "不正确的动作条件端口\"%1$s\"."
+msgstr "不正确的报警规则条件端口\"%1$s\"."
 
 #: api/classes/CAction.php:1708
 msgid "Incorrect action condition proxy. Proxy does not exist or you have no access to it."
-msgstr "不正确的动作条件proxy. proxy不存在或您没有存取权."
+msgstr "不正确的报警规则条件proxy. proxy不存在或您没有存取权."
 
 #: api/classes/CAction.php:1696
 msgid "Incorrect action condition template. Template does not exist or you have no access to it."
-msgstr "不正确的动作条件模板. 模板不存在或您没有存取权."
+msgstr "不正确的报警规则条件模板. 模板不存在或您没有存取权."
 
 #: api/classes/CAction.php:1648
 msgid "Incorrect action condition trigger severity."
@@ -6888,69 +6888,69 @@ msgstr "不正确的操作条件触发器值."
 
 #: api/classes/CAction.php:1699
 msgid "Incorrect action condition trigger. Trigger does not exist or you have no access to it."
-msgstr "不正确的动作条件触发器. 触发器不存在或您没有存取权."
+msgstr "不正确的报警规则条件触发器. 触发器不存在或您没有存取权."
 
 #: api/classes/CAction.php:1683
 msgid "Incorrect action condition type."
-msgstr "不正确的动作条件类型."
+msgstr "不正确的报警规则条件类型."
 
 #: api/classes/CAction.php:734
 msgid "Incorrect action conditionid."
-msgstr "不正确的动作条件ID"
+msgstr "不正确的报警规则条件ID"
 
 #: api/classes/CAction.php:569 api/classes/CAction.php:707
 #, c-format
 msgid "Incorrect action conditions for action \"%1$s\"."
-msgstr "不正确的动作条件对于动作\"%1$s\"."
+msgstr "不正确的报警规则条件对于报警规则\"%1$s\"."
 
 #: api/classes/CAction.php:1389
 msgid "Incorrect action operation command type."
-msgstr "不正确的动作操作命令类型."
+msgstr "不正确的报警规则操作命令类型."
 
 #: api/classes/CAction.php:1732
 msgid "Incorrect action operation condition acknowledge type."
-msgstr "不正确的动作操作条件处理类型."
+msgstr "不正确的报警规则操作条件处理类型."
 
 #: api/classes/CAction.php:1737
 msgid "Incorrect action operation condition type."
-msgstr "不正确的动作操作条件类型."
+msgstr "不正确的报警规则操作条件类型."
 
 #: api/classes/CAction.php:1307 api/classes/CAction.php:1311
 msgid "Incorrect action operation escalation step values."
-msgstr "不正确的动作操作升级步骤值."
+msgstr "不正确的报警规则操作升级步骤值."
 
 #: api/classes/CAction.php:1460
 msgid "Incorrect action operation host group. Host group does not exist or you have no access to this host group."
-msgstr "不正确的动作操作集群. 集群不存在或您没有存取权."
+msgstr "不正确的报警规则操作集群. 集群不存在或您没有存取权."
 
 #: api/classes/CAction.php:1463
 msgid "Incorrect action operation host. Host does not exist or you have no access to this host."
-msgstr "不正确的动作操作服务器. 服务器不存在或您没有存取权."
+msgstr "不正确的报警规则操作服务器. 服务器不存在或您没有存取权."
 
 #: api/classes/CAction.php:1395 api/classes/CAction.php:1399
 #, c-format
 msgid "Incorrect action operation port \"%s\"."
-msgstr "不正确的动作操作端口\"%s\"."
+msgstr "不正确的报警规则操作端口\"%s\"."
 
 #: api/classes/CAction.php:1317
 msgid "Incorrect action operation step duration."
-msgstr "不正确的动作操作步骤停留时间."
+msgstr "不正确的报警规则操作步骤停留时间."
 
 #: api/classes/CAction.php:1455
 msgid "Incorrect action operation type."
-msgstr "不正确的动作操作类型."
+msgstr "不正确的报警规则操作类型."
 
 #: api/classes/CAction.php:1469
 msgid "Incorrect action operation user group. User group does not exist or you have no access to this user group."
-msgstr "不正确的动作操作用户群组. 用户群组不存在或您没有存取权."
+msgstr "不正确的报警规则操作用户群组. 用户群组不存在或您没有存取权."
 
 #: api/classes/CAction.php:1466
 msgid "Incorrect action operation user. User does not exist or you have no access to this user."
-msgstr "不正确的动作操作用户. 用户不存在或您没有存取权."
+msgstr "不正确的报警规则操作用户. 用户不存在或您没有存取权."
 
 #: api/classes/CAction.php:760
 msgid "Incorrect action operationid."
-msgstr "不正确的动作操作ID."
+msgstr "不正确的报警规则操作ID."
 
 #: api/classes/CService.php:1126
 #, c-format
@@ -7229,7 +7229,7 @@ msgstr "错误的对象值."
 #: api/classes/CAction.php:538 api/classes/CAction.php:589
 #, c-format
 msgid "Incorrect parameter for action \"%1$s\"."
-msgstr "不正确的参数对于动作\"%1$s\"."
+msgstr "不正确的参数对于报警规则\"%1$s\"."
 
 #: api/classes/CAction.php:834
 msgid "Incorrect parameter for operations."
@@ -8593,7 +8593,7 @@ msgstr "维护期\"Active since\"值不能晚于 \"Active till\"."
 
 #: api/classes/CAction.php:1638
 msgid "Maintenance action condition value must be empty."
-msgstr "维护动作条件值必须为空."
+msgstr "维护报警规则条件值必须为空."
 
 #: maintenance.php:124
 msgid "Maintenance added"
@@ -8687,7 +8687,7 @@ msgstr "拓朴图标示类型"
 
 #: sysmap.php:89
 msgid "Map save operation failed."
-msgstr "拓扑图储存动作失败"
+msgstr "拓扑图储存报警规则失败"
 
 #: api/classes/CMap.php:527
 #, c-format
@@ -8858,50 +8858,50 @@ msgstr "05"
 #: include/views/administration.users.edit.php:211
 #: include/views/administration.users.edit.php:339 popup_media.php:27
 msgid "Media"
-msgstr "报警媒介"
+msgstr "报警方式"
 
 #: include/audit.inc.php:26
 #: include/views/administration.mediatypes.edit.php:100 report4.php:92
 msgid "Media type"
-msgstr "报警媒介类型"
+msgstr "报警方式类型"
 
 #: api/classes/CMediatype.php:245 api/classes/CMediatype.php:296
 #, c-format
 msgid "Media type \"%s\" already exists."
-msgstr "报警媒介类型\"%s\"已存在."
+msgstr "报警方式类型\"%s\"已存在."
 
 #: media_types.php:127
 msgid "Media type added"
-msgstr "报警媒介类型已添加"
+msgstr "报警方式类型已添加"
 
 #: media_types.php:143 media_types.php:174
 msgid "Media type deleted"
-msgstr "报警媒介类型已删除"
+msgstr "报警方式类型已删除"
 
 #: media_types.php:163
 #, fuzzy
 msgid "Media type disabled"
 msgid_plural "Media types disabled"
-msgstr[0] "报警媒介类型已停用"
+msgstr[0] "报警方式类型已停用"
 
 #: media_types.php:162
 #, fuzzy
 msgid "Media type enabled"
 msgid_plural "Media types enabled"
-msgstr[0] "报警媒介类型已启用"
+msgstr[0] "报警方式类型已启用"
 
 #: media_types.php:121
 msgid "Media type updated"
-msgstr "报警媒介类型已更新"
+msgstr "报警方式类型已更新"
 
 #: include/menu.inc.php:256 include/views/administration.mediatypes.list.php:28
 msgid "Media types"
-msgstr "报警媒介类型"
+msgstr "报警方式类型"
 
 #: api/classes/CMediatype.php:346
 #, c-format
 msgid "Media types used by action \"%s\"."
-msgstr "报警媒介类型用于动作\"%s\"."
+msgstr "报警方式类型用于报警规则\"%s\"."
 
 #: include/func.inc.php:677
 msgid "Mega"
@@ -8939,7 +8939,7 @@ msgstr "信息"
 
 #: tr_events.php:127
 msgid "Message actions"
-msgstr "信息动作"
+msgstr "信息报警规则"
 
 #: include/views/administration.mediatypes.edit.php:92
 msgid "Message text limit"
@@ -9042,7 +9042,7 @@ msgstr "分"
 #: api/classes/CAction.php:575
 #, c-format
 msgid "Missing \"%1$s\" field for action condition."
-msgstr "缺少了\"%1$s\" 字段对于动作条件"
+msgstr "缺少了\"%1$s\" 字段对于报警规则条件"
 
 #: include/reports.inc.php:489
 #, c-format
@@ -9379,7 +9379,7 @@ msgstr "此图表的新监控项"
 
 #: popup_media.php:105
 msgid "New media"
-msgstr "新的报警媒介"
+msgstr "新的报警方式"
 
 #: adm.regexps.php:210
 msgid "New regular expression"
@@ -9493,7 +9493,7 @@ msgstr ""
 #: include/actions.inc.php:961 include/classes/screens/CScreenActions.php:121
 #: include/views/configuration.action.list.php:48
 msgid "No actions found."
-msgstr "没有发现动作"
+msgstr "没有发现报警规则"
 
 #: include/views/configuration.host.edit.php:333
 #: include/views/configuration.host.prototype.edit.php:103
@@ -9518,12 +9518,12 @@ msgstr "审计词条不存在"
 #: api/classes/CAction.php:1354
 #, c-format
 msgid "No authentication type specified for action operation command \"%s\"."
-msgstr "没有指定给动作操作命令\"%s\"的认证类型."
+msgstr "没有指定给报警规则操作命令\"%s\"的认证类型."
 
 #: api/classes/CAction.php:1358 api/classes/CAction.php:1372
 #, c-format
 msgid "No authentication user name specified for action operation command \"%s\"."
-msgstr "没有指定给动作操作命令\"%s\"的认证用户名称."
+msgstr "没有指定给报警规则操作命令\"%s\"的认证用户名称."
 
 #: api/classes/CItemGeneral.php:334
 msgid "No authentication user name specified."
@@ -9531,11 +9531,11 @@ msgstr "没有指定的认证用户名称"
 
 #: api/classes/CAction.php:1341
 msgid "No command specified for action operation."
-msgstr "没有指定给动作操作的命令."
+msgstr "没有指定给报警规则操作的命令."
 
 #: api/classes/CAction.php:1336
 msgid "No command type specified for action operation."
-msgstr "没有指定给动作操作的命令类型."
+msgstr "没有指定给报警规则操作的命令类型."
 
 #: include/views/configuration.action.edit.php:69
 #: include/views/configuration.action.edit.php:938
@@ -9614,7 +9614,7 @@ msgstr "没有可处理的事件"
 #: api/classes/CAction.php:1349
 #, c-format
 msgid "No execution target specified for action operation command \"%s\"."
-msgstr "没有指定给动作操作命令\"%s\"的执行目标."
+msgstr "没有指定给报警规则操作命令\"%s\"的执行目标."
 
 #: include/classes/helpers/CUploadFile.php:156
 msgid "No file was uploaded."
@@ -9811,7 +9811,7 @@ msgstr "没有找到匹配"
 
 #: include/views/administration.users.edit.php:173
 msgid "No media found."
-msgstr "未发现报警媒介"
+msgstr "未发现报警方式"
 
 #: include/views/administration.mediatypes.list.php:36
 msgid "No media types found."
@@ -9924,7 +9924,7 @@ msgstr "无权限或者目标不存在!"
 #: api/classes/CAction.php:1366
 #, c-format
 msgid "No private key file specified for action operation command \"%s\"."
-msgstr "没有指定给动作操作命令\"%s\"的私有金钥."
+msgstr "没有指定给报警规则操作命令\"%s\"的私有金钥."
 
 #: api/classes/CItemGeneral.php:342
 msgid "No private key file specified."
@@ -9945,7 +9945,7 @@ msgstr "没有给定代理ID."
 #: api/classes/CAction.php:1363
 #, c-format
 msgid "No public key file specified for action operation command \"%s\"."
-msgstr "没有指定给动作操作命令\"%s\"的公开金钥档."
+msgstr "没有指定给报警规则操作命令\"%s\"的公开金钥档."
 
 #: api/classes/CItemGeneral.php:339
 msgid "No public key file specified."
@@ -9953,7 +9953,7 @@ msgstr "没有指定的公开金钥档"
 
 #: api/classes/CAction.php:1328
 msgid "No recipients for action operation message."
-msgstr "没有动作操作信息的收受者."
+msgstr "没有报警规则操作信息的收受者."
 
 #: include/views/administration.general.regularexpressions.list.php:28
 msgid "No regular expressions found."
@@ -9976,7 +9976,7 @@ msgstr ""
 
 #: api/classes/CAction.php:1377
 msgid "No script specified for action operation command."
-msgstr "没有指定给动作操作命令的脚本."
+msgstr "没有指定给报警规则操作命令的脚本."
 
 #: include/views/administration.script.list.php:35 popup.php:1831
 msgid "No scripts found."
@@ -10515,7 +10515,7 @@ msgstr "只有超级管理员可以创建图标映射."
 
 #: api/classes/CMediatype.php:221
 msgid "Only Super Admins can create media types."
-msgstr "只有超级管理员可以创建报警媒介类型."
+msgstr "只有超级管理员可以创建报警方式类型."
 
 #: api/classes/CUserMacro.php:397
 msgid "Only Super Admins can delete global macros."
@@ -10523,7 +10523,7 @@ msgstr "只有超级管理员可以删除全域宏."
 
 #: api/classes/CMediatype.php:334
 msgid "Only Super Admins can delete media types."
-msgstr "只有超级管理员可以删除报警媒介类型."
+msgstr "只有超级管理员可以删除报警方式类型."
 
 #: api/classes/CUserGroup.php:237 api/classes/CUserGroup.php:288
 #: api/classes/CUserGroup.php:312 api/classes/CUserGroup.php:407
@@ -10533,7 +10533,7 @@ msgstr "只有超级管理员可以删除用户群组."
 
 #: api/classes/CMediatype.php:272
 msgid "Only Super Admins can edit media types."
-msgstr "只有超级管理员可以编辑报警媒介类型."
+msgstr "只有超级管理员可以编辑报警方式类型."
 
 #: api/classes/CUserMacro.php:335
 msgid "Only Super Admins can update global macros."
@@ -10545,15 +10545,15 @@ msgstr "只有超级管理员可以更新图标映射."
 
 #: api/classes/CUser.php:669
 msgid "Only Zabbix Admins can add user media."
-msgstr "只有超级管理员可以添加用户报警媒介."
+msgstr "只有超级管理员可以添加用户报警方式."
 
 #: api/classes/CUser.php:847
 msgid "Only Zabbix Admins can change user media."
-msgstr "只有超级管理员可以用改变户报警媒介."
+msgstr "只有超级管理员可以用改变户报警方式."
 
 #: api/classes/CUser.php:928
 msgid "Only Zabbix Admins can remove user media."
-msgstr "只有超级管理员可以移除用户报警媒介."
+msgstr "只有超级管理员可以移除用户报警方式."
 
 #: api/classes/CHttpTest.php:695
 msgid "Only characters are allowed."
@@ -11014,7 +11014,7 @@ msgstr ""
 
 #: api/classes/CMediatype.php:237 api/classes/CMediatype.php:301
 msgid "Password required for media type."
-msgstr "报警媒介类型所需的密码."
+msgstr "报警方式类型所需的密码."
 
 #: profile.php:119 users.php:199
 msgid "Password should not be empty"
@@ -12407,7 +12407,7 @@ msgstr "选择的"
 
 #: actionconf.php:356
 msgid "Selected actions deleted"
-msgstr "所选的动作已删除"
+msgstr "所选的报警规则已删除"
 
 #: include/views/js/configuration.sysmaps.js.php:216
 msgid "Selected elements"
@@ -12877,7 +12877,7 @@ msgstr "西班牙语 (es_ES)"
 
 #: api/classes/CAction.php:1385
 msgid "Specified script does not exist or you do not have rights on it for action operation command."
-msgstr "指定的脚本不存在或您没有对动作操作命令的此脚本的权限."
+msgstr "指定的脚本不存在或您没有对报警规则操作命令的此脚本的权限."
 
 #: httpdetails.php:133 httpdetails.php:298
 msgid "Speed"
@@ -15341,12 +15341,12 @@ msgstr "您没有指定集群来操作."
 #: api/classes/CAction.php:1426
 #, c-format
 msgid "You did not specify targets for action operation command \"%s\"."
-msgstr "您没有指定目标为动作操作的命令\"%s\"."
+msgstr "您没有指定目标为报警规则操作的命令\"%s\"."
 
 #: api/classes/CAction.php:1423
 #, c-format
 msgid "You did not specify targets for action operation global script \"%s\"."
-msgstr "您没有指定目标为动作操作的全域脚本\"%s\"."
+msgstr "您没有指定目标为报警规则操作的全域脚本\"%s\"."
 
 #: api/classes/CGraph.php:557 api/classes/CGraphPrototype.php:574
 #: api/classes/CHost.php:1013 api/classes/CHost.php:1070

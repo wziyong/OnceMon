@@ -36,10 +36,10 @@ $ZBX_MENU = array(
 				'url' => 'hostgroups.php',
 				'label' => _('Host groups')
 			),
-			array(
-				'url' => 'templates.php'
-				//'label' => _('Templates')
-			),
+			//array(
+			//	'url' => 'templates.php',
+			//	//'label' => _('Templates')
+			//),
 			array(
 				'url' => 'hosts.php',
 				'label' => _('Hosts'),
@@ -63,15 +63,15 @@ $ZBX_MENU = array(
 				'url' => 'maintenance.php'
 				//'label' => _('Maintenance')
 			),
-			array(
-				'url' => 'actionconf.php'
-				//'label' => _('Actions')
-			),
-			array(
-				'url' => 'screenconf.php',
-				//'label' => _('Screens'),
-				'sub_pages' => array('screenedit.php')
-			),
+			//array(
+			//	'url' => '//',
+			//	//'label' => _('Actions')
+			//),
+			//array(
+			//	'url' => '//',
+			//	//'label' => _('Screens'),
+			//	'sub_pages' => array('screenedit.php')
+			//),
 			array(
 				'url' => 'slideconf.php'
 				//'label' => _('Slide shows'),
@@ -119,16 +119,16 @@ $ZBX_MENU = array(
 			),
 			array(
 				'url' => 'overview.php',
-				'label' => _('Overview')
+				//'label' => _('Overview')
 			),
 			array(
 				'url' => 'httpmon.php',
-				'label' => _('Web'),
+				//'label' => _('Web'),
 				'sub_pages' => array('httpdetails.php')
 			),
 			array(
 				'url' => 'latest.php',
-				'label' => _('Latest data'),
+				//'label' => _('Latest data'),
 				'sub_pages' => array('history.php', 'chart.php')
 			),
 			array(
@@ -138,7 +138,7 @@ $ZBX_MENU = array(
 			),
 			array(
 				'url' => 'events.php',
-				'label' => _('Events'),
+				//'label' => _('Events'),
 				'sub_pages' => array('tr_events.php')
 			),
 			array(
@@ -148,22 +148,22 @@ $ZBX_MENU = array(
 			),
 			array(
 				'url' => 'screens.php',
-				'label' => _('Screens'),
+				'label' => _('大屏幕'),
 				'sub_pages' => array('slides.php')
 			),
 			array(
 				'url' => 'maps.php',
-				'label' => _('Maps'),
+				//'label' => _('Maps'),
 				'sub_pages' => array('map.php')
 			),
 			array(
 				'url' => 'discovery.php',
-				'label' => _('Discovery'),
+				//'label' => _('Discovery'),
 				'user_type' => USER_TYPE_ZABBIX_ADMIN
 			),
 			array(
 				'url' => 'srv_status.php',
-				'label' => _('IT services'),
+				//'label' => _('IT services'),
 				'force_disable_all_nodes' => true,
 				'sub_pages' => array('report3.php', 'chart5.php')
 			),
@@ -189,12 +189,25 @@ $ZBX_MENU = array(
 		'pages' => array(
 			array(
 				'url' => 'templates.php',
-				'label' => _('Templates')
+				'label' => _('监控模板')
 			),
 			array(
 				'url' => 'hostinventories.php',
-				'label' => _('Hosts')
-			)
+				//'label' => _('Hosts')
+			),
+			array(
+				'url' => 'actionconf.php',
+				'label' => _('报警规则')
+			),
+			array(
+				'url' => 'media_types.php',
+				'label' => _('报警方式')
+			),
+			array(
+				'url' => 'screenconf.php',
+				'label' => _('大屏幕配置'),
+				'sub_pages' => array('screenedit.php')
+			),
 		)
 	),
 
@@ -255,11 +268,11 @@ $ZBX_MENU = array(
 		'force_disable_all_nodes'=> true,
 		'pages' => array(
 			array(
-							'url' => 'popup_right.php'
-						),
+				'url' => 'popup_right.php'
+			),
 			array(
 				'url' => 'adm.gui.php',
-				'label' => _('General'),
+				'label' => _('全局'),
 				'sub_pages' => array(
 					'adm.housekeeper.php',
 					'adm.images.php',
@@ -275,38 +288,38 @@ $ZBX_MENU = array(
 			),
 			array(
 				'url' => 'proxies.php',
-				'label' => _('DM'),
+				'label' => _('代理'),
 				'sub_pages' => array('nodes.php')
 			),
 			array(
 				'url' => 'authentication.php',
-				'label' => _('Authentication')
+				//'label' => _('Authentication')
 			),
 			array(
 				'url' => 'usergrps.php',
 				'label' => _('Users'),
 				'sub_pages' => array('users.php', 'popup_usrgrp.php')
 			),
-			array(
-				'url' => 'media_types.php',
-				'label' => _('Media types')
-			),
+			//array(
+			//	'url' => '//',
+			//	//'label' => _('Media types')
+			//),
 			array(
 				'url' => 'scripts.php',
-				'label' => _('Scripts')
+				//'label' => _('Scripts')
 			),
 			array(
 				'url' => 'auditlogs.php',
-				'label' => _('Audit'),
+				//'label' => _('Audit'),
 				'sub_pages' => array('auditacts.php')
 			),
 			array(
 				'url' => 'queue.php',
-				'label' => _('Queue')
+				//'label' => _('Queue')
 			),
 			array(
 				'url' => 'report4.php',
-				'label' => _('Notifications')
+				//'label' => _('Notifications')
 			),
 			array(
 				'url' => 'setup.php',

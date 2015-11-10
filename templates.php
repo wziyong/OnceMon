@@ -470,7 +470,7 @@ else {
 	$frmForm->cleanItems();
 	$frmForm->addItem(new CDiv(array(
 		new CSubmit('form', _('Create template')),
-		new CButton('form', _('Import'), 'redirect("conf.import.php?rules_preset=template")')
+		//new CButton('form', _('Import'), 'redirect("conf.import.php?rules_preset=template")')
 	)));
 	$frmForm->addItem(new CVar('groupid', $_REQUEST['groupid'], 'filter_groupid_id'));
 
