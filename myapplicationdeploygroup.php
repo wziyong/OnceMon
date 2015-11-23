@@ -56,7 +56,7 @@ if (isset($_REQUEST['add_application'])) {
                 $myapplicationTmp = DBselect('select * from t_custom_myapplication t1 where t1.applicationid in ('.implode(',',$applications).')');
                 $myapplications = array();
                 while ($myapplication = DBfetch($myapplicationTmp)) {
-                    $myapplications['applicationid'] =$myapplication['filename'];
+                    $myapplications[$myapplication['applicationid']] =$myapplication['filename'];
                 }
                 $hosts = $group['hosts'];
 
