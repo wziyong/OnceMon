@@ -151,7 +151,7 @@ foreach ($this->data['groups'] as $group) {
 		new CLink(_('统一部署'), 'myapplicationdeploygroup.php?groupid='.$group['groupid'], 'unknown'),
 		array(
 			//array(new CLink(_('Templates'), 'templates.php?groupid='.$group['groupid'], 'unknown'), ' ('.$templateCount.')'),
-			array(new CLink(_('拓扑图'), 'hostgroupstopological.php?groupid='.$group['groupid'], 'unknown')),
+			//array(new CLink(_('拓扑图'), 'hostgroupstopological.php?groupid='.$group['groupid'], 'unknown')),
 			' ',
 			array(new CLink(_('Hosts'), 'hosts.php?groupid='.$group['groupid']), ' ('.$hostCount.')')
 		),

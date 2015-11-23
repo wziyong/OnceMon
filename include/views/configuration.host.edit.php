@@ -198,7 +198,8 @@ if (!$isDiscovered) {
     //$grp_tb = new CTweenBox($frmHost, 'groups', $host_groups, 10); //TODO 查询主机；
     $all_groups = API::HostGroup()->get(array(
         'editable' => true,
-        'output' => API_OUTPUT_EXTEND
+        'output' => API_OUTPUT_EXTEND,
+        'filter' => array('ishidden'=>'1')
     ));
     order_result($all_groups, 'name');
 

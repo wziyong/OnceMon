@@ -996,13 +996,13 @@ else {
 		'selectParentTemplates' => array('hostid', 'name'),
 		'selectInterfaces' => API_OUTPUT_EXTEND,
 		'selectItems' => API_OUTPUT_COUNT,
-		'selectDiscoveries' => API_OUTPUT_COUNT,
+		//'selectDiscoveries' => API_OUTPUT_COUNT,
 		'selectTriggers' => API_OUTPUT_COUNT,
 		'selectGraphs' => API_OUTPUT_COUNT,
-		'selectApplications' => API_OUTPUT_COUNT,
-		'selectHttpTests' => API_OUTPUT_COUNT,
-		'selectDiscoveryRule' => array('itemid', 'name'),
-		'selectHostDiscovery' => array('ts_delete')
+		//'selectApplications' => API_OUTPUT_COUNT,
+		//'selectHttpTests' => API_OUTPUT_COUNT,
+		//'selectDiscoveryRule' => array('itemid', 'name'),
+		//'selectHostDiscovery' => array('ts_delete')
 	));
 	order_result($hosts, $sortfield, $sortorder);
 
@@ -1037,28 +1037,25 @@ else {
 	foreach ($hosts as $host) {
 		$interface = reset($host['interfaces']);
 
-		$applications = array(new CLink(_('Applications'), 'applications.php?groupid='.$_REQUEST['groupid'].'&hostid='.$host['hostid']),
-			' ('.$host['applications'].')');
+		//$applications = array(new CLink(_('Applications'), 'applications.php?groupid='.$_REQUEST['groupid'].'&hostid='.$host['hostid']),' ('.$host['applications'].')');
 		$items = array(new CLink(_('Items'), 'items.php?filter_set=1&hostid='.$host['hostid']),
 			' ('.$host['items'].')');
 		$triggers = array(new CLink(_('Triggers'), 'triggers.php?groupid='.$_REQUEST['groupid'].'&hostid='.$host['hostid']),
 			' ('.$host['triggers'].')');
 		$graphs = array(new CLink(_('Graphs'), 'graphs.php?groupid='.$_REQUEST['groupid'].'&hostid='.$host['hostid']),
 			' ('.$host['graphs'].')');
-		$discoveries = array(new CLink(_('Discovery'), 'host_discovery.php?&hostid='.$host['hostid']),
-			' ('.$host['discoveries'].')');
-		$httpTests = array(new CLink(_('Web'), 'httpconf.php?&hostid='.$host['hostid']),
-			' ('.$host['httpTests'].')');
+		//$discoveries = array(new CLink(_('Discovery'), 'host_discovery.php?&hostid='.$host['hostid']),' ('.$host['discoveries'].')');
+		//$httpTests = array(new CLink(_('Web'), 'httpconf.php?&hostid='.$host['hostid']),' ('.$host['httpTests'].')');
 
 		$description = array();
 
 		if (isset($proxies[$host['proxy_hostid']])) {
 			$description[] = $proxies[$host['proxy_hostid']]['host'].NAME_DELIMITER;
 		}
-		if ($host['discoveryRule']) {
-			$description[] = new CLink($host['discoveryRule']['name'], 'host_prototypes.php?parent_discoveryid='.$host['discoveryRule']['itemid'], 'parent-discovery');
-			$description[] = NAME_DELIMITER;
-		}
+	//	//if ($host['discoveryRule']) {
+		//	$description[] = new CLink($host['discoveryRule']['name'], 'host_prototypes.php?parent_discoveryid='.$host['discoveryRule']['itemid'], 'parent-discovery');
+		//	$description[] = NAME_DELIMITER;
+		//}
 
 		$description[] = new CLink(CHtml::encode($host['host']), 'hosts.php?form=update&hostid='.$host['hostid'].url_param('groupid'));
 
