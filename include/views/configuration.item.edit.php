@@ -441,14 +441,14 @@ else {
 
 	// append applications to form list
 	$itemFormList->addRow(_('New application'),
-		new CTextBox('new_application', $this->data['new_application'], ZBX_TEXTBOX_STANDARD_SIZE), false, null, 'new'
+		new CTextBox('new_application', $this->data['new_application'], ZBX_TEXTBOX_STANDARD_SIZE), true, null, 'new'
 	);
 	$applicationComboBox = new CListBox('applications[]', $this->data['applications'], 6);
 	$applicationComboBox->addItem(0, '-'._('None').'-');
 	foreach ($this->data['db_applications'] as $application) {
 		$applicationComboBox->addItem($application['applicationid'], CHtml::encode($application['name']));
 	}
-	$itemFormList->addRow(_('Applications'), $applicationComboBox);
+	$itemFormList->addRow(_('Applications'), $applicationComboBox,true);
 
 	// append populate host to form list
 	if (empty($this->data['parent_discoveryid'])) {
@@ -473,7 +473,7 @@ else {
 				$enabled ? 'yes' : 'no'
 			);
 		}
-		$itemFormList->addRow(_('Populates host inventory field'), $hostInventoryFieldComboBox, false, 'row_inventory_link');
+		$itemFormList->addRow(_('Populates host inventory field'), $hostInventoryFieldComboBox, true, 'row_inventory_link');
 	}
 }
 
