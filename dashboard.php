@@ -326,12 +326,12 @@ $fav_scr->setHeader(_('Favourite screens'), array($screen_menu));
 $fav_scr->setFooter(new CLink(_('Screens').' &raquo;', 'screens.php', 'highlight'), true);
 $col = CProfile::get('web.dashboard.widget.favscr.col', '0');
 $row = CProfile::get('web.dashboard.widget.favscr.row', '1');
-if (!isset($columns[$col][$row])) {
-	$columns[$col][$row] = $fav_scr;
-}
-else {
-	$columns[$col][] = $fav_scr;
-}
+//if (!isset($columns[$col][$row])) {
+//	$columns[$col][$row] = $fav_scr;
+//}
+//else {
+//	$columns[$col][] = $fav_scr;
+//}
 
 // favorite sysmaps
 $sysmap_menu = get_icon('menu', array('menu' => 'sysmaps'));
@@ -340,12 +340,12 @@ $fav_maps->setHeader(_('Favourite maps'), array($sysmap_menu));
 $fav_maps->setFooter(new CLink(_('Maps').' &raquo;', 'maps.php', 'highlight'), true);
 $col = CProfile::get('web.dashboard.widget.favmap.col', '0');
 $row = CProfile::get('web.dashboard.widget.favmap.row', '2');
-if (!isset($columns[$col][$row])) {
-	$columns[$col][$row] = $fav_maps;
-}
-else {
-	$columns[$col][] = $fav_maps;
-}
+//if (!isset($columns[$col][$row])) {
+//	$columns[$col][$row] = $fav_maps;
+//}
+//else {
+//	$columns[$col][] = $fav_maps;
+//}
 
 // status of zbx
 if (CWebUser::$data['type'] == USER_TYPE_SUPER_ADMIN) {
@@ -412,12 +412,12 @@ $web_mon->setHeader(_('Web monitoring'), array($refresh_menu));
 $web_mon->setFooter(new CDiv(SPACE, 'textwhite', 'hat_webovr_footer'));
 $col = CProfile::get('web.dashboard.widget.webovr.col', '1');
 $row = CProfile::get('web.dashboard.widget.webovr.row', '4');
-if (!isset($columns[$col][$row])) {
-	$columns[$col][$row] = $web_mon;
-}
-else {
-	$columns[$col][] = $web_mon;
-}
+//if (!isset($columns[$col][$row])) {
+//	$columns[$col][$row] = $web_mon;
+//}
+//else {
+//	$columns[$col][] = $web_mon;
+//}
 
 // discovery info
 $drules = DBfetch(DBselect(
