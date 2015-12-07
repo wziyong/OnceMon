@@ -27,6 +27,15 @@ $hostservercfgs = $this->data['hostservercfgs'];
 $hostCfgFormList->addRow(null, array(new CLabel('服务器配置')), null, 'label_server_cfg', 'new');
 $isDiscovered = false;
 //application server configuration
+//$lbsUpstremkey = new CTextBox('appcfg[3][name]', '', ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
+//$lbsUpstremkey->setAttribute('value', 'app_upstrem');
+//$hostCfgFormList->addRow(_('xx'), $lbsUpstremkey, true, null, null);
+//$apphttpportTBx = new CTextBox('appcfg[3][value]', !empty($hostservercfgs['app_upstrem']) ? $hostservercfgs['app_upstrem'] : 'proxy_ngxin', ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
+//$apphttpportTBx->setAttribute('maxlength', 64);
+//$apphttpportTBx->setAttribute('autofocus', 'autofocus');
+//$hostCfgFormList->addRow(_('差分代理'), $apphttpportTBx, false, null, 'app_server');
+
+
 $lbslistenportTBkey = new CTextBox('appcfg[0][name]', '', ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
 $lbslistenportTBkey->setAttribute('value', 'app_http_port');
 $hostCfgFormList->addRow(_('HTTP端口key'), $lbslistenportTBkey, true, null, null);
