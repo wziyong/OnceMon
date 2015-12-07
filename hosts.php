@@ -945,7 +945,7 @@ else {
 		$displayNodes ? _('Node') : null,
 		make_sorting_header(_('Name'), 'name'),
 		_('运行状态'),
-		_('应用管理'),
+		_('管理'),
 		//_('Applications'),
 		_('Items'),
 		_('Triggers'),
@@ -1004,7 +1004,7 @@ else {
 		//'selectDiscoveryRule' => array('itemid', 'name'),
 		//'selectHostDiscovery' => array('ts_delete')
 	));
-	order_result($hosts, $sortfield, $sortorder);
+	//order_result($hosts, $sortfield, $sortorder);
 
 	// selecting linked templates to templates linked to hosts
 	$templateIds = array();
@@ -1171,11 +1171,11 @@ else {
 		//$myapplications = array(new CLink(_('应用'), 'myapplicationdeploy.php?groupid='.$_REQUEST['groupid'].'&hostid='.$host['hostid']), ' ('.$host['applications'].')');
 		if(HOST_SERVER_TYPE_APP ==  $host['server_type'])
 		{
-			$myapplications = array(new CLink(_('应用'), 'myapplicationdeploy.php?type=host&hostid='.$host['hostid']));
+			$myapplications = array(new CLink(_('应用管理'), 'myapplicationdeploy.php?type=host&hostid='.$host['hostid']));
 		}
 		else
 		{
-			$myapplications = array(new CSpan());
+			$myapplications = array(new CLink(_('负载配置'), 'lbsconfiguration.php?type=host&hostid='.$host['hostid']));
 		}
 		//end by wizyong for 增加服务器同步操作
 

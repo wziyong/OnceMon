@@ -340,7 +340,7 @@ $fav_maps->setHeader(_('Favourite maps'), array($sysmap_menu));
 $fav_maps->setFooter(new CLink(_('Maps').' &raquo;', 'maps.php', 'highlight'), true);
 $col = CProfile::get('web.dashboard.widget.favmap.col', '0');
 $row = CProfile::get('web.dashboard.widget.favmap.row', '2');
-//if (!isset($columns[$col][$row])) {
+//if (!isset($columns[$col][$row])) { 
 //	$columns[$col][$row] = $fav_maps;
 //}
 //else {

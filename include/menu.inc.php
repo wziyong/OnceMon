@@ -56,7 +56,8 @@ $ZBX_MENU = array(
 					'trigger_prototypes.php',
 					'host_prototypes.php',
 					'httpconf.php',
-					'popup_httpstep.php'
+					'popup_httpstep.php',
+					'lbsconfiguration.php',
 				)
 			),
 			array(

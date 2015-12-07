@@ -35,6 +35,23 @@ $apphttpportTBx->setAttribute('maxlength', 64);
 $apphttpportTBx->setAttribute('autofocus', 'autofocus');
 $hostCfgFormList->addRow(_('HTTP端口'), $apphttpportTBx, false, null, 'app_server');
 
+$lbslistenportTBkey = new CTextBox('appcfg[1][name]', '', ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
+$lbslistenportTBkey->setAttribute('value', 'app_connect_timeout');
+$hostCfgFormList->addRow(_('链接超时key'), $lbslistenportTBkey, true, null, null);
+$apphttpportTBx = new CTextBox('appcfg[1][value]', !empty($hostservercfgs['app_connect_timeout']) ? $hostservercfgs['app_connect_timeout'] : null, ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
+$apphttpportTBx->setAttribute('maxlength', 64);
+$apphttpportTBx->setAttribute('autofocus', 'autofocus');
+$hostCfgFormList->addRow(_('连接超时(毫秒)'), $apphttpportTBx, false, null, 'app_server');
+
+
+$lbslistenportTBkey = new CTextBox('appcfg[2][name]', '', ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
+$lbslistenportTBkey->setAttribute('value', 'app_max_threads');
+$hostCfgFormList->addRow(_('最大连接池key'), $lbslistenportTBkey, true, null, null);
+$apphttpportTBx = new CTextBox('appcfg[2][value]', !empty($hostservercfgs['app_max_threads']) ? $hostservercfgs['app_max_threads'] : null, ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
+$apphttpportTBx->setAttribute('maxlength', 64);
+$apphttpportTBx->setAttribute('autofocus', 'autofocus');
+$hostCfgFormList->addRow(_('最大连接池'), $apphttpportTBx, false, null, 'app_server');
+
 
 //start load balance server configuration
 $lbslistenportTBkey = new CTextBox('lbscfg[0][name]', '', ZBX_TEXTBOX_STANDARD_SIZE, $isDiscovered);
