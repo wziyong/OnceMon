@@ -102,7 +102,7 @@ if (isset($_REQUEST['save'])) {
 
             }
             else{
-                show_messages(false, '', _('安装包上传FTP失败'));
+                show_messages(false, '', _('配置文件上传FTP失败'));
             }
         }
     }
@@ -134,7 +134,7 @@ if (empty($_REQUEST['form'])) {
     $lbsCfgFormList = new CFormList('myApplicationFormList');
     $file =  new CFile('import_file');
     $file->attr('style','width:318px');
-    $lbsCfgFormList->addRow(_('安装包'),$file);
+    $lbsCfgFormList->addRow(_('配置文件'),$file);
 
     $hostid= new CInput('hidden','hostid',get_request('hostid'));
     $lbsCfgFormList->addItem($hostid);
