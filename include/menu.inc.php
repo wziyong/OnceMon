@@ -119,6 +119,9 @@ $ZBX_MENU = array(
 				'sub_pages' => array('dashconf.php')
 			),
 			array(
+				'url' => 'scala_task.php'
+			),
+			array(
 				'url' => 'overview.php',
 				//'label' => _('Overview')
 			),

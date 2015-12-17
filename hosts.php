@@ -1144,8 +1144,8 @@ else {
 		$statusScript = 'return Confirm('.zbx_jsvalue(_('将配置同步到远程服务器?')).');';
 		$isSyn = new CLink($statusCaption, $statusUrl, $statusClass, $statusScript);
 
-		$statusX = DBfetch(DBselect("select h.* from history_uint h ,items i where h. itemid = i.itemid and i.hostid = ".$host['hostid']." and i.name = 'net.tcp.listen.run.status' and h.clock > ".(time() - 300)." order by h.clock desc",1));
-
+		#$statusX = DBfetch(DBselect("select h.* from history_uint h ,items i where h. itemid = i.itemid and i.hostid = ".$host['hostid']." and i.name = 'net.tcp.listen.run.status' and h.clock > ".(time() - 600)." order by h.clock desc",1));
+		$statusX = DBfetch(DBselect("select * from (select i.itemid as itemid from items i  where i.name = 'net.tcp.listen.run.status' and i.hostid = ".$host['hostid'].")  x left join history_uint h on h. itemid = x.itemid and h.clock > ".(time() - 600)." order by h.clock desc",1));
 		$runStatus = '2';
 		if($statusX)
 		{

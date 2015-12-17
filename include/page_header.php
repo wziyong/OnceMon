@@ -314,7 +314,7 @@ if (!defined('ZBX_PAGE_NO_MENU')) {
 //		$table->addRow(array($tableColumn, $node_form));
 //		$node_form = $table;
 //	}
-
+$oncemon_name = new CLink($ZBX_SERVER_NAME, '#', 'small_font', null, null);
 	if (isset($ZBX_SERVER_NAME) && !zbx_empty($ZBX_SERVER_NAME)) {
 		$oncemon_name = new CLink($ZBX_SERVER_NAME, '#', 'small_font', null, null);
 	}
@@ -325,6 +325,7 @@ if (!defined('ZBX_PAGE_NO_MENU')) {
 	$printview = new CLink(_('Print'), '', 'small_font print-link', null, 'nosid');
 
 	//$page_header_r_col = array($oncemon_name, '|', $help, '|', $printview, '|');
+	//$page_header_r_col = array($oncemon_name, '|');
 	$page_header_r_col = array($oncemon_name, '|');
 
 	if (!CWebUser::isGuest()) {

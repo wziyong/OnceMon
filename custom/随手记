@@ -1,1 +1,11 @@
 1、schema.inc.php记录表结构，数据库的修改需要在此记录；
+
+
+2、动态扩展定时任务
+通过linux的lynx定时调用scala_task.php接口
+
+/usr/bin/lynx -source http://133.133.133.138/scala_task.php >> xx.log
+
+Template 需要增加oncemon.scala.cpu.util cpu监控项
+
+
