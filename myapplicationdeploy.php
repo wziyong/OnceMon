@@ -179,11 +179,11 @@ if (isset($_REQUEST['add_application'])) {
                 }
                 if($errorCount>0)
                 {
-                    show_messages(false, null, "部署应用失败个数:".$errorCount);
+                    show_messages(false, null, "反部署应用失败个数:".$errorCount);
                 }
                 else
                 {
-                    show_messages(true, "部署成功", null);
+                    show_messages(true, "反部署成功", null);
                 }
             }
         }
