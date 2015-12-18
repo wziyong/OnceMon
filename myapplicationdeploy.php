@@ -39,6 +39,7 @@ require_once dirname(__FILE__) . '/include/page_header.php';
  * Actions
  */
 if (isset($_REQUEST['add_application'])) {
+    global $FTP;
     $applications = $_REQUEST['add_applications'];
     $hostid = $_REQUEST['hostid'];
 
@@ -58,7 +59,6 @@ if (isset($_REQUEST['add_application'])) {
     }
     elseif(!empty($dbHosts))
     {
-        global $FTP;
         $dbHost = $dbHosts[0];
         $agent_ip = null;
         $agent_port = null;
