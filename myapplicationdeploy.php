@@ -215,7 +215,7 @@ if(true)
     $linkedApplications = isset($dbHost) && isset($dbHost['selectedMyApplicationids']) ?$dbHost['selectedMyApplicationids']:array();
     CArrayHelper::sort($linkedApplications, array('name'));
 
-    $linkedApplicationTable->setHeader(array(_('Name'), _('Action')));
+    $linkedApplicationTable->setHeader(array(_('Name'), _('反部署')));
     $ignoredTemplates = array();
     $selectedMyApplicationids = new CDiv();
     $selectedMyApplicationids->attr("id","selectedMyApplicationids");
