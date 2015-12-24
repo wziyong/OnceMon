@@ -6,6 +6,6 @@
 
 /usr/bin/lynx -source http://133.133.133.138/scala_task.php >> xx.log
 
-Template 需要增加oncemon.scala.cpu.util cpu监控项
+Template OnceMon需要增加oncemon.scala.cpu.util cpu监控项
 
 
