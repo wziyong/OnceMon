@@ -109,11 +109,11 @@ elseif (isset($_REQUEST['save'])) {//TODO 保存集群信息；
 				'output' => API_OUTPUT_EXTEND
 			));
 
-			$result = API::HostGroup()->massUpdate(array(
-				'hosts' => $hosts,
-				'templates' => $templates,
-				'groups' => $groups
-			));
+			//$result = API::HostGroup()->massUpdate(array(
+			//	'hosts' => $hosts,
+			//	'templates' => $templates,
+			//	'groups' => $groups
+			//));
 		}
 
 		$result = DBend($result);

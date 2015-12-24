@@ -1004,13 +1004,13 @@ class CHostGroup extends CZBXAPI {
 		}
 
 		// validate hosts without groups
-		//if ($hostIdsToValidate) {
-		//	$unlinkable = getUnlinkableHosts($groupIds, $hostIdsToValidate);
-//
-		//	if (count($unlinkable) != count($hostIdsToValidate)) {
-		//		self::exception(ZBX_API_ERROR_PARAMETERS, _('One of the objects is left without a host group.'));
-		//	}
-		//}
+		if ($hostIdsToValidate) {
+			$unlinkable = getUnlinkableHosts($groupIds, $hostIdsToValidate);
+
+			if (count($unlinkable) != count($hostIdsToValidate)) {
+				self::exception(ZBX_API_ERROR_PARAMETERS, _('One of the objects is left without a host group.'));
+			}
+		}
 
 		// save
 		DB::replace('hosts_groups', $oldRecords, array_merge($replaceRecords, $newRecords));
