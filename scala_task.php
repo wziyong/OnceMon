@@ -14,7 +14,7 @@ require_once dirname(__FILE__).'/api/classes/AgentManager.php';
 #超过80%，则扩展一台，否则缩一台
 echo "start scala task ".date("Y-m-d H:i:s")."</br>\n";
 
-$groupIds = DBfetchArray(DBselect('SELECT groupid from groups where ishidden=1'));
+$groupIds = DBfetchArray(DBselect('SELECT groupid from groups where ishidden=1 and isscala = 1'));
 
 foreach($groupIds as $groupId)
 {
