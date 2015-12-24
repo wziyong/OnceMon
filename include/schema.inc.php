@@ -290,6 +290,12 @@ return array(
 				'length' => 256,
 				'default' => '',
 			),
+			'isscala' => array(
+				'null' => false,
+				'type' => DB::FIELD_TYPE_CHAR,
+				'length' => 256,
+				'default' => '0',
+			),
 		),
 	),
 	'group_prototype' => array(

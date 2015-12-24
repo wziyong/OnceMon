@@ -38,6 +38,13 @@ $nameTextBox = new CTextBox('name', $this->data['name'], ZBX_TEXTBOX_STANDARD_SI
 $nameTextBox->attr('autofocus', 'autofocus');
 $hostGroupFormList->addRow(_('Group name'), $nameTextBox);
 
+$is_scala = new CComboBox(_('isscala'), $this->data['isscala']);
+$is_scala->addItem(0, _('不启用'));
+$is_scala->addItem(1, _('启用'));
+$is_scala->addStyle('width: 330px;');
+$hostGroupFormList->addRow(_('启用动态伸缩'), $is_scala);
+
+
 $commentTextArea = new CTextArea('comment',
 	$this->data['comment'],
 	array('rows' => ZBX_TEXTAREA_STANDARD_ROWS, 'width' => ZBX_TEXTAREA_STANDARD_WIDTH)

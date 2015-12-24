@@ -37,7 +37,8 @@ $fields = array(
 	// group
 	'groupid' =>		array(T_ZBX_INT, O_OPT, P_SYS,	DB_ID,		'isset({form})&&{form}=="update"'),
 	'name' =>			array(T_ZBX_STR, O_OPT, null,	NOT_EMPTY,	'isset({save})'),
-	'comment' =>			array(T_ZBX_STR, O_OPT, null,	NOT_EMPTY,	'isset({save})'),
+	'comment' =>			array(null, O_OPT, null,	null,	null),
+	'isscala' =>			array(null, O_OPT, null,	null,	null),
 	'twb_groupid' =>	array(T_ZBX_INT, O_OPT, P_SYS,	DB_ID,		null),
 	// actions
 	'go' =>				array(T_ZBX_STR, O_OPT, P_SYS|P_ACT, null,	null),
@@ -97,7 +98,8 @@ elseif (isset($_REQUEST['save'])) {//TODO 保存集群信息；
 			$result = API::HostGroup()->update(array(
 				'groupid' => $_REQUEST['groupid'],
 				'name' => $_REQUEST['name'],
-				'comment' => $_REQUEST['comment']
+				'comment' => $_REQUEST['comment'],
+				'isscala' => $_REQUEST['isscala']
 			));
 		}
 
@@ -131,7 +133,9 @@ elseif (isset($_REQUEST['save'])) {//TODO 保存集群信息；
         //start modify by wziyong 新增备注字段；
 		$result = API::HostGroup()->create(array(
 			'name' => $_REQUEST['name'],
-			'comment' => $_REQUEST['comment'])
+			'comment' => $_REQUEST['comment'],
+			'isscala' => $_REQUEST['isscala']
+			)
 		);
 		//end modify by wziyong 新增备注字段；
 
@@ -251,6 +255,7 @@ if (isset($_REQUEST['form'])) {
 		'hosts' => get_request('hosts', array()),
 		'name' => get_request('name', ''),
 		'comment' => get_request('comment', ''),
+		'isscala' => get_request('isscala', ''),
 		'twb_groupid' => get_request('twb_groupid', -1)
 	);
 
@@ -261,6 +266,7 @@ if (isset($_REQUEST['form'])) {
 		if (!isset($_REQUEST['form_refresh'])) {
 			$data['name'] = $data['group']['name'];
 			$data['comment'] = $data['group']['comment'];
+			$data['isscala'] = $data['group']['isscala'];
 
 			$data['hosts'] = API::Host()->get(array(
 				'groupids' => $data['groupid'],
