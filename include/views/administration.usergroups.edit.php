@@ -70,7 +70,7 @@ else {
 	$userGroupFormList->addRow(_('Frontend access'), new CSpan(user_auth_type2str($this->data['gui_access']), 'text-field green'));
 	$userGroupFormList->addRow(_('Enabled'), new CSpan(_('Enabled'), 'text-field green'));
 }
-$userGroupFormList->addRow(_('Debug mode'), new CCheckBox('debug_mode', $this->data['debug_mode'], null, 1));
+$userGroupFormList->addRow(_('Debug mode'), new CCheckBox('debug_mode', $this->data['debug_mode'], null, 1),true);
 
 /*
  * Permissions tab
