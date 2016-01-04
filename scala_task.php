@@ -112,8 +112,8 @@ foreach($groupIds as $groupId)
         }
         elseif($avg_cpu<0.5 and sizeof($hosts_run)>1)
         {
-            #如果低于30%，并且主机大于两个，则关闭一台；
-            echo "the average cpu usage rate is smaller than 0.3,then stop one node.</br>\n";
+            #如果低于50%，并且主机大于两个，则关闭一台；
+            echo "the average cpu usage rate is smaller than 0.5,then stop one node.</br>\n";
             if(sizeof($hosts_run) == 0)
             {
                 echo "there is no host in run status to stop.</br>\n";

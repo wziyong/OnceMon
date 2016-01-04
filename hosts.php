@@ -477,6 +477,10 @@ elseif (isset($_REQUEST['save'])) {//TODO 保存主机信息；
                      }
                  }
              }
+			 elseif(HOST_SERVER_TYPE_CACHE ==  $_REQUEST['server_type'])
+			 {
+				 $listenPort = '6379';
+			 }
 
             $macros[]=array('macro' => '{$SERVER_PORT}','value' => $listenPort);
 
@@ -1173,9 +1177,13 @@ else {
 		{
 			$myapplications = array(new CLink(_('应用管理'), 'myapplicationdeploy.php?type=host&hostid='.$host['hostid']));
 		}
-		else
+		else if(HOST_SERVER_TYPE_LBS ==  $host['server_type'])
 		{
 			$myapplications = array(new CLink(_('负载配置'), 'lbsconfiguration.php?type=host&hostid='.$host['hostid']));
+		}
+		else if(HOST_SERVER_TYPE_CACHE ==  $host['server_type'])
+		{
+			$myapplications = array();
 		}
 		//end by wizyong for 增加服务器同步操作
 

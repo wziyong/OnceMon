@@ -52,7 +52,7 @@ jQuery(document).ready(function () {
                 jQuery('#tab_myapplicationsTab').addClass('hidden');
                 jQuery("#parentid").prepend("<option value='0'>根节点</option>")
 
-            } else if ('1' == selected) {
+            } else if ('1' == selected ) {
                 jQuery('#label_server_cfg').removeClass('hidden');
                 jQuery('.lbs_server').addClass('hidden');
                 jQuery('#app_http_port').attr('style','width: 312px;');
@@ -60,10 +60,11 @@ jQuery(document).ready(function () {
                 jQuery('#tab_myapplicationsTab').removeClass('hidden');
                 jQuery("#parentid option[value='0']").remove();
             }
-            else {
+            else if ('2' == selected ) {
                 jQuery('#label_server_cfg').addClass('hidden');
                 jQuery('.app_server').addClass('hidden');
                 jQuery('.lbs_server').addClass('hidden');
+                jQuery('#tab_myapplicationsTab').addClass('hidden');
                 jQuery("#parentid option[value='0']").remove();
             }
         }

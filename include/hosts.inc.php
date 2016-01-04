@@ -1097,6 +1097,9 @@ function startup($hosts)
 			case HOST_SERVER_TYPE_LBS:
 				$agent_app_msg="{servertype:'nginx',optype:'100',args:{}}";
 				break;
+			case HOST_SERVER_TYPE_CACHE:
+				$agent_app_msg="{servertype:'redis',optype:'100',args:{}}";
+				break;
 			default:
 				$errorCount++;
 				$errorMsg = $errorMsg."不支持此类型服务器,hostid为".$host['hostid'];
@@ -1163,6 +1166,9 @@ function shutdown($hosts)
 				break;
 			case HOST_SERVER_TYPE_LBS:
 				$agent_app_msg="{servertype:'nginx',optype:'101',args:{}}";
+				break;
+			case HOST_SERVER_TYPE_CACHE:
+				$agent_app_msg="{servertype:'redis',optype:'101',args:{}}";
 				break;
 			default:
 				$errorCount++;

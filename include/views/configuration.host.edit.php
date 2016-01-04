@@ -263,7 +263,13 @@ if (!$isDiscovered) {
     if (empty($macros)) {
         //$macrosxx = array(array('macro' => '', 'value' => ''));
     }
-    $cfgstmp = !empty($data['dbHost']) ? $data['dbHost']['hostservercfgs'] : null;
+
+    $cfgstmp = null;
+    if(!empty($data['dbHost']) )
+    {
+        $cfgstmp = isset($data['dbHost']['hostservercfgs'])? $data['dbHost']['hostservercfgs'] : null;
+    }
+
     $macrosViewx = new CView('custom/common.hostcfg', array(
         //'macros' => $macrosxx,
         'readonly' => $isDiscovered,
