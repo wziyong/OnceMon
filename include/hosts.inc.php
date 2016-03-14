@@ -1045,6 +1045,9 @@ function synchronize($host)
         case HOST_SERVER_TYPE_CACHE:
 			$result =  array("result"=>true,'message'=>'success');
             break;
+		case HOST_SERVER_TYPE_BASE:
+			$result =  array("result"=>true,'message'=>'success');
+            break;
         default:
 			$result =  array("result"=>false,'message'=>'server_type is error');;
     }

@@ -179,6 +179,7 @@ $serverType = new CComboBox('server_type', $server_type);
 $serverType->addItem(HOST_SERVER_TYPE_LBS, _('负载均衡器'));
 $serverType->addItem(HOST_SERVER_TYPE_APP, _('应用服务器'));
 $serverType->addItem(HOST_SERVER_TYPE_CACHE, _('缓存服务器'));
+$serverType->addItem(HOST_SERVER_TYPE_BASE, _('普通服务器'));
 $serverType->addStyle('width: 330px;');
 $hostList->addRow(_('服务器类型'), $serverType);
 //modify end by wziyong 新增服务器类型

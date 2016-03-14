@@ -1133,56 +1133,58 @@ else {
 		}
 
 
-		//start by wizyong for 增加服务器同步操作
-		//switch ($host['status']) {
-		switch ($host['manage_status']) {
-            case 1:
-                $statusCaption = _('已更新');
-                $statusClass = 'enabled';
-                break;
-			default:
-				$statusCaption = _('未更新');
-                $statusClass = 'red';
-		}
-		$statusUrl = 'hosts.php?hosts'.SQUAREBRACKETS.'='.$host['hostid'].'&go=synchronize'.url_param('groupid');
-		$statusScript = 'return Confirm('.zbx_jsvalue(_('将配置同步到远程服务器?')).');';
-		$isSyn = new CLink($statusCaption, $statusUrl, $statusClass, $statusScript);
+		if(HOST_SERVER_TYPE_BASE !=  $host['server_type']) {
+			//start by wizyong for 增加服务器同步操作
+			//switch ($host['status']) {
+			switch ($host['manage_status']) {
+				case 1:
+					$statusCaption = _('已更新');
+					$statusClass = 'enabled';
+					break;
+				default:
+					$statusCaption = _('未更新');
+					$statusClass = 'red';
+			}
+			$statusUrl = 'hosts.php?hosts' . SQUAREBRACKETS . '=' . $host['hostid'] . '&go=synchronize' . url_param('groupid');
+			$statusScript = 'return Confirm(' . zbx_jsvalue(_('将配置同步到远程服务器?')) . ');';
+			$isSyn = new CLink($statusCaption, $statusUrl, $statusClass, $statusScript);
 
-		#$statusX = DBfetch(DBselect("select h.* from history_uint h ,items i where h. itemid = i.itemid and i.hostid = ".$host['hostid']." and i.name = 'net.tcp.listen.run.status' and h.clock > ".(time() - 600)." order by h.clock desc",1));
-		$statusX = DBfetch(DBselect("select * from (select i.itemid as itemid from items i  where i.name = 'net.tcp.listen.run.status' and i.hostid = ".$host['hostid'].")  x left join history_uint h on h. itemid = x.itemid and h.clock > ".(time() - 600)." order by h.clock desc",1));
-		$runStatus = '2';
-		if($statusX)
-		{
-			$runStatus = $statusX['value'];
-		}
+			#$statusX = DBfetch(DBselect("select h.* from history_uint h ,items i where h. itemid = i.itemid and i.hostid = ".$host['hostid']." and i.name = 'net.tcp.listen.run.status' and h.clock > ".(time() - 600)." order by h.clock desc",1));
+			$statusX = DBfetch(DBselect("select * from (select i.itemid as itemid from items i  where i.name = 'net.tcp.listen.run.status' and i.hostid = " . $host['hostid'] . ")  x left join history_uint h on h. itemid = x.itemid and h.clock > " . (time() - 600) . " order by h.clock desc", 1));
+			$runStatus = '2';
+			if ($statusX) {
+				$runStatus = $statusX['value'];
+			}
 
-		switch ($runStatus) {
-			case '1':
-				$statusCaption = _('已启动');
-				$statusClass = 'enabled';
-				$statusUrl = 'hosts.php?hosts'.SQUAREBRACKETS.'='.$host['hostid'].'&go=shutdown'.url_param('groupid');
-				$statusScript = 'return Confirm('.zbx_jsvalue(_('关闭服务器?')).');';
-				$isStart = new CLink($statusCaption, $statusUrl, $statusClass, $statusScript);
-				break;
-			default:
-				$statusCaption = _('未启动');
-				$statusClass = 'red';
-				$statusUrl = 'hosts.php?hosts'.SQUAREBRACKETS.'='.$host['hostid'].'&go=startup'.url_param('groupid');
-				$statusScript = 'return Confirm('.zbx_jsvalue(_('启动服务器?')).');';
-				$isStart = new CLink($statusCaption, $statusUrl, $statusClass, $statusScript);
-		}
+			switch ($runStatus) {
+				case '1':
+					$statusCaption = _('已启动');
+					$statusClass = 'enabled';
+					$statusUrl = 'hosts.php?hosts' . SQUAREBRACKETS . '=' . $host['hostid'] . '&go=shutdown' . url_param('groupid');
+					$statusScript = 'return Confirm(' . zbx_jsvalue(_('关闭服务器?')) . ');';
+					$isStart = new CLink($statusCaption, $statusUrl, $statusClass, $statusScript);
+					break;
+				default:
+					$statusCaption = _('未启动');
+					$statusClass = 'red';
+					$statusUrl = 'hosts.php?hosts' . SQUAREBRACKETS . '=' . $host['hostid'] . '&go=startup' . url_param('groupid');
+					$statusScript = 'return Confirm(' . zbx_jsvalue(_('启动服务器?')) . ');';
+					$isStart = new CLink($statusCaption, $statusUrl, $statusClass, $statusScript);
+			}
 
-		//$myapplications = array(new CLink(_('应用'), 'myapplicationdeploy.php?groupid='.$_REQUEST['groupid'].'&hostid='.$host['hostid']), ' ('.$host['applications'].')');
-		if(HOST_SERVER_TYPE_APP ==  $host['server_type'])
-		{
-			$myapplications = array(new CLink(_('应用管理'), 'myapplicationdeploy.php?type=host&hostid='.$host['hostid']));
+			//$myapplications = array(new CLink(_('应用'), 'myapplicationdeploy.php?groupid='.$_REQUEST['groupid'].'&hostid='.$host['hostid']), ' ('.$host['applications'].')');
+			if (HOST_SERVER_TYPE_APP == $host['server_type']) {
+				$myapplications = array(new CLink(_('应用管理'), 'myapplicationdeploy.php?type=host&hostid=' . $host['hostid']));
+			} else if (HOST_SERVER_TYPE_LBS == $host['server_type']) {
+				$myapplications = array(new CLink(_('负载配置'), 'lbsconfiguration.php?type=host&hostid=' . $host['hostid']));
+			} else if (HOST_SERVER_TYPE_CACHE == $host['server_type']) {
+				$myapplications = array();
+			}
 		}
-		else if(HOST_SERVER_TYPE_LBS ==  $host['server_type'])
+		else
 		{
-			$myapplications = array(new CLink(_('负载配置'), 'lbsconfiguration.php?type=host&hostid='.$host['hostid']));
-		}
-		else if(HOST_SERVER_TYPE_CACHE ==  $host['server_type'])
-		{
+			$isSyn="";
+			$isStart = "";
 			$myapplications = array();
 		}
 		//end by wizyong for 增加服务器同步操作

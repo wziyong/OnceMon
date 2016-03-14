@@ -24,6 +24,7 @@
 define('HOST_SERVER_TYPE_LBS',     '0');
 define('HOST_SERVER_TYPE_APP',     '1');
 define('HOST_SERVER_TYPE_CACHE',     '2');
+define('HOST_SERVER_TYPE_BASE',     '3');
 //add end by wziyong
 
 
