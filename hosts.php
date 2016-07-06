@@ -514,7 +514,7 @@ elseif (isset($_REQUEST['save'])) {//TODO 保存主机信息；
 				//add start by wziyong 新增 服务器类型；父节点类型字段；
 				'appcfg' => $_REQUEST['appcfg'],
 				'lbscfg' => $_REQUEST['lbscfg'],
-				'parentid' => $_REQUEST['parentid'],
+				'parentid' => get_request('parentid', 0),
 				'server_type' => $_REQUEST['server_type'],
 				'manage_status' => '0',
 				'selectedMyApplicationids' => get_request('selectedMyApplicationids', array())
