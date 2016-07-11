@@ -26,7 +26,7 @@ define('ZBX_HIDE_NODE_SELECTION', true);
 require_once dirname(__FILE__).'/include/config.inc.php';
 require_once dirname(__FILE__).'/include/forms.inc.php';
 
-$page['title'] = _('OnceMon');
+$page['title'] = _('MonitorServer');
 $page['file'] = 'index.php';
 
 // VAR	TYPE	OPTIONAL	FLAGS	VALIDATION	EXCEPTION

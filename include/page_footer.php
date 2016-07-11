@@ -100,7 +100,7 @@ if ($page['type'] == PAGE_TYPE_HTML) {
 
 		$table->addRow(array(
 			new CCol(new CLink(
-				_s('OnceMon %1$s Copyright %2$s-%3$s by ISCAS',
+				_s('MonitorServer %1$s Copyright %2$s-%3$s by ISCAS',
 					ZABBIX_VERSION, ZABBIX_COPYRIGHT_FROM, ZABBIX_COPYRIGHT_TO),
 				ZABBIX_HOMEPAGE, 'highlight', null, true), 'center'),
 			new CCol(array(

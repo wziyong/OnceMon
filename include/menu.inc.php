@@ -132,7 +132,7 @@ $ZBX_MENU = array(
 			),
 			array(
 				'url' => 'latest.php',
-				//'label' => _('Latest data'),
+				'label' => _('Latest data'),
 				'sub_pages' => array('history.php', 'chart.php')
 			),
 			array(

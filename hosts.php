@@ -1150,27 +1150,39 @@ else {
 			$isSyn = new CLink($statusCaption, $statusUrl, $statusClass, $statusScript);
 
 			#$statusX = DBfetch(DBselect("select h.* from history_uint h ,items i where h. itemid = i.itemid and i.hostid = ".$host['hostid']." and i.name = 'net.tcp.listen.run.status' and h.clock > ".(time() - 600)." order by h.clock desc",1));
-			$statusX = DBfetch(DBselect("select * from (select i.itemid as itemid from items i  where i.name = 'net.tcp.listen.run.status' and i.hostid = " . $host['hostid'] . ")  x left join history_uint h on h. itemid = x.itemid and h.clock > " . (time() - 600) . " order by h.clock desc", 1));
-			$runStatus = '2';
-			if ($statusX) {
-				$runStatus = $statusX['value'];
-			}
+//			$statusX = DBfetch(DBselect("select * from (select i.itemid as itemid from items i  where i.name = 'net.tcp.listen.run.status' and i.hostid = " . $host['hostid'] . ")  x left join history_uint h on h. itemid = x.itemid and h.clock > " . (time() - 600) . " order by h.clock desc", 1));
+//			$runStatus = '2';
+//			if ($statusX) {
+//				$runStatus = $statusX['value'];
+//			}
+//
+//			switch ($runStatus) {
+//				case '1':
+//					$statusCaption = _('已启动');
+//					$statusClass = 'enabled';
+//					$statusUrl = 'hosts.php?hosts' . SQUAREBRACKETS . '=' . $host['hostid'] . '&go=shutdown' . url_param('groupid');
+//					$statusScript = 'return Confirm(' . zbx_jsvalue(_('关闭服务器?')) . ');';
+//					$isStart = new CLink($statusCaption, $statusUrl, $statusClass, $statusScript);
+//					break;
+//				default:
+//					$statusCaption = _('未启动');
+//					$statusClass = 'red';
+//					$statusUrl = 'hosts.php?hosts' . SQUAREBRACKETS . '=' . $host['hostid'] . '&go=startup' . url_param('groupid');
+//					$statusScript = 'return Confirm(' . zbx_jsvalue(_('启动服务器?')) . ');';
+//					$isStart = new CLink($statusCaption, $statusUrl, $statusClass, $statusScript);
+//			}
+//
+			$statusCaption = _('关闭');
+			$statusClass = 'red';
+			$statusUrl = 'hosts.php?hosts' . SQUAREBRACKETS . '=' . $host['hostid'] . '&go=shutdown' . url_param('groupid');
+			$statusScript = 'return Confirm(' . zbx_jsvalue(_('关闭服务器?')) . ');';
+			$isStop = new CLink($statusCaption, $statusUrl, $statusClass, $statusScript);
 
-			switch ($runStatus) {
-				case '1':
-					$statusCaption = _('已启动');
-					$statusClass = 'enabled';
-					$statusUrl = 'hosts.php?hosts' . SQUAREBRACKETS . '=' . $host['hostid'] . '&go=shutdown' . url_param('groupid');
-					$statusScript = 'return Confirm(' . zbx_jsvalue(_('关闭服务器?')) . ');';
-					$isStart = new CLink($statusCaption, $statusUrl, $statusClass, $statusScript);
-					break;
-				default:
-					$statusCaption = _('未启动');
-					$statusClass = 'red';
-					$statusUrl = 'hosts.php?hosts' . SQUAREBRACKETS . '=' . $host['hostid'] . '&go=startup' . url_param('groupid');
-					$statusScript = 'return Confirm(' . zbx_jsvalue(_('启动服务器?')) . ');';
-					$isStart = new CLink($statusCaption, $statusUrl, $statusClass, $statusScript);
-			}
+			$statusCaption = _('启动');
+			$statusClass = 'enabled';
+			$statusUrl = 'hosts.php?hosts' . SQUAREBRACKETS . '=' . $host['hostid'] . '&go=startup' . url_param('groupid');
+			$statusScript = 'return Confirm(' . zbx_jsvalue(_('启动服务器?')) . ');';
+			$isStart = new CLink($statusCaption, $statusUrl, $statusClass, $statusScript);
 
 			//$myapplications = array(new CLink(_('应用'), 'myapplicationdeploy.php?groupid='.$_REQUEST['groupid'].'&hostid='.$host['hostid']), ' ('.$host['applications'].')');
 			if (HOST_SERVER_TYPE_APP == $host['server_type']) {
@@ -1185,6 +1197,7 @@ else {
 		{
 			$isSyn="";
 			$isStart = "";
+			$isStop = "";
 			$myapplications = array();
 		}
 		//end by wizyong for 增加服务器同步操作
@@ -1193,7 +1206,7 @@ else {
 			new CCheckBox('hosts['.$host['hostid'].']', null, null, $host['hostid']),
 			$displayNodes ? get_node_name_by_elid($host['hostid'], true) : null,
 			$description,
-			array($isSyn," ",$isStart),
+			array($isSyn," ",$isStart," ",$isStop),
 			$myapplications,
 			//$applications,
 			$items,

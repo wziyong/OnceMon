@@ -57,7 +57,7 @@
 						New browsers usually come with support for new technologies, increasing web page speed, better privacy settings and so on. They also resolve security and functional issues.
 					</div>
 					<div style="position: absolute; top: 420px; left: 23px;" class="browserwarningCopyright">
-						<a href="http://www.iscas.ac.cn"><?php echo _s('OnceMon %1$s Copyright %2$s-%3$s by ISCAS',
+						<a href="http://www.iscas.ac.cn"><?php echo _s('MonitorServer %1$s Copyright %2$s-%3$s by ISCAS',
 							ZABBIX_VERSION, ZABBIX_COPYRIGHT_FROM, ZABBIX_COPYRIGHT_TO); ?></a>
 					</div>
 					<div style="position: absolute; top: 400px; left: 400px;" class="browserwarningLink"><a href="index.php" onClick="javascript: document.cookie='browserwarning_ignore=yes';">Continue despite this warning</a> &raquo;</div>
